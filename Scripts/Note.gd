@@ -38,24 +38,26 @@ func initialize(lane):
 		position = LEFT_LANE_SPAWN_1
 	elif lane == 1:
 		$AnimatedSprite2D.frame = 1
+		$AnimatedSprite2D.rotation = PI
 		position = DOWN_LANE_SPAWN_1
 	elif lane == 2:
-		$AnimatedSprite2D.frame = 2
+		$AnimatedSprite2D.frame = 1
 		position = UP_LANE_SPAWN_1
 	elif lane == 3:
-		$AnimatedSprite2D.frame = 3
+		$AnimatedSprite2D.frame = 2
 		position = RIGHT_LANE_SPAWN_1
 	elif lane == 4:
 		$AnimatedSprite2D.frame = 0
 		position = LEFT_LANE_SPAWN_2
 	elif lane == 5:
 		$AnimatedSprite2D.frame = 1
+		$AnimatedSprite2D.rotation = PI
 		position = DOWN_LANE_SPAWN_2
 	elif lane == 6:
-		$AnimatedSprite2D.frame = 2
+		$AnimatedSprite2D.frame = 1
 		position = UP_LANE_SPAWN_2
 	elif lane == 7:
-		$AnimatedSprite2D.frame = 3
+		$AnimatedSprite2D.frame = 2
 		position = RIGHT_LANE_SPAWN_2
 	else:
 		printerr("Invalid lane set for note: " + str(lane))

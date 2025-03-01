@@ -23,6 +23,7 @@ input = "up"
 
 [node name="ArrowDown" parent="." instance=ExtResource("1")]
 position = Vector2(60, 164)
+rotation = 3.14159
 input = "down"
 
 [node name="ArrowLeft" parent="." instance=ExtResource("1")]
@@ -72,6 +73,7 @@ input = "up2"
 
 [node name="ArrowDown2" parent="." instance=ExtResource("1")]
 position = Vector2(220, 164)
+rotation = 3.14159
 input = "down2"
 
 [node name="ArrowLeft2" parent="." instance=ExtResource("1")]
