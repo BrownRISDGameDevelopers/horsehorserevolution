@@ -120,14 +120,24 @@ func _on_Conductor_beat(position):
 
 func _spawn_notes(to_spawn):
 	if to_spawn > 0:
-		lane = randi() % 3
+		lane = randi() % 4
+		instance = note.instantiate()
+		instance.initialize(lane)
+		add_child(instance)
+		
+		lane = lane + 4
 		instance = note.instantiate()
 		instance.initialize(lane)
 		add_child(instance)
 	if to_spawn > 1:
 		while rand == lane:
-			rand = randi() % 3
+			rand = randi() % 4
 		lane = rand
+		instance = note.instantiate()
+		instance.initialize(lane)
+		add_child(instance)
+		
+		lane = lane + 4
 		instance = note.instantiate()
 		instance.initialize(lane)
 		add_child(instance)
