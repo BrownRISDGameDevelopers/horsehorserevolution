@@ -1,0 +1,42 @@
+{
+	"6": [
+		{
+			"direction": 0,
+			"player": 0
+		},
+		{
+			"direction": 1,
+			"player": 1
+		}
+	],
+	"7": [
+		{
+			"direction": 0,
+			"player": 0
+		},
+		{
+			"direction": 2,
+			"player": 1
+		}
+	],
+	"8": [
+		{
+			"direction": 0,
+			"player": 0
+		},
+		{
+			"direction": 1,
+			"player": 1
+		}
+	],
+	"9": [
+		{
+			"direction": 0,
+			"player": 0
+		},
+		{
+			"direction": 1,
+			"player": 1
+		}
+	]
+}

@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://3bvjtpntcsjm"]
+[gd_scene load_steps=10 format=3 uid="uid://3bvjtpntcsjm"]
 
-[ext_resource type="PackedScene" uid="uid://dy7ffyvlcyfwa" path="res://Scenes/ArrowButton.tscn" id="1"]
+[ext_resource type="PackedScene" path="res://Scenes/ArrowButton.tscn" id="1"]
 [ext_resource type="SpriteFrames" path="res://Frames/arrow_left_frames.tres" id="2"]
 [ext_resource type="SpriteFrames" path="res://Frames/arrow_right_frames.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://rq8ugby5w0n7" path="res://Sprites/game/road/road.png" id="4"]
@@ -8,9 +8,11 @@
 [ext_resource type="Script" path="res://Scripts/Game.gd" id="6"]
 [ext_resource type="FontFile" path="res://Fonts/heartbit2x.tres" id="7"]
 [ext_resource type="PackedScene" uid="uid://ba3ubi0o638a8" path="res://Scenes/Conductor.tscn" id="8"]
+[ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://Scenes/Song.tscn" id="10_2ye08"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("song")]
 script = ExtResource("6")
+song = NodePath("Song")
 
 [node name="road" type="Sprite2D" parent="."]
 position = Vector2(40, 0)
@@ -37,6 +39,7 @@ sprite_frames = ExtResource("3")
 input = "right"
 
 [node name="Label" type="Label" parent="."]
+visible = false
 offset_left = 4.0
 offset_top = 4.0
 offset_right = 44.0
@@ -85,3 +88,5 @@ input = "left2"
 position = Vector2(300, 164)
 sprite_frames = ExtResource("3")
 input = "right2"
+
+[node name="Song" parent="." instance=ExtResource("10_2ye08")]
