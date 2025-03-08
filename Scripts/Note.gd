@@ -17,7 +17,7 @@ const RIGHT_LANE_SPAWN_2 = Vector2(300, SPAWN_Y)
 var speed = 0
 var hit = false
 
-var dance_bar : TextureProgressBar
+var dance_bar: TextureProgressBar
 
 func _ready():
 	pass

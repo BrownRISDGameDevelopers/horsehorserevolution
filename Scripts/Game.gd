@@ -24,10 +24,10 @@ var instance
 @onready var dance_bar: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar")
 
 func _ready():
-    $Conductor.set_bpm(song.bpm)
-    $Conductor.play_with_beat_offset(8)
-    Global.measure.connect(_on_Conductor_measure)
-    Global.beat.connect(_on_Conductor_beat)
+	$Conductor.set_bpm(song.bpm)
+	$Conductor.play_with_beat_offset(8)
+	Global.measure.connect(_on_Conductor_measure)
+	Global.beat.connect(_on_Conductor_beat)
 
 
 func _input(event):
