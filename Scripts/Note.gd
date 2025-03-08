@@ -17,6 +17,7 @@ const RIGHT_LANE_SPAWN_2 = Vector2(300, SPAWN_Y)
 var speed = 0
 var hit = false
 
+var dance_bar : TextureProgressBar
 
 func _ready():
 	pass
@@ -26,6 +27,7 @@ func _physics_process(delta):
 	if !hit:
 		position.y += speed * delta
 		if position.y > 200:
+			dance_bar.value -= 10
 			queue_free()
 			get_parent().reset_combo()
 	else:
