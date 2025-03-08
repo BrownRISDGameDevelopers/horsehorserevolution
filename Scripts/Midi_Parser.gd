@@ -9,7 +9,8 @@ var audio_streams = {}
 var phase = 0.0
 var parser
 var ticks = 0
-var bpm = -1
+var bpm = 120
+var bpm_set = false
 
 func play_sound(note_name, hz = 0, volume = 0):
 	if note_name in audio_streams:
@@ -63,15 +64,16 @@ func _ready():
 			if event.event_type == MidiFileParser.Event.EventType.META && event.type == MidiFileParser.Meta.Type.SET_TEMPO:
 				# tempo update
 				ms_per_tick = event.ms_per_tick
-				if bpm == -1:
+				if not bpm_set:
+					bpm_set = true
 					bpm = event.bpm
-					song_json["bpm"] = bpm
 			if event.event_type == event.EventType.MIDI && event.note_name != '':
 				var offset = event.param1 - 69
 				var event_ms = delta_ticks * ms_per_tick
 				var event_beat = event_ms * bpm / 60000.0
 				if event.velocity > 0:
 					end_beat = max(event_beat, end_beat)
+	song_json["bpm"] = bpm
 	for i in range(ceil(end_beat)):
 		song_json["notes"][str(i)] = [ {"direction": 0, "player": 0}]
 	var file = FileAccess.open(JSONOutputPath, FileAccess.WRITE)

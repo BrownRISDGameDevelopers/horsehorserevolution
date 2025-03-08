@@ -9,7 +9,7 @@
 [ext_resource type="FontFile" path="res://Fonts/heartbit2x.tres" id="7"]
 [ext_resource type="PackedScene" uid="uid://ba3ubi0o638a8" path="res://Scenes/Conductor.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://Scenes/Song.tscn" id="10_2ye08"]
-[ext_resource type="PackedScene" uid="uid://i8w4vbv1cnsc" path="res://Scenes/DanceBar.tscn" id="10_28n3v"]
+[ext_resource type="PackedScene" path="res://Scenes/DanceBar.tscn" id="10_28n3v"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("song")]
 script = ExtResource("6")
