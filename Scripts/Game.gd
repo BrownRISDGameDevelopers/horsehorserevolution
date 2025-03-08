@@ -78,6 +78,7 @@ func increment_score(by):
 		dance_bar.value += 5
 	else:
 		missed += 1
+		dance_bar.value -= 5
 	
 	
 	score += by * combo
