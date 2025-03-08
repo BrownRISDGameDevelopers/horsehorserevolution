@@ -1,0 +1,29 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc6smsbxffe3m"]
+
+[ext_resource type="Script" uid="uid://cynpka8rixy1y" path="res://Scripts/Charter.gd" id="1_fwdja"]
+[ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://Scenes/Song.tscn" id="2_2lfqe"]
+
+[node name="Charter" type="Node2D" node_paths=PackedStringArray("song", "notes_list")]
+script = ExtResource("1_fwdja")
+song = NodePath("Song")
+notes_list = NodePath("NotesList/VBoxContainer")
+
+[node name="Song" parent="." instance=ExtResource("2_2lfqe")]
+
+[node name="NotesList" type="ScrollContainer" parent="."]
+offset_right = 719.0
+offset_bottom = 371.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NotesList"]
+layout_mode = 2
+
+[node name="ExportButton" type="Button" parent="."]
+offset_left = 500.0
+offset_top = 20.0
+offset_right = 559.0
+offset_bottom = 51.0
+text = "Export"
+
+[connection signal="pressed" from="ExportButton" to="." method="_on_export_button_pressed"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://3bvjtpntcsjm"]
 
-[ext_resource type="PackedScene" path="res://Scenes/ArrowButton.tscn" id="1"]
+[ext_resource type="PackedScene" uid="uid://dy7ffyvlcyfwa" path="res://Scenes/ArrowButton.tscn" id="1"]
 [ext_resource type="SpriteFrames" path="res://Frames/arrow_left_frames.tres" id="2"]
 [ext_resource type="SpriteFrames" path="res://Frames/arrow_right_frames.tres" id="3"]
 [ext_resource type="Texture2D" uid="uid://rq8ugby5w0n7" path="res://Sprites/game/road/road.png" id="4"]
 [ext_resource type="AudioStream" uid="uid://30xg4tsw8hei" path="res://Sounds/song.ogg" id="5"]
-[ext_resource type="Script" path="res://Scripts/Game.gd" id="6"]
+[ext_resource type="Script" uid="uid://h0uwpptxfgv3" path="res://Scripts/Game.gd" id="6"]
 [ext_resource type="FontFile" path="res://Fonts/heartbit2x.tres" id="7"]
 [ext_resource type="PackedScene" uid="uid://ba3ubi0o638a8" path="res://Scenes/Conductor.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://Scenes/Song.tscn" id="10_2ye08"]
@@ -63,7 +63,6 @@ metadata/_edit_use_anchors_ = true
 stream = ExtResource("5")
 volume_db = -15.0
 bpm = 115
-measures = null
 
 [node name="road2" type="Sprite2D" parent="."]
 position = Vector2(160, 0)

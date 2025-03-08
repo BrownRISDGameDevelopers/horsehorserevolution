@@ -13,3 +13,6 @@ func initialize(p, d):
 
 func get_lane():
     return player * 4 + direction
+
+func get_uid():
+    return "Player" + str(player + 1) + ["Left", "Down", "Up", "Right"][direction]

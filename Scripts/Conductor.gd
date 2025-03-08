@@ -18,6 +18,10 @@ var time_off_beat = 0.0
 func _ready():
 	sec_per_beat = 60.0 / bpm
 
+func set_bpm(new_bpm):
+	bpm = new_bpm
+	sec_per_beat = 60.0 / bpm
+
 
 func _physics_process(_delta):
 	if playing:

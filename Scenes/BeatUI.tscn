@@ -1,0 +1,59 @@
+[gd_scene load_steps=2 format=3 uid="uid://bg4st6qjmf5xc"]
+
+[ext_resource type="Script" uid="uid://w3tsm2vca0c1" path="res://Scripts/Beat_UI.gd" id="1_odxx8"]
+
+[node name="BeatUI" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_odxx8")
+
+[node name="BeatNumber" type="Button" parent="."]
+layout_mode = 2
+text = "   1   "
+
+[node name="Player1Left" type="Button" parent="."]
+layout_mode = 2
+toggle_mode = true
+text = "  ←  "
+
+[node name="Player1Down" type="Button" parent="."]
+layout_mode = 2
+toggle_mode = true
+text = "  ↓  "
+
+[node name="Player1Up" type="Button" parent="."]
+layout_mode = 2
+toggle_mode = true
+text = "  ↑  "
+
+[node name="Player1Right" type="Button" parent="."]
+layout_mode = 2
+toggle_mode = true
+text = "  →  "
+
+[node name="SyncIndicator" type="Button" parent="."]
+layout_mode = 2
+toggle_mode = true
+text = "  ⇄  "
+
+[node name="Player2Left" type="Button" parent="."]
+layout_mode = 2
+toggle_mode = true
+text = "  ←  "
+
+[node name="Player2Down" type="Button" parent="."]
+layout_mode = 2
+toggle_mode = true
+text = "  ↓  "
+
+[node name="Player2Up" type="Button" parent="."]
+layout_mode = 2
+toggle_mode = true
+text = "  ↑  "
+
+[node name="Player2Right" type="Button" parent="."]
+layout_mode = 2
+toggle_mode = true
+text = "  →  "
+
+[connection signal="toggled" from="SyncIndicator" to="." method="_on_sync_indicator_toggled"]

@@ -1,16 +1,11 @@
 class_name Song
 extends Node2D
 
-@export var bpm = 115
+@export var bpm = 120
 
 @export var song_json_path: String = "res://Assets/test_song.json"
 
 var notes_list: Dictionary = {}
-
-var song_position = 0.0
-var song_position_in_beats = 0
-var last_spawned_beat = 0
-var sec_per_beat = 60.0 / bpm
 
 var note_info_scene = preload("res://Scenes/NoteInfo.tscn")
 
@@ -24,7 +19,9 @@ func read_json_file(file_path):
     return content_as_dictionary
 
 func _ready():
-    var raw_notes_list = read_json_file(song_json_path)
+    var song_info = read_json_file(song_json_path)
+    var raw_notes_list = song_info["notes"]
+    bpm = song_info["bpm"]
     for beat in raw_notes_list:
         var beat_notes = []
         for note in raw_notes_list[beat]:

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7d2cy1a7aokw"]
 
-[ext_resource type="SpriteFrames" path="res://Frames/note_frames.tres" id="1"]
+[ext_resource type="SpriteFrames" uid="uid://co64s6h55ow8j" path="res://Frames/note_frames.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://dem00sfqh1poe" path="res://Sprites/game/particles/star.png" id="2"]
 [ext_resource type="FontFile" path="res://Fonts/heartbit2x.tres" id="3"]
-[ext_resource type="Script" path="res://Scripts/Note.gd" id="4"]
+[ext_resource type="Script" uid="uid://0mv7tpw1hmfo" path="res://Scripts/Note.gd" id="4"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(8, 8)
