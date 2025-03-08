@@ -20,10 +20,10 @@ shape = SubResource("1")
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 emitting = false
 amount = 16
+texture = ExtResource("2")
 lifetime = 0.3
 one_shot = true
 explosiveness = 0.8
-texture = ExtResource("2")
 emission_shape = 1
 emission_sphere_radius = 1.0
 spread = 180.0
