@@ -42,10 +42,7 @@ offset_bottom = 22.0
 theme_override_fonts/font = ExtResource("5")
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 text = "grade:"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+vertical_alignment = 1
 
 [node name="GradeNumber" type="Label" parent="."]
 offset_left = 160.0
@@ -68,10 +65,7 @@ offset_bottom = 38.0
 theme_override_fonts/font = ExtResource("5")
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 text = "final score: "
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+vertical_alignment = 1
 
 [node name="ScoreNumber" type="Label" parent="."]
 offset_left = 160.0
@@ -94,10 +88,7 @@ offset_bottom = 54.0
 theme_override_fonts/font = ExtResource("5")
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 text = "max combo:"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+vertical_alignment = 1
 
 [node name="ComboNumber" type="Label" parent="."]
 offset_left = 160.0
@@ -120,10 +111,7 @@ offset_bottom = 70.0
 theme_override_fonts/font = ExtResource("5")
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 text = "great:"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+vertical_alignment = 1
 
 [node name="GreatNumber" type="Label" parent="."]
 offset_left = 160.0
@@ -146,10 +134,7 @@ offset_bottom = 86.0
 theme_override_fonts/font = ExtResource("5")
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 text = "good:"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+vertical_alignment = 1
 
 [node name="GoodNumber" type="Label" parent="."]
 offset_left = 160.0
@@ -172,10 +157,7 @@ offset_bottom = 102.0
 theme_override_fonts/font = ExtResource("5")
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 text = "okay:"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+vertical_alignment = 1
 
 [node name="OkayNumber" type="Label" parent="."]
 offset_left = 160.0
@@ -198,10 +180,7 @@ offset_bottom = 118.0
 theme_override_fonts/font = ExtResource("5")
 theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
 text = "missed:"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
+vertical_alignment = 1
 
 [node name="MissedNumber" type="Label" parent="."]
 offset_left = 160.0

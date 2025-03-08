@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://3bvjtpntcsjm"]
+[gd_scene load_steps=11 format=3 uid="uid://3bvjtpntcsjm"]
 
 [ext_resource type="PackedScene" uid="uid://dy7ffyvlcyfwa" path="res://Scenes/ArrowButton.tscn" id="1"]
 [ext_resource type="SpriteFrames" path="res://Frames/arrow_left_frames.tres" id="2"]
@@ -9,6 +9,7 @@
 [ext_resource type="FontFile" path="res://Fonts/heartbit2x.tres" id="7"]
 [ext_resource type="PackedScene" uid="uid://ba3ubi0o638a8" path="res://Scenes/Conductor.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://Scenes/Song.tscn" id="10_2ye08"]
+[ext_resource type="PackedScene" uid="uid://i8w4vbv1cnsc" path="res://Scenes/DanceBar.tscn" id="10_28n3v"]
 
 [node name="Game" type="Node2D" node_paths=PackedStringArray("song")]
 script = ExtResource("6")
@@ -89,3 +90,6 @@ sprite_frames = ExtResource("3")
 input = "right2"
 
 [node name="Song" parent="." instance=ExtResource("10_2ye08")]
+
+[node name="DanceBar" parent="." instance=ExtResource("10_28n3v")]
+position = Vector2(-23, -89)
