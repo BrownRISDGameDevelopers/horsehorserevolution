@@ -7,11 +7,15 @@ enum Direction {LEFT, DOWN, UP, RIGHT}
 @export var player: Player
 @export var direction: Direction
 @export var held: bool
+@export var duration: int = 1
 
 func initialize(p, d, h):
 	player = p
 	direction = d
 	held = h
+
+func increment_duration():
+	duration += 1
 
 func get_lane():
 	return player * 4 + direction

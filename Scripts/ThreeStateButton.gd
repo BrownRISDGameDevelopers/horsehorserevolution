@@ -15,6 +15,7 @@ func _ready():
 	single_text = " " + arrow_char + "1"
 	hold_text = " " + arrow_char + "H"
 	display_text = off_text
+	gui_input.connect(_on_press)
 
 func _process(delta):
 	if current_state == STATE.OFF:
@@ -25,13 +26,16 @@ func _process(delta):
 		display_text = hold_text
 	text = display_text
 
-func _pressed():
-	if current_state == STATE.OFF:
-		current_state = STATE.SINGLE
-	elif current_state == STATE.SINGLE:
-		current_state = STATE.HOLD
-	elif current_state == STATE.HOLD:
-		current_state = STATE.OFF
+func _on_press(event):
+	if event is InputEventMouseButton and event.pressed:
+		var adj = 0
+		match event.button_index:
+			MOUSE_BUTTON_LEFT:
+				adj = 1
+			MOUSE_BUTTON_RIGHT:
+				adj = -1
+		var res = (int(current_state) + 3 + adj) % 3
+		current_state = res as STATE
 
 func set_state(held: bool = false):
 	if not held:

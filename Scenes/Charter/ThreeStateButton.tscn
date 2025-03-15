@@ -7,4 +7,5 @@
 offset_right = 8.0
 offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("1_vqhu6")
+button_mask = 3
 script = ExtResource("1_ywp60")
