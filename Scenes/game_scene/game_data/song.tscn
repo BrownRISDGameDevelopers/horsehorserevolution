@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://8w2vvkmhlm1f"]
+
+[ext_resource type="Script" uid="uid://cvpi2q4p4lvqt" path="res://scenes/game_scene/game_data/song.gd" id="1_8oh3i"]
+
+[node name="Song" type="Node2D"]
+script = ExtResource("1_8oh3i")

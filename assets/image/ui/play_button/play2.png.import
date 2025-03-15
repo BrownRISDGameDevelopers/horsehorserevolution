@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bum30tujvmovu"
-path="res://.godot/imported/favicon.png-80d19ea9a443d34be4d74a9316cc8177.ctex"
+uid="uid://m2purmdye2hl"
+path="res://.godot/imported/play2.png-31954ae3ccad3585429c7429b177c746.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://export/favicon.png"
-dest_files=["res://.godot/imported/favicon.png-80d19ea9a443d34be4d74a9316cc8177.ctex"]
+source_file="res://assets/image/ui/play_button/play2.png"
+dest_files=["res://.godot/imported/play2.png-31954ae3ccad3585429c7429b177c746.ctex"]
 
 [params]
 

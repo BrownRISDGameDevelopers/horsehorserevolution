@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://i8w4vbv1cnsc"]
+
+[ext_resource type="Texture2D" uid="uid://cg0vyo2mernso" path="res://assets/image/game/health_bar_temp.png" id="1_2qd6g"]
+
+[node name="DanceBar" type="Node2D"]
+
+[node name="TextureProgressBar1" type="TextureProgressBar" parent="."]
+offset_right = 1200.0
+offset_bottom = 800.0
+max_value = 200.0
+value = 100.0
+texture_progress = ExtResource("1_2qd6g")
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="."]
+offset_right = 1200.0
+offset_bottom = 800.0
+max_value = 200.0
+value = 100.0
+fill_mode = 1
+texture_progress = ExtResource("1_2qd6g")
+tint_progress = Color(0.376471, 0, 1, 1)

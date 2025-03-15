@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bum30tujvmovu"
-path="res://.godot/imported/favicon.png-80d19ea9a443d34be4d74a9316cc8177.ctex"
+uid="uid://b3y6dtd63ab31"
+path="res://.godot/imported/arrow_button_left2.png-9f165bbf3ffa84229b6e42b24c9b9629.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://export/favicon.png"
-dest_files=["res://.godot/imported/favicon.png-80d19ea9a443d34be4d74a9316cc8177.ctex"]
+source_file="res://assets/image/game/arrow_button/left/arrow_button_left2.png"
+dest_files=["res://.godot/imported/arrow_button_left2.png-9f165bbf3ffa84229b6e42b24c9b9629.ctex"]
 
 [params]
 

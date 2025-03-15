@@ -12,12 +12,12 @@ config_version=5
 
 config/name="Horse Horse Revolution"
 run/main_scene="res://Scenes/Menu.tscn"
-config/features=PackedStringArray("4.3")
+config/features=PackedStringArray("4.4")
 config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://Scenes/Global.tscn"
+Global="*res://scenes/global.tscn"
 
 [display]
 

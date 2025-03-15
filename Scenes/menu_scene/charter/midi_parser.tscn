@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2sk25necxh5e"]
+
+[ext_resource type="Script" uid="uid://clevmxhmyyodo" path="res://scenes/menu_scene/charter/midi_parser.gd" id="1_igxge"]
+
+[node name="MidiParser" type="Node2D"]
+script = ExtResource("1_igxge")
+MidiSourcePath = "res://Sounds/hhr-tutorialbeat.mid"
