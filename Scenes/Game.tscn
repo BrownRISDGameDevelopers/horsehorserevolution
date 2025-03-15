@@ -26,21 +26,25 @@ roadNum = 1
 [node name="ArrowUp" parent="road" instance=ExtResource("1")]
 position = Vector2(60, 164)
 input = "up"
+player_num = 1
 
 [node name="ArrowDown" parent="road" instance=ExtResource("1")]
 position = Vector2(20, 164)
 rotation = 3.14159
 input = "down"
+player_num = 1
 
 [node name="ArrowLeft" parent="road" instance=ExtResource("1")]
 position = Vector2(-20, 164)
 sprite_frames = ExtResource("2")
 input = "left"
+player_num = 1
 
 [node name="ArrowRight" parent="road" instance=ExtResource("1")]
 position = Vector2(100, 164)
 sprite_frames = ExtResource("3")
 input = "right"
+player_num = 1
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -78,21 +82,25 @@ roadNum = 2
 [node name="ArrowUp2" parent="road2" instance=ExtResource("1")]
 position = Vector2(100, 164)
 input = "up2"
+player_num = 2
 
 [node name="ArrowDown2" parent="road2" instance=ExtResource("1")]
 position = Vector2(60, 164)
 rotation = 3.14159
 input = "down2"
+player_num = 2
 
 [node name="ArrowLeft2" parent="road2" instance=ExtResource("1")]
 position = Vector2(20, 164)
 sprite_frames = ExtResource("2")
 input = "left2"
+player_num = 2
 
 [node name="ArrowRight2" parent="road2" instance=ExtResource("1")]
 position = Vector2(140, 164)
 sprite_frames = ExtResource("3")
 input = "right2"
+player_num = 2
 
 [node name="Song" parent="." instance=ExtResource("10_2ye08")]
 bpm = null
