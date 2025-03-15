@@ -95,6 +95,8 @@ sprite_frames = ExtResource("3")
 input = "right2"
 
 [node name="Song" parent="." instance=ExtResource("10_2ye08")]
+bpm = null
+song_json_path = null
 
 [node name="DanceBar" parent="." instance=ExtResource("10_28n3v")]
 position = Vector2(10, -68)

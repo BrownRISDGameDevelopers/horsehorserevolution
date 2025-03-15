@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhjocepaofmle"]
+
+[ext_resource type="FontFile" path="res://Fonts/ManaFont.tres" id="1_vqhu6"]
+[ext_resource type="Script" uid="uid://dv0v32db3qn14" path="res://Scripts/ThreeStateButton.gd" id="1_ywp60"]
+
+[node name="ThreeStateButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("1_vqhu6")
+script = ExtResource("1_ywp60")

@@ -6,6 +6,7 @@ extends Node2D
 @export var song_json_path: String = "res://Assets/test_song.json"
 
 var notes_list: Dictionary = {}
+var synced_notes: Dictionary = {}
 
 var note_info_scene = preload("res://Scenes/NoteInfo.tscn")
 
@@ -24,9 +25,11 @@ func _ready():
 	bpm = song_info["bpm"]
 	for beat in raw_notes_list:
 		var beat_notes = []
-		for note in raw_notes_list[beat]:
+		if raw_notes_list[beat]["sync"]:
+			synced_notes[beat] = true
+		for note in raw_notes_list[beat]["arrows"]:
 			var note_info: NoteInfo = note_info_scene.instantiate()
-			note_info.initialize(note["player"], note["direction"])
+			note_info.initialize(note["player"], note["direction"], note["held"])
 			beat_notes.append(note_info)
 		notes_list[int(beat)] = beat_notes
 
