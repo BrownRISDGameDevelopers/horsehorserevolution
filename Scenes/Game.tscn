@@ -92,4 +92,5 @@ input = "right2"
 [node name="Song" parent="." instance=ExtResource("10_2ye08")]
 
 [node name="DanceBar" parent="." instance=ExtResource("10_28n3v")]
-position = Vector2(-23, -89)
+position = Vector2(-10, -68)
+scale = Vector2(0.25, 0.25)
