@@ -21,7 +21,8 @@ var rand = 0
 var note = load("res://Scenes/Note.tscn")
 var instance
 @onready var dance_bar_node: Node2D = $DanceBar
-@onready var dance_bar: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar")
+@onready var dance_bar1: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar1")
+@onready var dance_bar2: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar2")
 
 func _ready():
 	$Conductor.set_bpm(song.bpm)
@@ -58,7 +59,8 @@ func _spawn_note(lane):
 	instance = note.instantiate()
 	instance.initialize(lane)
 	add_child(instance)
-	instance.dance_bar = dance_bar
+	instance.dance_bar1 = dance_bar1
+	instance.dance_bar2 = dance_bar2
 
 		
 func increment_score(by):
@@ -69,16 +71,20 @@ func increment_score(by):
 	
 	if by == 3:
 		great += 1
-		dance_bar.value += 15
+		dance_bar1.value += 15
+		dance_bar2.value -= 15
 	elif by == 2:
 		good += 1
-		dance_bar.value += 10
+		dance_bar1.value += 10
+		dance_bar2.value -= 10
 	elif by == 1:
 		okay += 1
-		dance_bar.value += 5
+		dance_bar1.value += 5
+		dance_bar2.value -= 5
 	else:
 		missed += 1
-		dance_bar.value -= 5
+		dance_bar1.value -= 5
+		dance_bar2.value += 5
 	
 	
 	score += by * combo
