@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Scripts/road.gd" id="3_dahhg"]
 [ext_resource type="Texture2D" uid="uid://rq8ugby5w0n7" path="res://Sprites/game/road/road.png" id="4"]
 [ext_resource type="AudioStream" uid="uid://30xg4tsw8hei" path="res://Sounds/song.ogg" id="5"]
-[ext_resource type="Script" uid="uid://h0uwpptxfgv3" path="res://Scripts/Game.gd" id="6"]
+[ext_resource type="Script" path="res://Scripts/Game.gd" id="6"]
 [ext_resource type="FontFile" path="res://Fonts/heartbit2x.tres" id="7"]
 [ext_resource type="PackedScene" uid="uid://ba3ubi0o638a8" path="res://Scenes/Conductor.tscn" id="8"]
 [ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://Scenes/Song.tscn" id="10_2ye08"]
@@ -26,21 +26,25 @@ roadNum = 1
 [node name="ArrowUp" parent="road" instance=ExtResource("1")]
 position = Vector2(60, 164)
 input = "up"
+player_num = 1
 
 [node name="ArrowDown" parent="road" instance=ExtResource("1")]
 position = Vector2(20, 164)
 rotation = 3.14159
 input = "down"
+player_num = 1
 
 [node name="ArrowLeft" parent="road" instance=ExtResource("1")]
 position = Vector2(-20, 164)
 sprite_frames = ExtResource("2")
 input = "left"
+player_num = 1
 
 [node name="ArrowRight" parent="road" instance=ExtResource("1")]
 position = Vector2(100, 164)
 sprite_frames = ExtResource("3")
 input = "right"
+player_num = 1
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -78,21 +82,25 @@ roadNum = 2
 [node name="ArrowUp2" parent="road2" instance=ExtResource("1")]
 position = Vector2(100, 164)
 input = "up2"
+player_num = 2
 
 [node name="ArrowDown2" parent="road2" instance=ExtResource("1")]
 position = Vector2(60, 164)
 rotation = 3.14159
 input = "down2"
+player_num = 2
 
 [node name="ArrowLeft2" parent="road2" instance=ExtResource("1")]
 position = Vector2(20, 164)
 sprite_frames = ExtResource("2")
 input = "left2"
+player_num = 2
 
 [node name="ArrowRight2" parent="road2" instance=ExtResource("1")]
 position = Vector2(140, 164)
 sprite_frames = ExtResource("3")
 input = "right2"
+player_num = 2
 
 [node name="Song" parent="." instance=ExtResource("10_2ye08")]
 

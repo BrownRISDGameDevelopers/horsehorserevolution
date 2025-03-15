@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dy7ffyvlcyfwa"]
 
 [ext_resource type="SpriteFrames" path="res://Frames/arrow_up_frames.tres" id="1"]
-[ext_resource type="Script" uid="uid://gus33ax43y5q" path="res://Scripts/ArrowButton.gd" id="2"]
+[ext_resource type="Script" path="res://Scripts/ArrowButton.gd" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(8, 4)
@@ -27,7 +27,6 @@ shape = SubResource("1")
 shape = SubResource("2")
 
 [node name="OkayArea" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OkayArea"]
 shape = SubResource("3")

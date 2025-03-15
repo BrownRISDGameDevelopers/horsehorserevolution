@@ -62,6 +62,8 @@ func _spawn_note(lane):
 	#instance.initialize(lane)
 	add_child(instance)
 	instance.initialize(lane)
+	if lane >= 4:
+		instance.collision_layer = 0b0010
 	instance.dance_bar1 = dance_bar1
 	instance.dance_bar2 = dance_bar2
 
@@ -89,7 +91,8 @@ func increment_score(by):
 		dance_bar1.value -= 5
 		dance_bar2.value += 5
 	
-	
+	if dance_bar1.value == 0 or dance_bar2.value == 200:
+		game_over()
 	score += by * combo
 	$Label.text = str(score)
 	if combo > 0:
@@ -98,6 +101,11 @@ func increment_score(by):
 			max_combo = combo
 	else:
 		$Combo.text = ""
+
+func game_over():
+	print("Game Over!")
+	if get_tree().change_scene_to_file("res://Scenes/GameOver.tscn") != OK:
+		print("Error changing scene to Game Over")
 
 
 func reset_combo():

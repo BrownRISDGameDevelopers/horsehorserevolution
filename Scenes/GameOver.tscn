@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://du7gvcxe2gx1w"]
+
+[ext_resource type="Script" path="res://Scripts/GameOver.gd" id="1_gpqj2"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_gpqj2")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 290.0
+offset_top = 102.0
+offset_right = 377.0
+offset_bottom = 125.0
+text = "Game Over"
+
+[node name="Restart" type="Button" parent="."]
+offset_left = 276.0
+offset_top = 167.0
+offset_right = 380.0
+offset_bottom = 212.0
+text = "Play Again?"
+
+[connection signal="button_down" from="Restart" to="." method="_on_restart_button_down"]

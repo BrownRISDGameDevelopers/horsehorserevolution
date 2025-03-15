@@ -6,7 +6,17 @@ var okay = false
 var current_note = null
 
 @export var input = ""
+@export var player_num : int = 0
+@onready var perfect_area: Area2D = $PerfectArea
+@onready var good_area: Area2D = $GoodArea
+@onready var okay_area: Area2D = $OkayArea
 
+func _ready():
+	if player_num == 2:
+		perfect_area.collision_mask = 0b0010
+		good_area.collision_mask = 0b0010
+		okay_area.collision_mask = 0b0010
+		
 
 func _unhandled_input(event):
 	if event.is_action(input):
