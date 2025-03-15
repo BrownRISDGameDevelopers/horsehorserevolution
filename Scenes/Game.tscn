@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://3bvjtpntcsjm"]
+[gd_scene load_steps=12 format=3 uid="uid://3bvjtpntcsjm"]
 
 [ext_resource type="PackedScene" uid="uid://dy7ffyvlcyfwa" path="res://Scenes/ArrowButton.tscn" id="1"]
 [ext_resource type="SpriteFrames" path="res://Frames/arrow_left_frames.tres" id="2"]
 [ext_resource type="SpriteFrames" path="res://Frames/arrow_right_frames.tres" id="3"]
+[ext_resource type="Script" uid="uid://biwsc04tnvs6v" path="res://Scripts/road.gd" id="3_dahhg"]
 [ext_resource type="Texture2D" uid="uid://rq8ugby5w0n7" path="res://Sprites/game/road/road.png" id="4"]
 [ext_resource type="AudioStream" uid="uid://30xg4tsw8hei" path="res://Sounds/song.ogg" id="5"]
 [ext_resource type="Script" uid="uid://h0uwpptxfgv3" path="res://Scripts/Game.gd" id="6"]
@@ -19,23 +20,25 @@ song = NodePath("Song")
 position = Vector2(40, 0)
 texture = ExtResource("4")
 centered = false
+script = ExtResource("3_dahhg")
+roadNum = 1
 
-[node name="ArrowUp" parent="." instance=ExtResource("1")]
-position = Vector2(100, 164)
+[node name="ArrowUp" parent="road" instance=ExtResource("1")]
+position = Vector2(60, 164)
 input = "up"
 
-[node name="ArrowDown" parent="." instance=ExtResource("1")]
-position = Vector2(60, 164)
+[node name="ArrowDown" parent="road" instance=ExtResource("1")]
+position = Vector2(20, 164)
 rotation = 3.14159
 input = "down"
 
-[node name="ArrowLeft" parent="." instance=ExtResource("1")]
-position = Vector2(20, 164)
+[node name="ArrowLeft" parent="road" instance=ExtResource("1")]
+position = Vector2(-20, 164)
 sprite_frames = ExtResource("2")
 input = "left"
 
-[node name="ArrowRight" parent="." instance=ExtResource("1")]
-position = Vector2(140, 164)
+[node name="ArrowRight" parent="road" instance=ExtResource("1")]
+position = Vector2(100, 164)
 sprite_frames = ExtResource("3")
 input = "right"
 
@@ -69,28 +72,32 @@ bpm = 115
 position = Vector2(160, 0)
 texture = ExtResource("4")
 centered = false
+script = ExtResource("3_dahhg")
+roadNum = 2
 
-[node name="ArrowUp2" parent="." instance=ExtResource("1")]
-position = Vector2(260, 164)
+[node name="ArrowUp2" parent="road2" instance=ExtResource("1")]
+position = Vector2(100, 164)
 input = "up2"
 
-[node name="ArrowDown2" parent="." instance=ExtResource("1")]
-position = Vector2(220, 164)
+[node name="ArrowDown2" parent="road2" instance=ExtResource("1")]
+position = Vector2(60, 164)
 rotation = 3.14159
 input = "down2"
 
-[node name="ArrowLeft2" parent="." instance=ExtResource("1")]
-position = Vector2(180, 164)
+[node name="ArrowLeft2" parent="road2" instance=ExtResource("1")]
+position = Vector2(20, 164)
 sprite_frames = ExtResource("2")
 input = "left2"
 
-[node name="ArrowRight2" parent="." instance=ExtResource("1")]
-position = Vector2(300, 164)
+[node name="ArrowRight2" parent="road2" instance=ExtResource("1")]
+position = Vector2(140, 164)
 sprite_frames = ExtResource("3")
 input = "right2"
 
 [node name="Song" parent="." instance=ExtResource("10_2ye08")]
+bpm = null
+song_json_path = null
 
 [node name="DanceBar" parent="." instance=ExtResource("10_28n3v")]
-position = Vector2(-10, -68)
+position = Vector2(10, -68)
 scale = Vector2(0.25, 0.25)

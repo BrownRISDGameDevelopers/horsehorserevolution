@@ -24,6 +24,8 @@ var instance
 @onready var dance_bar1: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar1")
 @onready var dance_bar2: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar2")
 
+var sync_phase : bool = false
+
 func _ready():
 	$Conductor.set_bpm(song.bpm)
 	$Conductor.play_with_beat_offset(8)
@@ -57,8 +59,9 @@ func _on_Conductor_beat(position):
 
 func _spawn_note(lane):
 	instance = note.instantiate()
-	instance.initialize(lane)
+	#instance.initialize(lane)
 	add_child(instance)
+	instance.initialize(lane)
 	instance.dance_bar1 = dance_bar1
 	instance.dance_bar2 = dance_bar2
 
