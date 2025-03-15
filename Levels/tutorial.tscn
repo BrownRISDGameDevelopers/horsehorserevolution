@@ -5,8 +5,9 @@
 
 [node name="Tutorial" instance=ExtResource("1_i6m5q")]
 
-[node name="Conductor" parent="." index="7"]
+[node name="Conductor" parent="." index="3"]
 stream = ExtResource("2_lalqu")
 
-[node name="Song" parent="." index="13"]
+[node name="Song" parent="." index="5"]
+bpm = 120
 song_json_path = "res://Assets/tutorial.json"
