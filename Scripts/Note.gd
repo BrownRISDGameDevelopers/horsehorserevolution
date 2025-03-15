@@ -14,6 +14,8 @@ const DOWN_LANE_SPAWN_2 = Vector2(220, SPAWN_Y)
 const UP_LANE_SPAWN_2 = Vector2(260, SPAWN_Y)
 const RIGHT_LANE_SPAWN_2 = Vector2(300, SPAWN_Y)
 
+const SYNC_LANE_OFFSET = 80
+
 var speed = 0
 var hit = false
 
@@ -37,32 +39,35 @@ func _physics_process(delta):
 
 
 func initialize(lane):
+	var offset = 0
+	if get_parent().sync_phase:
+		offset = SYNC_LANE_OFFSET
 	if lane == 0:
 		$AnimatedSprite2D.frame = 0
-		position = LEFT_LANE_SPAWN_1
+		position = LEFT_LANE_SPAWN_1 + Vector2(offset, 0)
 	elif lane == 1:
 		$AnimatedSprite2D.frame = 1
 		$AnimatedSprite2D.rotation = PI
-		position = DOWN_LANE_SPAWN_1
+		position = DOWN_LANE_SPAWN_1 + Vector2(offset, 0)
 	elif lane == 2:
 		$AnimatedSprite2D.frame = 1
-		position = UP_LANE_SPAWN_1
+		position = UP_LANE_SPAWN_1 + Vector2(offset, 0)
 	elif lane == 3:
 		$AnimatedSprite2D.frame = 2
-		position = RIGHT_LANE_SPAWN_1
+		position = RIGHT_LANE_SPAWN_1 + Vector2(offset, 0)
 	elif lane == 4:
 		$AnimatedSprite2D.frame = 0
-		position = LEFT_LANE_SPAWN_2
+		position = LEFT_LANE_SPAWN_2 - Vector2(offset, 0)
 	elif lane == 5:
 		$AnimatedSprite2D.frame = 1
 		$AnimatedSprite2D.rotation = PI
-		position = DOWN_LANE_SPAWN_2
+		position = DOWN_LANE_SPAWN_2 - Vector2(offset, 0)
 	elif lane == 6:
 		$AnimatedSprite2D.frame = 1
-		position = UP_LANE_SPAWN_2
+		position = UP_LANE_SPAWN_2 - Vector2(offset, 0)
 	elif lane == 7:
 		$AnimatedSprite2D.frame = 2
-		position = RIGHT_LANE_SPAWN_2
+		position = RIGHT_LANE_SPAWN_2 - Vector2(offset, 0)
 	else:
 		printerr("Invalid lane set for note: " + str(lane))
 		return

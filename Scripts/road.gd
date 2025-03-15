@@ -7,8 +7,8 @@ var distanceFromCenter = 80
 func _ready():
 	if (roadNum == 2):
 		distanceFromCenter *= -1
-	enter_sync()
-	exit_sync()
+	#enter_sync()
+	#exit_sync()
 
 func enter_sync():
 	tween.tween_property(self, "position", Vector2(position.x + distanceFromCenter, position.y), 2)
