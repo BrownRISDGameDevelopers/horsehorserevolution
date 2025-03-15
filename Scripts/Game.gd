@@ -62,6 +62,8 @@ func _spawn_note(lane):
 	#instance.initialize(lane)
 	add_child(instance)
 	instance.initialize(lane)
+	if lane >= 4:
+		instance.collision_layer = 0b0010
 	instance.dance_bar1 = dance_bar1
 	instance.dance_bar2 = dance_bar2
 
