@@ -4,7 +4,7 @@ extends Node2D
 @export var notes_list: VBoxContainer
 @export var JSONOutputPath: String = "res://Assets/test_song.json"
 
-var beat_ui = load("res://Scenes/BeatUI.tscn")
+var beat_ui = load("res://Scenes/Charter/BeatUI.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,7 +14,7 @@ func _ready():
 	sorted_notes.sort()
 	for note in sorted_notes:
 		var beat = beat_ui.instantiate()
-		beat.init_beat(note[0])
+		beat.init_beat(note[0], str(note[0]) in song.synced_notes)
 		beat.set_toggle(note[1])
 		notes_list.add_child(beat)
 
@@ -27,7 +27,7 @@ func _on_export_button_pressed():
 	var song_json = {}
 	song_json["bpm"] = song.bpm
 	song_json["notes"] = {}
-	for note in notes_list.get_children():
-		song_json["notes"][note.beat_no] = note.get_note_info()
+	for beat_ui in notes_list.get_children():
+		song_json["notes"][beat_ui.beat_no] = beat_ui.get_note_info()
 	var file = FileAccess.open(JSONOutputPath, FileAccess.WRITE)
 	file.store_line(JSON.stringify(song_json))

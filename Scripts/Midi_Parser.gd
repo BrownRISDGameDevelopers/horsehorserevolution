@@ -75,6 +75,6 @@ func _ready():
 					end_beat = max(event_beat, end_beat)
 	song_json["bpm"] = bpm
 	for i in range(ceil(end_beat)):
-		song_json["notes"][str(i)] = [ {"direction": 0, "player": 0}]
+		song_json["notes"][str(i)] = {"sync": false, "arrows": [ {"direction": 0, "player": 0, "held": false}, {"direction": 0, "player": 1, "held": false}]}
 	var file = FileAccess.open(JSONOutputPath, FileAccess.WRITE)
 	file.store_line(JSON.stringify(song_json))
