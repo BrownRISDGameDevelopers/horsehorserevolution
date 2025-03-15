@@ -7,8 +7,10 @@
 script = ExtResource("1_fwdja")
 song = NodePath("Song")
 notes_list = NodePath("NotesList/VBoxContainer")
+JSONOutputPath = "res://Assets/tutorial.json"
 
 [node name="Song" parent="." instance=ExtResource("2_2lfqe")]
+song_json_path = "res://Assets/tutorial.json"
 
 [node name="NotesList" type="ScrollContainer" parent="."]
 offset_right = 719.0
