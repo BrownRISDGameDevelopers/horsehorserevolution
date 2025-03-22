@@ -2,6 +2,14 @@ class_name Song
 extends Node2D
 
 @export var bpm = 120
+@export var end_offset = 0
+@export var start_offset = 8
+
+var end_beat: int = 0:
+	set(value):
+		end_beat = value
+	get:
+		return end_beat + end_offset
 
 @export var song_json_path: String = "res://assets/chart/test_song.json"
 
@@ -20,7 +28,7 @@ func read_json_file(file_path):
 	var content_as_dictionary = parse_json(content_as_text)
 	return content_as_dictionary
 
-func _ready():
+func initialize():
 	var song_info = read_json_file(song_json_path)
 	var raw_notes_list = song_info["notes"]
 	bpm = song_info["bpm"]
@@ -48,8 +56,14 @@ func _ready():
 				notes_with_duration[start_beat] = [prev_notes[note]]
 		prev_notes = cur_notes
 		notes_list[int(beat)] = beat_notes
+		end_beat = max(end_beat, int(beat))
+
+func _ready():
+	initialize()
 
 func get_notes(beat: int):
-	if beat not in notes_with_duration:
+	var beat_adj = beat - 2
+	if beat_adj not in notes_with_duration:
 		return []
-	return notes_with_duration[beat]
+	var notes = notes_with_duration[beat_adj]
+	return notes

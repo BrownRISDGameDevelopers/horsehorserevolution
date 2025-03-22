@@ -28,7 +28,7 @@ var sync_phase: bool = false
 
 func _ready():
 	$Conductor.set_bpm(song.bpm)
-	$Conductor.play_with_beat_offset(8)
+	$Conductor.play_with_beat_offset(song.start_offset)
 	Global.measure.connect(_on_Conductor_measure)
 	Global.beat.connect(_on_Conductor_beat)
 
@@ -45,8 +45,8 @@ func _on_Conductor_measure(position):
 func _on_Conductor_beat(position):
 	var notes = song.get_notes(position)
 	for note in notes:
-		_spawn_note(note.get_lane())
-	if position > 10:
+		_spawn_note(note.get_lane(), note.duration)
+	if position > song.end_beat:
 		Global.set_score(score)
 		Global.combo = max_combo
 		Global.great = great
@@ -57,7 +57,7 @@ func _on_Conductor_beat(position):
 			print("Error changing scene to End")
 
 
-func _spawn_note(lane):
+func _spawn_note(lane, duration):
 	instance = note.instantiate()
 	#instance.initialize(lane)
 	add_child(instance)
@@ -91,8 +91,8 @@ func increment_score(by):
 		dance_bar1.value -= 5
 		dance_bar2.value += 5
 	
-	if dance_bar1.value == 0 or dance_bar2.value == 200:
-		game_over()
+	# if dance_bar1.value == 0 or dance_bar2.value == 200:
+	# 	game_over()
 	score += by * combo
 	$Label.text = str(score)
 	if combo > 0:

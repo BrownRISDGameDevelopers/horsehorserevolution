@@ -9,4 +9,6 @@
 stream = ExtResource("2_lalqu")
 
 [node name="Song" parent="." index="5"]
+end_offset = -63
+start_offset = 6
 song_json_path = "res://assets/chart/tutorial.json"
