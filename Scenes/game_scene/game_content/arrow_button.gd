@@ -6,7 +6,7 @@ var okay = false
 var current_note = null
 
 @export var input = ""
-@export var player_num : int = 0
+@export var player_num: int = 0
 @onready var perfect_area: Area2D = $PerfectArea
 @onready var good_area: Area2D = $GoodArea
 @onready var okay_area: Area2D = $OkayArea
@@ -24,19 +24,31 @@ func _unhandled_input(event):
 			if current_note != null:
 				if perfect:
 					get_parent().get_parent().increment_score(3)
-					current_note.destroy(3)
+					current_note.handle_input(3)
 				elif good:
 					get_parent().get_parent().increment_score(2)
-					current_note.destroy(2)
+					current_note.handle_input(2)
 				elif okay:
 					get_parent().get_parent().increment_score(1)
-					current_note.destroy(1)
-				_reset()
+					current_note.handle_input(1)
+				if !current_note.held:
+					_reset()
 			else:
 				get_parent().get_parent().increment_score(0)
 		if event.is_action_pressed(input):
 			frame = 1
-		elif event.is_action_released(input):
+		if event.is_action_released(input):
+			if current_note != null:
+				if perfect:
+					get_parent().get_parent().increment_score(3)
+					current_note.handle_input(3)
+				elif good:
+					get_parent().get_parent().increment_score(2)
+					current_note.handle_input(2)
+				elif okay:
+					get_parent().get_parent().increment_score(1)
+					current_note.handle_input(1)
+				_reset()
 			$PushTimer.start()
 
 

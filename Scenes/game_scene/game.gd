@@ -61,7 +61,7 @@ func _spawn_note(lane, duration):
 	instance = note.instantiate()
 	#instance.initialize(lane)
 	add_child(instance)
-	instance.initialize(lane)
+	instance.initialize(lane, duration, $Conductor.sec_per_beat)
 	if lane >= 4:
 		instance.collision_layer = 0b0010
 	instance.dance_bar1 = dance_bar1
