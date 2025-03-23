@@ -11,8 +11,10 @@ var current_note = null
 @onready var good_area: Area2D = $GoodArea
 @onready var okay_area: Area2D = $OkayArea
 
-func _ready():
-	if player_num == 2:
+func update_player(road_num):
+	player_num = road_num
+	input += str(road_num)
+	if player_num == 1:
 		perfect_area.collision_mask = 0b0010
 		good_area.collision_mask = 0b0010
 		okay_area.collision_mask = 0b0010

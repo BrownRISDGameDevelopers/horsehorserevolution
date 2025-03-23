@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=3 uid="uid://blmin3fl4tjts"]
+
+[ext_resource type="Texture2D" uid="uid://rq8ugby5w0n7" path="res://assets/image/game/road/road.png" id="1_3mcqa"]
+[ext_resource type="Script" uid="uid://biwsc04tnvs6v" path="res://scenes/game_scene/game_content/road.gd" id="1_fuyh8"]
+[ext_resource type="PackedScene" uid="uid://dy7ffyvlcyfwa" path="res://scenes/game_scene/game_content/arrow_button.tscn" id="3_af1g8"]
+[ext_resource type="SpriteFrames" path="res://assets/frame/arrow_left_frames.tres" id="4_lnh6y"]
+[ext_resource type="SpriteFrames" path="res://assets/frame/arrow_right_frames.tres" id="5_tg8mc"]
+
+[node name="Road" type="Sprite2D"]
+texture = ExtResource("1_3mcqa")
+offset = Vector2(20, 0)
+script = ExtResource("1_fuyh8")
+
+[node name="ArrowLeft" parent="." instance=ExtResource("3_af1g8")]
+position = Vector2(-60, 80)
+sprite_frames = ExtResource("4_lnh6y")
+input = "left"
+
+[node name="ArrowDown" parent="." instance=ExtResource("3_af1g8")]
+position = Vector2(-20, 80)
+rotation = 3.14159
+input = "down"
+
+[node name="ArrowUp" parent="." instance=ExtResource("3_af1g8")]
+position = Vector2(20, 80)
+input = "up"
+
+[node name="ArrowRight" parent="." instance=ExtResource("3_af1g8")]
+position = Vector2(60, 80)
+sprite_frames = ExtResource("5_tg8mc")
+input = "right"

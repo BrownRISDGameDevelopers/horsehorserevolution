@@ -18,7 +18,7 @@ func increment_duration():
 	duration += 1
 
 func get_lane():
-	return player * 4 + direction
+	return Vector2(player, direction)
 
 func get_uid():
 	return "Player" + str(player + 1) + ["Left", "Down", "Up", "Right"][direction]

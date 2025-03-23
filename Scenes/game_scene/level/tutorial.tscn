@@ -4,11 +4,15 @@
 [ext_resource type="AudioStream" uid="uid://b34wfgh40uvd5" path="res://assets/audio/hhr_tutorial_001.wav" id="2_lalqu"]
 
 [node name="Tutorial" instance=ExtResource("1_i6m5q")]
+position = Vector2(166, 132)
 
-[node name="Conductor" parent="." index="3"]
+[node name="Conductor" parent="." index="2"]
 stream = ExtResource("2_lalqu")
 
-[node name="Song" parent="." index="5"]
+[node name="Song" parent="." index="3"]
 end_offset = -63
 start_offset = 6
 song_json_path = "res://assets/chart/tutorial.json"
+
+[node name="Road1" parent="." index="6"]
+road_num = 1

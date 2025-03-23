@@ -16,10 +16,9 @@ var spawn_2_beat = 0
 var spawn_3_beat = 1
 var spawn_4_beat = 0
 
-var lane = 0
-var rand = 0
-var note = load("res://scenes/game_scene/game_content/note.tscn")
-var instance
+@onready var road0 = $Road0
+@onready var road1 = $Road1
+
 @onready var dance_bar_node: Node2D = $DanceBar
 @onready var dance_bar1: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar1")
 @onready var dance_bar2: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar2")
@@ -29,6 +28,8 @@ var sync_phase: bool = false
 func _ready():
 	$Conductor.set_bpm(song.bpm)
 	$Conductor.play_with_beat_offset(song.start_offset)
+	road0.initialize(song.bpm, dance_bar1, dance_bar2)
+	road1.initialize(song.bpm, dance_bar1, dance_bar2)
 	Global.measure.connect(_on_Conductor_measure)
 	Global.beat.connect(_on_Conductor_beat)
 
@@ -57,16 +58,14 @@ func _on_Conductor_beat(position):
 			print("Error changing scene to End")
 
 
-func _spawn_note(lane, duration):
-	instance = note.instantiate()
-	#instance.initialize(lane)
-	add_child(instance)
-	instance.initialize(lane, duration, $Conductor.sec_per_beat)
-	if lane >= 4:
-		instance.collision_layer = 0b0010
-	instance.dance_bar1 = dance_bar1
-	instance.dance_bar2 = dance_bar2
+func _spawn_note(lane: Vector2, duration):
+	var player = lane.x
+	var direction = lane.y
 
+	if player == 0:
+		road0.spawn_note(direction, duration)
+	else:
+		road1.spawn_note(direction, duration)
 		
 func increment_score(by):
 	if by > 0:
