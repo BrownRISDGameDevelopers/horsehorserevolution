@@ -3,13 +3,22 @@ extends Node2D
 @export var song: Song
 @export var notes_container: ScrollContainer
 @export var notes_list: VBoxContainer
-@export var json_path: String = "res://assets/chart/test_song.json"
+@export var json_path: String
 
 var beat_ui = load("res://scenes/menu_scene/charter/charter_component/beat_ui.tscn")
 
+func _on_export_button_pressed():
+	var song_json = {}
+	song_json["bpm"] = song.bpm
+	song_json["notes"] = {}
+	for beat in notes_list.get_children():
+		song_json["notes"][beat.beat_no] = beat.get_note_info()
+	var file = FileAccess.open(json_path, FileAccess.WRITE)
+	file.store_line(JSON.stringify(song_json))
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
+
+func _on_file_dialog_file_selected(path: String):
+	json_path = "res://assets/chart/" + $FileDialog.current_file
 	song.song_json_path = json_path
 	song.initialize()
 	var sorted_notes = []
@@ -27,17 +36,3 @@ func _ready():
 		notes_list.add_child(beat)
 	await notes_container.get_v_scroll_bar().changed
 	notes_container.scroll_vertical = notes_container.get_v_scroll_bar().max_value
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
-
-func _on_export_button_pressed():
-	var song_json = {}
-	song_json["bpm"] = song.bpm
-	song_json["notes"] = {}
-	for beat in notes_list.get_children():
-		song_json["notes"][beat.beat_no] = beat.get_note_info()
-	var file = FileAccess.open(json_path, FileAccess.WRITE)
-	file.store_line(JSON.stringify(song_json))

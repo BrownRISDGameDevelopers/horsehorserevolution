@@ -20,6 +20,15 @@ size_flags_vertical = 3
 [node name="NotesList" type="VBoxContainer" parent="NotesContainer"]
 layout_mode = 2
 
+[node name="FileDialog" type="FileDialog" parent="."]
+title = "Open a File"
+position = Vector2i(0, 36)
+visible = true
+ok_button_text = "Open"
+file_mode = 0
+root_subfolder = "assets/chart/"
+use_native_dialog = true
+
 [node name="ExportButton" type="Button" parent="."]
 offset_left = 560.0
 offset_top = 20.0
@@ -27,4 +36,5 @@ offset_right = 620.0
 offset_bottom = 51.0
 text = "Export"
 
+[connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
 [connection signal="pressed" from="ExportButton" to="." method="_on_export_button_pressed"]
