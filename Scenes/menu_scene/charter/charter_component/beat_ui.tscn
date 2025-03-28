@@ -9,8 +9,9 @@ offset_bottom = 40.0
 script = ExtResource("1_an7xi")
 
 [node name="BeatNumber" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
-text = "   1   "
+text = "1"
 
 [node name="Player1Left" parent="." instance=ExtResource("2_xynw5")]
 layout_mode = 2
@@ -28,9 +29,10 @@ layout_mode = 2
 arrow_char = "→"
 
 [node name="SyncIndicator" type="Button" parent="."]
+custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 toggle_mode = true
-text = "  ⇄  "
+text = "⇄"
 
 [node name="Player2Left" parent="." instance=ExtResource("2_xynw5")]
 layout_mode = 2

@@ -2,8 +2,11 @@ extends Button
 
 @export var arrow_char: String = "←"
 var off_text: String
+var off_color: Color = "ffffff"
 var single_text: String
+var single_color: Color = "ff6f69"
 var hold_text: String
+var hold_color: Color = "ffcc5c"
 var display_text
 
 enum STATE {OFF, SINGLE, HOLD}
@@ -20,10 +23,13 @@ func _ready():
 func _process(delta):
 	if current_state == STATE.OFF:
 		display_text = off_text
+		modulate = off_color
 	elif current_state == STATE.SINGLE:
 		display_text = single_text
+		modulate = single_color
 	elif current_state == STATE.HOLD:
 		display_text = hold_text
+		modulate = hold_color
 	text = display_text
 
 func _on_press(event):

@@ -11,7 +11,7 @@ func _ready():
 func init_beat(beat, synced):
 	beat_no = beat
 	beat_sync = synced
-	$BeatNumber.text = "  " + str(beat) + "  "
+	$BeatNumber.text = str(beat)
 	$SyncIndicator.button_pressed = synced
 
 func set_toggle(notes_list):

@@ -1,10 +1,12 @@
 extends Node2D
 
 @export var song: Song
+@export var notes_container: ScrollContainer
 @export var notes_list: VBoxContainer
 @export var json_path: String = "res://assets/chart/test_song.json"
 
 var beat_ui = load("res://scenes/menu_scene/charter/charter_component/beat_ui.tscn")
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,12 +15,18 @@ func _ready():
 	var sorted_notes = []
 	for note in song.notes_list:
 		sorted_notes.append([note, song.notes_list[note]])
-	sorted_notes.sort()
+	var sort_descending = func(a, b):
+		if a > b:
+			return true
+		return false
+	sorted_notes.sort_custom(sort_descending)
 	for note in sorted_notes:
 		var beat = beat_ui.instantiate()
 		beat.init_beat(note[0], str(note[0]) in song.synced_notes)
 		beat.set_toggle(note[1])
 		notes_list.add_child(beat)
+	await notes_container.get_v_scroll_bar().changed
+	notes_container.scroll_vertical = notes_container.get_v_scroll_bar().max_value
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
