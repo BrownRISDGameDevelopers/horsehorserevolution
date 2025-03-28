@@ -43,7 +43,7 @@ func _report_beat():
 
 func play_with_beat_offset(num):
 	beats_before_start = num
-	$StartTimer.wait_time = sec_per_beat
+	$StartTimer.wait_time = 0.5
 	$StartTimer.start()
 
 

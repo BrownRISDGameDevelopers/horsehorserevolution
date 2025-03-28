@@ -3,7 +3,7 @@ extends Node2D
 
 @export var bpm = 120
 @export var end_offset = 0
-@export var start_offset = 8
+@export var start_offset = 6
 
 var end_beat: int = 0:
 	set(value):

@@ -10,7 +10,7 @@ size = Vector2(8, 4)
 size = Vector2(8, 16)
 
 [sub_resource type="RectangleShape2D" id="3"]
-size = Vector2(8, 24)
+size = Vector2(8, 32)
 
 [node name="ArrowButton" type="AnimatedSprite2D"]
 sprite_frames = ExtResource("1")
