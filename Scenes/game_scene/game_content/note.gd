@@ -10,6 +10,8 @@ var hit = false
 var held = false
 var has_trail = false
 
+var playerNum = 0
+
 var dance_bar1: TextureProgressBar
 var dance_bar2: TextureProgressBar
 
@@ -30,6 +32,10 @@ func _physics_process(delta):
 	elif !hit:
 		position.y += speed * delta
 		if position.y > target_y + DESPAWN_DISTANCE:
+			if (playerNum == 1):
+				get_parent().get_parent().set_player1hit(-2)
+			else:
+				get_parent().get_parent().set_player2hit(-2)
 			dance_bar1.value -= 10
 			dance_bar2.value += 10
 			queue_free()
@@ -38,6 +44,7 @@ func _physics_process(delta):
 		score_label.position.y -= speed * delta
 
 func initialize(duration, bpm, road_num, db1, db2, end_y):
+	playerNum = road_num
 	if road_num == 1:
 		collision_layer = 0b0010
 	dance_bar1 = db1

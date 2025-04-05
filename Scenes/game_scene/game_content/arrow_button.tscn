@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dy7ffyvlcyfwa"]
 
 [ext_resource type="SpriteFrames" path="res://assets/frame/arrow_up_frames.tres" id="1"]
-[ext_resource type="Script" uid="uid://gus33ax43y5q" path="res://scenes/game_scene/game_content/arrow_button.gd" id="2"]
+[ext_resource type="Script" uid="uid://gus33ax43y5q" path="res://Scenes/game_scene/game_content/arrow_button.gd" id="2"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(8, 4)
@@ -24,11 +24,29 @@ shape = SubResource("1")
 [node name="GoodArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GoodArea"]
+position = Vector2(0, -4)
+scale = Vector2(1, 0.5)
+shape = SubResource("2")
+
+[node name="GoodAreaLower" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GoodAreaLower"]
+position = Vector2(0, 4)
+scale = Vector2(1, 0.5)
 shape = SubResource("2")
 
 [node name="OkayArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="OkayArea"]
+position = Vector2(0, -8)
+scale = Vector2(1, 0.5)
+shape = SubResource("3")
+
+[node name="OkayAreaBelow" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="OkayAreaBelow"]
+position = Vector2(0, 8)
+scale = Vector2(1, 0.5)
 shape = SubResource("3")
 
 [node name="PushTimer" type="Timer" parent="."]
@@ -39,6 +57,10 @@ one_shot = true
 [connection signal="area_exited" from="PerfectArea" to="." method="_on_PerfectArea_area_exited"]
 [connection signal="area_entered" from="GoodArea" to="." method="_on_GoodArea_area_entered"]
 [connection signal="area_exited" from="GoodArea" to="." method="_on_GoodArea_area_exited"]
+[connection signal="area_entered" from="GoodAreaLower" to="." method="_on_good_area_lower_area_entered"]
+[connection signal="area_exited" from="GoodAreaLower" to="." method="_on_good_area_lower_area_exited"]
 [connection signal="area_entered" from="OkayArea" to="." method="_on_OkayArea_area_entered"]
 [connection signal="area_exited" from="OkayArea" to="." method="_on_OkayArea_area_exited"]
+[connection signal="area_entered" from="OkayAreaBelow" to="." method="_on_okay_area_below_area_entered"]
+[connection signal="area_exited" from="OkayAreaBelow" to="." method="_on_okay_area_below_area_exited"]
 [connection signal="timeout" from="PushTimer" to="." method="_on_PushTimer_timeout"]

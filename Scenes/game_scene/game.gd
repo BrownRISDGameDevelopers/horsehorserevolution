@@ -24,6 +24,9 @@ var spawn_4_beat = 0
 @onready var dance_bar2: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar2")
 
 var sync_phase: bool = false
+var sync_health: int = 3
+var player1hit: int = -1
+var player2hit: int = -1
 
 func _ready():
 	$Conductor.set_bpm(song.bpm)
@@ -67,6 +70,26 @@ func _spawn_note(lane: Vector2, duration):
 	else:
 		road1.spawn_note(direction, duration)
 		
+func set_player1hit(areaNum):
+	player1hit = areaNum
+	if player2hit != 0:
+		if sync_phase:
+			if abs(player1hit - player2hit) > 2:
+				sync_health -= 1
+				print(sync_health)
+		player1hit = 0
+		player2hit = 0
+
+func set_player2hit(areaNum):
+	player2hit = areaNum
+	if player1hit != 0:
+		if sync_phase:
+			if abs(player1hit - player2hit) > 2:
+				sync_health -= 1
+				print(sync_health)
+		player1hit = 0
+		player2hit = 0
+
 func increment_score(by):
 	if by > 0:
 		combo += 1
