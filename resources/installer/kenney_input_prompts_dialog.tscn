@@ -1,6 +1,6 @@
 [gd_scene load_steps=14 format=3 uid="uid://d3x8m40qtdrj"]
 
-[ext_resource type="Script" uid="uid://bduy6qihnm0qo" path="res://addons/maaacks_menus_template/installer/kenney_input_prompts_dialog.gd" id="1_nf1bc"]
+[ext_resource type="Script" uid="uid://bduy6qihnm0qo" path="res://resources/installer/kenney_input_prompts_dialog.gd" id="1_nf1bc"]
 [ext_resource type="Texture2D" uid="uid://cmni5hv40bfaa" path="res://addons/maaacks_menus_template/assets/input-icons/icons-filled-colored.png" id="2_0nqam"]
 [ext_resource type="Texture2D" uid="uid://deskx061vlcgx" path="res://addons/maaacks_menus_template/assets/input-icons/icons-filled-white.png" id="3_ynuxh"]
 [ext_resource type="Texture2D" uid="uid://bohem6w6kcl3x" path="res://addons/maaacks_menus_template/assets/input-icons/icons-outlined-colored.png" id="4_dqbfh"]
@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c37gofthe2bh3" path="res://addons/maaacks_menus_template/assets/input-icons/icons-filled-white-vector.svg" id="11_3b8mx"]
 [ext_resource type="Texture2D" uid="uid://bsgf78aysgdnd" path="res://addons/maaacks_menus_template/assets/input-icons/icons-outlined-colored-vector.svg" id="12_rrkvx"]
 [ext_resource type="Texture2D" uid="uid://c1lpc33fpmd4p" path="res://addons/maaacks_menus_template/assets/input-icons/icons-outlined-white-vector.svg" id="13_bkfjd"]
+
 
 [node name="KenneyInputPromptsDialog" type="ConfirmationDialog"]
 title = "Add Kenney Input Prompts Pack"
