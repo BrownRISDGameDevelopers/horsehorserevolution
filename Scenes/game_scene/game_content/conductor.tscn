@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://d31dn5exjx7w7" path="res://scenes/game_scene/game_content/conductor.gd" id="1_dwqg6"]
 
 [node name="Conductor" type="AudioStreamPlayer"]
+bus = &"Music"
 script = ExtResource("1_dwqg6")
 
 [node name="StartTimer" type="Timer" parent="."]
