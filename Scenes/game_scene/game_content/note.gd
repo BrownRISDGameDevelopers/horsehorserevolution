@@ -33,7 +33,7 @@ func _physics_process(delta):
 			dance_bar1.value -= 10
 			dance_bar2.value += 10
 			queue_free()
-			get_parent().reset_combo()
+			get_parent().get_parent().reset_combo()
 	else:
 		score_label.position.y -= speed * delta
 
@@ -60,10 +60,7 @@ func initialize(duration, bpm, road_num, db1, db2, end_y):
 		head_collision.set_deferred("disabled", true)
 
 func set_direction(direction):
-	var offset = Vector2.ZERO
-	if get_parent().sync_phase:
-		offset.x = SYNC_LANE_OFFSET
-	position = Vector2(-60 + direction * 40, target_y - speed * 2) + offset
+	position = Vector2(-60 + direction * 40, target_y - speed * 2)
 	if direction == 0:
 		head_sprite.frame = 0
 		tail_sprite.frame = 0

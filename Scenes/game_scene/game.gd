@@ -47,6 +47,14 @@ func _on_Conductor_beat(position):
 	var notes = song.get_notes(position)
 	for note in notes:
 		_spawn_note(note.get_lane(), note.duration)
+	if sync_phase == false and str(position) in song.synced_notes:
+		road0.enter_sync()
+		road1.enter_sync()
+		sync_phase = true
+	elif sync_phase and str(position) not in song.synced_notes:
+		road0.exit_sync()
+		road1.exit_sync()
+		sync_phase = false
 	if position > song.end_beat:
 		Global.set_score(score)
 		Global.combo = max_combo

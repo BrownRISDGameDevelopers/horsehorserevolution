@@ -29,6 +29,9 @@ func read_json_file(file_path):
 	return content_as_dictionary
 
 func initialize():
+	notes_list = {}
+	synced_notes = {}
+	notes_with_duration = {}
 	var song_info = read_json_file(song_json_path)
 	var raw_notes_list = song_info["notes"]
 	bpm = song_info["bpm"]
