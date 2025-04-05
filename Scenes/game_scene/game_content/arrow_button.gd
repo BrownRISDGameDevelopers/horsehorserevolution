@@ -70,6 +70,7 @@ func _on_PerfectArea_area_entered(area):
 	if current_note != null and area == current_note:
 		perfect = true
 		areaHit = 3
+	game_object.enemy_strike_pose()
 
 
 func _on_PerfectArea_area_exited(area):

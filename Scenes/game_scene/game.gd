@@ -23,6 +23,8 @@ var spawn_4_beat = 0
 @onready var dance_bar1: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar1")
 @onready var dance_bar2: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar2")
 
+@onready var enemy_horse: Sprite2D = $EnemyHorse
+
 var sync_phase: bool = false
 var sync_health: int = 3
 var player1hit: int = -1
@@ -143,3 +145,6 @@ func game_over():
 func reset_combo():
 	combo = 0
 	$Combo.text = ""
+	
+func enemy_strike_pose():
+	enemy_horse.strike_pose(dance_bar1.value)
