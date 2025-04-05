@@ -33,13 +33,13 @@ func _physics_process(delta):
 		position.y += speed * delta
 		if position.y > target_y + DESPAWN_DISTANCE:
 			if (playerNum == 1):
-				get_parent().get_parent().set_player1hit(-2)
+				get_parent().get_parent().get_parent().set_player1hit(-2)
 			else:
-				get_parent().get_parent().set_player2hit(-2)
+				get_parent().get_parent().get_parent().set_player2hit(-2)
 			dance_bar1.value -= 10
 			dance_bar2.value += 10
 			queue_free()
-			get_parent().get_parent().reset_combo()
+			get_parent().get_parent().get_parent().reset_combo()
 	else:
 		score_label.position.y -= speed * delta
 
@@ -67,7 +67,10 @@ func initialize(duration, bpm, road_num, db1, db2, end_y):
 		head_collision.set_deferred("disabled", true)
 
 func set_direction(direction):
-	position = Vector2(-60 + direction * 40, target_y - speed * 2)
+	var offset = Vector2.ZERO
+	if get_parent().get_parent().get_parent().sync_phase:
+		offset.x = SYNC_LANE_OFFSET
+	position = Vector2(-60 + direction * 40, target_y - speed * 2) + offset
 	if direction == 0:
 		head_sprite.frame = 0
 		tail_sprite.frame = 0

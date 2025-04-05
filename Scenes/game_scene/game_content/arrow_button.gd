@@ -24,21 +24,18 @@ func update_player(road_num, game_reference):
 		perfect_area.collision_mask = 0b0010
 		good_area.collision_mask = 0b0010
 		okay_area.collision_mask = 0b0010
-<<<<<<< HEAD
 		good_area_lower.collision_mask = 0b0010
 		okay_area_below.collision_mask = 0b0010
-=======
 	game_object = game_reference
->>>>>>> fcaad6deba7543909d357c72c741f8369bc6cda9
 		
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed(input):
 		if current_note != null:
 			if (player_num == 1):
-				get_parent().get_parent().set_player1hit(areaHit)
+				game_object.set_player1hit(areaHit)
 			else:
-				get_parent().get_parent().set_player2hit(areaHit)
+				game_object.set_player2hit(areaHit)
 			if perfect:
 				game_object.increment_score(3)
 				current_note.handle_input(3)
