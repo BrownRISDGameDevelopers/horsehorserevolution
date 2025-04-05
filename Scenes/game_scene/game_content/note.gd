@@ -59,7 +59,7 @@ func initialize(duration, bpm, road_num, db1, db2, end_y):
 
 	var sec_per_beat = 60.0 / bpm
 	if duration > 1:
-		tail_sprite.position.y -= (duration - 1) * sec_per_beat * speed
+		tail_sprite.position.y -= (duration - 2) * sec_per_beat * speed
 		trail.add_point(Vector2.ZERO)
 		trail.add_point(tail_sprite.position)
 		has_trail = true
