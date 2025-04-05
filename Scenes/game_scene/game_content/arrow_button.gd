@@ -15,15 +15,21 @@ var areaHit = 0 # -2 is miss, 1 2 3 4 5 are areas from top to bottom
 @onready var okay_area: Area2D = $OkayArea
 @onready var okay_area_below: Area2D = $OkayAreaBelow
 
-func update_player(road_num):
+var game_object
+
+func update_player(road_num, game_reference):
 	player_num = road_num
 	input += str(road_num)
 	if player_num == 1:
 		perfect_area.collision_mask = 0b0010
 		good_area.collision_mask = 0b0010
 		okay_area.collision_mask = 0b0010
+<<<<<<< HEAD
 		good_area_lower.collision_mask = 0b0010
 		okay_area_below.collision_mask = 0b0010
+=======
+	game_object = game_reference
+>>>>>>> fcaad6deba7543909d357c72c741f8369bc6cda9
 		
 
 func _physics_process(delta):
@@ -34,30 +40,30 @@ func _physics_process(delta):
 			else:
 				get_parent().get_parent().set_player2hit(areaHit)
 			if perfect:
-				get_parent().get_parent().increment_score(3)
+				game_object.increment_score(3)
 				current_note.handle_input(3)
 			elif good:
-				get_parent().get_parent().increment_score(2)
+				game_object.increment_score(2)
 				current_note.handle_input(2)
 			elif okay:
-				get_parent().get_parent().increment_score(1)
+				game_object.increment_score(1)
 				current_note.handle_input(1)
 			if !current_note.held:
 				_reset()
 		else:
-			get_parent().get_parent().increment_score(0)
+			game_object.increment_score(0)
 		frame = 1
 
 	if Input.is_action_just_released(input):
 		if current_note != null:
 			if perfect:
-				get_parent().get_parent().increment_score(3)
+				game_object.increment_score(3)
 				current_note.handle_input(3)
 			elif good:
-				get_parent().get_parent().increment_score(2)
+				game_object.increment_score(2)
 				current_note.handle_input(2)
 			elif okay:
-				get_parent().get_parent().increment_score(1)
+				game_object.increment_score(1)
 				current_note.handle_input(1)
 			_reset()
 		$PushTimer.start()

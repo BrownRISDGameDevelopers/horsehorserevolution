@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://blmin3fl4tjts"]
+[gd_scene load_steps=12 format=3 uid="uid://blmin3fl4tjts"]
 
 [ext_resource type="Texture2D" uid="uid://rq8ugby5w0n7" path="res://assets/image/game/road/road.png" id="1_3mcqa"]
 [ext_resource type="Script" uid="uid://biwsc04tnvs6v" path="res://scenes/game_scene/game_content/road.gd" id="1_fuyh8"]
@@ -6,26 +6,167 @@
 [ext_resource type="SpriteFrames" path="res://assets/frame/arrow_left_frames.tres" id="4_lnh6y"]
 [ext_resource type="SpriteFrames" path="res://assets/frame/arrow_right_frames.tres" id="5_tg8mc"]
 
-[node name="Road" type="Sprite2D"]
-texture = ExtResource("1_3mcqa")
-offset = Vector2(20, 0)
+[sub_resource type="Animation" id="Animation_lnh6y"]
+resource_name = "enter_sync_left"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 80, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_tg8mc"]
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0, 80, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.0005, 0, 0.0005, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_h2cb2"]
+resource_name = "exit_sync_left"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(80, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_c1equ"]
+resource_name = "enter_sync_right"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -80, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="Animation" id="Animation_hjh4p"]
+resource_name = "exit_sync_right"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-80, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_h2cb2"]
+_data = {
+&"RESET": SubResource("Animation_tg8mc"),
+&"enter_sync_left": SubResource("Animation_lnh6y"),
+&"enter_sync_right": SubResource("Animation_c1equ"),
+&"exit_sync_left": SubResource("Animation_h2cb2"),
+&"exit_sync_right": SubResource("Animation_hjh4p")
+}
+
+[node name="Road" type="Node2D"]
 script = ExtResource("1_fuyh8")
 
-[node name="ArrowLeft" parent="." instance=ExtResource("3_af1g8")]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../RoadSprite")
+libraries = {
+&"": SubResource("AnimationLibrary_h2cb2")
+}
+
+[node name="RoadSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_3mcqa")
+offset = Vector2(20, 0)
+
+[node name="ArrowLeft" parent="RoadSprite" instance=ExtResource("3_af1g8")]
 position = Vector2(-60, 80)
 sprite_frames = ExtResource("4_lnh6y")
 input = "left"
 
-[node name="ArrowDown" parent="." instance=ExtResource("3_af1g8")]
+[node name="ArrowDown" parent="RoadSprite" instance=ExtResource("3_af1g8")]
 position = Vector2(-20, 80)
 rotation = 3.14159
 input = "down"
 
-[node name="ArrowUp" parent="." instance=ExtResource("3_af1g8")]
+[node name="ArrowUp" parent="RoadSprite" instance=ExtResource("3_af1g8")]
 position = Vector2(20, 80)
 input = "up"
 
-[node name="ArrowRight" parent="." instance=ExtResource("3_af1g8")]
+[node name="ArrowRight" parent="RoadSprite" instance=ExtResource("3_af1g8")]
 position = Vector2(60, 80)
 sprite_frames = ExtResource("5_tg8mc")
 input = "right"
