@@ -80,6 +80,7 @@ func _spawn_note(lane: Vector2, duration):
 		
 func set_player1hit(areaNum):
 	player1hit = areaNum
+	#print(player2hit)
 	if player2hit != 0:
 		if sync_phase:
 			if abs(player1hit - player2hit) > 2:
@@ -90,6 +91,7 @@ func set_player1hit(areaNum):
 
 func set_player2hit(areaNum):
 	player2hit = areaNum
+	#print(player1hit)
 	if player1hit != 0:
 		if sync_phase:
 			if abs(player1hit - player2hit) > 2:

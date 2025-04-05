@@ -121,8 +121,12 @@ func _on_okay_area_below_area_entered(area: Area2D) -> void:
 func _on_okay_area_below_area_exited(area: Area2D) -> void:
 	if current_note != null and area == current_note:
 		okay = false
-		areaHit = 0
+		areaHit = -2
 		current_note = null
+		if (player_num == 1):
+			game_object.set_player1hit(areaHit)
+		else:
+			game_object.set_player2hit(areaHit)
 
 
 func _on_PushTimer_timeout():
