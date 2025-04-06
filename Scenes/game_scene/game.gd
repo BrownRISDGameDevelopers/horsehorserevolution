@@ -24,7 +24,7 @@ var spawn_4_beat = 0
 @onready var dance_bar1: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar1")
 @onready var dance_bar2: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar2")
 
-@onready var enemy_horse: Sprite2D = $EnemyHorse
+# @onready var enemy_horse: Sprite2D = $EnemyHorse
 
 var sync_phase: bool = false
 var sync_health: int = 3
@@ -62,11 +62,11 @@ func _on_Conductor_beat(position):
 	var notes = song.get_notes(position)
 	for note in notes:
 		_spawn_note(note.get_lane(), note.duration)
-	if sync_phase == false and str(position) in song.synced_notes:
+	if sync_phase == false and song.synced(position):
 		road0.enter_sync()
 		road1.enter_sync()
 		sync_phase = true
-	elif sync_phase and str(position) not in song.synced_notes:
+	elif sync_phase and not song.synced(position):
 		road0.exit_sync()
 		road1.exit_sync()
 		sync_phase = false
@@ -157,4 +157,5 @@ func reset_combo():
 	$Combo.text = ""
 	
 func enemy_strike_pose():
-	enemy_horse.strike_pose(dance_bar1.value)
+	pass
+	# enemy_horse.strike_pose(dance_bar1.value)

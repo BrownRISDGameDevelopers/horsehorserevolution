@@ -80,3 +80,11 @@ func get_notes(beat: int):
 		return []
 	var notes = notes_with_duration[beat_adj]
 	return notes
+
+func synced(beat):
+	var beat_adj
+	if type_string(typeof(beat)) == "int":
+		beat_adj = beat + 1
+	else:
+		beat_adj = int(beat) + 1
+	return beat_adj in synced_notes or str(beat_adj) in synced_notes

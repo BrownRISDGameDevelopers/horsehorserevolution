@@ -1,7 +1,6 @@
 extends Area2D
 
 const BASE_DISTANCE = 240
-const SYNC_LANE_OFFSET = 80
 const DESPAWN_DISTANCE = 32
 
 var speed = 0
@@ -68,8 +67,6 @@ func initialize(duration, bpm, road_num, db1, db2, end_y):
 
 func set_direction(direction):
 	var offset = Vector2.ZERO
-	if get_parent().get_parent().get_parent().sync_phase:
-		offset.x = SYNC_LANE_OFFSET
 	position = Vector2(-60 + direction * 40, target_y - speed * 2) + offset
 	if direction == 0:
 		head_sprite.frame = 0
