@@ -1,9 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bpdv6oucd1617"]
+[gd_scene load_steps=3 format=3 uid="uid://bpdv6oucd1617"]
 
-[ext_resource type="PackedScene" path="res://scenes/game_scene/game.tscn" id="1_7bll5"]
+[ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_7bll5"]
+[ext_resource type="AudioStream" uid="uid://dviaakn0trh17" path="res://assets/audio/Horse.wav" id="2_7bll5"]
 
 [node name="DeathMetal" instance=ExtResource("1_7bll5")]
 position = Vector2(166, 132)
 
-[node name="Song" parent="." index="3"]
+[node name="Song" parent="." index="0"]
 song_json_path = "res://assets/chart/death_metal.json"
+song_stream = ExtResource("2_7bll5")

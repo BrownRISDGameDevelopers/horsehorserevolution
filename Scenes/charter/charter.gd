@@ -21,7 +21,7 @@ func _process(delta):
 
 func jsonify_song():
 	var song_json = {}
-	song_json["song_path"] = song.song_file_path
+	song_json["song_path"] = song.song_stream.resource_path
 	song_json["bpm"] = song.bpm
 	song_json["notes"] = {}
 	for beat in notes_list.get_children():
@@ -58,6 +58,5 @@ func _on_play_button_pressed():
 	controls.position = get_viewport().get_visible_rect().size / 2
 	controls.song = song
 	add_child(controls)
-	controls.set_song_from_charter(song.song_file_path)
-	controls.play_from_charter(int(beat_select.text))
+	controls.play_from_beat(int(beat_select.text))
 	playing_chart = true

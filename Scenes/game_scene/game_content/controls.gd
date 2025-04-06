@@ -3,6 +3,9 @@ extends Node2D
 @export var song: Song
 @export var in_charter: bool = true
 
+@onready var road0 = $Road0
+@onready var road1 = $Road1
+
 var score = 0
 var combo = 0
 
@@ -12,22 +15,10 @@ var good = 0
 var okay = 0
 var missed = 0
 
-@onready var road0 = $Road0
-@onready var road1 = $Road1
-
 var sync_phase: bool = false
 
-func _ready():
-	if not in_charter:
-		$Conductor.set_bpm(song.bpm)
-		$Conductor.play_with_offset(song.start_offset)
-	road0.update_bpm(song.bpm)
-	road1.update_bpm(song.bpm)
-
-func set_song_from_charter(song_file_path):
-	$Conductor.stream = load(song_file_path)
-
-func play_from_charter(start_beat):
+func play_from_beat(start_beat = 1):
+	$Conductor.stream = song.song_stream
 	$Conductor.set_bpm(song.bpm)
 	$Conductor.play_from_position(start_beat, song.start_offset)
 	road0.update_bpm(song.bpm)

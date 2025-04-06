@@ -1,18 +1,18 @@
 class_name Song
 extends Node2D
 
-@export var bpm = 120
+@export var song_json_path: String = "res://assets/chart/test_song.json"
+@export var song_stream: AudioStream
 @export var end_offset = 0
 @export var start_offset = 6
 
+
+var bpm = 120
 var end_beat: int = 0:
 	set(value):
 		end_beat = value
 	get:
 		return end_beat + end_offset
-
-@export var song_json_path: String = "res://assets/chart/test_song.json"
-var song_file_path = ""
 
 var notes_list: Dictionary = {}
 var synced_notes: Dictionary = {}
@@ -32,7 +32,7 @@ func parse_notes_from_dict(song_info):
 	notes_with_duration = {}
 	var raw_notes_list = song_info["notes"]
 	if "song_path" in song_info:
-		song_file_path = song_info["song_path"]
+		song_stream = load(song_info["song_path"])
 	bpm = song_info["bpm"]
 	var prev_notes = {}
 	var sorted_beats = raw_notes_list.keys()

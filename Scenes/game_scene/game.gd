@@ -1,8 +1,5 @@
 extends Node2D
 
-@export var song: Song
-@export var in_charter: bool = true
-
 var score = 0
 var combo = 0
 
@@ -12,79 +9,35 @@ var good = 0
 var okay = 0
 var missed = 0
 
-@onready var road0 = $Road0
-@onready var road1 = $Road1
+@onready var controls = $Controls
 
 @onready var dance_bar_node: Node2D = $DanceBar
 @onready var dance_bar1: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar1")
 @onready var dance_bar2: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar2")
 
-# @onready var enemy_horse: Sprite2D = $EnemyHorse
+@onready var enemy_horse: Sprite2D = $EnemyHorse
 
-var sync_phase: bool = false
 var sync_health: int = 3
 var player1hit: int = -1
 var player2hit: int = -1
-
+ 
 func _ready():
-	if not in_charter:
-		$Conductor.set_bpm(song.bpm)
-		$Conductor.play_with_offset(song.start_offset)
-	road0.update_bpm(song.bpm)
-	road1.update_bpm(song.bpm)
+	controls.play_from_beat(1)
 
-func set_song_from_charter(song_file_path):
-	$Conductor.stream = load(song_file_path)
+func _input(event):
+	if event.is_action("escape"):
+		if get_tree().change_scene_to_file("res://scenes/menu_scene/menu.tscn") != OK:
+			print("Error changing scene to Menu")
 
-func play_from_charter(start_beat):
-	$Conductor.set_bpm(song.bpm)
-	$Conductor.play_from_position(start_beat, song.start_offset)
-	road0.update_bpm(song.bpm)
-	road1.update_bpm(song.bpm)
-
-# func _input(event):
-# 	if event.is_action("escape") and not in_charter:
-# 		if get_tree().change_scene_to_file("res://scenes/menu_scene/menu.tscn") != OK:
-# 			print("Error changing scene to Menu")
-
-
-func _on_conductor_beat(position):
-	var notes = song.get_notes(position)
-	for note in notes:
-		_spawn_note(note.player, note.direction, note.duration)
-	if sync_phase == false and song.synced(position):
-		road0.enter_sync()
-		road1.enter_sync()
-		sync_phase = true
-	elif sync_phase and not song.synced(position):
-		road0.exit_sync()
-		road1.exit_sync()
-		sync_phase = false
-	if position > song.end_beat:
-		Global.set_score(score)
-		Global.combo = max_combo
-		Global.great = great
-		Global.good = good
-		Global.okay = okay
-		Global.missed = missed
-		if get_tree().change_scene_to_file("res://scenes/menu_scene/end.tscn") != OK:
-			print("Error changing scene to End")
-
-
-func _spawn_note(player: Global.PlayerEnum, direction: Global.Direction, duration):
-	if player == Global.PlayerEnum.PLAYER_1:
-		road0.spawn_note(direction, duration)
-	else:
-		road1.spawn_note(direction, duration)
-		
+# TODO: everything below with signals
 func set_player1hit(areaNum):
 	player1hit = areaNum
 	#print(player2hit)
 	if player2hit != 0:
-		if sync_phase:
-			if abs(player1hit - player2hit) > 2:
-				sync_health -= 1
-				print(sync_health)
+		# if sync_phase:
+		if abs(player1hit - player2hit) > 2:
+			sync_health -= 1
+			print(sync_health)
 		player1hit = 0
 		player2hit = 0
 
@@ -92,10 +45,9 @@ func set_player2hit(areaNum):
 	player2hit = areaNum
 	#print(player1hit)
 	if player1hit != 0:
-		if sync_phase:
-			if abs(player1hit - player2hit) > 2:
-				sync_health -= 1
-				print(sync_health)
+		if abs(player1hit - player2hit) > 2:
+			sync_health -= 1
+			print(sync_health)
 		player1hit = 0
 		player2hit = 0
 

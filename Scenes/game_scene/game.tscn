@@ -1,16 +1,18 @@
-[gd_scene load_steps=8 format=3 uid="uid://3bvjtpntcsjm"]
+[gd_scene load_steps=8 format=3 uid="uid://g33bep8fbr2y"]
 
-[ext_resource type="Script" uid="uid://h0uwpptxfgv3" path="res://scenes/game_scene/game.gd" id="1_wedpv"]
+[ext_resource type="Script" uid="uid://crj615a8rjrup" path="res://scenes/game_scene/game.gd" id="1_wedpv"]
+[ext_resource type="PackedScene" uid="uid://cutwd8worfdkf" path="res://scenes/game_scene/game_content/controls.tscn" id="4_700et"]
+[ext_resource type="AudioStream" uid="uid://b34wfgh40uvd5" path="res://assets/audio/hhr_tutorial_001.wav" id="5_wedpv"]
+[ext_resource type="PackedScene" uid="uid://crll3qxx6ayas" path="res://scenes/game_scene/game_content/enemy_horse.tscn" id="6_7ulqd"]
 [ext_resource type="FontFile" path="res://assets/font/heartbit2x.tres" id="7"]
-[ext_resource type="PackedScene" uid="uid://blmin3fl4tjts" path="res://scenes/game_scene/game_content/road.tscn" id="7_wedpv"]
-[ext_resource type="PackedScene" uid="uid://ba3ubi0o638a8" path="res://scenes/game_scene/game_content/conductor.tscn" id="8"]
-[ext_resource type="AudioStream" uid="uid://dviaakn0trh17" path="res://assets/audio/Horse.wav" id="9_tr8b4"]
 [ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://scenes/game_scene/game_data/song.tscn" id="10_2ye08"]
 [ext_resource type="PackedScene" uid="uid://i8w4vbv1cnsc" path="res://scenes/game_scene/game_content/dance_bar.tscn" id="10_28n3v"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("song")]
+[node name="Game" type="Node2D"]
 script = ExtResource("1_wedpv")
-song = NodePath("Song")
+
+[node name="Song" parent="." instance=ExtResource("10_2ye08")]
+song_stream = ExtResource("5_wedpv")
 
 [node name="Label" type="Label" parent="."]
 visible = false
@@ -33,22 +35,13 @@ theme_override_fonts/font = ExtResource("7")
 horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
-[node name="Conductor" parent="." instance=ExtResource("8")]
-stream = ExtResource("9_tr8b4")
-volume_db = -15.0
-bpm = 115
-
-[node name="Song" parent="." instance=ExtResource("10_2ye08")]
-
 [node name="DanceBar" parent="." instance=ExtResource("10_28n3v")]
 position = Vector2(-152, -200)
 scale = Vector2(0.25, 0.25)
 
-[node name="Road0" parent="." instance=ExtResource("7_wedpv")]
-position = Vector2(-80, 0)
+[node name="Controls" parent="." node_paths=PackedStringArray("song") instance=ExtResource("4_700et")]
+song = NodePath("../Song")
+in_charter = false
 
-[node name="Road1" parent="." instance=ExtResource("7_wedpv")]
-position = Vector2(80, 0)
-player_num = 1
-
-[connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
+[node name="EnemyHorse" parent="." instance=ExtResource("6_7ulqd")]
+scale = Vector2(0.07, 0.07)
