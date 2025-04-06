@@ -22,22 +22,22 @@ func set_toggle(notes_list):
 func get_note_info():
 	var notes_list = []
 	if beat_sync:
-		var player = 0
-		for direction in [0, 1, 2, 3]:
+		var player = Global.PlayerEnum.PLAYER_1
+		for direction in Global.Direction:
 			var note_info: NoteInfo = note_info_scene.instantiate()
-			note_info.initialize(player, direction, false)
+			note_info.initialize(player, Global.Direction[direction], false)
 			var button = get_node(note_info.get_uid())
 			if button.get_pressed():
-				notes_list.append({"player": 0, "direction": direction, "held": button.get_held()})
-				notes_list.append({"player": 1, "direction": direction, "held": button.get_held()})
+				notes_list.append({"player": Global.PlayerEnum.PLAYER_1, "direction": Global.Direction[direction], "held": button.get_held()})
+				notes_list.append({"player": Global.PlayerEnum.PLAYER_2, "direction": Global.Direction[direction], "held": button.get_held()})
 	else:
-		for player in [0, 1]:
-			for direction in [0, 1, 2, 3]:
+		for player in Global.PlayerEnum:
+			for direction in Global.Direction:
 				var note_info: NoteInfo = note_info_scene.instantiate()
-				note_info.initialize(player, direction, false)
+				note_info.initialize(Global.PlayerEnum[player], Global.Direction[direction], false)
 				var button = get_node(note_info.get_uid())
 				if button.get_pressed():
-					notes_list.append({"player": player, "direction": direction, "held": button.get_held()})
+					notes_list.append({"player": Global.PlayerEnum[player], "direction": Global.Direction[direction], "held": button.get_held()})
 	return {"sync": beat_sync, "arrows": notes_list}
 
 func get_sync():

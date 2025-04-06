@@ -12,27 +12,6 @@ var ticks = 0
 var bpm = 120
 var bpm_set = false
 
-func play_sound(note_name, hz = 0, volume = 0):
-	if note_name in audio_streams:
-		audio_streams[note_name].stop()
-		audio_streams[note_name].queue_free()
-		audio_streams.erase(note_name)
-	if volume > 0:
-		var audio_stream = AudioStreamPlayer.new()
-		audio_stream.stream = AudioStreamGenerator.new()
-		audio_stream.volume_db = - ((1 - volume) * 20)
-		audio_stream.stream.mix_rate = 3675 # using low sample rate for performance, best is 44100
-		audio_streams[note_name] = audio_stream
-		add_child(audio_stream)
-		audio_stream.play()
-		var playback = audio_stream.get_stream_playback()
-		var increment = hz / audio_stream.stream.mix_rate
-		var to_fill = playback.get_frames_available()
-		while to_fill > 0:
-			playback.push_frame(Vector2.ONE * sin(phase * TAU)) # Audio frames are stereo.
-			phase = fmod(phase + increment, 1.0)
-			to_fill -= 1
-
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	parser = MidiFileParser.load_file(MidiSourcePath)

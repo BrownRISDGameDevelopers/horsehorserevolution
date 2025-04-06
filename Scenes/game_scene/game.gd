@@ -12,11 +12,6 @@ var good = 0
 var okay = 0
 var missed = 0
 
-var spawn_1_beat = 0
-var spawn_2_beat = 0
-var spawn_3_beat = 1
-var spawn_4_beat = 0
-
 @onready var road0 = $Road0
 @onready var road1 = $Road1
 
@@ -34,34 +29,29 @@ var player2hit: int = -1
 func _ready():
 	if not in_charter:
 		$Conductor.set_bpm(song.bpm)
-		$Conductor.play_with_beat_offset(song.start_offset)
-	road0.initialize(song.bpm, dance_bar1, dance_bar2)
-	road1.initialize(song.bpm, dance_bar1, dance_bar2)
-	Global.measure.connect(_on_Conductor_measure)
-	Global.beat.connect(_on_Conductor_beat)
+		$Conductor.play_with_offset(song.start_offset)
+	road0.update_bpm(song.bpm)
+	road1.update_bpm(song.bpm)
 
 func set_song_from_charter(song_file_path):
 	$Conductor.stream = load(song_file_path)
 
 func play_from_charter(start_beat):
 	$Conductor.set_bpm(song.bpm)
-	$Conductor.play_from_beat(start_beat, song.start_offset)
+	$Conductor.play_from_position(start_beat, song.start_offset)
 	road0.update_bpm(song.bpm)
 	road1.update_bpm(song.bpm)
 
-func _input(event):
-	if event.is_action("escape") and not in_charter:
-		if get_tree().change_scene_to_file("res://scenes/menu_scene/menu.tscn") != OK:
-			print("Error changing scene to Menu")
+# func _input(event):
+# 	if event.is_action("escape") and not in_charter:
+# 		if get_tree().change_scene_to_file("res://scenes/menu_scene/menu.tscn") != OK:
+# 			print("Error changing scene to Menu")
 
 
-func _on_Conductor_measure(position):
-	pass
-
-func _on_Conductor_beat(position):
+func _on_conductor_beat(position):
 	var notes = song.get_notes(position)
 	for note in notes:
-		_spawn_note(note.get_lane(), note.duration)
+		_spawn_note(note.player, note.direction, note.duration)
 	if sync_phase == false and song.synced(position):
 		road0.enter_sync()
 		road1.enter_sync()
@@ -81,11 +71,8 @@ func _on_Conductor_beat(position):
 			print("Error changing scene to End")
 
 
-func _spawn_note(lane: Vector2, duration):
-	var player = lane.x
-	var direction = lane.y
-
-	if player == 0:
+func _spawn_note(player: Global.PlayerEnum, direction: Global.Direction, duration):
+	if player == Global.PlayerEnum.PLAYER_1:
 		road0.spawn_note(direction, duration)
 	else:
 		road1.spawn_note(direction, duration)

@@ -1,27 +1,24 @@
 extends AudioStreamPlayer
 
-@export var bpm := 100
-@export var measures := 4
+@export var bpm := 120
 
 # Tracking the beat and song position
 var song_position = 0.0
 var song_position_in_beats = 1
-var sec_per_beat = 60.0 / bpm
+
+var start_position = 0
+var start_in_seconds = 0.0
+
+var sec_per_beat: float:
+	get:
+		return 60.0 / bpm
 var last_reported_beat = -100
-var start_beat = 0
-var measure = 1
 
 # Determining how close to the beat an event is
 var closest = 0
 var time_off_beat = 0.0
-var start_position = 0.0
 
-func _ready():
-	sec_per_beat = 60.0 / bpm
-
-func set_bpm(new_bpm):
-	bpm = new_bpm
-	sec_per_beat = 60.0 / bpm
+signal beat(position)
 
 
 func _physics_process(_delta):
@@ -34,16 +31,12 @@ func _physics_process(_delta):
 
 func _report_beat():
 	if last_reported_beat < song_position_in_beats:
-		if measure > measures:
-			measure = 1
-		Global.beat.emit(song_position_in_beats)
-		Global.measure.emit(measure)
+		beat.emit(song_position_in_beats)
 		last_reported_beat = song_position_in_beats
-		measure += 1
 
 
-func play_with_beat_offset(offset):
-	play_from_beat(1, offset)
+func set_bpm(new_bpm):
+	bpm = new_bpm
 
 
 func closest_beat(nth):
@@ -52,22 +45,26 @@ func closest_beat(nth):
 	return Vector2(closest, time_off_beat)
 
 
-func play_from_beat(beat, offset):
-	start_position = (beat - 1) * sec_per_beat
-	start_beat = beat - 1
-	song_position_in_beats = beat - offset
+func play_with_offset(offset):
+	play_from_position(1, offset)
+
+
+func play_from_position(position, offset):
+	start_in_seconds = (position - 1) * sec_per_beat
+	start_position = position - 1
+	song_position_in_beats = position - offset
 	$StartTimer.wait_time = sec_per_beat
 	$StartTimer.start()
 
 
-func _on_StartTimer_timeout():
+func _on_start_timer_timeout():
 	song_position_in_beats += 1
-	if song_position_in_beats >= start_beat:
-		play(start_position)
+	if song_position_in_beats >= start_position:
+		play(start_in_seconds)
 		$StartTimer.stop()
-	elif song_position_in_beats < start_beat - 1:
+	elif song_position_in_beats < start_position - 1:
 		$StartTimer.start()
-	elif song_position_in_beats == start_beat - 1:
+	elif song_position_in_beats == start_position - 1:
 		$StartTimer.wait_time = $StartTimer.wait_time - (AudioServer.get_time_to_next_mix() +
 														AudioServer.get_output_latency())
 		$StartTimer.start()

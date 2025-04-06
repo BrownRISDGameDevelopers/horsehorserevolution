@@ -6,7 +6,7 @@ extends Node2D
 @export var beat_select: OptionButton
 @export var json_path: String
 
-var beat_ui = load("res://scenes/menu_scene/charter/charter_component/beat_ui.tscn")
+var beat_ui = load("res://scenes/charter/charter_component/beat_ui.tscn")
 
 var playing_chart = false
 var game
@@ -35,8 +35,7 @@ func _on_export_button_pressed():
 
 func _on_file_dialog_file_selected(path: String):
 	json_path = "res://assets/chart/" + $FileDialog.current_file
-	song.song_json_path = json_path
-	song.initialize()
+	song.parse_notes_from_dict(song.read_json_file(json_path))
 	var sorted_notes = []
 	for note in song.notes_list:
 		beat_select.add_item(str(note))
@@ -55,10 +54,10 @@ func _on_file_dialog_file_selected(path: String):
 
 func _on_play_button_pressed():
 	song.parse_notes_from_dict(jsonify_song())
-	playing_chart = true
 	game = game_scene.instantiate()
 	game.position = get_viewport().get_visible_rect().size / 2
 	game.song = song
 	add_child(game)
 	game.set_song_from_charter(song.song_file_path)
 	game.play_from_charter(int(beat_select.text))
+	playing_chart = true

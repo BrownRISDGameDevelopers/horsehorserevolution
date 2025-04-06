@@ -4,7 +4,6 @@ extends Node2D
 @export var bpm = 120
 @export var end_offset = 0
 @export var start_offset = 6
-var song_file_path = ""
 
 var end_beat: int = 0:
 	set(value):
@@ -13,6 +12,7 @@ var end_beat: int = 0:
 		return end_beat + end_offset
 
 @export var song_json_path: String = "res://assets/chart/test_song.json"
+var song_file_path = ""
 
 var notes_list: Dictionary = {}
 var synced_notes: Dictionary = {}
@@ -20,18 +20,11 @@ var notes_with_duration: Dictionary = {}
 
 var note_info_scene = preload("res://scenes/game_scene/game_data/note_info.tscn")
 
-func parse_json(text):
-	return JSON.parse_string(text)
-
 func read_json_file(file_path):
 	var file = FileAccess.open(file_path, FileAccess.READ)
 	var content_as_text = file.get_as_text()
-	var content_as_dictionary = parse_json(content_as_text)
+	var content_as_dictionary = JSON.parse_string(content_as_text)
 	return content_as_dictionary
-
-func initialize():
-	var song_info = read_json_file(song_json_path)
-	parse_notes_from_dict(song_info)
 
 func parse_notes_from_dict(song_info):
 	notes_list = {}
@@ -72,7 +65,8 @@ func parse_notes_from_dict(song_info):
 		end_beat = max(end_beat, int(beat))
 
 func _ready():
-	initialize()
+	var song_info = read_json_file(song_json_path)
+	parse_notes_from_dict(song_info)
 
 func get_notes(beat: int):
 	var beat_adj = beat + start_offset - 1

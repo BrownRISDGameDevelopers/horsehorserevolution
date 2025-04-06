@@ -9,9 +9,9 @@ var okay = 0
 var missed = 0
 var grade = "NA"
 
-signal beat(position)
-signal measure(position)
-
+enum PlayerEnum {PLAYER_1, PLAYER_2}
+enum ScoreEnum {OKAY, GOOD, PERFECT}
+enum Direction {LEFT, DOWN, UP, RIGHT}
 
 func set_score(new):
 	score = new

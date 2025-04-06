@@ -1,141 +1,100 @@
 extends AnimatedSprite2D
 
-var perfect = false
-var good = false
-var okay = false
+enum AREA_HIT {OKAY_UPPER, GOOD_UPPER, PERFECT, GOOD_LOWER, OKAY_LOWER, MISS = 7}
+var current_score: Global.ScoreEnum
+var current_area: AREA_HIT = AREA_HIT.MISS
+
 var current_note = null
 
-var areaHit = 0 # -2 is miss, 1 2 3 4 5 are areas from top to bottom
-
 @export var input = ""
-@export var player_num: int = 0
+@export var player_num: Global.PlayerEnum = Global.PlayerEnum.PLAYER_1
 @onready var perfect_area: Area2D = $PerfectArea
-@onready var good_area: Area2D = $GoodArea
+@onready var good_area_upper: Area2D = $GoodAreaUpper
 @onready var good_area_lower: Area2D = $GoodAreaLower
-@onready var okay_area: Area2D = $OkayArea
-@onready var okay_area_below: Area2D = $OkayAreaBelow
+@onready var okay_area_upper: Area2D = $OkayAreaUpper
+@onready var okay_area_lower: Area2D = $OkayAreaLower
 
-var game_object
-
-func update_player(road_num, game_reference):
+func update_player(road_num):
 	player_num = road_num
 	input += str(road_num)
 	if player_num == 1:
+		okay_area_upper.collision_mask = 0b0010
+		good_area_upper.collision_mask = 0b0010
 		perfect_area.collision_mask = 0b0010
-		good_area.collision_mask = 0b0010
-		okay_area.collision_mask = 0b0010
 		good_area_lower.collision_mask = 0b0010
-		okay_area_below.collision_mask = 0b0010
-	game_object = game_reference
+		okay_area_lower.collision_mask = 0b0010
+	# game_object = game_reference
 		
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed(input):
 		if current_note != null:
-			if (player_num == 1):
-				game_object.set_player1hit(areaHit)
-			else:
-				game_object.set_player2hit(areaHit)
-			if perfect:
-				game_object.increment_score(3)
-				current_note.handle_input(3)
-			elif good:
-				game_object.increment_score(2)
-				current_note.handle_input(2)
-			elif okay:
-				game_object.increment_score(1)
-				current_note.handle_input(1)
+			# if (player_num == 1):
+			# 	game_object.set_player1hit(areaHit)
+			# else:
+			# 	game_object.set_player2hit(areaHit)
+			current_note.handle_input(current_score)
 			if !current_note.held:
 				_reset()
-		else:
-			game_object.increment_score(0)
+		# else:
+			# game_object.increment_score(0)
 		frame = 1
 
 	if Input.is_action_just_released(input):
 		if current_note != null:
-			if perfect:
-				game_object.increment_score(3)
-				current_note.handle_input(3)
-			elif good:
-				game_object.increment_score(2)
-				current_note.handle_input(2)
-			elif okay:
-				game_object.increment_score(1)
-				current_note.handle_input(1)
+			current_note.handle_input(current_score)
 			_reset()
 		$PushTimer.start()
 
 
-func _on_PerfectArea_area_entered(area):
-	if current_note != null and area == current_note:
-		perfect = true
-		areaHit = 3
-	game_object.enemy_strike_pose()
-
-
-func _on_PerfectArea_area_exited(area):
-	if current_note != null and area == current_note:
-		perfect = false
-		areaHit = 4
-
-
-func _on_GoodArea_area_entered(area):
-	if current_note != null and area == current_note:
-		good = true
-		areaHit = 2
-
-
-func _on_GoodArea_area_exited(area):
-	if current_note != null and area == current_note:
-		good = false
-
-
-func _on_good_area_lower_area_exited(area: Area2D) -> void:
-	if current_note != null and area == current_note:
-		good = true
-		areaHit = 5
-
-
-func _on_good_area_lower_area_entered(area: Area2D) -> void:
-	if current_note != null and area == current_note:
-		good = false
-
-
-func _on_OkayArea_area_entered(area):
+func _on_okay_area_upper_entered(area):
 	if area.is_in_group("note"):
-		okay = true
 		current_note = area
-		areaHit = 1
+		current_score = Global.ScoreEnum.OKAY
+		current_area = AREA_HIT.OKAY_UPPER
 
 
-func _on_OkayArea_area_exited(area):
+func _on_good_area_upper_entered(area):
 	if current_note != null and area == current_note:
-		okay = false
+		current_score = Global.ScoreEnum.GOOD
+		current_area = AREA_HIT.GOOD_UPPER
 
 
-func _on_okay_area_below_area_entered(area: Area2D) -> void:
-	if area.is_in_group("note"):
-		okay = true
-		current_note = area
-
-
-func _on_okay_area_below_area_exited(area: Area2D) -> void:
+func _on_perfect_area_entered(area):
 	if current_note != null and area == current_note:
-		okay = false
-		areaHit = -2
+		current_score = Global.ScoreEnum.PERFECT
+		current_area = AREA_HIT.PERFECT
+	# TODO: do below with signals
+	# game_object.enemy_strike_pose()
+
+
+func _on_perfect_area_exited(area):
+	if current_note != null and area == current_note:
+		current_score = Global.ScoreEnum.GOOD
+		current_area = AREA_HIT.GOOD_LOWER
+
+
+func _on_good_area_lower_exited(area):
+	if current_note != null and area == current_note:
+		current_score = Global.ScoreEnum.OKAY
+		current_area = AREA_HIT.OKAY_LOWER
+
+
+func _on_okay_area_lower_exited(area):
+	if current_note != null and area == current_note:
+		current_area = AREA_HIT.MISS
 		current_note = null
-		if (player_num == 1):
-			game_object.set_player1hit(areaHit)
-		else:
-			game_object.set_player2hit(areaHit)
+		# TODO: do below with signals
+		# if (player_num == 1):
+		# 	game_object.set_player1hit(areaHit)
+		# else:
+		# 	game_object.set_player2hit(areaHit)
 
 
-func _on_PushTimer_timeout():
+func _on_push_timer_timeout():
 	frame = 0
 
 
 func _reset():
 	current_note = null
-	perfect = false
-	good = false
-	okay = false
+	current_area = AREA_HIT.MISS
