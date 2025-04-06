@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bg4st6qjmf5xc"]
 
-[ext_resource type="Script" uid="uid://w3tsm2vca0c1" path="res://scenes/menu_scene/charter/charter_component/beat_ui.gd" id="1_an7xi"]
-[ext_resource type="PackedScene" uid="uid://bhjocepaofmle" path="res://scenes/menu_scene/charter/charter_component/three_state_button.tscn" id="2_xynw5"]
+[ext_resource type="Script" uid="uid://w3tsm2vca0c1" path="res://scenes/charter/charter_component/beat_ui.gd" id="1_an7xi"]
+[ext_resource type="PackedScene" uid="uid://bhjocepaofmle" path="res://scenes/charter/charter_component/three_state_button.tscn" id="2_xynw5"]
 
 [node name="BeatUI" type="HBoxContainer"]
 offset_right = 40.0
