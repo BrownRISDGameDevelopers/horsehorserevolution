@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://cx8jnts0h38n1"]
+[gd_scene load_steps=9 format=3 uid="uid://cx8jnts0h38n1"]
 
-[ext_resource type="PackedScene" uid="uid://3bvjtpntcsjm" path="res://scenes/game_scene/game.tscn" id="1_i6m5q"]
+[ext_resource type="PackedScene" uid="uid://3bvjtpntcsjm" path="res://Scenes/game_scene/game.tscn" id="1_i6m5q"]
 [ext_resource type="AudioStream" uid="uid://b34wfgh40uvd5" path="res://assets/audio/hhr_tutorial_001.wav" id="2_lalqu"]
+[ext_resource type="PackedScene" uid="uid://crll3qxx6ayas" path="res://Scenes/game_scene/game_content/enemy_horse.tscn" id="3_dq28t"]
+[ext_resource type="Texture2D" uid="uid://c1kr33xy35eqr" path="res://assets/image/game/miku/leeku_doinggreat_v1r3_ko.PNG" id="4_clk81"]
+[ext_resource type="Texture2D" uid="uid://b6rcrfbawewj8" path="res://assets/image/game/miku/leekudoingmildlygoodnoextramarks_v1r1_katie.PNG" id="5_t11yt"]
+[ext_resource type="Texture2D" uid="uid://dy38wyb0qoitl" path="res://assets/image/game/miku/leeku_doingmildlybad_v1r1.PNG" id="6_qfr1n"]
+[ext_resource type="Texture2D" uid="uid://ct7skmgbv6kd4" path="res://assets/image/game/miku/leeku_doingbadly_v2r2_miles.png" id="7_7b46r"]
+[ext_resource type="Texture2D" uid="uid://kijc7elurhyq" path="res://assets/image/game/miku/leeku_static_v1r3_ko.PNG" id="8_rl5ak"]
 
 [node name="Tutorial" instance=ExtResource("1_i6m5q")]
 position = Vector2(166, 132)
@@ -13,3 +19,12 @@ stream = ExtResource("2_lalqu")
 [node name="Song" parent="." index="3"]
 end_offset = -63
 song_json_path = "res://assets/chart/tutorial.json"
+
+[node name="EnemyHorse" parent="." index="7" instance=ExtResource("3_dq28t")]
+position = Vector2(82, -2)
+scale = Vector2(0.08, 0.08)
+great = ExtResource("4_clk81")
+mildlygood = ExtResource("5_t11yt")
+mildlybad = ExtResource("6_qfr1n")
+bad = ExtResource("7_7b46r")
+static_pose = ExtResource("8_rl5ak")
