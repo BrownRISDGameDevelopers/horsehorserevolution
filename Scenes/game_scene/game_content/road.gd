@@ -37,6 +37,9 @@ func exit_sync():
 	else:
 		anim.play("exit_sync_left")
 
+func update_bpm(new_bpm):
+	bpm = new_bpm
+
 func initialize(new_bpm, db1, db2):
 	bpm = new_bpm
 	dance_bar1 = db1

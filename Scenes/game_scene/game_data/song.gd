@@ -4,6 +4,7 @@ extends Node2D
 @export var bpm = 120
 @export var end_offset = 0
 @export var start_offset = 6
+var song_file_path = ""
 
 var end_beat: int = 0:
 	set(value):
@@ -29,14 +30,23 @@ func read_json_file(file_path):
 	return content_as_dictionary
 
 func initialize():
+	var song_info = read_json_file(song_json_path)
+	parse_notes_from_dict(song_info)
+
+func parse_notes_from_dict(song_info):
 	notes_list = {}
 	synced_notes = {}
 	notes_with_duration = {}
-	var song_info = read_json_file(song_json_path)
 	var raw_notes_list = song_info["notes"]
+	if "song_path" in song_info:
+		song_file_path = song_info["song_path"]
 	bpm = song_info["bpm"]
 	var prev_notes = {}
-	for beat in raw_notes_list:
+	var sorted_beats = raw_notes_list.keys()
+	var sort_ascending = func(a, b):
+		return int(a) < int(b)
+	sorted_beats.sort_custom(sort_ascending)
+	for beat in sorted_beats:
 		var cur_notes = {}
 		var beat_notes = []
 		if raw_notes_list[beat]["sync"]:
@@ -65,7 +75,7 @@ func _ready():
 	initialize()
 
 func get_notes(beat: int):
-	var beat_adj = beat - 2
+	var beat_adj = beat + start_offset - 1
 	if beat_adj not in notes_with_duration:
 		return []
 	var notes = notes_with_duration[beat_adj]

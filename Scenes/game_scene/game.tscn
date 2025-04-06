@@ -49,3 +49,4 @@ position = Vector2(-80, 0)
 
 [node name="Road1" parent="." instance=ExtResource("7_wedpv")]
 position = Vector2(80, 0)
+road_num = 1

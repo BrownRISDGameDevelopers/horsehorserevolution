@@ -3,21 +3,41 @@
 [ext_resource type="Script" uid="uid://cynpka8rixy1y" path="res://scenes/menu_scene/charter/charter.gd" id="1_qwsub"]
 [ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://scenes/game_scene/game_data/song.tscn" id="2_o0qfc"]
 
-[node name="Charter" type="Node2D" node_paths=PackedStringArray("song", "notes_container", "notes_list")]
+[node name="Charter" type="Node2D" node_paths=PackedStringArray("song", "notes_container", "notes_list", "beat_select")]
 script = ExtResource("1_qwsub")
 song = NodePath("Song")
-notes_container = NodePath("NotesContainer")
-notes_list = NodePath("NotesContainer/NotesList")
+notes_container = NodePath("HBoxContainer/NotesContainer")
+notes_list = NodePath("HBoxContainer/NotesContainer/NotesList")
+beat_select = NodePath("HBoxContainer/VBoxContainer/BeatSelect")
 
 [node name="Song" parent="." instance=ExtResource("2_o0qfc")]
 
-[node name="NotesContainer" type="ScrollContainer" parent="."]
-offset_right = 640.0
-offset_bottom = 320.0
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 852.0
+offset_bottom = 463.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="NotesList" type="VBoxContainer" parent="NotesContainer"]
+[node name="NotesContainer" type="ScrollContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="NotesList" type="VBoxContainer" parent="HBoxContainer/NotesContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="ExportButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Export"
+
+[node name="PlayButton" type="Button" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Play"
+
+[node name="BeatSelect" type="OptionButton" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
 [node name="FileDialog" type="FileDialog" parent="."]
@@ -29,12 +49,6 @@ file_mode = 0
 root_subfolder = "assets/chart/"
 use_native_dialog = true
 
-[node name="ExportButton" type="Button" parent="."]
-offset_left = 560.0
-offset_top = 20.0
-offset_right = 620.0
-offset_bottom = 51.0
-text = "Export"
-
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/ExportButton" to="." method="_on_export_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]
-[connection signal="pressed" from="ExportButton" to="." method="_on_export_button_pressed"]

@@ -7,6 +7,3 @@ position = Vector2(166, 132)
 
 [node name="Song" parent="." index="3"]
 song_json_path = "res://assets/chart/death_metal.json"
-
-[node name="Road1" parent="." index="6"]
-road_num = 1

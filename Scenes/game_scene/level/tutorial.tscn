@@ -5,6 +5,7 @@
 
 [node name="Tutorial" instance=ExtResource("1_i6m5q")]
 position = Vector2(166, 132)
+in_charter = false
 
 [node name="Conductor" parent="." index="2"]
 stream = ExtResource("2_lalqu")
@@ -12,6 +13,3 @@ stream = ExtResource("2_lalqu")
 [node name="Song" parent="." index="3"]
 end_offset = -63
 song_json_path = "res://assets/chart/tutorial.json"
-
-[node name="Road1" parent="." index="6"]
-road_num = 1

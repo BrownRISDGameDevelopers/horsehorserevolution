@@ -1,6 +1,7 @@
 extends Node2D
 
 @export var song: Song
+@export var in_charter: bool = true
 
 var score = 0
 var combo = 0
@@ -29,16 +30,25 @@ var player1hit: int = -1
 var player2hit: int = -1
 
 func _ready():
-	$Conductor.set_bpm(song.bpm)
-	$Conductor.play_with_beat_offset(song.start_offset)
+	if not in_charter:
+		$Conductor.set_bpm(song.bpm)
+		$Conductor.play_with_beat_offset(song.start_offset)
 	road0.initialize(song.bpm, dance_bar1, dance_bar2)
 	road1.initialize(song.bpm, dance_bar1, dance_bar2)
 	Global.measure.connect(_on_Conductor_measure)
 	Global.beat.connect(_on_Conductor_beat)
 
+func set_song_from_charter(song_file_path):
+	$Conductor.stream = load(song_file_path)
+
+func play_from_charter(start_beat):
+	$Conductor.set_bpm(song.bpm)
+	$Conductor.play_from_beat(start_beat, song.start_offset)
+	road0.update_bpm(song.bpm)
+	road1.update_bpm(song.bpm)
 
 func _input(event):
-	if event.is_action("escape"):
+	if event.is_action("escape") and not in_charter:
 		if get_tree().change_scene_to_file("res://scenes/menu_scene/menu.tscn") != OK:
 			print("Error changing scene to Menu")
 
