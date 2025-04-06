@@ -9,15 +9,15 @@ extends Node2D
 var beat_ui = load("res://scenes/charter/charter_component/beat_ui.tscn")
 
 var playing_chart = false
-var game
-var game_scene = preload("res://scenes/game_scene/game.tscn")
+var controls
+var controls_scene = preload("res://scenes/game_scene/game_content/controls.tscn")
 
 func _process(delta):
 	$HBoxContainer.visible = not playing_chart
 	if Input.is_action_pressed("escape"):
 		playing_chart = false
-		if game:
-			game.queue_free()
+		if controls:
+			controls.queue_free()
 
 func jsonify_song():
 	var song_json = {}
@@ -54,10 +54,10 @@ func _on_file_dialog_file_selected(path: String):
 
 func _on_play_button_pressed():
 	song.parse_notes_from_dict(jsonify_song())
-	game = game_scene.instantiate()
-	game.position = get_viewport().get_visible_rect().size / 2
-	game.song = song
-	add_child(game)
-	game.set_song_from_charter(song.song_file_path)
-	game.play_from_charter(int(beat_select.text))
+	controls = controls_scene.instantiate()
+	controls.position = get_viewport().get_visible_rect().size / 2
+	controls.song = song
+	add_child(controls)
+	controls.set_song_from_charter(song.song_file_path)
+	controls.play_from_charter(int(beat_select.text))
 	playing_chart = true

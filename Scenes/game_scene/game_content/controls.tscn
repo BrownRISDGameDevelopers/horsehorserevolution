@@ -1,0 +1,27 @@
+[gd_scene load_steps=6 format=3 uid="uid://cutwd8worfdkf"]
+
+[ext_resource type="Script" uid="uid://h0uwpptxfgv3" path="res://scenes/game_scene/game_content/controls.gd" id="1_o41nn"]
+[ext_resource type="PackedScene" uid="uid://blmin3fl4tjts" path="res://scenes/game_scene/game_content/road.tscn" id="7_wedpv"]
+[ext_resource type="PackedScene" uid="uid://ba3ubi0o638a8" path="res://scenes/game_scene/game_content/conductor.tscn" id="8"]
+[ext_resource type="AudioStream" uid="uid://dviaakn0trh17" path="res://assets/audio/Horse.wav" id="9_tr8b4"]
+[ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://scenes/game_scene/game_data/song.tscn" id="10_2ye08"]
+
+[node name="Controls" type="Node2D" node_paths=PackedStringArray("song")]
+script = ExtResource("1_o41nn")
+song = NodePath("Song")
+
+[node name="Conductor" parent="." instance=ExtResource("8")]
+stream = ExtResource("9_tr8b4")
+volume_db = -15.0
+bpm = 115
+
+[node name="Song" parent="." instance=ExtResource("10_2ye08")]
+
+[node name="Road0" parent="." instance=ExtResource("7_wedpv")]
+position = Vector2(-80, 0)
+
+[node name="Road1" parent="." instance=ExtResource("7_wedpv")]
+position = Vector2(80, 0)
+player_num = 1
+
+[connection signal="beat" from="Conductor" to="." method="_on_conductor_beat"]
