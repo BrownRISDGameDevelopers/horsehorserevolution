@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpdv6oucd1617"]
+[gd_scene load_steps=8 format=3 uid="uid://ckied4db2by3l"]
 
 [ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://Scenes/game_scene/game.tscn" id="1_5ymxc"]
 [ext_resource type="AudioStream" uid="uid://dviaakn0trh17" path="res://assets/audio/Horse.wav" id="2_we0tg"]
