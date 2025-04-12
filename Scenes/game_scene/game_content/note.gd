@@ -11,9 +11,6 @@ var has_trail = false
 
 var player_num: Global.PlayerEnum = Global.PlayerEnum.PLAYER_1
 
-var dance_bar1: TextureProgressBar
-var dance_bar2: TextureProgressBar
-
 @onready var head_sprite: AnimatedSprite2D = $HoldHeadSprite
 @onready var head_collision: CollisionShape2D = $HoldHeadCollision
 @onready var tail_sprite: AnimatedSprite2D = $HoldTailSprite
@@ -37,8 +34,9 @@ func _physics_process(delta):
 				#get_parent().get_parent().get_parent().set_player1hit(-2)
 			#else:
 				#get_parent().get_parent().get_parent().set_player2hit(-2)
-			# dance_bar1.value -= 10
-			# dance_bar2.value += 10
+			#dance_bar1.value -= 10
+			#dance_bar2.value += 10
+			Global.dance_bar_change.emit(-10)
 			# get_parent().get_parent().get_parent().reset_combo()
 			queue_free()
 	else:

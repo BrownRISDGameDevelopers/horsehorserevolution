@@ -14,6 +14,7 @@ enum ScoreEnum {OKAY, GOOD, PERFECT}
 enum Direction {LEFT, DOWN, UP, RIGHT}
 
 signal enemy_strike_pose
+signal dance_bar_change(x)
 
 func set_score(new):
 	score = new

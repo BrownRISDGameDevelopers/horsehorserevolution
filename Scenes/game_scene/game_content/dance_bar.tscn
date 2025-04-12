@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://i8w4vbv1cnsc"]
+[gd_scene load_steps=3 format=3 uid="uid://i8w4vbv1cnsc"]
 
 [ext_resource type="Texture2D" uid="uid://cg0vyo2mernso" path="res://assets/image/game/health_bar_temp.png" id="1_2qd6g"]
+[ext_resource type="Script" uid="uid://dgocxtk5lyda0" path="res://Scenes/game_scene/game_content/dance_bar.gd" id="1_63cml"]
 
 [node name="DanceBar" type="Node2D"]
+script = ExtResource("1_63cml")
 
 [node name="TextureProgressBar1" type="TextureProgressBar" parent="."]
 offset_right = 1200.0
