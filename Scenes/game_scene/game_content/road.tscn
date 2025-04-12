@@ -159,7 +159,6 @@ input = "left"
 
 [node name="ArrowDown" parent="RoadSprite" instance=ExtResource("3_af1g8")]
 position = Vector2(-20, 80)
-rotation = 3.14159
 input = "down"
 
 [node name="ArrowUp" parent="RoadSprite" instance=ExtResource("3_af1g8")]

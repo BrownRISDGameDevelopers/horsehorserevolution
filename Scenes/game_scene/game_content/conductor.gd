@@ -18,8 +18,6 @@ var last_reported_beat = -100
 var closest = 0
 var time_off_beat = 0.0
 
-signal beat(position)
-
 
 func _physics_process(_delta):
 	if playing:
@@ -31,9 +29,8 @@ func _physics_process(_delta):
 
 func _report_beat():
 	if last_reported_beat < song_position_in_beats:
-		beat.emit(song_position_in_beats)
 		last_reported_beat = song_position_in_beats
-		Global.enemy_strike_pose.emit()
+		Global.beat.emit(song_position_in_beats)
 
 
 func set_bpm(new_bpm):

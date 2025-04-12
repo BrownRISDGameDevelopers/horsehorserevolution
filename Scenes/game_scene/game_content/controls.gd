@@ -17,6 +17,9 @@ var missed = 0
 
 var sync_phase: bool = false
 
+func _ready():
+	Global.beat.connect(_on_conductor_beat)
+
 func play_from_beat(start_beat = 1):
 	$Conductor.stream = song.song_stream
 	$Conductor.set_bpm(song.bpm)

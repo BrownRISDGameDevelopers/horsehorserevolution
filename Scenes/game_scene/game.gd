@@ -26,7 +26,7 @@ signal level_lost
 
 func _ready():
 	controls.play_from_beat(1)
-	Global.enemy_strike_pose.connect(enemy_strike_pose)
+	Global.beat.connect(enemy_strike_pose)
 	Global.level_over.connect(complete_level)
 	Global.note_hit.connect(handle_note_hit)
 
@@ -39,10 +39,9 @@ func handle_note_hit(player: Global.PlayerEnum, area: Global.AreaHit, note_score
 	increment_score(note_score)
 
 func handle_sync_health():
-	if controls.sync_phase:
-		if abs(player1hit - player2hit) > 2:
-			sync_health -= 1
-			print(sync_health)
+	if controls.sync_phase and abs(player1hit - player2hit) > 2:
+		sync_health -= 1
+		print(sync_health)
 
 func increment_score(note_score: Global.ScoreEnum):
 	if note_score != Global.ScoreEnum.MISS:
@@ -70,23 +69,16 @@ func increment_score(note_score: Global.ScoreEnum):
 	if dance_bar1.value <= 0 or dance_bar2.value >= 200:
 		game_over()
 	score += note_score * combo
-	# $Label.text = str(score)
-	if combo > 0:
-		$Combo.text = str(combo) + " combo!"
-		if combo > max_combo:
-			max_combo = combo
-	else:
-		$Combo.text = ""
+
+	$Combo.text = "x" + str(combo)
+	if combo > max_combo:
+		max_combo = combo
 
 func game_over():
 	level_lost.emit()
 
 func complete_level():
 	level_won.emit()
-
-func reset_combo():
-	combo = 0
-	$Combo.text = ""
 	
 func enemy_strike_pose():
 	enemy_horse.strike_pose(dance_bar1.value)
