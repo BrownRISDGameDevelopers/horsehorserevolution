@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cx8jnts0h38n1"]
 
-[ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://Scenes/game_scene/game.tscn" id="1_i6m5q"]
+[ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_i6m5q"]
 [ext_resource type="Texture2D" uid="uid://c1kr33xy35eqr" path="res://assets/image/game/miku/leeku_doinggreat_v1r3_ko.PNG" id="2_4tg0q"]
 [ext_resource type="Texture2D" uid="uid://b6rcrfbawewj8" path="res://assets/image/game/miku/leekudoingmildlygoodnoextramarks_v1r1_katie.PNG" id="3_ecgwy"]
 [ext_resource type="Texture2D" uid="uid://dy38wyb0qoitl" path="res://assets/image/game/miku/leeku_doingmildlybad_v1r1.PNG" id="4_clk81"]
@@ -11,7 +11,7 @@
 
 [node name="Song" parent="." index="1"]
 song_json_path = "res://assets/chart/tutorial.json"
-end_offset = -63
+end_offset = -140
 
 [node name="EnemyHorse" parent="." index="4"]
 great = ExtResource("2_4tg0q")
