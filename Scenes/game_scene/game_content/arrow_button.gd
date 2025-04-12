@@ -34,6 +34,7 @@ func _physics_process(delta):
 			# else:
 			# 	game_object.set_player2hit(areaHit)
 			current_note.handle_input(current_score)
+			Global.enemy_strike_pose.emit()
 			if !current_note.held:
 				_reset()
 		# else:

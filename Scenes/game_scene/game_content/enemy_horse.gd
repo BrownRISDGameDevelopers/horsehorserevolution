@@ -8,16 +8,17 @@ extends Sprite2D
 @onready var timer: Timer = $Timer
 
 func strike_pose(dancebarval): # between 0 and 200
-	var rand = randi_range(0,200)
-	if (rand * 4 < dancebarval):
-		texture = bad
-	elif (rand < dancebarval):
-		texture = mildlybad
-	elif (rand / 2 >= dancebarval):
-		texture = great
-	else:
-		texture = mildlygood
-	timer.start()
+	if (timer.is_stopped()):
+		var rand = randi_range(0,200)
+		if (rand * 4 < dancebarval):
+			texture = bad
+		elif (rand < dancebarval):
+			texture = mildlybad
+		elif (rand / 2 >= dancebarval):
+			texture = great
+		else:
+			texture = mildlygood
+		timer.start()
 	return
 
 
