@@ -67,8 +67,8 @@ func increment_score(note_score: Global.ScoreEnum):
 		dance_bar1.value -= 5
 		dance_bar2.value += 5
 	
-	# if dance_bar1.value == 0 or dance_bar2.value == 200:
-	# 	game_over()
+	if dance_bar1.value <= 0 or dance_bar2.value >= 200:
+		game_over()
 	score += note_score * combo
 	# $Label.text = str(score)
 	if combo > 0:
