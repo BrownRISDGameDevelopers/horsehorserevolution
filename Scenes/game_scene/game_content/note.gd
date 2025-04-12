@@ -11,9 +11,6 @@ var has_trail = false
 
 var player_num: Global.PlayerEnum = Global.PlayerEnum.PLAYER_1
 
-var dance_bar1: TextureProgressBar
-var dance_bar2: TextureProgressBar
-
 @onready var head_sprite: AnimatedSprite2D = $HoldHeadSprite
 @onready var head_collision: CollisionShape2D = $HoldHeadCollision
 @onready var tail_sprite: AnimatedSprite2D = $HoldTailSprite
@@ -33,6 +30,7 @@ func _physics_process(delta):
 		position.y += speed * delta
 		if position.y > target_y + DESPAWN_DISTANCE:
 			Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS)
+			Global.dance_bar_change.emit(-10)
 			queue_free()
 	else:
 		score_label.position.y -= speed * delta

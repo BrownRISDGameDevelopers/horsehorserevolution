@@ -15,6 +15,7 @@ enum Direction {LEFT, DOWN, UP, RIGHT}
 enum AreaHit {OKAY_UPPER, GOOD_UPPER, PERFECT, GOOD_LOWER, OKAY_LOWER, MISS = 7}
 
 signal enemy_strike_pose
+signal dance_bar_change(x)
 signal level_over
 signal note_hit(player, area, score)
 
