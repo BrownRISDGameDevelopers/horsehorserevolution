@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://dy7ffyvlcyfwa"]
 
 [ext_resource type="SpriteFrames" path="res://assets/frame/arrow_up_frames.tres" id="1"]
-[ext_resource type="Script" uid="uid://gus33ax43y5q" path="res://scenes/game_scene/game_content/arrow_button.gd" id="2"]
+[ext_resource type="Script" uid="uid://gus33ax43y5q" path="res://Scenes/game_scene/game_content/arrow_button.gd" id="2"]
 
 [sub_resource type="RectangleShape2D" id="3"]
 size = Vector2(8, 32)

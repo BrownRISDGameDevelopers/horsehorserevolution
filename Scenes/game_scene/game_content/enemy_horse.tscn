@@ -6,3 +6,9 @@
 [node name="EnemyHorse" type="Sprite2D"]
 texture = ExtResource("1_ni4bs")
 script = ExtResource("2_jngmd")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
