@@ -1,47 +1,46 @@
 [gd_scene load_steps=8 format=3 uid="uid://g33bep8fbr2y"]
 
 [ext_resource type="Script" uid="uid://crj615a8rjrup" path="res://scenes/game_scene/game.gd" id="1_wedpv"]
+[ext_resource type="Texture2D" uid="uid://b3il1ioyuugsk" path="res://assets/image/ui/ui_mock.png" id="2_fhy3a"]
 [ext_resource type="PackedScene" uid="uid://cutwd8worfdkf" path="res://scenes/game_scene/game_content/controls.tscn" id="4_700et"]
 [ext_resource type="AudioStream" uid="uid://b34wfgh40uvd5" path="res://assets/audio/hhr_tutorial_001.wav" id="5_wedpv"]
 [ext_resource type="PackedScene" uid="uid://crll3qxx6ayas" path="res://scenes/game_scene/game_content/enemy_horse.tscn" id="6_7ulqd"]
-[ext_resource type="FontFile" path="res://assets/font/heartbit2x.tres" id="7"]
 [ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://scenes/game_scene/game_data/song.tscn" id="10_2ye08"]
 [ext_resource type="PackedScene" uid="uid://i8w4vbv1cnsc" path="res://scenes/game_scene/game_content/dance_bar.tscn" id="10_28n3v"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wedpv")
 
+[node name="UiMock" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.576471)
+position = Vector2(960, 540)
+texture = ExtResource("2_fhy3a")
+metadata/_edit_lock_ = true
+
 [node name="Song" parent="." instance=ExtResource("10_2ye08")]
 song_stream = ExtResource("5_wedpv")
 
-[node name="Label" type="Label" parent="."]
-visible = false
-offset_left = -150.0
-offset_top = -90.0
-offset_right = -110.0
-offset_bottom = -76.0
-theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
-theme_override_fonts/font = ExtResource("7")
-text = "0"
-metadata/_edit_use_anchors_ = true
-
-[node name="Combo" type="Label" parent="."]
-offset_left = -152.0
-offset_top = -89.0
-offset_right = -60.0
-offset_bottom = -75.0
-theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
-theme_override_fonts/font = ExtResource("7")
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
 [node name="DanceBar" parent="." instance=ExtResource("10_28n3v")]
-position = Vector2(-152, -200)
-scale = Vector2(0.25, 0.25)
+position = Vector2(107, 120)
 
 [node name="Controls" parent="." node_paths=PackedStringArray("song") instance=ExtResource("4_700et")]
+position = Vector2(679, 649)
+scale = Vector2(4, 4)
 song = NodePath("../Song")
 in_charter = false
 
 [node name="EnemyHorse" parent="." instance=ExtResource("6_7ulqd")]
-scale = Vector2(0.07, 0.07)
+position = Vector2(1480, 410)
+scale = Vector2(0.25, 0.25)
+
+[node name="Combo" type="Label" parent="."]
+offset_left = 1417.0
+offset_top = 723.0
+offset_right = 1586.0
+offset_bottom = 866.0
+rotation = -0.144862
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "x12"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true

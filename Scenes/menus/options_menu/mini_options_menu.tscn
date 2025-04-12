@@ -1,8 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dmagvxhy4s8b2"]
+[gd_scene load_steps=3 format=3 uid="uid://dmagvxhy4s8b2"]
 
-[ext_resource type="PackedScene" uid="uid://vh1ucj2rfbby" path="res://addons/maaacks_menus_template/base/scenes/menus/options_menu/mini_options_menu.tscn" id="1_7wq3x"]
+[ext_resource type="PackedScene" uid="uid://vh1ucj2rfbby" path="res://addons/maaacks_game_template/base/scenes/menus/options_menu/mini_options_menu.tscn" id="1_7wq3x"]
+[ext_resource type="Script" uid="uid://0g6a1okm5adj" path="res://scenes/menus/options_menu/mini_options_menu.gd" id="2_ryhko"]
 
 [node name="MiniOptionsMenu" instance=ExtResource("1_7wq3x")]
-
-[node name="MuteControl" parent="." index="1"]
-visible = false
+script = ExtResource("2_ryhko")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://d1bq8de8pvukb"]
+[gd_scene load_steps=19 format=3 uid="uid://d1bq8de8pvukb"]
 
-[ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_menus_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_rr1rn"]
+[ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_rr1rn"]
 [ext_resource type="Script" uid="uid://b5lcdipfppvp8" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_sr523"]
 [ext_resource type="PackedScene" uid="uid://cflwwqdmh5ynp" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_ixa71"]
+[ext_resource type="PackedScene" uid="uid://ns2he70lcvgj" path="res://scenes/menus/level_select_menu/level_select_menu.tscn" id="3_sr523"]
 [ext_resource type="PackedScene" uid="uid://d1jel6tglluae" path="res://scenes/credits/credits.tscn" id="4_2k5l7"]
 
 [sub_resource type="Animation" id="1"]
@@ -351,7 +352,8 @@ graph_offset = Vector2(-180.277, 49)
 
 [node name="MainMenu" instance=ExtResource("1_rr1rn")]
 script = ExtResource("2_sr523")
-game_scene_path = "uid://cx8jnts0h38n1"
+level_select_packed_scene = ExtResource("3_sr523")
+game_scene_path = "uid://b4hnju2t8u5t4"
 options_packed_scene = ExtResource("3_ixa71")
 credits_packed_scene = ExtResource("4_2k5l7")
 
@@ -392,4 +394,22 @@ visible = false
 layout_mode = 2
 text = "Continue"
 
+[node name="LevelSelectButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Level Select"
+
+[node name="LevelSelectContainer" type="MarginContainer" parent="." index="9"]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 32
+
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]

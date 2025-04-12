@@ -4,8 +4,10 @@
 [ext_resource type="AudioStream" uid="uid://dviaakn0trh17" path="res://assets/audio/Horse.wav" id="2_7bll5"]
 
 [node name="DeathMetal" instance=ExtResource("1_7bll5")]
-position = Vector2(166, 132)
 
-[node name="Song" parent="." index="0"]
+[node name="Song" parent="." index="1"]
 song_json_path = "res://assets/chart/death_metal.json"
 song_stream = ExtResource("2_7bll5")
+
+[node name="DanceBar" parent="." index="2"]
+position = Vector2(-89, -276)

@@ -30,7 +30,7 @@ Author: [Linus Torvalds](https://github.com/torvalds)
 Source: [git-scm.com](https://git-scm.com/downloads)  
 License: [GNU General Public License version 2](https://opensource.org/licenses/GPL-2.0)
 
-#### Godot Menus Template
-Author: [Marek Belski](https://github.com/Maaack/Godot-Menus-Template/graphs/contributors)  
-Source: [github: Godot-Menus-Template](https://github.com/Maaack/Godot-Menus-Template)  
+#### Godot Game Template
+Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Game-Template/graphs/contributors)  
+Source: [github: Godot-Game-Template](https://github.com/Maaack/Godot-Game-Template)  
 License: [MIT License](LICENSE.txt)  
