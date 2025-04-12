@@ -10,11 +10,13 @@ var missed = 0
 var grade = "NA"
 
 enum PlayerEnum {PLAYER_1, PLAYER_2}
-enum ScoreEnum {OKAY, GOOD, PERFECT}
+enum ScoreEnum {MISS, OKAY, GOOD, PERFECT}
 enum Direction {LEFT, DOWN, UP, RIGHT}
+enum AreaHit {OKAY_UPPER, GOOD_UPPER, PERFECT, GOOD_LOWER, OKAY_LOWER, MISS = 7}
 
 signal enemy_strike_pose
 signal level_over
+signal note_hit(player, area, score)
 
 func set_score(new):
 	score = new

@@ -32,17 +32,11 @@ func _physics_process(delta):
 	elif not hit:
 		position.y += speed * delta
 		if position.y > target_y + DESPAWN_DISTANCE:
-			# TODO: use signals for below
-			#if (player_num == 1):
-				#get_parent().get_parent().get_parent().set_player1hit(-2)
-			#else:
-				#get_parent().get_parent().get_parent().set_player2hit(-2)
-			# dance_bar1.value -= 10
-			# dance_bar2.value += 10
-			# get_parent().get_parent().get_parent().reset_combo()
+			Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS)
 			queue_free()
 	else:
 		score_label.position.y -= speed * delta
+
 
 func initialize(duration, bpm, road_num, end_y):
 	player_num = road_num
@@ -55,6 +49,8 @@ func initialize(duration, bpm, road_num, end_y):
 
 	head_collision.shape.set_size(Vector2(8, 8 * (bpm / 120)))
 	tail_collision.shape.set_size(Vector2(8, 8 * (bpm / 120)))
+
+	# TODO: resize an area for hold notes to be released in
 
 	var sec_per_beat = 60.0 / bpm
 	if duration > 1:

@@ -28,44 +28,37 @@ func _ready():
 	controls.play_from_beat(1)
 	Global.enemy_strike_pose.connect(enemy_strike_pose)
 	Global.level_over.connect(complete_level)
+	Global.note_hit.connect(handle_note_hit)
 
-# TODO: everything below with signals
-func set_player1hit(areaNum):
-	player1hit = areaNum
-	#print(player2hit)
-	if player2hit != 0:
-		# if sync_phase:
+func handle_note_hit(player: Global.PlayerEnum, area: Global.AreaHit, note_score: Global.ScoreEnum):
+	if player == Global.PlayerEnum.PLAYER_1:
+		player1hit = area
+	else:
+		player2hit = area
+	handle_sync_health()
+	increment_score(note_score)
+
+func handle_sync_health():
+	if controls.sync_phase:
 		if abs(player1hit - player2hit) > 2:
 			sync_health -= 1
 			print(sync_health)
-		player1hit = 0
-		player2hit = 0
 
-func set_player2hit(areaNum):
-	player2hit = areaNum
-	#print(player1hit)
-	if player1hit != 0:
-		if abs(player1hit - player2hit) > 2:
-			sync_health -= 1
-			print(sync_health)
-		player1hit = 0
-		player2hit = 0
-
-func increment_score(by):
-	if by > 0:
+func increment_score(note_score: Global.ScoreEnum):
+	if note_score != Global.ScoreEnum.MISS:
 		combo += 1
 	else:
 		combo = 0
 	
-	if by == 3:
+	if note_score == Global.ScoreEnum.PERFECT:
 		great += 1
 		dance_bar1.value += 15
 		dance_bar2.value -= 15
-	elif by == 2:
+	elif note_score == Global.ScoreEnum.GOOD:
 		good += 1
 		dance_bar1.value += 10
 		dance_bar2.value -= 10
-	elif by == 1:
+	elif note_score == Global.ScoreEnum.OKAY:
 		okay += 1
 		dance_bar1.value += 5
 		dance_bar2.value -= 5
@@ -76,8 +69,8 @@ func increment_score(by):
 	
 	# if dance_bar1.value == 0 or dance_bar2.value == 200:
 	# 	game_over()
-	score += by * combo
-	$Label.text = str(score)
+	score += note_score * combo
+	# $Label.text = str(score)
 	if combo > 0:
 		$Combo.text = str(combo) + " combo!"
 		if combo > max_combo:
