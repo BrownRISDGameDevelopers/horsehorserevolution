@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://qm1xvwj3l2a4"]
 
-[ext_resource type="Script" uid="uid://kg6eorjqgsad" path="res://scenes/game_scene/levels/level.gd" id="1_y0mvw"]
+[ext_resource type="Script" uid="uid://kg6eorjqgsad" path="res://Scenes/game_scene/levels/level.gd" id="1_y0mvw"]
 [ext_resource type="Script" uid="uid://1nf36h0gms3q" path="res://addons/maaacks_game_template/base/scripts/capture_focus.gd" id="2_w6i3l"]
-[ext_resource type="Script" uid="uid://d4eyy3tycbfqq" path="res://scenes/game_scene/input_display_label.gd" id="3_623lg"]
+[ext_resource type="Script" uid="uid://d4eyy3tycbfqq" path="res://Scenes/game_scene/input_display_label.gd" id="3_623lg"]
 
 [node name="Level1" type="Control"]
 layout_mode = 3
