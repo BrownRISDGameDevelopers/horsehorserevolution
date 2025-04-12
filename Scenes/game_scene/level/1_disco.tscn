@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://d4hq8ftguxlxu"]
 
-[ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_pp0ne"]
+[ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_0vunl"]
 
-[node name="Game" instance=ExtResource("1_pp0ne")]
+[node name="Game" instance=ExtResource("1_0vunl")]
 
 [node name="Song" parent="." index="1"]
 end_offset = -140

@@ -1,12 +1,12 @@
 [gd_scene load_steps=8 format=3 uid="uid://g33bep8fbr2y"]
 
-[ext_resource type="Script" uid="uid://crj615a8rjrup" path="res://Scenes/game_scene/game.gd" id="1_wedpv"]
+[ext_resource type="Script" uid="uid://crj615a8rjrup" path="res://scenes/game_scene/game.gd" id="1_wedpv"]
 [ext_resource type="Texture2D" uid="uid://b3il1ioyuugsk" path="res://assets/image/ui/ui_mock.png" id="2_fhy3a"]
-[ext_resource type="PackedScene" uid="uid://cutwd8worfdkf" path="res://Scenes/game_scene/game_content/controls.tscn" id="4_700et"]
+[ext_resource type="PackedScene" uid="uid://cutwd8worfdkf" path="res://scenes/game_scene/game_content/controls.tscn" id="4_700et"]
 [ext_resource type="AudioStream" uid="uid://b34wfgh40uvd5" path="res://assets/audio/hhr_tutorial_001.wav" id="5_wedpv"]
-[ext_resource type="PackedScene" uid="uid://crll3qxx6ayas" path="res://Scenes/game_scene/game_content/enemy_horse.tscn" id="6_7ulqd"]
-[ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://Scenes/game_scene/game_data/song.tscn" id="10_2ye08"]
-[ext_resource type="PackedScene" uid="uid://i8w4vbv1cnsc" path="res://Scenes/game_scene/game_content/dance_bar.tscn" id="10_28n3v"]
+[ext_resource type="PackedScene" uid="uid://crll3qxx6ayas" path="res://scenes/game_scene/game_content/enemy_horse.tscn" id="6_7ulqd"]
+[ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://scenes/game_scene/game_data/song.tscn" id="10_2ye08"]
+[ext_resource type="PackedScene" uid="uid://i8w4vbv1cnsc" path="res://scenes/game_scene/game_content/dance_bar.tscn" id="10_28n3v"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_wedpv")
