@@ -21,7 +21,7 @@ metadata/_edit_lock_ = true
 song_stream = ExtResource("5_wedpv")
 
 [node name="DanceBar" parent="." instance=ExtResource("10_28n3v")]
-position = Vector2(107, 120)
+position = Vector2(-84, -271)
 
 [node name="Controls" parent="." node_paths=PackedStringArray("song") instance=ExtResource("4_700et")]
 position = Vector2(679, 649)
