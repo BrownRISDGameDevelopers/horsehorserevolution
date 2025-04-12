@@ -21,14 +21,13 @@ var sync_health: int = 3
 var player1hit: int = -1
 var player2hit: int = -1
  
+signal level_won
+signal level_lost
+
 func _ready():
 	controls.play_from_beat(1)
 	Global.enemy_strike_pose.connect(enemy_strike_pose)
-
-func _input(event):
-	if event.is_action("escape"):
-		if get_tree().change_scene_to_file("res://scenes/menu_scene/menu.tscn") != OK:
-			print("Error changing scene to Menu")
+	Global.level_over.connect(complete_level)
 
 # TODO: everything below with signals
 func set_player1hit(areaNum):
@@ -87,10 +86,10 @@ func increment_score(by):
 		$Combo.text = ""
 
 func game_over():
-	print("Game Over!")
-	if get_tree().change_scene_to_file("res://scenes/menu_scene/game_over.tscn") != OK:
-		print("Error changing scene to Game Over")
+	level_lost.emit()
 
+func complete_level():
+	level_won.emit()
 
 func reset_combo():
 	combo = 0

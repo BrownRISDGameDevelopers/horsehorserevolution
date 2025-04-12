@@ -27,8 +27,8 @@ focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
 [node name="LevelLoader" type="Node" parent="." node_paths=PackedStringArray("level_container")]
 script = ExtResource("3_bmy5n")
 level_container = NodePath("../ViewportContainer/ConfigurableSubViewport")
-files = Array[String](["res://scenes/game_scene/level/tutorial.tscn"])
-directory = "res://scenes/game_scene/levels"
+files = Array[String](["res://scenes/game_scene/level/0_tutorial.tscn", "res://scenes/game_scene/level/1_disco.tscn", "res://scenes/game_scene/level/2_country.tscn", "res://scenes/game_scene/level/3_deathmetal.tscn"])
+directory = "res://scenes/game_scene/level"
 
 [node name="BackgroundMusicPlayer" parent="." instance=ExtResource("4_7aihr")]
 

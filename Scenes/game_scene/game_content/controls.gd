@@ -43,8 +43,7 @@ func _on_conductor_beat(position):
 		Global.good = good
 		Global.okay = okay
 		Global.missed = missed
-		if get_tree().change_scene_to_file("res://scenes/menu_scene/end.tscn") != OK:
-			print("Error changing scene to End")
+		Global.level_over.emit()
 
 
 func _spawn_note(player: Global.PlayerEnum, direction: Global.Direction, duration):
