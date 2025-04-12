@@ -34,7 +34,6 @@ func _physics_process(delta):
 			# else:
 			# 	game_object.set_player2hit(areaHit)
 			current_note.handle_input(current_score)
-			Global.enemy_strike_pose.emit()
 			if !current_note.held:
 				_reset()
 		# else:
@@ -65,9 +64,6 @@ func _on_perfect_area_entered(area):
 	if current_note != null and area == current_note:
 		current_score = Global.ScoreEnum.PERFECT
 		current_area = AREA_HIT.PERFECT
-	# TODO: do below with signals
-	# game_object.enemy_strike_pose()
-	Global.enemy_strike_pose.emit()
 
 
 func _on_perfect_area_exited(area):

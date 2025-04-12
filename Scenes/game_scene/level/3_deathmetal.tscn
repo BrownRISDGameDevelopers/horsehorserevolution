@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://bpdv6oucd1617"]
 
-[ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://Scenes/game_scene/game.tscn" id="1_5ymxc"]
+[ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_5ymxc"]
 [ext_resource type="AudioStream" uid="uid://dviaakn0trh17" path="res://assets/audio/Horse.wav" id="2_we0tg"]
 [ext_resource type="Texture2D" uid="uid://c1kr33xy35eqr" path="res://assets/image/game/miku/leeku_doinggreat_v1r3_ko.PNG" id="3_6suoy"]
 [ext_resource type="Texture2D" uid="uid://b6rcrfbawewj8" path="res://assets/image/game/miku/leekudoingmildlygoodnoextramarks_v1r1_katie.PNG" id="4_qpmb5"]

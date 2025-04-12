@@ -33,6 +33,7 @@ func _report_beat():
 	if last_reported_beat < song_position_in_beats:
 		beat.emit(song_position_in_beats)
 		last_reported_beat = song_position_in_beats
+		Global.enemy_strike_pose.emit()
 
 
 func set_bpm(new_bpm):
