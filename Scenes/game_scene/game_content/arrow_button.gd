@@ -66,6 +66,7 @@ func _on_perfect_area_entered(area):
 		current_area = AREA_HIT.PERFECT
 	# TODO: do below with signals
 	# game_object.enemy_strike_pose()
+	Global.enemy_strike_pose.emit()
 
 
 func _on_perfect_area_exited(area):

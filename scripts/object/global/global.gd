@@ -13,6 +13,8 @@ enum PlayerEnum {PLAYER_1, PLAYER_2}
 enum ScoreEnum {OKAY, GOOD, PERFECT}
 enum Direction {LEFT, DOWN, UP, RIGHT}
 
+signal enemy_strike_pose
+
 func set_score(new):
 	score = new
 	if score > 250000:

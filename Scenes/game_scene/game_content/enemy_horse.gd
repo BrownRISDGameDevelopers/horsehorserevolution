@@ -5,6 +5,7 @@ extends Sprite2D
 @export var mildlybad: Texture2D
 @export var bad: Texture2D
 @export var static_pose: Texture2D
+@onready var timer: Timer = $Timer
 
 func strike_pose(dancebarval): # between 0 and 200
 	var rand = randi_range(0,200)
@@ -16,5 +17,9 @@ func strike_pose(dancebarval): # between 0 and 200
 		texture = great
 	else:
 		texture = mildlygood
-	
+	timer.start()
 	return
+
+
+func _on_timer_timeout() -> void:
+	texture = static_pose

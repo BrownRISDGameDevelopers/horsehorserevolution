@@ -23,6 +23,7 @@ var player2hit: int = -1
  
 func _ready():
 	controls.play_from_beat(1)
+	Global.enemy_strike_pose.connect(enemy_strike_pose)
 
 func _input(event):
 	if event.is_action("escape"):
@@ -96,5 +97,4 @@ func reset_combo():
 	$Combo.text = ""
 	
 func enemy_strike_pose():
-	pass
-	# enemy_horse.strike_pose(dance_bar1.value)
+	enemy_horse.strike_pose(dance_bar1.value)
