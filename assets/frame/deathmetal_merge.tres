@@ -1,0 +1,22 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://7cfkxlm84l37"]
+
+[ext_resource type="Texture2D" uid="uid://cbu61cwl36iwd" path="res://assets/image/game/merge/deathmetal/IMG_1073.PNG" id="1_5gflc"]
+[ext_resource type="Texture2D" uid="uid://b8n3bla50vev8" path="res://assets/image/game/merge/deathmetal/IMG_1074.PNG" id="2_6qoi4"]
+[ext_resource type="Texture2D" uid="uid://cfbrmn414ncdk" path="res://assets/image/game/merge/deathmetal/IMG_1075.PNG" id="3_cqxph"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5gflc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_6qoi4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_cqxph")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]

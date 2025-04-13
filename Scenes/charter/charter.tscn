@@ -3,7 +3,9 @@
 [ext_resource type="Script" uid="uid://cynpka8rixy1y" path="res://scenes/charter/charter.gd" id="1_qwsub"]
 [ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://scenes/game_scene/game_data/song.tscn" id="2_o0qfc"]
 
-[node name="Charter" type="Node2D" node_paths=PackedStringArray("song", "notes_container", "notes_list", "beat_select")]
+[node name="Charter" type="Control" node_paths=PackedStringArray("song", "notes_container", "notes_list", "beat_select")]
+layout_mode = 3
+anchors_preset = 0
 script = ExtResource("1_qwsub")
 song = NodePath("Song")
 notes_container = NodePath("HBoxContainer/NotesContainer")
@@ -13,8 +15,8 @@ beat_select = NodePath("HBoxContainer/VBoxContainer/BeatSelect")
 [node name="Song" parent="." instance=ExtResource("2_o0qfc")]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_right = 852.0
-offset_bottom = 463.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -31,14 +33,18 @@ layout_mode = 2
 
 [node name="ExportButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "Export"
 
 [node name="PlayButton" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
 text = "Play"
 
 [node name="BeatSelect" type="OptionButton" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 50
+alignment = 1
 
 [node name="FileDialog" type="FileDialog" parent="."]
 title = "Open a File"

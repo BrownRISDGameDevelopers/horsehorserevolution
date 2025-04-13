@@ -1,4 +1,4 @@
-extends Node2D
+extends Control
 
 @export var song: Song
 @export var notes_container: ScrollContainer
@@ -55,7 +55,8 @@ func _on_file_dialog_file_selected(path: String):
 func _on_play_button_pressed():
 	song.parse_notes_from_dict(jsonify_song())
 	controls = controls_scene.instantiate()
-	controls.position = get_viewport().get_visible_rect().size / 2
+	controls.position = Vector2(960, 540)
+	controls.scale = Vector2(5, 5)
 	controls.song = song
 	add_child(controls)
 	controls.play_from_beat(int(beat_select.text))

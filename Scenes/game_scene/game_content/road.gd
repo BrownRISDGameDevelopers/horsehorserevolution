@@ -20,6 +20,14 @@ func _ready():
 	up.update_player(player_num)
 	right.update_player(player_num)
 
+func set_merge_type(merge_type: Global.MergeType):
+	if merge_type == Global.MergeType.COUNTRY:
+		$RoadSprite/MergeAnimation/CountryMerge.visible = true
+	elif merge_type == Global.MergeType.DISCO:
+		$RoadSprite/MergeAnimation/DiscoMerge.visible = true
+	elif merge_type == Global.MergeType.DEATHMETAL:
+		$RoadSprite/MergeAnimation/DeathMetalMerge.visible = true
+
 func enter_sync():
 	if (player_num == Global.PlayerEnum.PLAYER_2):
 		anim.play("enter_sync_right")

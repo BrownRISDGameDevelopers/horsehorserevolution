@@ -9,6 +9,7 @@ var okay = 0
 var missed = 0
 var grade = "NA"
 
+enum MergeType {DISCO, COUNTRY, DEATHMETAL, TUTORIAL}
 enum PlayerEnum {PLAYER_1, PLAYER_2}
 enum ScoreEnum {MISS, OKAY, GOOD, PERFECT}
 enum Direction {LEFT, DOWN, UP, RIGHT}

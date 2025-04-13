@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var merge_type: Global.MergeType = Global.MergeType.TUTORIAL
 @export var song: Song
 @export var in_charter: bool = true
 
@@ -19,6 +20,8 @@ var sync_phase: bool = false
 
 func _ready():
 	Global.beat.connect(_on_conductor_beat)
+	road0.set_merge_type(merge_type)
+	road1.set_merge_type(merge_type)
 
 func play_from_beat(start_beat = 1):
 	$Conductor.stream = song.song_stream
