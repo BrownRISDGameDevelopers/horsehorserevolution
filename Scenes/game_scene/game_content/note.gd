@@ -4,16 +4,22 @@ const BASE_DISTANCE = 240
 const DESPAWN_DISTANCE = 32
 
 var speed = 0
-var target_y
+var target_y = 0
 var hit = false
 var held = false
 var has_trail = false
+var horseshoe_head_adjust = Vector2(0, -8)
 
 var player_num: Global.PlayerEnum = Global.PlayerEnum.PLAYER_1
 
-@onready var head_sprite: AnimatedSprite2D = $HoldHeadSprite
+var arrow_colors = {Global.Direction.LEFT: "6dd2f9",
+					Global.Direction.DOWN: "ed6eb3",
+					Global.Direction.UP: "f6db62",
+					Global.Direction.RIGHT: "6fee48"}
+
+@onready var head_sprite: Sprite2D = $HoldHeadSprite
 @onready var head_collision: CollisionShape2D = $HoldHeadCollision
-@onready var tail_sprite: AnimatedSprite2D = $HoldTailSprite
+@onready var tail_sprite: Sprite2D = $HoldTailSprite
 @onready var tail_collision: CollisionShape2D = $HoldTailCollision
 @onready var score_label: Label = $ScoreLabel/Label
 @onready var trail: Line2D = $HoldTrail
@@ -22,9 +28,11 @@ var player_num: Global.PlayerEnum = Global.PlayerEnum.PLAYER_1
 func _physics_process(delta):
 	if held:
 		tail_sprite.position.y += speed * delta
-		trail.set_point_position(1, tail_sprite.position)
+		trail.set_point_position(0, Vector2(0, target_y - position.y))
+		var trail_end = min(tail_sprite.position.y, target_y - position.y)
+		trail.set_point_position(1, Vector2(0, trail_end))
 		if tail_sprite.position.y > DESPAWN_DISTANCE:
-			# TODO: miss logic
+			Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS)
 			queue_free()
 	elif not hit:
 		position.y += speed * delta
@@ -49,11 +57,12 @@ func initialize(duration, bpm, road_num, end_y):
 	tail_collision.shape.set_size(Vector2(8, 8 * (bpm / 120)))
 
 	# TODO: resize an area for hold notes to be released in
-
+	
 	var sec_per_beat = 60.0 / bpm
 	if duration > 1:
 		tail_sprite.position.y -= (duration - 2) * sec_per_beat * speed
-		trail.add_point(Vector2.ZERO)
+		tail_sprite.visible = false
+		trail.add_point(horseshoe_head_adjust)
 		trail.add_point(tail_sprite.position)
 		has_trail = true
 	else:
@@ -62,26 +71,30 @@ func initialize(duration, bpm, road_num, end_y):
 func set_direction(direction):
 	position = Vector2(-60 + direction * 40, target_y - speed * 2)
 	if direction == Global.Direction.LEFT:
-		head_sprite.frame = 0
-		tail_sprite.frame = 0
-	elif direction == Global.Direction.DOWN:
-		# TODO: replace with unique asset
-		head_sprite.frame = 1
+		head_sprite.rotation = - PI / 2
+		tail_sprite.rotation = - PI / 2
+	if direction == Global.Direction.DOWN:
 		head_sprite.rotation = PI
-		tail_sprite.frame = 1
 		tail_sprite.rotation = PI
-	elif direction == Global.Direction.UP:
-		head_sprite.frame = 1
-		tail_sprite.frame = 1
-	elif direction == Global.Direction.RIGHT:
-		head_sprite.frame = 2
-		tail_sprite.frame = 2
-	else:
-		printerr("Invalid direction set for note: " + str(direction))
-		return
+	if direction == Global.Direction.UP:
+		pass
+	if direction == Global.Direction.RIGHT:
+		head_sprite.rotation = PI / 2
+		tail_sprite.rotation = PI / 2
+	head_sprite.modulate = arrow_colors[direction]
+	tail_sprite.modulate = arrow_colors[direction]
+	var gradient_data := {
+		0.0: arrow_colors[direction],
+		1.0: arrow_colors[direction] + "00",
+	}
 
+	var gradient := Gradient.new()
+	gradient.offsets = gradient_data.keys()
+	gradient.colors = gradient_data.values()
+	trail.gradient = gradient
 
 func handle_input(score: Global.ScoreEnum):
+	# TODO: hold note logic	
 	if !has_trail or held:
 		destroy(score)
 	else:

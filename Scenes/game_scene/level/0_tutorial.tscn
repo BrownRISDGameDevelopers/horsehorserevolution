@@ -11,7 +11,6 @@
 
 [node name="Song" parent="." index="1"]
 song_json_path = "res://assets/chart/tutorial.json"
-end_offset = -140
 
 [node name="EnemyHorse" parent="." index="4"]
 great = ExtResource("2_4tg0q")

@@ -9,12 +9,12 @@ extends Sprite2D
 
 func strike_pose(dancebarval): # between 0 and 200
 	if (timer.is_stopped()):
-		var rand = randi_range(0,200)
+		var rand = randi_range(0, 200)
 		if (rand * 4 < dancebarval):
 			texture = bad
 		elif (rand < dancebarval):
 			texture = mildlybad
-		elif (rand / 2 >= dancebarval):
+		elif (rand / 2.0 >= dancebarval):
 			texture = great
 		else:
 			texture = mildlygood

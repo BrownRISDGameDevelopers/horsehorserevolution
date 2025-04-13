@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dba7usbxb5eeu"]
+[gd_scene load_steps=7 format=3 uid="uid://dba7usbxb5eeu"]
 
-[ext_resource type="SpriteFrames" uid="uid://co64s6h55ow8j" path="res://assets/frame/note_frames.tres" id="1"]
 [ext_resource type="Texture2D" uid="uid://dem00sfqh1poe" path="res://assets/image/game/particles/star.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://c62gx4jqxkdcs" path="res://assets/image/game/arrow_button/note_v3r1_cindy.png" id="2_feena"]
 [ext_resource type="FontFile" path="res://assets/font/heartbit2x.tres" id="3"]
-[ext_resource type="Script" uid="uid://0mv7tpw1hmfo" path="res://Scenes/game_scene/game_content/note.gd" id="4"]
+[ext_resource type="Script" uid="uid://0mv7tpw1hmfo" path="res://scenes/game_scene/game_content/note.gd" id="4"]
+
+[sub_resource type="Gradient" id="Gradient_feena"]
 
 [sub_resource type="RectangleShape2D" id="1"]
 size = Vector2(8, 8)
@@ -12,13 +14,15 @@ size = Vector2(8, 8)
 script = ExtResource("4")
 
 [node name="HoldTrail" type="Line2D" parent="."]
-default_color = Color(0.505882, 0.384314, 0.443137, 1)
+gradient = SubResource("Gradient_feena")
 
-[node name="HoldTailSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1")
+[node name="HoldTailSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_feena")
 
-[node name="HoldHeadSprite" type="AnimatedSprite2D" parent="."]
-sprite_frames = ExtResource("1")
+[node name="HoldHeadSprite" type="Sprite2D" parent="."]
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("2_feena")
 
 [node name="HoldHeadCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("1")

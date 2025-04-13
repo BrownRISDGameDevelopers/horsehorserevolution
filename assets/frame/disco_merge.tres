@@ -1,0 +1,46 @@
+[gd_resource type="SpriteFrames" load_steps=10 format=3 uid="uid://1iogwimrea6o"]
+
+[ext_resource type="Texture2D" uid="uid://pgmc4sfft5w4" path="res://assets/image/game/merge/disco/1.PNG" id="1_6yy33"]
+[ext_resource type="Texture2D" uid="uid://bxsgfay1rd6aa" path="res://assets/image/game/merge/disco/2.PNG" id="2_qrv5g"]
+[ext_resource type="Texture2D" uid="uid://bgc5006cwkmp4" path="res://assets/image/game/merge/disco/3.PNG" id="3_jci4c"]
+[ext_resource type="Texture2D" uid="uid://cjkoefjjh57ba" path="res://assets/image/game/merge/disco/4.PNG" id="4_7x6qv"]
+[ext_resource type="Texture2D" uid="uid://q06jpre8q7y1" path="res://assets/image/game/merge/disco/5.PNG" id="5_wvanx"]
+[ext_resource type="Texture2D" uid="uid://bl0tu87hwyg8" path="res://assets/image/game/merge/disco/6.PNG" id="6_stkda"]
+[ext_resource type="Texture2D" uid="uid://badji8utu0v17" path="res://assets/image/game/merge/disco/7.PNG" id="7_11aup"]
+[ext_resource type="Texture2D" uid="uid://br7ar7rsdtj8q" path="res://assets/image/game/merge/disco/8.PNG" id="8_xads4"]
+[ext_resource type="Texture2D" uid="uid://xnm5hoh6hpek" path="res://assets/image/game/merge/disco/9.PNG" id="9_x3630"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_6yy33")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qrv5g")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_jci4c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7x6qv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wvanx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_stkda")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_11aup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_xads4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_x3630")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]

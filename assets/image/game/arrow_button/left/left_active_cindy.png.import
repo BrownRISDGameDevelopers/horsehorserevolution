@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c30whcprlkjm3"
-path="res://.godot/imported/arrow_button_left1.png-a038599da6250d51debcb58a09ae7c9b.ctex"
+uid="uid://ycpbyvj62loq"
+path="res://.godot/imported/left_active_cindy.png-8eb334b8d43a99604c6d19440670e60a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/image/game/arrow_button/left/arrow_button_left1.png"
-dest_files=["res://.godot/imported/arrow_button_left1.png-a038599da6250d51debcb58a09ae7c9b.ctex"]
+source_file="res://assets/image/game/arrow_button/left/left_active_cindy.png"
+dest_files=["res://.godot/imported/left_active_cindy.png-8eb334b8d43a99604c6d19440670e60a.ctex"]
 
 [params]
 

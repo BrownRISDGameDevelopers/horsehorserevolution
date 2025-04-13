@@ -1,0 +1,18 @@
+[gd_resource type="SpriteFrames" load_steps=3 format=3 uid="uid://dsteh5evywp6v"]
+
+[ext_resource type="Texture2D" uid="uid://byqowpqsuo05" path="res://assets/image/game/arrow_button/down/down_neutral_cindy.png" id="1_hfpvq"]
+[ext_resource type="Texture2D" uid="uid://byr7kjeod50rd" path="res://assets/image/game/arrow_button/down/down_active_cindy.png" id="2_nkixi"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hfpvq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_nkixi")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

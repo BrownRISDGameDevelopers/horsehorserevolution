@@ -41,7 +41,8 @@ func handle_note_hit(player: Global.PlayerEnum, area: Global.AreaHit, note_score
 func handle_sync_health():
 	if controls.sync_phase and abs(player1hit - player2hit) > 2:
 		sync_health -= 1
-		print(sync_health)
+		if sync_health == 0:
+			game_over()
 
 func increment_score(note_score: Global.ScoreEnum):
 	if note_score != Global.ScoreEnum.MISS:
@@ -80,5 +81,5 @@ func game_over():
 func complete_level():
 	level_won.emit()
 	
-func enemy_strike_pose():
+func enemy_strike_pose(_beat_position):
 	enemy_horse.strike_pose(dance_bar1.value)

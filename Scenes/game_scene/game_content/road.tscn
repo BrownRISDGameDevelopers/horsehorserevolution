@@ -1,10 +1,13 @@
-[gd_scene load_steps=12 format=3 uid="uid://blmin3fl4tjts"]
+[gd_scene load_steps=15 format=3 uid="uid://blmin3fl4tjts"]
 
 [ext_resource type="Texture2D" uid="uid://rq8ugby5w0n7" path="res://assets/image/game/road/road.png" id="1_3mcqa"]
 [ext_resource type="Script" uid="uid://biwsc04tnvs6v" path="res://scenes/game_scene/game_content/road.gd" id="1_fuyh8"]
 [ext_resource type="PackedScene" uid="uid://dy7ffyvlcyfwa" path="res://scenes/game_scene/game_content/arrow_button.tscn" id="3_af1g8"]
-[ext_resource type="SpriteFrames" path="res://assets/frame/arrow_left_frames.tres" id="4_lnh6y"]
-[ext_resource type="SpriteFrames" path="res://assets/frame/arrow_right_frames.tres" id="5_tg8mc"]
+[ext_resource type="SpriteFrames" uid="uid://ddmpr51emgj1e" path="res://assets/frame/arrow_left_frames.tres" id="4_lnh6y"]
+[ext_resource type="SpriteFrames" uid="uid://dsteh5evywp6v" path="res://assets/frame/arrow_down_frames.tres" id="5_h2cb2"]
+[ext_resource type="SpriteFrames" uid="uid://b8n1rdebqj4sg" path="res://assets/frame/arrow_right_frames.tres" id="5_tg8mc"]
+[ext_resource type="SpriteFrames" uid="uid://bnb06yexcajo3" path="res://assets/frame/arrow_up_frames.tres" id="7_c1equ"]
+[ext_resource type="SpriteFrames" uid="uid://1iogwimrea6o" path="res://assets/frame/disco_merge.tres" id="7_h2cb2"]
 
 [sub_resource type="Animation" id="Animation_tg8mc"]
 tracks/0/type = "bezier"
@@ -148,24 +151,32 @@ libraries = {
 &"": SubResource("AnimationLibrary_h2cb2")
 }
 
+[node name="MergeAnimation" type="AnimatedSprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.580392)
+scale = Vector2(0.1, 0.1)
+sprite_frames = ExtResource("7_h2cb2")
+frame_progress = 0.653461
+
 [node name="RoadSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_3mcqa")
 offset = Vector2(20, 0)
 
 [node name="ArrowLeft" parent="RoadSprite" instance=ExtResource("3_af1g8")]
 position = Vector2(-60, 80)
-sprite_frames = ExtResource("4_lnh6y")
 input = "left"
+frames = ExtResource("4_lnh6y")
 
 [node name="ArrowDown" parent="RoadSprite" instance=ExtResource("3_af1g8")]
 position = Vector2(-20, 80)
 input = "down"
+frames = ExtResource("5_h2cb2")
 
 [node name="ArrowUp" parent="RoadSprite" instance=ExtResource("3_af1g8")]
 position = Vector2(20, 80)
 input = "up"
+frames = ExtResource("7_c1equ")
 
 [node name="ArrowRight" parent="RoadSprite" instance=ExtResource("3_af1g8")]
 position = Vector2(60, 80)
-sprite_frames = ExtResource("5_tg8mc")
 input = "right"
+frames = ExtResource("5_tg8mc")

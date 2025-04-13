@@ -27,19 +27,19 @@ func play_from_beat(start_beat = 1):
 	road0.update_bpm(song.bpm)
 	road1.update_bpm(song.bpm)
 
-func _on_conductor_beat(position):
-	var notes = song.get_notes(position)
+func _on_conductor_beat(beat_position):
+	var notes = song.get_notes(beat_position)
 	for note in notes:
 		_spawn_note(note.player, note.direction, note.duration)
-	if sync_phase == false and song.synced(position):
+	if sync_phase == false and song.synced(beat_position):
 		road0.enter_sync()
 		road1.enter_sync()
 		sync_phase = true
-	elif sync_phase and not song.synced(position):
+	elif sync_phase and not song.synced(beat_position):
 		road0.exit_sync()
 		road1.exit_sync()
 		sync_phase = false
-	if position > song.end_beat:
+	if beat_position > song.end_beat:
 		Global.set_score(score)
 		Global.combo = max_combo
 		Global.great = great
