@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ct7skmgbv6kd4"
-path="res://.godot/imported/leeku_doingbadly_v2r2_miles.png-cc28d5d82942462b1e5f5c227e37d6a4.ctex"
+uid="uid://bjbycfcs16pnr"
+path="res://.godot/imported/bgguy_v1_jayden.PNG-e48e001608cbb02f464a5d395e873e89.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/image/game/miku/leeku_doingbadly_v2r2_miles.png"
-dest_files=["res://.godot/imported/leeku_doingbadly_v2r2_miles.png-cc28d5d82942462b1e5f5c227e37d6a4.ctex"]
+source_file="res://assets/image/ui/bg/audience/bgguy_v1_jayden.PNG"
+dest_files=["res://.godot/imported/bgguy_v1_jayden.PNG-e48e001608cbb02f464a5d395e873e89.ctex"]
 
 [params]
 

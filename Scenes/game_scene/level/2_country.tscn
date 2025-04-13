@@ -1,8 +1,25 @@
-[gd_scene load_steps=2 format=3 uid="uid://vsxxm4nk1ggf"]
+[gd_scene load_steps=8 format=3 uid="uid://vsxxm4nk1ggf"]
 
 [ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_8i7my"]
+[ext_resource type="Texture2D" uid="uid://ckb4g7dqwrwfx" path="res://assets/image/ui/bg/leeku_stage.png" id="2_t7v77"]
+[ext_resource type="Texture2D" uid="uid://c1kr33xy35eqr" path="res://assets/image/game/enemy_sprites/miku/leeku_doinggreat_v1r3_ko.PNG" id="3_sfdoa"]
+[ext_resource type="Texture2D" uid="uid://b6rcrfbawewj8" path="res://assets/image/game/enemy_sprites/miku/leekudoingmildlygoodnoextramarks_v1r1_katie.PNG" id="4_xwiel"]
+[ext_resource type="Texture2D" uid="uid://dy38wyb0qoitl" path="res://assets/image/game/enemy_sprites/miku/leeku_doingmildlybad_v1r1.PNG" id="5_aawnu"]
+[ext_resource type="Texture2D" uid="uid://ct7skmgbv6kd4" path="res://assets/image/game/enemy_sprites/miku/leeku_doingbadly_v2r2_miles.png" id="6_2l20p"]
+[ext_resource type="Texture2D" uid="uid://kijc7elurhyq" path="res://assets/image/game/enemy_sprites/miku/leeku_static_v1r3_ko.PNG" id="7_r1qjk"]
 
 [node name="Game" instance=ExtResource("1_8i7my")]
 
+[node name="Background" parent="." index="0"]
+scale = Vector2(2.77, 2.77)
+texture = ExtResource("2_t7v77")
+
 [node name="Song" parent="." index="1"]
 end_offset = -140
+
+[node name="EnemyHorse" parent="." index="4"]
+great = ExtResource("3_sfdoa")
+mildlygood = ExtResource("4_xwiel")
+mildlybad = ExtResource("5_aawnu")
+bad = ExtResource("6_2l20p")
+static_pose = ExtResource("7_r1qjk")

@@ -1,14 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://bpdv6oucd1617"]
+[gd_scene load_steps=6 format=3 uid="uid://bpdv6oucd1617"]
 
 [ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_5ymxc"]
+[ext_resource type="Texture2D" uid="uid://kix5cgr04ilc" path="res://assets/image/ui/bg/death_stage.png" id="2_6suoy"]
 [ext_resource type="AudioStream" uid="uid://dviaakn0trh17" path="res://assets/audio/Horse.wav" id="2_we0tg"]
-[ext_resource type="Texture2D" uid="uid://c1kr33xy35eqr" path="res://assets/image/game/miku/leeku_doinggreat_v1r3_ko.PNG" id="3_6suoy"]
-[ext_resource type="Texture2D" uid="uid://b6rcrfbawewj8" path="res://assets/image/game/miku/leekudoingmildlygoodnoextramarks_v1r1_katie.PNG" id="4_qpmb5"]
-[ext_resource type="Texture2D" uid="uid://dy38wyb0qoitl" path="res://assets/image/game/miku/leeku_doingmildlybad_v1r1.PNG" id="5_n8g4d"]
-[ext_resource type="Texture2D" uid="uid://ct7skmgbv6kd4" path="res://assets/image/game/miku/leeku_doingbadly_v2r2_miles.png" id="6_2f4mf"]
-[ext_resource type="Texture2D" uid="uid://kijc7elurhyq" path="res://assets/image/game/miku/leeku_static_v1r3_ko.PNG" id="7_lv5rr"]
+[ext_resource type="Texture2D" uid="uid://cqeelyngfp45e" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal_neutral_r2_miles.png" id="4_0ixnl"]
+[ext_resource type="Texture2D" uid="uid://cb5l7b44ler81" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal_doinggood_v1r1_loki.PNG" id="5_hls7s"]
 
 [node name="DeathMetal" instance=ExtResource("1_5ymxc")]
+
+[node name="Background" parent="." index="0"]
+scale = Vector2(1.805, 1.805)
+texture = ExtResource("2_6suoy")
 
 [node name="Song" parent="." index="1"]
 song_json_path = "res://assets/chart/death_metal.json"
@@ -19,8 +21,10 @@ end_offset = -140
 position = Vector2(-89, -276)
 
 [node name="EnemyHorse" parent="." index="4"]
-great = ExtResource("3_6suoy")
-mildlygood = ExtResource("4_qpmb5")
-mildlybad = ExtResource("5_n8g4d")
-bad = ExtResource("6_2f4mf")
-static_pose = ExtResource("7_lv5rr")
+position = Vector2(1414, 367)
+texture = ExtResource("4_0ixnl")
+great = ExtResource("5_hls7s")
+mildlygood = ExtResource("5_hls7s")
+mildlybad = ExtResource("5_hls7s")
+bad = ExtResource("5_hls7s")
+static_pose = ExtResource("4_0ixnl")

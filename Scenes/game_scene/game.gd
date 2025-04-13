@@ -39,8 +39,12 @@ func handle_note_hit(player: Global.PlayerEnum, area: Global.AreaHit, note_score
 	increment_score(note_score)
 
 func handle_sync_health():
-	if controls.sync_phase and abs(player1hit - player2hit) > 2:
-		sync_health -= 1
+	if controls.sync_phase:
+		# Only lose 1 sync health per beat
+		if abs(player1hit - player2hit) > 2 and player1hit != Global.AreaHit.MISS or player2hit != Global.AreaHit.MISS:
+			sync_health -= 1
+			player1hit = Global.AreaHit.MISS
+			player2hit = Global.AreaHit.MISS
 		if sync_health == 0:
 			game_over()
 

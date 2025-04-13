@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://civwuq2xd10p7"
-path="res://.godot/imported/bgguy_lightsticks_magenta_v1_jayden.PNG-92ba238e7ca9080db66e57b5ef415424.ctex"
+uid="uid://cm3nmh47ua2vi"
+path="res://.godot/imported/horsehorse_backneutral_v1r1_ko.PNG-d4ff47cd1b2e41c1693f41035461d7c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/image/game/bg/audience/bgguy_lightsticks_magenta_v1_jayden.PNG"
-dest_files=["res://.godot/imported/bgguy_lightsticks_magenta_v1_jayden.PNG-92ba238e7ca9080db66e57b5ef415424.ctex"]
+source_file="res://assets/image/game/player_sprites/horsehorse_backneutral_v1r1_ko.PNG"
+dest_files=["res://.godot/imported/horsehorse_backneutral_v1r1_ko.PNG-d4ff47cd1b2e41c1693f41035461d7c1.ctex"]
 
 [params]
 

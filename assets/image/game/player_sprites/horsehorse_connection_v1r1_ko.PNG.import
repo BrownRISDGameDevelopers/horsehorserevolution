@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dy38wyb0qoitl"
-path="res://.godot/imported/leeku_doingmildlybad_v1r1.PNG-a0191c5cc2ab6eb474265651aca5dd9d.ctex"
+uid="uid://bp1de6yva2q64"
+path="res://.godot/imported/horsehorse_connection_v1r1_ko.PNG-01467d94988ba92aca9f7f584126be2f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/image/game/miku/leeku_doingmildlybad_v1r1.PNG"
-dest_files=["res://.godot/imported/leeku_doingmildlybad_v1r1.PNG-a0191c5cc2ab6eb474265651aca5dd9d.ctex"]
+source_file="res://assets/image/game/player_sprites/horsehorse_connection_v1r1_ko.PNG"
+dest_files=["res://.godot/imported/horsehorse_connection_v1r1_ko.PNG-01467d94988ba92aca9f7f584126be2f.ctex"]
 
 [params]
 

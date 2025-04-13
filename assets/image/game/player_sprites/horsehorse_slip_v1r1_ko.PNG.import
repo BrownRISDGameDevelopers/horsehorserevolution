@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjbycfcs16pnr"
-path="res://.godot/imported/bgguy_v1_jayden.PNG-a597ae3735e63e9475f2bea4ed0cdf57.ctex"
+uid="uid://b8yhh3mtos4nh"
+path="res://.godot/imported/horsehorse_slip_v1r1_ko.PNG-658d9978ee2ed74722131a7df874e2dd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/image/game/bg/audience/bgguy_v1_jayden.PNG"
-dest_files=["res://.godot/imported/bgguy_v1_jayden.PNG-a597ae3735e63e9475f2bea4ed0cdf57.ctex"]
+source_file="res://assets/image/game/player_sprites/horsehorse_slip_v1r1_ko.PNG"
+dest_files=["res://.godot/imported/horsehorse_slip_v1r1_ko.PNG-658d9978ee2ed74722131a7df874e2dd.ctex"]
 
 [params]
 

@@ -1,8 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://d4hq8ftguxlxu"]
+[gd_scene load_steps=8 format=3 uid="uid://d4hq8ftguxlxu"]
 
 [ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_0vunl"]
+[ext_resource type="Texture2D" uid="uid://cddu2j0cxmrx5" path="res://assets/image/ui/bg/disco_stage.png" id="2_porrk"]
+[ext_resource type="Texture2D" uid="uid://ce83g822sprbm" path="res://assets/image/game/enemy_sprites/disco/disco_neutral_nitikar.png" id="3_njiw5"]
+[ext_resource type="Texture2D" uid="uid://b0l1pque5dol3" path="res://assets/image/game/enemy_sprites/disco/Disco Really good .PNG" id="4_orc31"]
+[ext_resource type="Texture2D" uid="uid://e7ks3citlwpx" path="res://assets/image/game/enemy_sprites/disco/disco_slightlygood_nitikar.png" id="5_nk2nk"]
+[ext_resource type="Texture2D" uid="uid://cy205pusuldci" path="res://assets/image/game/enemy_sprites/disco/disco_slightlybad_nitikar.png" id="6_uttaj"]
+[ext_resource type="Texture2D" uid="uid://4lrgf12b5w22" path="res://assets/image/game/enemy_sprites/disco/Disco Really bad.PNG" id="7_vgs3v"]
 
 [node name="Game" instance=ExtResource("1_0vunl")]
 
+[node name="Background" parent="." index="0"]
+scale = Vector2(1.505, 1.505)
+texture = ExtResource("2_porrk")
+
 [node name="Song" parent="." index="1"]
 end_offset = -140
+
+[node name="EnemyHorse" parent="." index="4"]
+position = Vector2(1520, 360)
+scale = Vector2(0.195, 0.195)
+texture = ExtResource("3_njiw5")
+great = ExtResource("4_orc31")
+mildlygood = ExtResource("5_nk2nk")
+mildlybad = ExtResource("6_uttaj")
+bad = ExtResource("7_vgs3v")
+static_pose = ExtResource("3_njiw5")

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://kix5cgr04ilc"
-path="res://.godot/imported/death_stage.png-d06e3a6b0f5b02268d4152eaeb80291f.ctex"
+uid="uid://b0l1pque5dol3"
+path="res://.godot/imported/Disco Really good .PNG-e3bc925a34195d9233a5a5b44c4d8a27.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/image/game/bg/death_stage.png"
-dest_files=["res://.godot/imported/death_stage.png-d06e3a6b0f5b02268d4152eaeb80291f.ctex"]
+source_file="res://assets/image/game/enemy_sprites/disco/Disco Really good .PNG"
+dest_files=["res://.godot/imported/Disco Really good .PNG-e3bc925a34195d9233a5a5b44c4d8a27.ctex"]
 
 [params]
 

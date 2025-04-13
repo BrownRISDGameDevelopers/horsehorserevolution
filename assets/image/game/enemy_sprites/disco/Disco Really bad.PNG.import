@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cddu2j0cxmrx5"
-path="res://.godot/imported/disco_stage.png-60b3f6dcaadb8d5825cec617bd7badc3.ctex"
+uid="uid://4lrgf12b5w22"
+path="res://.godot/imported/Disco Really bad.PNG-17dfd03a5cc2251f310563c9c617e21d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/image/game/bg/disco_stage.png"
-dest_files=["res://.godot/imported/disco_stage.png-60b3f6dcaadb8d5825cec617bd7badc3.ctex"]
+source_file="res://assets/image/game/enemy_sprites/disco/Disco Really bad.PNG"
+dest_files=["res://.godot/imported/Disco Really bad.PNG-17dfd03a5cc2251f310563c9c617e21d.ctex"]
 
 [params]
 

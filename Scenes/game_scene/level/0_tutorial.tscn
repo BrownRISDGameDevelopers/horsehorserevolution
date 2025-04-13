@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://cx8jnts0h38n1"]
 
 [ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_i6m5q"]
-[ext_resource type="Texture2D" uid="uid://c1kr33xy35eqr" path="res://assets/image/game/miku/leeku_doinggreat_v1r3_ko.PNG" id="2_4tg0q"]
-[ext_resource type="Texture2D" uid="uid://b6rcrfbawewj8" path="res://assets/image/game/miku/leekudoingmildlygoodnoextramarks_v1r1_katie.PNG" id="3_ecgwy"]
-[ext_resource type="Texture2D" uid="uid://dy38wyb0qoitl" path="res://assets/image/game/miku/leeku_doingmildlybad_v1r1.PNG" id="4_clk81"]
-[ext_resource type="Texture2D" uid="uid://ct7skmgbv6kd4" path="res://assets/image/game/miku/leeku_doingbadly_v2r2_miles.png" id="5_t11yt"]
-[ext_resource type="Texture2D" uid="uid://kijc7elurhyq" path="res://assets/image/game/miku/leeku_static_v1r3_ko.PNG" id="6_qfr1n"]
+[ext_resource type="Texture2D" uid="uid://c1kr33xy35eqr" path="res://assets/image/game/enemy_sprites/miku/leeku_doinggreat_v1r3_ko.PNG" id="2_4tg0q"]
+[ext_resource type="Texture2D" uid="uid://b6rcrfbawewj8" path="res://assets/image/game/enemy_sprites/miku/leekudoingmildlygoodnoextramarks_v1r1_katie.PNG" id="3_ecgwy"]
+[ext_resource type="Texture2D" uid="uid://dy38wyb0qoitl" path="res://assets/image/game/enemy_sprites/miku/leeku_doingmildlybad_v1r1.PNG" id="4_clk81"]
+[ext_resource type="Texture2D" uid="uid://ct7skmgbv6kd4" path="res://assets/image/game/enemy_sprites/miku/leeku_doingbadly_v2r2_miles.png" id="5_t11yt"]
+[ext_resource type="Texture2D" uid="uid://kijc7elurhyq" path="res://assets/image/game/enemy_sprites/miku/leeku_static_v1r3_ko.PNG" id="6_qfr1n"]
 
 [node name="Tutorial" instance=ExtResource("1_i6m5q")]
 

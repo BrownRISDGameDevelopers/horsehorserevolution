@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6rcrfbawewj8"
-path="res://.godot/imported/leekudoingmildlygoodnoextramarks_v1r1_katie.PNG-da53081d9aed5cb08941eeef413caf82.ctex"
+uid="uid://bmobfigvwidph"
+path="res://.godot/imported/horsehorse_frontneutral_v1r2_ko.PNG-b40bdbda6a31dd4aac0c49b84dd55a84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/image/game/miku/leekudoingmildlygoodnoextramarks_v1r1_katie.PNG"
-dest_files=["res://.godot/imported/leekudoingmildlygoodnoextramarks_v1r1_katie.PNG-da53081d9aed5cb08941eeef413caf82.ctex"]
+source_file="res://assets/image/game/player_sprites/horsehorse_frontneutral_v1r2_ko.PNG"
+dest_files=["res://.godot/imported/horsehorse_frontneutral_v1r2_ko.PNG-b40bdbda6a31dd4aac0c49b84dd55a84.ctex"]
 
 [params]
 

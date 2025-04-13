@@ -56,15 +56,15 @@ func initialize(duration, bpm, road_num, end_y):
 	head_collision.shape.set_size(Vector2(8, 8 * (bpm / 120)))
 	tail_collision.shape.set_size(Vector2(8, 8 * (bpm / 120)))
 
-	# TODO: resize an area for hold notes to be released in
-	
 	var sec_per_beat = 60.0 / bpm
 	if duration > 1:
-		tail_sprite.position.y -= (duration - 2) * sec_per_beat * speed
+		tail_sprite.position.y -= (duration - 1) * sec_per_beat * speed
 		tail_sprite.visible = false
 		trail.add_point(horseshoe_head_adjust)
 		trail.add_point(tail_sprite.position)
 		has_trail = true
+		# TODO: resize an area for hold notes to be released in
+		# tail_collision.shape.set_size(Vector2(8, 8 * (bpm / 120)))
 	else:
 		head_collision.set_deferred("disabled", true)
 
