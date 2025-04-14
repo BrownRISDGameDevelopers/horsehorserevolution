@@ -1,6 +1,7 @@
-[gd_scene load_steps=15 format=3 uid="uid://blmin3fl4tjts"]
+[gd_scene load_steps=19 format=3 uid="uid://blmin3fl4tjts"]
 
 [ext_resource type="Script" uid="uid://biwsc04tnvs6v" path="res://scenes/game_scene/game_content/road.gd" id="1_fuyh8"]
+[ext_resource type="Shader" uid="uid://biafqipd0yf10" path="res://scenes/game_scene/game_content/road.gdshader" id="2_hjh4p"]
 [ext_resource type="PackedScene" uid="uid://dy7ffyvlcyfwa" path="res://scenes/game_scene/game_content/arrow_button.tscn" id="3_af1g8"]
 [ext_resource type="SpriteFrames" uid="uid://ddmpr51emgj1e" path="res://assets/frame/arrow_left_frames.tres" id="4_lnh6y"]
 [ext_resource type="SpriteFrames" uid="uid://dsteh5evywp6v" path="res://assets/frame/arrow_down_frames.tres" id="5_h2cb2"]
@@ -362,6 +363,18 @@ _data = {
 &"exit_sync_right": SubResource("Animation_hjh4p")
 }
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hy6im"]
+shader = ExtResource("2_hjh4p")
+
+[sub_resource type="Gradient" id="Gradient_c1equ"]
+offsets = PackedFloat32Array(0, 0.333, 0.667, 1)
+colors = PackedColorArray(0.427451, 0.823529, 0.976471, 1, 0.929412, 0.431373, 0.701961, 1, 0.964706, 0.858824, 0.384314, 1, 0.435294, 0.933333, 0.282353, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hjh4p"]
+gradient = SubResource("Gradient_c1equ")
+width = 165
+height = 165
+
 [node name="Road" type="Node2D"]
 script = ExtResource("1_fuyh8")
 
@@ -372,7 +385,9 @@ libraries = {
 }
 
 [node name="RoadSprite" type="Sprite2D" parent="."]
-offset = Vector2(20, 0)
+material = SubResource("ShaderMaterial_hy6im")
+texture = SubResource("GradientTexture2D_hjh4p")
+offset = Vector2(0, 20)
 
 [node name="MergeAnimation" type="Node2D" parent="RoadSprite"]
 modulate = Color(1, 1, 1, 0)

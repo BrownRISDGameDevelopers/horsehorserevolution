@@ -9,6 +9,8 @@ var hit = false
 var held = false
 var has_trail = false
 var horseshoe_head_adjust = Vector2(0, -8)
+var default_shader = load("res://scenes/game_scene/game_content/note.gdshader")
+var down_shader = load("res://scenes/game_scene/game_content/note_down.gdshader")
 
 var player_num: Global.PlayerEnum = Global.PlayerEnum.PLAYER_1
 
@@ -76,6 +78,7 @@ func set_direction(direction):
 	if direction == Global.Direction.DOWN:
 		head_sprite.rotation = PI
 		tail_sprite.rotation = PI
+		trail.material.shader = down_shader
 	if direction == Global.Direction.UP:
 		pass
 	if direction == Global.Direction.RIGHT:
@@ -83,15 +86,7 @@ func set_direction(direction):
 		tail_sprite.rotation = PI / 2
 	head_sprite.modulate = arrow_colors[direction]
 	tail_sprite.modulate = arrow_colors[direction]
-	var gradient_data := {
-		0.0: arrow_colors[direction],
-		1.0: arrow_colors[direction] + "00",
-	}
-
-	var gradient := Gradient.new()
-	gradient.offsets = gradient_data.keys()
-	gradient.colors = gradient_data.values()
-	trail.gradient = gradient
+	trail.default_color = arrow_colors[direction]
 
 func handle_input(score: Global.ScoreEnum):
 	# TODO: hold note logic	
@@ -101,7 +96,7 @@ func handle_input(score: Global.ScoreEnum):
 		hold(score)
 
 func destroy(score: Global.ScoreEnum):
-	$CPUParticles2D.emitting = true
+	# $CPUParticles2D.emitting = true
 	$Timer.start()
 	head_sprite.visible = false
 	tail_sprite.visible = false
@@ -119,6 +114,7 @@ func destroy(score: Global.ScoreEnum):
 
 
 func hold(score: Global.ScoreEnum):
+	trail.material.shader = default_shader
 	head_sprite.visible = false
 	head_collision.disabled = true
 	held = true
