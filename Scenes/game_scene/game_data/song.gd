@@ -8,11 +8,7 @@ extends Node2D
 
 
 var bpm = 120
-var end_beat: int = 0:
-	set(value):
-		end_beat = value
-	get:
-		return end_beat + end_offset
+var end_beat: int = 0
 
 var notes_list: Dictionary = {}
 var synced_notes: Dictionary = {}
@@ -63,6 +59,8 @@ func parse_notes_from_dict(song_info):
 		prev_notes = cur_notes
 		notes_list[int(beat)] = beat_notes
 		end_beat = max(end_beat, int(beat))
+	if "end_beat" in song_info:
+		end_beat = song_info["end_beat"]
 
 func _ready():
 	var song_info = read_json_file(song_json_path)

@@ -25,9 +25,9 @@ func add_levels_to_container():
 		var file_name = file_path.get_file()  # e.g., "level_1.tscn"
 		# Clean up the file name
 		file_name = file_name.trim_suffix(".tscn")  # Remove the ".tscn" extension
-		file_name = file_name.replace("_", " ")  # Replace underscores with spaces
+		file_name = file_name.replace("_", ": ")  # Replace underscores with spaces
 		file_name = file_name.capitalize()  # Convert to proper case
-		var button_name = str(file_name)
+		var button_name = str("Level " + file_name)
 		level_buttons_container.add_item(button_name)
 
 func _on_level_buttons_container_item_activated(index: int) -> void:

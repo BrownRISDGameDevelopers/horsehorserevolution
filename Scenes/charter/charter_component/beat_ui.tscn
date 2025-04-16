@@ -12,6 +12,7 @@ script = ExtResource("1_an7xi")
 custom_minimum_size = Vector2(125, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 45
+toggle_mode = true
 text = "123"
 
 [node name="Player1Left" parent="." instance=ExtResource("2_xynw5")]
@@ -51,4 +52,15 @@ arrow_char = "↑"
 layout_mode = 2
 arrow_char = "→"
 
+[node name="EndingBeatText" type="Node2D" parent="."]
+visible = false
+position = Vector2(-2, -66)
+
+[node name="Label" type="Label" parent="EndingBeatText"]
+offset_right = 40.0
+offset_bottom = 29.0
+theme_override_font_sizes/font_size = 50
+text = "------------------------------ENDING BEAT------------------------------"
+
+[connection signal="toggled" from="BeatNumber" to="." method="_on_beat_number_toggled"]
 [connection signal="toggled" from="SyncIndicator" to="." method="_on_sync_indicator_toggled"]

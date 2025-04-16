@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4y0bqklbs5uk"]
+
+[ext_resource type="Script" uid="uid://1hry8memqph8" path="res://scenes/charter/charter_component/add_beat.gd" id="1_k1boe"]
+
+[node name="AddBeat" type="Button"]
+offset_right = 24.0
+offset_bottom = 18.0
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 45
+text = "Add Beat"
+script = ExtResource("1_k1boe")

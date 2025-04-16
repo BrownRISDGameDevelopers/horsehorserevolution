@@ -43,7 +43,7 @@ item_0/text = "1 - ExampleLevel"
 
 [node name="SceneLister" type="Node" parent="."]
 script = ExtResource("3_le4jx")
-files = Array[String](["res://scenes/game_scene/level/country.tscn", "res://scenes/game_scene/level/deathmetal.tscn", "res://scenes/game_scene/level/disco.tscn", "res://scenes/game_scene/level/tutorial.tscn"])
+files = Array[String](["res://scenes/game_scene/level/0_tutorial.tscn", "res://scenes/game_scene/level/1_disco.tscn", "res://scenes/game_scene/level/2_country.tscn", "res://scenes/game_scene/level/3_deathmetal.tscn"])
 directory = "res://scenes/game_scene/level"
 
 [connection signal="item_activated" from="Control/LevelButtonsContainer" to="." method="_on_level_buttons_container_item_activated"]

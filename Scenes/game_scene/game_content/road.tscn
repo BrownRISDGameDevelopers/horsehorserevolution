@@ -367,8 +367,8 @@ _data = {
 shader = ExtResource("2_hjh4p")
 
 [sub_resource type="Gradient" id="Gradient_c1equ"]
-offsets = PackedFloat32Array(0, 0.333, 0.667, 1)
-colors = PackedColorArray(0.427451, 0.823529, 0.976471, 1, 0.929412, 0.431373, 0.701961, 1, 0.964706, 0.858824, 0.384314, 1, 0.435294, 0.933333, 0.282353, 1)
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.866667, 0.890196, 0.92549, 0.654902)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_hjh4p"]
 gradient = SubResource("Gradient_c1equ")
@@ -395,12 +395,11 @@ self_modulate = Color(1, 1, 1, 0)
 
 [node name="DeathMetalMerge" type="AnimatedSprite2D" parent="RoadSprite/MergeAnimation"]
 visible = false
-self_modulate = Color(1, 1, 1, 0.752941)
+self_modulate = Color(1, 1, 1, 0.592157)
 position = Vector2(0, 43.25)
 scale = Vector2(0.05, 0.05)
 sprite_frames = ExtResource("9_hjh4p")
 autoplay = "default"
-frame_progress = 0.242778
 
 [node name="DiscoMerge" type="AnimatedSprite2D" parent="RoadSprite/MergeAnimation"]
 visible = false

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bc6smsbxffe3m"]
+[gd_scene load_steps=4 format=3 uid="uid://bc6smsbxffe3m"]
 
 [ext_resource type="Script" uid="uid://cynpka8rixy1y" path="res://scenes/charter/charter.gd" id="1_qwsub"]
 [ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://scenes/game_scene/game_data/song.tscn" id="2_o0qfc"]
+[ext_resource type="PackedScene" uid="uid://b4y0bqklbs5uk" path="res://scenes/charter/charter_component/add_beat.tscn" id="3_tk6kw"]
 
 [node name="Charter" type="Control" node_paths=PackedStringArray("song", "notes_container", "notes_list", "beat_select")]
 layout_mode = 3
@@ -27,6 +28,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="NotesList" type="VBoxContainer" parent="HBoxContainer/NotesContainer"]
+layout_mode = 2
+
+[node name="AddBeat" parent="HBoxContainer/NotesContainer/NotesList" instance=ExtResource("3_tk6kw")]
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
@@ -56,6 +60,7 @@ file_mode = 0
 root_subfolder = "assets/chart/"
 use_native_dialog = true
 
+[connection signal="pressed" from="HBoxContainer/NotesContainer/NotesList/AddBeat" to="." method="_on_add_beat_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/ExportButton" to="." method="_on_export_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="file_selected" from="FileDialog" to="." method="_on_file_dialog_file_selected"]

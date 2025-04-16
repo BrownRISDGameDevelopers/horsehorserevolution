@@ -17,8 +17,8 @@ song_json_path = "res://assets/chart/death_metal.json"
 song_stream = ExtResource("2_we0tg")
 end_offset = -140
 
-[node name="DanceBar" parent="." index="2"]
-position = Vector2(-89, -276)
+[node name="Controls" parent="." index="3"]
+merge_type = 2
 
 [node name="EnemyHorse" parent="." index="4"]
 position = Vector2(1414, 367)
