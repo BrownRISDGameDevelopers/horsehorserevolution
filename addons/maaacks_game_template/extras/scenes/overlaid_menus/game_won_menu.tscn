@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://4brssbq1ghsw"]
+[gd_scene load_steps=5 format=3 uid="uid://4brssbq1ghsw"]
 
 [ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_87sd7"]
 [ext_resource type="Script" uid="uid://gi8tms6wsj1n" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/game_won_menu.gd" id="2_hi7oy"]
+[ext_resource type="Texture2D" uid="uid://b3il1ioyuugsk" path="res://assets/image/ui/ui_mock.png" id="3_x4yek"]
+[ext_resource type="SpriteFrames" uid="uid://bbaq3yg1nex88" path="res://assets/image/ui/title/win_v2r1_cindy.gif" id="4_m4cke"]
 
 [node name="GameWonMenu" instance=ExtResource("1_87sd7")]
 process_mode = 3
@@ -10,6 +12,30 @@ pauses_game = true
 
 [node name="MenuPanelContainer" parent="." index="1"]
 custom_minimum_size = Vector2(432, 240)
+layout_mode = 0
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="GameWinBackground" type="Sprite2D" parent="MenuPanelContainer" index="0"]
+position = Vector2(960, 540)
+texture = ExtResource("3_x4yek")
+
+[node name="GameWinTitle" type="AnimatedSprite2D" parent="MenuPanelContainer" index="1"]
+position = Vector2(960, 240)
+scale = Vector2(2, 2)
+sprite_frames = ExtResource("4_m4cke")
+animation = &"gif"
+autoplay = "gif"
+speed_scale = 1.5
 
 [node name="TitleMargin" parent="MenuPanelContainer/MarginContainer/BoxContainer" index="0"]
 visible = false
@@ -20,7 +46,6 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_bottom = 64
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
-text = "[center]You won![/center]"
 scroll_active = false
 
 [node name="MenuButtons" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin" index="0"]

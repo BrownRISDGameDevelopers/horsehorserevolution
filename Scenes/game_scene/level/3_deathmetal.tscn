@@ -2,29 +2,28 @@
 
 [ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_5ymxc"]
 [ext_resource type="Texture2D" uid="uid://kix5cgr04ilc" path="res://assets/image/ui/bg/death_stage.png" id="2_6suoy"]
-[ext_resource type="AudioStream" uid="uid://dviaakn0trh17" path="res://assets/audio/Horse.wav" id="2_we0tg"]
+[ext_resource type="AudioStream" uid="uid://dviaakn0trh17" path="res://assets/audio/hhr_deathmetal_004.wav" id="2_we0tg"]
 [ext_resource type="Texture2D" uid="uid://cqeelyngfp45e" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal_neutral_r2_miles.png" id="4_0ixnl"]
 [ext_resource type="Texture2D" uid="uid://cb5l7b44ler81" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal_doinggood_v1r1_loki.PNG" id="5_hls7s"]
 
 [node name="DeathMetal" instance=ExtResource("1_5ymxc")]
 
-[node name="Background" parent="." index="0"]
-scale = Vector2(1.805, 1.805)
-texture = ExtResource("2_6suoy")
-
 [node name="Song" parent="." index="1"]
 song_json_path = "res://assets/chart/death_metal.json"
 song_stream = ExtResource("2_we0tg")
-end_offset = -140
 
-[node name="Controls" parent="." index="3"]
-merge_type = 2
+[node name="Background" parent="." index="2"]
+scale = Vector2(1.805, 1.805)
+texture = ExtResource("2_6suoy")
 
-[node name="EnemyHorse" parent="." index="4"]
+[node name="EnemyHorse" parent="." index="3"]
 position = Vector2(1414, 367)
+
+[node name="GreatPose" parent="EnemyHorse" index="1"]
+texture = ExtResource("5_hls7s")
+
+[node name="StaticPose" parent="EnemyHorse" index="5"]
 texture = ExtResource("4_0ixnl")
-great = ExtResource("5_hls7s")
-mildlygood = ExtResource("5_hls7s")
-mildlybad = ExtResource("5_hls7s")
-bad = ExtResource("5_hls7s")
-static_pose = ExtResource("4_0ixnl")
+
+[node name="Controls" parent="." index="6"]
+merge_type = 2

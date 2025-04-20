@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bblesvuuvgvue"]
+
+[ext_resource type="Texture2D" uid="uid://c3ydd4604cyfc" path="res://assets/image/ui/hud/race_lights.png" id="1_dfulb"]
+[ext_resource type="Script" uid="uid://dforv7i0q1of6" path="res://scenes/game_scene/game_content/race_lights.gd" id="1_s6ptk"]
+[ext_resource type="Texture2D" uid="uid://df044yxd2o6un" path="res://assets/image/ui/hud/race_light.png" id="2_vapci"]
+
+[node name="RaceLights" type="Node2D" node_paths=PackedStringArray("light_array")]
+script = ExtResource("1_s6ptk")
+light_array = [NodePath("LightLeft"), NodePath("LightMiddle"), NodePath("LightRight")]
+
+[node name="LightHousing" type="Sprite2D" parent="."]
+texture = ExtResource("1_dfulb")
+
+[node name="LightLeft" type="Sprite2D" parent="."]
+position = Vector2(-118, -9)
+texture = ExtResource("2_vapci")
+
+[node name="LightMiddle" type="Sprite2D" parent="."]
+position = Vector2(7, -6)
+texture = ExtResource("2_vapci")
+
+[node name="LightRight" type="Sprite2D" parent="."]
+position = Vector2(137, -5)
+texture = ExtResource("2_vapci")

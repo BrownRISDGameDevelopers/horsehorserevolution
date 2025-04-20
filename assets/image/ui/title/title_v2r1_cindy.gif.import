@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://dtvenovqmlnxb"
+path="res://.godot/imported/title_v2r1_cindy.gif-8ff28f8aa02da0ec87dfadb2e48cf805.tres"
+
+[deps]
+
+source_file="res://assets/image/ui/title/title_v2r1_cindy.gif"
+dest_files=["res://.godot/imported/title_v2r1_cindy.gif-8ff28f8aa02da0ec87dfadb2e48cf805.tres"]
+
+[params]
+
+frames_per_second=30

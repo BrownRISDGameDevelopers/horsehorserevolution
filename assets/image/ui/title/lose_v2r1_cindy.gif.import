@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://d1jf62ols58pt"
+path="res://.godot/imported/lose_v2r1_cindy.gif-fc447e0d320f48deab53edbf249a9576.tres"
+
+[deps]
+
+source_file="res://assets/image/ui/title/lose_v2r1_cindy.gif"
+dest_files=["res://.godot/imported/lose_v2r1_cindy.gif-fc447e0d320f48deab53edbf249a9576.tres"]
+
+[params]
+
+frames_per_second=30

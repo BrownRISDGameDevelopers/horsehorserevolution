@@ -1,0 +1,91 @@
+[gd_scene load_steps=11 format=3 uid="uid://smfcxmdypfad"]
+
+[ext_resource type="Script" uid="uid://fifuxg6p6qgh" path="res://scenes/game_scene/game_content/player_horse.gd" id="1_gjtv3"]
+[ext_resource type="Texture2D" uid="uid://b8yhh3mtos4nh" path="res://assets/image/game/player_sprites/horsehorse_slip_v1r1_ko.PNG" id="1_kjkbw"]
+[ext_resource type="Texture2D" uid="uid://bp1de6yva2q64" path="res://assets/image/game/player_sprites/horsehorse_connection_v1r1_ko.PNG" id="1_l1f1o"]
+[ext_resource type="Texture2D" uid="uid://bmwojieub2gdp" path="res://assets/image/game/player_sprites/horsehorse_backleft.PNG" id="2_kjkbw"]
+[ext_resource type="Texture2D" uid="uid://cm3nmh47ua2vi" path="res://assets/image/game/player_sprites/horsehorse_backneutral_v1r1_ko.PNG" id="2_oocah"]
+[ext_resource type="Texture2D" uid="uid://jbtmjxmkpcns" path="res://assets/image/game/player_sprites/IMG_3465.PNG" id="3_4i1gm"]
+[ext_resource type="Texture2D" uid="uid://cuo4msa281xkk" path="res://assets/image/game/player_sprites/horsehorse_tape_v1r1_ko.PNG" id="3_50qhb"]
+[ext_resource type="Texture2D" uid="uid://bmobfigvwidph" path="res://assets/image/game/player_sprites/horsehorse_frontneutral_v1r2_ko.PNG" id="3_eb3vq"]
+[ext_resource type="Texture2D" uid="uid://ns7oy5am5kb1" path="res://assets/image/game/player_sprites/horsehorse_frontleft.PNG" id="3_l1f1o"]
+[ext_resource type="Texture2D" uid="uid://c4su0rd7cl3md" path="res://assets/image/game/player_sprites/IMG_3464.PNG" id="5_ad522"]
+
+[node name="PlayerHorse" type="Node2D" node_paths=PackedStringArray("back_sprites", "front_sprites", "reset_timers")]
+script = ExtResource("1_gjtv3")
+back_sprites = [NodePath("PlayerBack/PlayerBackLeft"), NodePath("PlayerBack/PlayerBackDown"), NodePath("PlayerBack/PlayerBackUp"), NodePath("PlayerBack/PlayerBackRight"), NodePath("PlayerBack/PlayerBackNeutral")]
+front_sprites = [NodePath("PlayerFront/PlayerFrontLeft"), NodePath("PlayerFront/PlayerFrontDown"), NodePath("PlayerFront/PlayerFrontUp"), NodePath("PlayerFront/PlayerFrontRight"), NodePath("PlayerFront/PlayerFrontNeutral")]
+reset_timers = [NodePath("BackTimer"), NodePath("FrontTimer")]
+
+[node name="BackTimer" type="Timer" parent="."]
+wait_time = 0.16
+one_shot = true
+
+[node name="FrontTimer" type="Timer" parent="."]
+wait_time = 0.16
+one_shot = true
+
+[node name="PlayerConnector" type="Sprite2D" parent="."]
+position = Vector2(0, -20)
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("1_l1f1o")
+
+[node name="PlayerBack" type="Node2D" parent="."]
+
+[node name="PlayerBackLeft" type="Sprite2D" parent="PlayerBack"]
+visible = false
+position = Vector2(-35, 334)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_kjkbw")
+
+[node name="PlayerBackDown" type="Sprite2D" parent="PlayerBack"]
+visible = false
+
+[node name="PlayerBackUp" type="Sprite2D" parent="PlayerBack"]
+visible = false
+position = Vector2(-669, -134)
+scale = Vector2(1.175, 1.175)
+texture = ExtResource("3_4i1gm")
+
+[node name="PlayerBackRight" type="Sprite2D" parent="PlayerBack"]
+visible = false
+
+[node name="PlayerBackNeutral" type="Sprite2D" parent="PlayerBack"]
+texture = ExtResource("2_oocah")
+
+[node name="PlayerFront" type="Node2D" parent="."]
+
+[node name="PlayerFrontLeft" type="Sprite2D" parent="PlayerFront"]
+visible = false
+position = Vector2(-23, 191)
+scale = Vector2(1.169, 1.169)
+texture = ExtResource("3_l1f1o")
+
+[node name="PlayerFrontDown" type="Sprite2D" parent="PlayerFront"]
+visible = false
+
+[node name="PlayerFrontUp" type="Sprite2D" parent="PlayerFront"]
+visible = false
+position = Vector2(574, -228)
+scale = Vector2(1.22, 1.22)
+texture = ExtResource("5_ad522")
+
+[node name="PlayerFrontRight" type="Sprite2D" parent="PlayerFront"]
+visible = false
+
+[node name="PlayerFrontNeutral" type="Sprite2D" parent="PlayerFront"]
+texture = ExtResource("3_eb3vq")
+
+[node name="PlayerTape" type="Sprite2D" parent="."]
+position = Vector2(0, -50)
+texture = ExtResource("3_50qhb")
+
+[node name="PlayerSlip" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_kjkbw")
+
+[node name="SlipTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="BackTimer" to="." method="_on_back_timer_timeout"]
+[connection signal="timeout" from="FrontTimer" to="." method="_on_front_timer_timeout"]
+[connection signal="timeout" from="SlipTimer" to="." method="_on_slip_timer_timeout"]

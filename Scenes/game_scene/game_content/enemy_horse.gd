@@ -1,26 +1,34 @@
-extends Sprite2D
+extends Node2D
 
-@export var great: Texture2D
-@export var mildlygood: Texture2D
-@export var mildlybad: Texture2D
-@export var bad: Texture2D
-@export var static_pose: Texture2D
+@export var great: Sprite2D
+@export var mildly_good: Sprite2D
+@export var mildly_bad: Sprite2D
+@export var bad: Sprite2D
+@export var static_pose: Sprite2D
 @onready var timer: Timer = $Timer
 
 func strike_pose(dancebarval): # between 0 and 200
 	if (timer.is_stopped()):
 		var rand = randi_range(0, 200)
 		if (rand * 4 < dancebarval):
-			texture = bad
+			set_pose(bad)
 		elif (rand < dancebarval):
-			texture = mildlybad
+			set_pose(mildly_bad)
 		elif (rand / 2.0 >= dancebarval):
-			texture = great
+			set_pose(great)
 		else:
-			texture = mildlygood
+			set_pose(mildly_good)
 		timer.start()
 	return
 
+func set_pose(pose_node: Sprite2D):
+	great.visible = false
+	mildly_good.visible = false
+	mildly_bad.visible = false
+	bad.visible = false
+	static_pose.visible = false
+	
+	pose_node.visible = true
 
 func _on_timer_timeout() -> void:
-	texture = static_pose
+	set_pose(static_pose)

@@ -7,15 +7,6 @@ extends Node2D
 @onready var road0 = $Road0
 @onready var road1 = $Road1
 
-var score = 0
-var combo = 0
-
-var max_combo = 0
-var great = 0
-var good = 0
-var okay = 0
-var missed = 0
-
 var sync_phase: bool = false
 
 func _ready():
@@ -43,12 +34,6 @@ func _on_conductor_beat(beat_position):
 		road1.exit_sync()
 		sync_phase = false
 	if beat_position > song.end_beat:
-		Global.set_score(score)
-		Global.combo = max_combo
-		Global.great = great
-		Global.good = good
-		Global.okay = okay
-		Global.missed = missed
 		Global.level_over.emit()
 
 

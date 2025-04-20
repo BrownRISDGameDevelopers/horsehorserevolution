@@ -26,7 +26,6 @@ func update_player(road_num):
 		perfect_area.collision_mask = 0b0010
 		good_area_lower.collision_mask = 0b0010
 		okay_area_lower.collision_mask = 0b0010
-	# game_object = game_reference
 		
 
 func _physics_process(_delta):
@@ -34,15 +33,16 @@ func _physics_process(_delta):
 		if current_note != null:
 			Global.note_hit.emit(player_num, current_area, current_score)
 			current_note.handle_input(current_score)
-			if !current_note.held:
+			if !current_note.has_trail:
 				_reset()
 		else:
 			Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS)
 		$ArrowSprite.frame = 1
 
 	if Input.is_action_just_released(input):
-		if current_note != null and current_note.held:
-			current_note.handle_input(current_score)
+		if current_note != null:
+			if current_note.has_trail:
+				current_note.handle_input(current_score)
 			_reset()
 		$PushTimer.start()
 

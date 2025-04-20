@@ -3,6 +3,7 @@ extends Area2D
 const BASE_DISTANCE = 240
 const DESPAWN_DISTANCE = 32
 
+var sec_per_beat
 var speed = 0
 var target_y = 0
 var hit = false
@@ -28,22 +29,22 @@ var arrow_colors = {Global.Direction.LEFT: "6dd2f9",
 
 
 func _physics_process(delta):
-	if held:
+	if hit:
+		score_label.position.y -= speed * delta
+	elif held:
 		tail_sprite.position.y += speed * delta
+		tail_collision.position.y += speed * delta
 		trail.set_point_position(0, Vector2(0, target_y - position.y))
 		var trail_end = min(tail_sprite.position.y, target_y - position.y)
 		trail.set_point_position(1, Vector2(0, trail_end))
 		if tail_sprite.position.y > DESPAWN_DISTANCE:
 			Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS)
 			queue_free()
-	elif not hit:
+	else:
 		position.y += speed * delta
 		if position.y > target_y + DESPAWN_DISTANCE:
 			Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS)
-			Global.dance_bar_change.emit(-10)
 			queue_free()
-	else:
-		score_label.position.y -= speed * delta
 
 
 func initialize(duration, bpm, road_num, end_y):
@@ -58,15 +59,15 @@ func initialize(duration, bpm, road_num, end_y):
 	head_collision.shape.set_size(Vector2(8, 8 * (bpm / 120)))
 	tail_collision.shape.set_size(Vector2(8, 8 * (bpm / 120)))
 
-	var sec_per_beat = 60.0 / bpm
+	sec_per_beat = 60.0 / bpm
 	if duration > 1:
 		tail_sprite.position.y -= (duration - 1) * sec_per_beat * speed
 		tail_sprite.visible = false
 		trail.add_point(horseshoe_head_adjust)
 		trail.add_point(tail_sprite.position)
 		has_trail = true
-		# TODO: resize an area for hold notes to be released in
-		# tail_collision.shape.set_size(Vector2(8, 8 * (bpm / 120)))
+		tail_collision.shape.set_size(Vector2(8, 2 * sec_per_beat * speed))
+		tail_collision.position.y -= (duration - 1) * sec_per_beat * speed
 	else:
 		head_collision.set_deferred("disabled", true)
 
@@ -90,17 +91,18 @@ func set_direction(direction):
 
 func handle_input(score: Global.ScoreEnum):
 	# TODO: hold note logic	
-	if !has_trail or held:
+	if !has_trail:
 		destroy(score)
-	else:
+	elif not held:
 		hold(score)
+	else:
+		release_hold(score)
 
 func destroy(score: Global.ScoreEnum):
 	# $CPUParticles2D.emitting = true
 	$Timer.start()
 	head_sprite.visible = false
 	tail_sprite.visible = false
-	held = false
 	hit = true
 	if score == Global.ScoreEnum.PERFECT:
 		score_label.text = "GREAT"
@@ -116,7 +118,6 @@ func destroy(score: Global.ScoreEnum):
 func hold(score: Global.ScoreEnum):
 	trail.material.shader = default_shader
 	head_sprite.visible = false
-	head_collision.disabled = true
 	held = true
 	if score == Global.ScoreEnum.PERFECT:
 		score_label.text = "GREAT"
@@ -128,6 +129,14 @@ func hold(score: Global.ScoreEnum):
 		score_label.text = "OKAY"
 		score_label.modulate = Color("997577")
 
-
+func release_hold(score: Global.ScoreEnum):
+	$Timer.start()
+	head_sprite.visible = false
+	tail_sprite.visible = false
+	hit = true
+	if tail_collision.position.y < -2 * sec_per_beat * speed:
+		score_label.text = "DROPPED"
+		score_label.modulate = Color("997577")
+	
 func _on_Timer_timeout():
 	queue_free()

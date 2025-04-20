@@ -10,22 +10,35 @@
 
 [node name="Game" instance=ExtResource("1_0vunl")]
 
-[node name="Background" parent="." index="0"]
+[node name="Song" parent="." index="0"]
+end_offset = -140
+
+[node name="Background" parent="." index="1"]
 scale = Vector2(1.505, 1.505)
 texture = ExtResource("2_porrk")
 
-[node name="Song" parent="." index="1"]
-end_offset = -140
-
-[node name="Controls" parent="." index="3"]
-merge_type = 0
-
-[node name="EnemyHorse" parent="." index="4"]
+[node name="EnemyHorse" parent="." index="2"]
 position = Vector2(1520, 360)
 scale = Vector2(0.195, 0.195)
+
+[node name="GreatPose" parent="EnemyHorse" index="1"]
+position = Vector2(-348.718, -112.821)
+scale = Vector2(1.8609, 1.8609)
+texture = ExtResource("4_orc31")
+
+[node name="MildlyGoodPose" parent="EnemyHorse" index="2"]
+texture = ExtResource("5_nk2nk")
+
+[node name="MildlyBadPose" parent="EnemyHorse" index="3"]
+texture = ExtResource("6_uttaj")
+
+[node name="BadPose" parent="EnemyHorse" index="4"]
+position = Vector2(-179.487, -138.461)
+scale = Vector2(1.38056, 1.38056)
+texture = ExtResource("7_vgs3v")
+
+[node name="StaticPose" parent="EnemyHorse" index="5"]
 texture = ExtResource("3_njiw5")
-great = ExtResource("4_orc31")
-mildlygood = ExtResource("5_nk2nk")
-mildlybad = ExtResource("6_uttaj")
-bad = ExtResource("7_vgs3v")
-static_pose = ExtResource("3_njiw5")
+
+[node name="Controls" parent="." index="5"]
+merge_type = 0

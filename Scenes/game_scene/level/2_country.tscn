@@ -10,16 +10,24 @@
 
 [node name="Game" instance=ExtResource("1_8i7my")]
 
-[node name="Background" parent="." index="0"]
+[node name="Song" parent="." index="0"]
+end_offset = -140
+
+[node name="Background" parent="." index="1"]
 scale = Vector2(2.77, 2.77)
 texture = ExtResource("2_t7v77")
 
-[node name="Song" parent="." index="1"]
-end_offset = -140
+[node name="GreatPose" parent="EnemyHorse" index="1"]
+texture = ExtResource("3_sfdoa")
 
-[node name="EnemyHorse" parent="." index="4"]
-great = ExtResource("3_sfdoa")
-mildlygood = ExtResource("4_xwiel")
-mildlybad = ExtResource("5_aawnu")
-bad = ExtResource("6_2l20p")
-static_pose = ExtResource("7_r1qjk")
+[node name="MildlyGoodPose" parent="EnemyHorse" index="2"]
+texture = ExtResource("4_xwiel")
+
+[node name="MildlyBadPose" parent="EnemyHorse" index="3"]
+texture = ExtResource("5_aawnu")
+
+[node name="BadPose" parent="EnemyHorse" index="4"]
+texture = ExtResource("6_2l20p")
+
+[node name="StaticPose" parent="EnemyHorse" index="5"]
+texture = ExtResource("7_r1qjk")
