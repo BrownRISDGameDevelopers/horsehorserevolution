@@ -71,8 +71,8 @@ func increment_score(note_score: Global.ScoreEnum):
 		missed += 1
 		Global.dance_bar_change.emit(-10)
 	
-	if dance_bar1.value <= 0 or dance_bar2.value >= 200:
-		lose_with_animations()
+	#if dance_bar1.value <= 0 or dance_bar2.value >= 200:
+		#lose_with_animations()
 	score += note_score * combo
 
 	$ComboDisplay.set_combo(combo)

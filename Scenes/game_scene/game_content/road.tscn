@@ -1,8 +1,8 @@
 [gd_scene load_steps=19 format=3 uid="uid://blmin3fl4tjts"]
 
-[ext_resource type="Script" uid="uid://biwsc04tnvs6v" path="res://scenes/game_scene/game_content/road.gd" id="1_fuyh8"]
-[ext_resource type="Shader" uid="uid://biafqipd0yf10" path="res://scenes/game_scene/game_content/road.gdshader" id="2_hjh4p"]
-[ext_resource type="PackedScene" uid="uid://dy7ffyvlcyfwa" path="res://scenes/game_scene/game_content/arrow_button.tscn" id="3_af1g8"]
+[ext_resource type="Script" uid="uid://biwsc04tnvs6v" path="res://Scenes/game_scene/game_content/road.gd" id="1_fuyh8"]
+[ext_resource type="Shader" uid="uid://biafqipd0yf10" path="res://Scenes/game_scene/game_content/road.gdshader" id="2_hjh4p"]
+[ext_resource type="PackedScene" uid="uid://dy7ffyvlcyfwa" path="res://Scenes/game_scene/game_content/arrow_button.tscn" id="3_af1g8"]
 [ext_resource type="SpriteFrames" uid="uid://ddmpr51emgj1e" path="res://assets/frame/arrow_left_frames.tres" id="4_lnh6y"]
 [ext_resource type="SpriteFrames" uid="uid://dsteh5evywp6v" path="res://assets/frame/arrow_down_frames.tres" id="5_h2cb2"]
 [ext_resource type="SpriteFrames" uid="uid://b8n1rdebqj4sg" path="res://assets/frame/arrow_right_frames.tres" id="5_tg8mc"]

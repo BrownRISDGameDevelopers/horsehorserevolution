@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpdv6oucd1617"]
+[gd_scene load_steps=7 format=3 uid="uid://bpdv6oucd1617"]
 
-[ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_5ymxc"]
-[ext_resource type="Texture2D" uid="uid://kix5cgr04ilc" path="res://assets/image/ui/bg/death_stage.png" id="2_6suoy"]
+[ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://Scenes/game_scene/game.tscn" id="1_5ymxc"]
 [ext_resource type="AudioStream" uid="uid://dviaakn0trh17" path="res://assets/audio/hhr_deathmetal_004.wav" id="2_we0tg"]
+[ext_resource type="Texture2D" uid="uid://lrfa46djat13" path="res://assets/image/ui/bg/death_metal_final/Death Metal BG.png" id="3_3wi67"]
 [ext_resource type="Texture2D" uid="uid://cqeelyngfp45e" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal_neutral_r2_miles.png" id="4_0ixnl"]
+[ext_resource type="Texture2D" uid="uid://dnyxmm1egpvrk" path="res://assets/image/ui/bg/death_metal_final/Death Metal BG Platforms.png" id="4_46cgm"]
 [ext_resource type="Texture2D" uid="uid://cb5l7b44ler81" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal_doinggood_v1r1_loki.PNG" id="5_hls7s"]
 
 [node name="DeathMetal" instance=ExtResource("1_5ymxc")]
@@ -13,11 +14,16 @@ song_json_path = "res://assets/chart/death_metal.json"
 song_stream = ExtResource("2_we0tg")
 
 [node name="Background" parent="." index="2"]
-scale = Vector2(1.805, 1.805)
-texture = ExtResource("2_6suoy")
+texture = ExtResource("3_3wi67")
+
+[node name="DeathMetalBgPlatforms" type="Sprite2D" parent="Background" index="0"]
+z_index = -1
+position = Vector2(24, 51)
+texture = ExtResource("4_46cgm")
 
 [node name="EnemyHorse" parent="." index="3"]
 position = Vector2(1414, 367)
+pose_length = 0.2
 
 [node name="GreatPose" parent="EnemyHorse" index="1"]
 texture = ExtResource("5_hls7s")

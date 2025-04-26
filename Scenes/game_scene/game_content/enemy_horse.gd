@@ -5,7 +5,11 @@ extends Node2D
 @export var mildly_bad: Sprite2D
 @export var bad: Sprite2D
 @export var static_pose: Sprite2D
+@export var pose_length: float
 @onready var timer: Timer = $Timer
+
+func _ready() -> void:
+	timer.wait_time = pose_length
 
 func strike_pose(dancebarval): # between 0 and 200
 	if (timer.is_stopped()):
