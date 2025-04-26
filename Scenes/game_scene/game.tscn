@@ -187,7 +187,7 @@ visible = false
 [node name="StaticPose" type="Sprite2D" parent="EnemyHorse"]
 
 [node name="PlayerHorse" parent="." instance=ExtResource("8_fhy3a")]
-position = Vector2(593, 574)
+position = Vector2(565, 512)
 scale = Vector2(0.37, 0.37)
 
 [node name="DanceBar" parent="." instance=ExtResource("10_28n3v")]
