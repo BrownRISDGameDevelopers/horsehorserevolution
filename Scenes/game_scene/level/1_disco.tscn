@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://d4hq8ftguxlxu"]
+[gd_scene load_steps=9 format=3 uid="uid://d4hq8ftguxlxu"]
 
 [ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://Scenes/game_scene/game.tscn" id="1_0vunl"]
+[ext_resource type="AudioStream" uid="uid://cv6t638lyhtnn" path="res://assets/audio/Dorse.wav" id="2_6nthd"]
 [ext_resource type="Texture2D" uid="uid://df65166svqejm" path="res://assets/image/ui/bg/disco_final/DiscoBG_v1r1_michelle.png" id="2_7kn5e"]
 [ext_resource type="Texture2D" uid="uid://ce83g822sprbm" path="res://assets/image/game/enemy_sprites/disco/disco_neutral_nitikar.png" id="3_njiw5"]
 [ext_resource type="Texture2D" uid="uid://b0l1pque5dol3" path="res://assets/image/game/enemy_sprites/disco/Disco Really good .PNG" id="4_orc31"]
@@ -11,7 +12,7 @@
 [node name="Game" instance=ExtResource("1_0vunl")]
 
 [node name="Song" parent="." index="1"]
-end_offset = -140
+song_stream = ExtResource("2_6nthd")
 
 [node name="Background" parent="." index="2"]
 scale = Vector2(0.5, 0.5)
