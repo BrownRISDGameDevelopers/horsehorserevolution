@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://b34wfgh40uvd5"
-path="res://.godot/imported/hhr_tutorial_001.wav-4e2dc337eaa5a624f35528cfdc97d424.sample"
+path="res://.godot/imported/Torse.wav-4793a6d677323305302fd5a3cb88b645.sample"
 
 [deps]
 
-source_file="res://assets/audio/hhr_tutorial_001.wav"
-dest_files=["res://.godot/imported/hhr_tutorial_001.wav-4e2dc337eaa5a624f35528cfdc97d424.sample"]
+source_file="res://assets/audio/Torse.wav"
+dest_files=["res://.godot/imported/Torse.wav-4793a6d677323305302fd5a3cb88b645.sample"]
 
 [params]
 

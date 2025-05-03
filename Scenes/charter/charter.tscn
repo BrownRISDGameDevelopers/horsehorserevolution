@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bc6smsbxffe3m"]
 
-[ext_resource type="Script" uid="uid://cynpka8rixy1y" path="res://Scenes/charter/charter.gd" id="1_qwsub"]
-[ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://Scenes/game_scene/game_data/song.tscn" id="2_o0qfc"]
-[ext_resource type="PackedScene" uid="uid://b4y0bqklbs5uk" path="res://Scenes/charter/charter_component/add_beat.tscn" id="3_tk6kw"]
+[ext_resource type="Script" uid="uid://cynpka8rixy1y" path="res://scenes/charter/charter.gd" id="1_qwsub"]
+[ext_resource type="PackedScene" uid="uid://8w2vvkmhlm1f" path="res://scenes/game_scene/game_data/song.tscn" id="2_o0qfc"]
+[ext_resource type="PackedScene" uid="uid://b4y0bqklbs5uk" path="res://scenes/charter/charter_component/add_beat.tscn" id="3_tk6kw"]
 
 [node name="Charter" type="Control" node_paths=PackedStringArray("song", "notes_container", "notes_list", "beat_select")]
 layout_mode = 3

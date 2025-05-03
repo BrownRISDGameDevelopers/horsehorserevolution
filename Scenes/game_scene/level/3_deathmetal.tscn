@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bpdv6oucd1617"]
 
-[ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://Scenes/game_scene/game.tscn" id="1_5ymxc"]
-[ext_resource type="AudioStream" uid="uid://dcppruflsx04p" path="res://assets/audio/Morse.wav" id="2_tn48y"]
+[ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_5ymxc"]
+[ext_resource type="AudioStream" uid="uid://ceh55jknfb6ew" path="res://assets/audio/Morse.wav" id="2_tn48y"]
 [ext_resource type="Texture2D" uid="uid://5bvrwqguj7y0" path="res://assets/image/ui/bg/death_metal_final/Death Horse BG Merged Layers.png" id="3_tn48y"]
 [ext_resource type="Texture2D" uid="uid://cqeelyngfp45e" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal_neutral_r2_miles.png" id="4_0ixnl"]
 [ext_resource type="Texture2D" uid="uid://cb5l7b44ler81" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal_doinggood_v1r1_loki.PNG" id="5_hls7s"]

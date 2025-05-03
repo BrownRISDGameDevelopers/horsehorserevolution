@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://ceb4n6rmiwutj"
-path="res://.godot/imported/hhr-nightcorified.wav-96162fba7e44d8fe6a7b3182342f63ac.sample"
+path="res://.godot/imported/Norse.wav-1606155f9214a998f154845fb07d5203.sample"
 
 [deps]
 
-source_file="res://assets/audio/hhr-nightcorified.wav"
-dest_files=["res://.godot/imported/hhr-nightcorified.wav-96162fba7e44d8fe6a7b3182342f63ac.sample"]
+source_file="res://assets/audio/Norse.wav"
+dest_files=["res://.godot/imported/Norse.wav-1606155f9214a998f154845fb07d5203.sample"]
 
 [params]
 
