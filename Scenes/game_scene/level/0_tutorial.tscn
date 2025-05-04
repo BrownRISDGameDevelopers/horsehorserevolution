@@ -35,5 +35,8 @@ z_index = -1
 position = Vector2(1461, 343)
 scale = Vector2(-0.28, 0.28)
 
+[node name="EnemyBar" parent="." index="7"]
+visible = false
+
 [node name="ComboDisplay" parent="." index="9"]
 position = Vector2(1537, 934)

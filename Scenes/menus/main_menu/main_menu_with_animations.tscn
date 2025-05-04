@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://d1bq8de8pvukb"]
+[gd_scene load_steps=21 format=3 uid="uid://d1bq8de8pvukb"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_rr1rn"]
 [ext_resource type="Script" uid="uid://b5lcdipfppvp8" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_sr523"]
 [ext_resource type="PackedScene" uid="uid://cflwwqdmh5ynp" path="res://scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="3_ixa71"]
 [ext_resource type="PackedScene" uid="uid://ns2he70lcvgj" path="res://scenes/menus/level_select_menu/level_select_menu.tscn" id="3_sr523"]
 [ext_resource type="PackedScene" uid="uid://d1jel6tglluae" path="res://scenes/credits/credits.tscn" id="4_2k5l7"]
+[ext_resource type="AudioStream" uid="uid://cv6t638lyhtnn" path="res://assets/audio/Dorse.wav" id="6_2k5l7"]
 [ext_resource type="SpriteFrames" uid="uid://gq4do5g4t6rs" path="res://assets/frame/main_menu.tres" id="6_ixa71"]
 
 [sub_resource type="Animation" id="1"]
@@ -392,6 +393,10 @@ tree_root = SubResource("AnimationNodeStateMachine_vikuh")
 anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
 
+[node name="BackgroundMusicPlayer" parent="." index="3"]
+stream = ExtResource("6_2k5l7")
+volume_db = -10.0
+
 [node name="BackgroundTextureRect" parent="." index="4"]
 modulate = Color(0, 0, 0, 1)
 texture = null
@@ -434,6 +439,8 @@ text = "Level Select"
 [node name="CreditsContainer" parent="." index="9"]
 layout_mode = 1
 anchors_preset = 15
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="LevelSelectContainer" type="MarginContainer" parent="." index="10"]
 unique_name_in_owner = true
@@ -441,6 +448,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 32

@@ -36,7 +36,7 @@ func _on_conductor_beat(beat_position):
 		road1.exit_sync()
 		refresh_health.emit()
 		sync_phase = false
-	if beat_position > song.end_beat:
+	if beat_position >= song.end_beat:
 		Global.level_over.emit()
 
 
