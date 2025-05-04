@@ -1,18 +1,45 @@
 # Attribution
-## Collaborators
+## Horse Horse Revolution Team
 
-### Role
-Person 1  
-Person 2  
-[Person w/ Link]()  
+Angelina So - Artist [img=100x100]res://assets/image/creditsonas/Angelina.png[/img]
+[img=100x100]res://assets/image/creditsonas/Ava.png[/img] Ava Buccino - Artist
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Asa Phillips -  Artist[img=100x100]res://assets/image/creditsonas/blank.png[/img]
+Brian Xu - Programmer [img=100x100]res://assets/image/creditsonas/Brian.PNG[/img]
+[img=100x100]res://assets/image/creditsonas/Cindy.png[/img] Cindy Li - Producer/UI/Charter 
+Emily Wang - Artist [img=100x100]res://assets/image/creditsonas/Emily.png[/img]
+[img=100x100]res://assets/image/creditsonas/Evelyn.png[/img] Evelyn Gao - Artist 
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Julia Primiero - Artist[img=100x100]res://assets/image/creditsonas/blank.png[/img]
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Jayden Lawrence - Artist[img=100x100]res://assets/image/creditsonas/blank.png[/img]
+Karis Lau - UI [img=100x100]res://assets/image/creditsonas/Karis.png[/img]
+[img=100x100]res://assets/image/creditsonas/Katie_Wu.png[/img] Katie Wu - Artist 
+Ko Shao - Artist [img=100x100]res://assets/image/creditsonas/Ko Shao.PNG[/img]
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Lily Kim - Artist[img=100x100]res://assets/image/creditsonas/blank.png[/img]
+[img=100x100]res://assets/image/creditsonas/Loki.png[/img] Loki Ahlgren - Artist 
+Louis Nishimura - Charter [img=100x100]res://assets/image/creditsonas/Louis.png[/img]
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Lucas Chan - Music [img=100x100]res://assets/image/creditsonas/blank.png[/img]
+[img=100x100]res://assets/image/creditsonas/maggie.PNG[/img] Maggie Weng - Artist 
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Beatty Fulmina - Artist[img=100x100]res://assets/image/creditsonas/blank.png[/img]
+Michael Rehmet- Programmer [img=100x100]res://assets/image/creditsonas/Michael.png[/img]
+[img=100x100]res://assets/image/creditsonas/Michelle.png[/img] Michelle Gu - Artist
+Nitika Rao - Artist [img=100x100]res://assets/image/creditsonas/Nitika.png[/img]
+[img=100x100]res://assets/image/creditsonas/Nic.png[/img] Nicolas Concepcion - Music 
+Sagian Shaw - Producer/Artist [img=100x100]res://assets/image/creditsonas/Sage.png[/img]
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Yuna Ogiwara - Artist[img=100x100]res://assets/image/creditsonas/blank.png[/img]
+
+### Collaborators
+
+Austin Horse- Horse Voice and Foley Talent
+Casper Horse- Horse Voice and Foley Talent
+Dove Horse- Horse Voice and Foley Talent
+Graham Horse- Horse Voice and Foley Talent
+Smooch Horse- Horse Voice and Foley Talent
+Sunny Horse- Horse Voice and Foley Talent
+Special thanks to Matteo Mastrangelo & The RISD Equestrian Club
+VOICEVOX: Zundamon as vocals
 
 
 ## Sourced / Unaffiliated
 ### Asset Type
-#### Use Case
-Author: [Name]()  
-Source: [Domain : webpage.html]()  
-License: [License]()
 
 #### Godot Engine Logo
 Author: Andrea Calabró  
@@ -34,3 +61,8 @@ License: [GNU General Public License version 2](https://opensource.org/licenses/
 Author: [Marek Belski and contributors](https://github.com/Maaack/Godot-Game-Template/graphs/contributors)  
 Source: [github: Godot-Game-Template](https://github.com/Maaack/Godot-Game-Template)  
 License: [MIT License](LICENSE.txt)  
+
+#### Godot Midi Parser
+Author: [Roland Eigelsreiter](https://github.com/brainfoolong/gdscript-midi-parser)  
+Source: [github: GDScript Midi Parser](https://github.com/brainfoolong/gdscript-midi-parser)  
+License: [MIT License](https://github.com/brainfoolong/gdscript-midi-parser/blob/main/LICENSE)

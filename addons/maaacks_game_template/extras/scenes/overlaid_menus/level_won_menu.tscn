@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_nknag"]
 [ext_resource type="Script" uid="uid://bdic7jebf0y7a" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/level_won_menu.gd" id="2_klq7f"]
-[ext_resource type="Texture2D" uid="uid://b3il1ioyuugsk" path="res://assets/image/ui/ui_mock.png" id="3_dux3m"]
+[ext_resource type="Texture2D" uid="uid://cnxbypjda2edk" path="res://assets/image/ui/title/glitter.png" id="3_0214o"]
 [ext_resource type="SpriteFrames" uid="uid://bbaq3yg1nex88" path="res://assets/image/ui/title/win_v2r1_cindy.gif" id="4_0214o"]
 
 [node name="LevelWonMenu" instance=ExtResource("1_nknag")]
@@ -27,7 +27,7 @@ grow_vertical = 1
 
 [node name="LevelWonBackground" type="Sprite2D" parent="MenuPanelContainer" index="0"]
 position = Vector2(960, 540)
-texture = ExtResource("3_dux3m")
+texture = ExtResource("3_0214o")
 
 [node name="LevelWonTitle" type="AnimatedSprite2D" parent="MenuPanelContainer" index="1"]
 position = Vector2(960, 250)
@@ -46,27 +46,31 @@ theme_override_constants/margin_top = 64
 theme_override_constants/margin_bottom = 64
 
 [node name="DescriptionLabel" parent="MenuPanelContainer/MarginContainer/BoxContainer/DescriptionMargin" index="0"]
+visible = false
 text = "[center]Level complete![/center]"
 scroll_active = false
 
 [node name="MenuButtons" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin" index="0"]
-custom_minimum_size = Vector2(400, 0)
+custom_minimum_size = Vector2(800, 125)
 vertical = false
 
 [node name="MainMenuButton" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
 text = "Main Menu"
 
 [node name="RestartButton" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
 text = "Restart"
 
 [node name="CloseButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
 size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 35
 text = "Continue"
 
 [node name="ConfirmMainMenu" type="ConfirmationDialog" parent="." index="2"]

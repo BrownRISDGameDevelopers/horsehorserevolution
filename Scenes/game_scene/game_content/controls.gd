@@ -9,6 +9,8 @@ extends Node2D
 
 var sync_phase: bool = false
 
+signal refresh_health
+
 func _ready():
 	Global.beat.connect(_on_conductor_beat)
 	road0.set_merge_type(merge_type)
@@ -32,8 +34,9 @@ func _on_conductor_beat(beat_position):
 	elif sync_phase and not song.synced(beat_position):
 		road0.exit_sync()
 		road1.exit_sync()
+		refresh_health.emit()
 		sync_phase = false
-	if beat_position > song.end_beat:
+	if beat_position >= song.end_beat:
 		Global.level_over.emit()
 
 

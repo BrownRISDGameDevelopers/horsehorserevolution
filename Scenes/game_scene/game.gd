@@ -11,9 +11,8 @@ var missed = 0
 
 @onready var controls = $Controls
 
-@onready var dance_bar_node: Node2D = $DanceBar
-@onready var dance_bar1: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar1")
-@onready var dance_bar2: TextureProgressBar = dance_bar_node.get_node("TextureProgressBar2")
+@onready var enemy_bar_node: Node2D = $EnemyBar
+@onready var enemy_bar: TextureProgressBar = enemy_bar_node.get_node("ProgressBar")
 
 @onready var enemy_horse: Node2D = $EnemyHorse
 @onready var player_horse: Node2D = $PlayerHorse
@@ -71,8 +70,8 @@ func increment_score(note_score: Global.ScoreEnum):
 		missed += 1
 		Global.dance_bar_change.emit(-10)
 	
-	#if dance_bar1.value <= 0 or dance_bar2.value >= 200:
-		#lose_with_animations()
+	if enemy_bar.value >= 200:
+		lose_with_animations()
 	score += note_score * combo
 
 	$ComboDisplay.set_combo(combo)
@@ -80,7 +79,7 @@ func increment_score(note_score: Global.ScoreEnum):
 		max_combo = combo
 	
 func enemy_strike_pose(_beat_position):
-	enemy_horse.strike_pose(dance_bar1.value)
+	enemy_horse.strike_pose(enemy_bar.value)
 
 func start_level():
 	controls.play_from_beat(1)
@@ -106,3 +105,7 @@ func game_over():
 
 func complete_level():
 	level_won.emit()
+
+func _on_controls_refresh_health():
+	$RaceLights.add_health()
+	$RaceLights.add_health()

@@ -158,10 +158,18 @@ libraries = {
 song_stream = ExtResource("5_wedpv")
 
 [node name="Background" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.576471)
 position = Vector2(960, 540)
 texture = ExtResource("2_fhy3a")
 metadata/_edit_lock_ = true
+
+[node name="PlayerBar" parent="." instance=ExtResource("10_28n3v")]
+position = Vector2(375, 100)
+scale = Vector2(0.16, 0.16)
+is_player = true
+
+[node name="EnemyBar" parent="." instance=ExtResource("10_28n3v")]
+position = Vector2(1550, 100)
+scale = Vector2(0.16, 0.16)
 
 [node name="EnemyHorse" parent="." node_paths=PackedStringArray("great", "mildly_good", "mildly_bad", "bad", "static_pose") instance=ExtResource("6_7ulqd")]
 position = Vector2(1480, 410)
@@ -187,11 +195,8 @@ visible = false
 [node name="StaticPose" type="Sprite2D" parent="EnemyHorse"]
 
 [node name="PlayerHorse" parent="." instance=ExtResource("8_fhy3a")]
-position = Vector2(565, 512)
-scale = Vector2(0.37, 0.37)
-
-[node name="DanceBar" parent="." instance=ExtResource("10_28n3v")]
-position = Vector2(-113, -118)
+position = Vector2(557, 576)
+scale = Vector2(0.33, 0.33)
 
 [node name="Controls" parent="." node_paths=PackedStringArray("song") instance=ExtResource("4_700et")]
 position = Vector2(679, 649)
@@ -200,10 +205,13 @@ song = NodePath("../Song")
 in_charter = false
 
 [node name="ComboDisplay" parent="." instance=ExtResource("9_oxnsv")]
-position = Vector2(1585, 846)
+position = Vector2(1550, 900)
+rotation = -0.349066
+scale = Vector2(1.5, 1.5)
 
 [node name="RaceLights" parent="." instance=ExtResource("10_lnrhe")]
 position = Vector2(949, 102)
+scale = Vector2(0.2, 0.2)
 
 [node name="LoseFade" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)
@@ -212,3 +220,5 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0, 0, 0, 1)
 metadata/_edit_lock_ = true
+
+[connection signal="refresh_health" from="Controls" to="." method="_on_controls_refresh_health"]

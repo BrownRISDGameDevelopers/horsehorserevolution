@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=9 format=3 uid="uid://c7ej2hk0l56vw"]
+
+[ext_resource type="Texture2D" uid="uid://blqkphll1nhp8" path="res://assets/image/game/merge/country/IMG_1124.PNG" id="1_4ewho"]
+[ext_resource type="Texture2D" uid="uid://ospstva47l24" path="res://assets/image/game/merge/country/IMG_1125.PNG" id="2_qqieh"]
+[ext_resource type="Texture2D" uid="uid://ckyodlcsvftaw" path="res://assets/image/game/merge/country/IMG_1126.PNG" id="3_bx1rd"]
+[ext_resource type="Texture2D" uid="uid://dl626et6hxj3a" path="res://assets/image/game/merge/country/IMG_1127.PNG" id="4_3g0o2"]
+[ext_resource type="Texture2D" uid="uid://qm5sfmdfygvh" path="res://assets/image/game/merge/country/IMG_1128.PNG" id="5_uagv2"]
+[ext_resource type="Texture2D" uid="uid://dek8nkbeqt8vy" path="res://assets/image/game/merge/country/IMG_1129.PNG" id="6_alnm2"]
+[ext_resource type="Texture2D" uid="uid://byera54t43mp8" path="res://assets/image/game/merge/country/IMG_1130.PNG" id="7_ka8v8"]
+[ext_resource type="Texture2D" uid="uid://boxb6i0tnsc7q" path="res://assets/image/game/merge/country/IMG_1131.PNG" id="8_mgsdx"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4ewho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_qqieh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bx1rd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3g0o2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uagv2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_alnm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ka8v8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_mgsdx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

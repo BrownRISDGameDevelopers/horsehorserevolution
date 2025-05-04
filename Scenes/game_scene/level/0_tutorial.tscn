@@ -1,8 +1,42 @@
-[gd_scene load_steps=2 format=3 uid="uid://cx8jnts0h38n1"]
+[gd_scene load_steps=7 format=3 uid="uid://cx8jnts0h38n1"]
 
 [ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_i6m5q"]
+[ext_resource type="Texture2D" uid="uid://j8jn3kjy63sl" path="res://assets/image/ui/bg/tutorial_final/TutorialBG_OutsideTheMirror_michelle.png" id="2_i78sm"]
+[ext_resource type="Texture2D" uid="uid://3qb0effec08v" path="res://assets/image/ui/bg/tutorial_final/TutorialBG_InsideTheMirror_michelle.png" id="3_2bjup"]
+[ext_resource type="PackedScene" uid="uid://smfcxmdypfad" path="res://scenes/game_scene/game_content/player_horse.tscn" id="3_i78sm"]
+[ext_resource type="Texture2D" uid="uid://doeo1ijrilfm1" path="res://assets/image/ui/bg/tutorial_final/TutorialBG_SpotlightOutsideMirror_michelle.png" id="3_wpm3l"]
+[ext_resource type="Texture2D" uid="uid://bm2t2gnbi4028" path="res://assets/image/ui/bg/tutorial_final/TutorialBG_SpotlightInMirror_michelle.png" id="4_vksds"]
 
 [node name="Tutorial" instance=ExtResource("1_i6m5q")]
 
 [node name="Song" parent="." index="1"]
 song_json_path = "res://assets/chart/tutorial.json"
+
+[node name="Background" parent="." index="2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_i78sm")
+
+[node name="Lights" type="Sprite2D" parent="Background" index="0"]
+texture = ExtResource("3_wpm3l")
+
+[node name="Mirror" type="Sprite2D" parent="Background" index="1"]
+z_index = -3
+texture = ExtResource("3_2bjup")
+
+[node name="MirrorLights" type="Sprite2D" parent="Background" index="2"]
+z_index = -1
+texture = ExtResource("4_vksds")
+
+[node name="EnemyHorse" parent="." index="3"]
+visible = false
+
+[node name="PlayerHorseMirror" parent="." index="5" instance=ExtResource("3_i78sm")]
+z_index = -1
+position = Vector2(1461, 343)
+scale = Vector2(-0.28, 0.28)
+
+[node name="EnemyBar" parent="." index="7"]
+visible = false
+
+[node name="ComboDisplay" parent="." index="9"]
+position = Vector2(1537, 934)

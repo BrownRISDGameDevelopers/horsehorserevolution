@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://clnytnvor3m3b"]
+[gd_scene load_steps=4 format=3 uid="uid://clnytnvor3m3b"]
 
 [ext_resource type="PackedScene" uid="uid://4brssbq1ghsw" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/game_won_menu.tscn" id="1_o0fkt"]
 [ext_resource type="Script" uid="uid://dgnh0iqwgumr2" path="res://scenes/overlaid_menus/game_won_menu.gd" id="2_uvhaa"]
+[ext_resource type="Texture2D" uid="uid://ba4go8mip0cjq" path="res://assets/image/ui/title/FinalWinScreen.PNG" id="3_uvhaa"]
 
 [node name="GameWonMenu" instance=ExtResource("1_o0fkt")]
 script = ExtResource("2_uvhaa")
+
+[node name="GameWinBackground" parent="MenuPanelContainer" index="0"]
+texture = ExtResource("3_uvhaa")
+
+[node name="GameWinTitle" parent="MenuPanelContainer" index="1"]
+position = Vector2(1470, 443)
+rotation = 5.98648
+
+[node name="MenuButtons" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin" index="0"]
+custom_minimum_size = Vector2(400, 150)
+
+[node name="CloseButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
+theme_override_font_sizes/font_size = 50

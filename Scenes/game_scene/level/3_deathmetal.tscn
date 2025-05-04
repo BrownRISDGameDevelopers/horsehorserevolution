@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://bpdv6oucd1617"]
+[gd_scene load_steps=8 format=3 uid="uid://bpdv6oucd1617"]
 
 [ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_5ymxc"]
 [ext_resource type="AudioStream" uid="uid://ceh55jknfb6ew" path="res://assets/audio/Morse.wav" id="2_tn48y"]
 [ext_resource type="Texture2D" uid="uid://5bvrwqguj7y0" path="res://assets/image/ui/bg/death_metal_final/Death Horse BG Merged Layers.png" id="3_tn48y"]
-[ext_resource type="Texture2D" uid="uid://cqeelyngfp45e" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal_neutral_r2_miles.png" id="4_0ixnl"]
-[ext_resource type="Texture2D" uid="uid://cb5l7b44ler81" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal_doinggood_v1r1_loki.PNG" id="5_hls7s"]
+[ext_resource type="Texture2D" uid="uid://hr5nlkwm81a6" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal_reallygood_v1r2_miles.png" id="4_5ymxc"]
+[ext_resource type="Texture2D" uid="uid://cywjvc1yfvj36" path="res://assets/image/game/enemy_sprites/deathmetal/IMG_good.PNG" id="5_we0tg"]
+[ext_resource type="Texture2D" uid="uid://c26vm50lstsno" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal-megafail.png" id="6_6suoy"]
+[ext_resource type="Texture2D" uid="uid://cwaqt7gtkfhct" path="res://assets/image/game/enemy_sprites/deathmetal/deathmetal_neutral_r3_miles.png" id="7_qpmb5"]
 
 [node name="DeathMetal" instance=ExtResource("1_5ymxc")]
 
@@ -15,15 +17,26 @@ song_stream = ExtResource("2_tn48y")
 [node name="Background" parent="." index="2"]
 texture = ExtResource("3_tn48y")
 
-[node name="EnemyHorse" parent="." index="3"]
+[node name="EnemyHorse" parent="." index="5"]
 position = Vector2(1414, 367)
 pose_length = 0.2
 
 [node name="GreatPose" parent="EnemyHorse" index="1"]
-texture = ExtResource("5_hls7s")
+position = Vector2(8, -12)
+texture = ExtResource("4_5ymxc")
+
+[node name="MildlyGoodPose" parent="EnemyHorse" index="2"]
+position = Vector2(64, -24)
+texture = ExtResource("5_we0tg")
+
+[node name="BadPose" parent="EnemyHorse" index="4"]
+position = Vector2(-44, 492)
+texture = ExtResource("6_6suoy")
 
 [node name="StaticPose" parent="EnemyHorse" index="5"]
-texture = ExtResource("4_0ixnl")
+position = Vector2(-12, 60)
+texture = ExtResource("7_qpmb5")
 
-[node name="Controls" parent="." index="6"]
+[node name="Controls" parent="." index="7"]
 merge_type = 2
+metadata/_edit_lock_ = true
