@@ -17,7 +17,7 @@ song_stream = ExtResource("2_tn48y")
 [node name="Background" parent="." index="2"]
 texture = ExtResource("3_tn48y")
 
-[node name="EnemyHorse" parent="." index="5"]
+[node name="EnemyHorse" parent="." index="6"]
 position = Vector2(1414, 367)
 pose_length = 0.2
 
@@ -29,6 +29,10 @@ texture = ExtResource("4_5ymxc")
 position = Vector2(64, -24)
 texture = ExtResource("5_we0tg")
 
+[node name="MildlyBadPose" parent="EnemyHorse" index="3"]
+position = Vector2(-44, 492)
+texture = ExtResource("6_6suoy")
+
 [node name="BadPose" parent="EnemyHorse" index="4"]
 position = Vector2(-44, 492)
 texture = ExtResource("6_6suoy")
@@ -37,6 +41,6 @@ texture = ExtResource("6_6suoy")
 position = Vector2(-12, 60)
 texture = ExtResource("7_qpmb5")
 
-[node name="Controls" parent="." index="7"]
+[node name="Controls" parent="." index="8"]
 merge_type = 2
 metadata/_edit_lock_ = true
