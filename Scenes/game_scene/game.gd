@@ -43,7 +43,7 @@ func handle_sync_health(_beat_position):
 		if abs(player1hit - player2hit) > 3:
 			sync_health -= 1
 			$RaceLights.remove_health()
-			if sync_health == 0:
+			if sync_health <= 0:
 				lose_with_animations()
 			else:
 				slip_players(false)

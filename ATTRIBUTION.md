@@ -18,7 +18,7 @@
 [img=150x150]res://assets/image/creditsonas/blank.png[/img] Louis Nishimura - Charter [img=150x150]res://assets/image/creditsonas/Louis.png[/img]
 [img=150x150]res://assets/image/creditsonas/blank.png[/img] Lucas Chan - Music [img=150x150]res://assets/image/creditsonas/blank.png[/img]
 [img=150x150]res://assets/image/creditsonas/maggie.PNG[/img] Maggie Weng - Artist [img=150x150]res://assets/image/creditsonas/blank.png[/img]
-[img=150x150]res://assets/image/creditsonas/beatty.png[/img] Beatty Fulmina - Artist[img=150x150]res://assets/image/creditsonas/blank.png[/img]
+[img=150x150]res://assets/image/creditsonas/Beatty.png[/img] Beatty Fulmina - Artist[img=150x150]res://assets/image/creditsonas/blank.png[/img]
 [img=150x150]res://assets/image/creditsonas/blank.png[/img] Michael Rehmet- Programmer [img=150x150]res://assets/image/creditsonas/Michael.png[/img]
 [img=150x150]res://assets/image/creditsonas/Michelle.png[/img] Michelle Gu - Artist [img=150x150]res://assets/image/creditsonas/blank.png[/img]
 [img=150x150]res://assets/image/creditsonas/blank.png[/img] Nitika Rao - Artist [img=150x150]res://assets/image/creditsonas/Nitika.png[/img]

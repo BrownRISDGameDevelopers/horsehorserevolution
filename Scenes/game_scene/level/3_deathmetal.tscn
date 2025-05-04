@@ -17,7 +17,7 @@ song_stream = ExtResource("2_tn48y")
 [node name="Background" parent="." index="2"]
 texture = ExtResource("3_tn48y")
 
-[node name="EnemyHorse" parent="." index="6"]
+[node name="EnemyHorse" parent="." index="5"]
 position = Vector2(1414, 367)
 pose_length = 0.2
 

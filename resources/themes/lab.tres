@@ -149,6 +149,9 @@ corner_radius_top_right = 8
 [resource]
 default_font = ExtResource("1_034sy")
 default_font_size = 35
+Button/colors/font_color = Color(0.1, 0.1, 0.1, 1)
+Button/colors/font_focus_color = Color(0.21, 0.21, 0.21, 1)
+Button/colors/font_hover_color = Color(0.33, 0.33, 0.33, 1)
 Button/styles/hover = SubResource("StyleBoxFlat_4b4gg")
 Button/styles/normal = SubResource("StyleBoxFlat_l51yu")
 Button/styles/pressed = null
