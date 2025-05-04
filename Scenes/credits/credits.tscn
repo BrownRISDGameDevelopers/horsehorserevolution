@@ -9,21 +9,53 @@ script = ExtResource("2_c8xcy")
 attribution_file_path = "res://ATTRIBUTION.md"
 
 [node name="TextureRect" type="TextureRect" parent="." index="0"]
-modulate = Color(0.45, 0.45, 0.45, 1)
+modulate = Color(0.27, 0.27, 0.27, 1)
 layout_mode = 0
-offset_left = -64.0
-offset_top = -55.0
-offset_right = 1856.0
-offset_bottom = 1025.0
+offset_left = -164.0
+offset_top = -115.0
+offset_right = 1756.0
+offset_bottom = 965.0
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_c8xcy")
 
 [node name="CreditsLabel" parent="ScrollContainer/VBoxContainer" index="1"]
-text = "[center][font_size=48]Collaborators[/font_size]
+text = "[center][font_size=48]Horse Horse Revolution Team[/font_size]
 
-[font_size=32]Role[/font_size]
-Person 1  
-Person 2  [img]res://assets/image/game/enemy_sprites/deathmetal/deathmetal_neutral_r3_miles.png[/img]
+Angelina So - Artist [img=100x100]res://assets/image/creditsonas/Angelina.png[/img]
+Ava Buccino - Artist [img=100x100]res://assets/image/creditsonas/Ava.png[/img]
+Asa Phillips -  Artist
+Brian Xu - Programmer [img=100x100]res://assets/image/creditsonas/Brian.PNG[/img]
+Cindy Li - Producer/UI/Charter [img=100x100]res://assets/image/creditsonas/Cindy.png[/img]
+Emily Wang - Artist [img=100x100]res://assets/image/creditsonas/Emily.png[/img]
+Evelyn Gao - Artist [img=100x100]res://assets/image/creditsonas/Evelyn.png[/img]
+Julia Primiero - Artist
+Jayden Lawrence - Artist
+Karis Lau - UI [img=100x100]res://assets/image/creditsonas/Karis.png[/img]
+Katie Wu - Artist [img=100x100]res://assets/image/creditsonas/Katie_Wu.png[/img]
+Ko Shao - Artist [img=100x100]res://assets/image/creditsonas/Ko Shao.PNG[/img]
+Lily Kim - Artist
+Loki Ahlgren - Artist [img=100x100]res://assets/image/creditsonas/Loki.png[/img]
+Louis Nishimura - Charter [img=100x100]res://assets/image/creditsonas/Louis.png[/img]
+Lucas Chan - Music 
+Maggie Weng - Artist [img=100x100]res://assets/image/creditsonas/maggie.PNG[/img]
+Beatty Fulmina - Artist
+Michael Rehmet- Programmer [img=100x100]res://assets/image/creditsonas/Michael.png[/img]
+Michelle Gu - Artists [img=100x100]res://assets/image/creditsonas/Michelle.png[/img]
+Nitika Rao - Artist [img=100x100]res://assets/image/creditsonas/Nitika.png[/img]
+Nicolas Concepcion - Music [img=100x100]res://assets/image/creditsonas/Nic.png[/img]
+Sagian Shaw - Producer/Artist [img=100x100]res://assets/image/creditsonas/Sage.png[/img]
+Yuna Ogiwara - Artist
+
+[font_size=32]Collaborators[/font_size]
+
+Austin Horse- Horse Voice and Foley Talent
+Casper Horse- Horse Voice and Foley Talent
+Dove Horse- Horse Voice and Foley Talent
+Graham Horse- Horse Voice and Foley Talent
+Smooch Horse- Horse Voice and Foley Talent
+Sunny Horse- Horse Voice and Foley Talent
+Special thanks to Matteo Mastrangelo & The RISD Equestrian Club
+VOICEVOX: Zundamon as vocals
 
 
 [font_size=48]Sourced / Unaffiliated[/font_size]

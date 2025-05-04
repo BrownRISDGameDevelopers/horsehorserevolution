@@ -2,29 +2,29 @@
 ## Horse Horse Revolution Team
 
 Angelina So - Artist [img=100x100]res://assets/image/creditsonas/Angelina.png[/img]
-Ava Buccino - Artist [img=100x100]res://assets/image/creditsonas/Ava.png[/img]
-Asa Phillips -  Artist
+[img=100x100]res://assets/image/creditsonas/Ava.png[/img] Ava Buccino - Artist
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Asa Phillips -  Artist[img=100x100]res://assets/image/creditsonas/blank.png[/img]
 Brian Xu - Programmer [img=100x100]res://assets/image/creditsonas/Brian.PNG[/img]
-Cindy Li - Producer/UI/Charter [img=100x100]res://assets/image/creditsonas/Cindy.png[/img]
+[img=100x100]res://assets/image/creditsonas/Cindy.png[/img] Cindy Li - Producer/UI/Charter 
 Emily Wang - Artist [img=100x100]res://assets/image/creditsonas/Emily.png[/img]
-Evelyn Gao - Artist [img=100x100]res://assets/image/creditsonas/Evelyn.png[/img]
-Julia Primiero - Artist
-Jayden Lawrence - Artist
+[img=100x100]res://assets/image/creditsonas/Evelyn.png[/img] Evelyn Gao - Artist 
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Julia Primiero - Artist[img=100x100]res://assets/image/creditsonas/blank.png[/img]
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Jayden Lawrence - Artist[img=100x100]res://assets/image/creditsonas/blank.png[/img]
 Karis Lau - UI [img=100x100]res://assets/image/creditsonas/Karis.png[/img]
-Katie Wu - Artist [img=100x100]res://assets/image/creditsonas/Katie_Wu.png[/img]
+[img=100x100]res://assets/image/creditsonas/Katie_Wu.png[/img] Katie Wu - Artist 
 Ko Shao - Artist [img=100x100]res://assets/image/creditsonas/Ko Shao.PNG[/img]
-Lily Kim - Artist
-Loki Ahlgren - Artist [img=100x100]res://assets/image/creditsonas/Loki.png[/img]
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Lily Kim - Artist[img=100x100]res://assets/image/creditsonas/blank.png[/img]
+[img=100x100]res://assets/image/creditsonas/Loki.png[/img] Loki Ahlgren - Artist 
 Louis Nishimura - Charter [img=100x100]res://assets/image/creditsonas/Louis.png[/img]
-Lucas Chan - Music 
-Maggie Weng - Artist [img=100x100]res://assets/image/creditsonas/maggie.PNG[/img]
-Beatty Fulmina - Artist
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Lucas Chan - Music [img=100x100]res://assets/image/creditsonas/blank.png[/img]
+[img=100x100]res://assets/image/creditsonas/maggie.PNG[/img] Maggie Weng - Artist 
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Beatty Fulmina - Artist[img=100x100]res://assets/image/creditsonas/blank.png[/img]
 Michael Rehmet- Programmer [img=100x100]res://assets/image/creditsonas/Michael.png[/img]
-Michelle Gu - Artists [img=100x100]res://assets/image/creditsonas/Michelle.png[/img]
+[img=100x100]res://assets/image/creditsonas/Michelle.png[/img] Michelle Gu - Artist
 Nitika Rao - Artist [img=100x100]res://assets/image/creditsonas/Nitika.png[/img]
-Nicolas Concepcion - Music [img=100x100]res://assets/image/creditsonas/Nic.png[/img]
+[img=100x100]res://assets/image/creditsonas/Nic.png[/img] Nicolas Concepcion - Music 
 Sagian Shaw - Producer/Artist [img=100x100]res://assets/image/creditsonas/Sage.png[/img]
-Yuna Ogiwara - Artist
+[img=100x100]res://assets/image/creditsonas/blank.png[/img] Yuna Ogiwara - Artist[img=100x100]res://assets/image/creditsonas/blank.png[/img]
 
 ### Collaborators
 

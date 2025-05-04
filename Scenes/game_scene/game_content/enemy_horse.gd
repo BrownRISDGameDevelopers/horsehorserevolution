@@ -12,6 +12,7 @@ func _ready() -> void:
 	timer.wait_time = pose_length
 
 func strike_pose(dancebarval): # between 0 and 200
+	dancebarval = 200 - dancebarval
 	if (timer.is_stopped()):
 		var rand = randi_range(0, 200)
 		if (rand * 4 < dancebarval):

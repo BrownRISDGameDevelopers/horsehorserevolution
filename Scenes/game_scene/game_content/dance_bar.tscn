@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bid7s87fk7euq" path="res://assets/image/ui/hud/dance bar.png" id="1_arxqh"]
 
 [sub_resource type="Gradient" id="Gradient_afia1"]
-colors = PackedColorArray(1, 1, 1, 1, 0.83, 0.83, 0.83, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.44, 0.44, 0.44, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_arxqh"]
 gradient = SubResource("Gradient_afia1")

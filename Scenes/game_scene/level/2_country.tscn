@@ -19,19 +19,21 @@ end_offset = -140
 [node name="Background" parent="." index="2"]
 texture = ExtResource("3_xwiel")
 
-[node name="EnemyHorse" parent="." index="3"]
+[node name="EnemyHorse" parent="." index="5"]
 pose_length = 0.3
 
 [node name="GreatPose" parent="EnemyHorse" index="1"]
 texture = ExtResource("3_sfdoa")
 
 [node name="MildlyGoodPose" parent="EnemyHorse" index="2"]
+position = Vector2(56, -60)
 texture = ExtResource("4_xwiel")
 
 [node name="MildlyBadPose" parent="EnemyHorse" index="3"]
 texture = ExtResource("5_aawnu")
 
 [node name="BadPose" parent="EnemyHorse" index="4"]
+position = Vector2(-84, 172)
 texture = ExtResource("6_2l20p")
 
 [node name="StaticPose" parent="EnemyHorse" index="5"]
