@@ -1,15 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://smfcxmdypfad"]
+[gd_scene load_steps=17 format=3 uid="uid://smfcxmdypfad"]
 
 [ext_resource type="Script" uid="uid://fifuxg6p6qgh" path="res://scenes/game_scene/game_content/player_horse.gd" id="1_gjtv3"]
 [ext_resource type="Texture2D" uid="uid://b8yhh3mtos4nh" path="res://assets/image/game/player_sprites/horsehorse_slip_v1r1_ko.PNG" id="1_kjkbw"]
 [ext_resource type="Texture2D" uid="uid://bp1de6yva2q64" path="res://assets/image/game/player_sprites/horsehorse_connection_v1r1_ko.PNG" id="1_l1f1o"]
-[ext_resource type="Texture2D" uid="uid://bmwojieub2gdp" path="res://assets/image/game/player_sprites/horsehorse_backleft.PNG" id="2_kjkbw"]
+[ext_resource type="Texture2D" uid="uid://ckeg4fo3ofkos" path="res://assets/image/game/player_sprites/horsehorse_backleft.PNG" id="2_kjkbw"]
 [ext_resource type="Texture2D" uid="uid://cm3nmh47ua2vi" path="res://assets/image/game/player_sprites/horsehorse_backneutral_v1r1_ko.PNG" id="2_oocah"]
-[ext_resource type="Texture2D" uid="uid://jbtmjxmkpcns" path="res://assets/image/game/player_sprites/IMG_3465.PNG" id="3_4i1gm"]
 [ext_resource type="Texture2D" uid="uid://cuo4msa281xkk" path="res://assets/image/game/player_sprites/horsehorse_tape_v1r1_ko.PNG" id="3_50qhb"]
 [ext_resource type="Texture2D" uid="uid://bmobfigvwidph" path="res://assets/image/game/player_sprites/horsehorse_frontneutral_v1r2_ko.PNG" id="3_eb3vq"]
-[ext_resource type="Texture2D" uid="uid://ns7oy5am5kb1" path="res://assets/image/game/player_sprites/horsehorse_frontleft.PNG" id="3_l1f1o"]
-[ext_resource type="Texture2D" uid="uid://c4su0rd7cl3md" path="res://assets/image/game/player_sprites/IMG_3464.PNG" id="5_ad522"]
+[ext_resource type="Texture2D" uid="uid://b4l15arii8wkq" path="res://assets/image/game/player_sprites/horsehorse_frontleft.PNG" id="3_l1f1o"]
+[ext_resource type="Texture2D" uid="uid://byi8otypge0f7" path="res://assets/image/game/player_sprites/horsehorse_backdown_v1r1.PNG" id="4_fvsrx"]
+[ext_resource type="Texture2D" uid="uid://cqovyw1oe6uev" path="res://assets/image/game/player_sprites/Horsehorse_backup.PNG" id="5_fvsrx"]
+[ext_resource type="Texture2D" uid="uid://dqgxk52hwh2so" path="res://assets/image/game/player_sprites/horsehorse_backright_v1r1_ko.PNG" id="6_yajf6"]
+[ext_resource type="Texture2D" uid="uid://cwy73mvp5aoks" path="res://assets/image/game/player_sprites/horsehorse_frontmiss_v1r1_katie.PNG" id="8_yajf6"]
+[ext_resource type="Texture2D" uid="uid://bacybjnv7mnoa" path="res://assets/image/game/player_sprites/horsehorse_frontdown_v1r1.PNG" id="9_fvsrx"]
+[ext_resource type="Texture2D" uid="uid://b7syck6r36ieg" path="res://assets/image/game/player_sprites/Horsehorse_frontup.PNG" id="10_fvsrx"]
+[ext_resource type="Texture2D" uid="uid://dqacc1f3f8o2y" path="res://assets/image/game/player_sprites/horsehorse_frontright_v1r1_ko.PNG" id="11_34cju"]
+[ext_resource type="Texture2D" uid="uid://bsoelscbek6um" path="res://assets/image/game/player_sprites/horsehorse_backmiss_v1r1_katie.PNG" id="13_2esg0"]
 
 [node name="PlayerHorse" type="Node2D" node_paths=PackedStringArray("back_sprites", "front_sprites", "reset_timers")]
 script = ExtResource("1_gjtv3")
@@ -40,15 +46,21 @@ texture = ExtResource("2_kjkbw")
 
 [node name="PlayerBackDown" type="Sprite2D" parent="PlayerBack"]
 visible = false
+position = Vector2(-624, -118)
+scale = Vector2(1.27, 1.27)
+texture = ExtResource("4_fvsrx")
 
 [node name="PlayerBackUp" type="Sprite2D" parent="PlayerBack"]
 visible = false
-position = Vector2(-669, -134)
-scale = Vector2(1.175, 1.175)
-texture = ExtResource("3_4i1gm")
+position = Vector2(-730, -238)
+scale = Vector2(1.265, 1.265)
+texture = ExtResource("5_fvsrx")
 
 [node name="PlayerBackRight" type="Sprite2D" parent="PlayerBack"]
 visible = false
+position = Vector2(-13, -26)
+scale = Vector2(0.92, 0.92)
+texture = ExtResource("6_yajf6")
 
 [node name="PlayerBackNeutral" type="Sprite2D" parent="PlayerBack"]
 texture = ExtResource("2_oocah")
@@ -63,18 +75,30 @@ texture = ExtResource("3_l1f1o")
 
 [node name="PlayerFrontDown" type="Sprite2D" parent="PlayerFront"]
 visible = false
+position = Vector2(1, -129)
+scale = Vector2(1.14, 1.14)
+texture = ExtResource("9_fvsrx")
 
 [node name="PlayerFrontUp" type="Sprite2D" parent="PlayerFront"]
 visible = false
-position = Vector2(574, -228)
+position = Vector2(582, -231)
 scale = Vector2(1.22, 1.22)
-texture = ExtResource("5_ad522")
+texture = ExtResource("10_fvsrx")
 
 [node name="PlayerFrontRight" type="Sprite2D" parent="PlayerFront"]
 visible = false
+texture = ExtResource("11_34cju")
 
 [node name="PlayerFrontNeutral" type="Sprite2D" parent="PlayerFront"]
 texture = ExtResource("3_eb3vq")
+
+[node name="PlayerBackMiss" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("13_2esg0")
+
+[node name="PlayerFrontMiss" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("8_yajf6")
 
 [node name="PlayerTape" type="Sprite2D" parent="."]
 position = Vector2(0, -50)
@@ -84,8 +108,18 @@ texture = ExtResource("3_50qhb")
 visible = false
 texture = ExtResource("1_kjkbw")
 
+[node name="BackMissTimer" type="Timer" parent="."]
+wait_time = 0.16
+one_shot = true
+
+[node name="FrontMissTimer" type="Timer" parent="."]
+wait_time = 0.16
+one_shot = true
+
 [node name="SlipTimer" type="Timer" parent="."]
 
 [connection signal="timeout" from="BackTimer" to="." method="_on_back_timer_timeout"]
 [connection signal="timeout" from="FrontTimer" to="." method="_on_front_timer_timeout"]
+[connection signal="timeout" from="BackMissTimer" to="." method="_on_back_miss_timer_timeout"]
+[connection signal="timeout" from="FrontMissTimer" to="." method="_on_front_miss_timer_timeout"]
 [connection signal="timeout" from="SlipTimer" to="." method="_on_slip_timer_timeout"]

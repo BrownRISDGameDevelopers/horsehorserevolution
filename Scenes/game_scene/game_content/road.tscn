@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://blmin3fl4tjts"]
+[gd_scene load_steps=20 format=3 uid="uid://blmin3fl4tjts"]
 
-[ext_resource type="Script" uid="uid://biwsc04tnvs6v" path="res://Scenes/game_scene/game_content/road.gd" id="1_fuyh8"]
-[ext_resource type="Shader" uid="uid://biafqipd0yf10" path="res://Scenes/game_scene/game_content/road.gdshader" id="2_hjh4p"]
-[ext_resource type="PackedScene" uid="uid://dy7ffyvlcyfwa" path="res://Scenes/game_scene/game_content/arrow_button.tscn" id="3_af1g8"]
+[ext_resource type="Script" uid="uid://biwsc04tnvs6v" path="res://scenes/game_scene/game_content/road.gd" id="1_fuyh8"]
+[ext_resource type="Shader" uid="uid://biafqipd0yf10" path="res://scenes/game_scene/game_content/road.gdshader" id="2_hjh4p"]
+[ext_resource type="PackedScene" uid="uid://dy7ffyvlcyfwa" path="res://scenes/game_scene/game_content/arrow_button.tscn" id="3_af1g8"]
 [ext_resource type="SpriteFrames" uid="uid://ddmpr51emgj1e" path="res://assets/frame/arrow_left_frames.tres" id="4_lnh6y"]
 [ext_resource type="SpriteFrames" uid="uid://dsteh5evywp6v" path="res://assets/frame/arrow_down_frames.tres" id="5_h2cb2"]
+[ext_resource type="SpriteFrames" uid="uid://c7ej2hk0l56vw" path="res://assets/frame/country_merge.tres" id="5_hy6im"]
 [ext_resource type="SpriteFrames" uid="uid://b8n1rdebqj4sg" path="res://assets/frame/arrow_right_frames.tres" id="5_tg8mc"]
 [ext_resource type="SpriteFrames" uid="uid://bnb06yexcajo3" path="res://assets/frame/arrow_up_frames.tres" id="7_c1equ"]
 [ext_resource type="SpriteFrames" uid="uid://1iogwimrea6o" path="res://assets/frame/disco_merge.tres" id="7_h2cb2"]
@@ -392,6 +393,7 @@ offset = Vector2(0, 20)
 [node name="MergeAnimation" type="Node2D" parent="RoadSprite"]
 modulate = Color(1, 1, 1, 0)
 self_modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -17)
 
 [node name="DeathMetalMerge" type="AnimatedSprite2D" parent="RoadSprite/MergeAnimation"]
 visible = false
@@ -411,6 +413,11 @@ autoplay = "default"
 
 [node name="CountryMerge" type="AnimatedSprite2D" parent="RoadSprite/MergeAnimation"]
 visible = false
+self_modulate = Color(1, 1, 1, 0.831373)
+position = Vector2(17, 42)
+scale = Vector2(0.08, 0.08)
+sprite_frames = ExtResource("5_hy6im")
+autoplay = "default"
 
 [node name="ArrowLeft" parent="RoadSprite" instance=ExtResource("3_af1g8")]
 position = Vector2(-60, 80)

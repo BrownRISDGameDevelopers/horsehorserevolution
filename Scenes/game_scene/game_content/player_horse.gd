@@ -1,5 +1,6 @@
 extends Node2D
 
+
 class DoubleLinkedList:
 	var prev_node: DoubleLinkedList = null
 	var next_node: DoubleLinkedList = null
@@ -51,6 +52,9 @@ var current_states: Array[DoubleLinkedList] = [DoubleLinkedList.new(Global.Direc
 
 @export var pose_duration = 0.16
 
+func _ready():
+	Global.note_hit.connect(check_miss)
+
 func _physics_process(delta):
 	for player in Global.PlayerEnum:
 		for direction in Global.Direction:
@@ -85,9 +89,25 @@ func reset_pose(sprite_list):
 func set_slip_visibility(is_slipped):
 	$PlayerBack.visible = !is_slipped
 	$PlayerFront.visible = !is_slipped
+	$PlayerBackMiss.visible = false
+	$PlayerFrontMiss.visible = false
 	$PlayerConnector.visible = !is_slipped
 	$PlayerTape.visible = !is_slipped
 	$PlayerSlip.visible = is_slipped
+
+func check_miss(player, area, _score):
+	if area == Global.AreaHit.MISS:
+		miss(player)
+
+func miss(player):
+	if player == Global.PlayerEnum.PLAYER_1:
+		$PlayerBack.visible = false
+		$PlayerBackMiss.visible = true
+		$BackMissTimer.start(pose_duration)
+	else:
+		$PlayerFront.visible = false
+		$PlayerFrontMiss.visible = true
+		$FrontMissTimer.start(pose_duration)
 
 func slip(permanent = false):
 	set_slip_visibility(true)
@@ -95,6 +115,8 @@ func slip(permanent = false):
 		$SlipTimer.start(pose_duration)
 	else:
 		$SlipTimer.stop()
+		$BackMissTimer.stop()
+		$FrontMissTimer.stop()
 
 func _on_back_timer_timeout():
 	reset_pose(back_sprites)
@@ -104,3 +126,11 @@ func _on_front_timer_timeout():
 
 func _on_slip_timer_timeout():
 	set_slip_visibility(false)
+
+func _on_front_miss_timer_timeout():
+	$PlayerFront.visible = true
+	$PlayerFrontMiss.visible = false
+
+func _on_back_miss_timer_timeout():
+	$PlayerBack.visible = true
+	$PlayerBackMiss.visible = false

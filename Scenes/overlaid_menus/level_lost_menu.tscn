@@ -1,7 +1,27 @@
-[gd_scene load_steps=3 format=3 uid="uid://d1ec0t3yrvtsb"]
+[gd_scene load_steps=4 format=3 uid="uid://d1ec0t3yrvtsb"]
 
-[ext_resource type="PackedScene" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/level_lost_menu.tscn" id="1_wvmyj"]
-[ext_resource type="Script" path="res://scenes/overlaid_menus/level_lost_menu.gd" id="2_v0vqr"]
+[ext_resource type="PackedScene" uid="uid://dkq3nhkmhu4je" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/level_lost_menu.tscn" id="1_wvmyj"]
+[ext_resource type="Script" uid="uid://dajpwoq88odl7" path="res://scenes/overlaid_menus/level_lost_menu.gd" id="2_v0vqr"]
+[ext_resource type="Texture2D" uid="uid://b0xqw3wruw1j4" path="res://assets/image/ui/title/FinalLoseScreen.PNG" id="3_v0vqr"]
 
 [node name="LevelLostMenu" instance=ExtResource("1_wvmyj")]
 script = ExtResource("2_v0vqr")
+
+[node name="LevelLoseBackground" parent="MenuPanelContainer" index="0"]
+position = Vector2(958, 540)
+texture = ExtResource("3_v0vqr")
+
+[node name="LevelLoseTitle" parent="MenuPanelContainer" index="1"]
+position = Vector2(403, 258)
+
+[node name="MenuButtons" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin" index="0"]
+custom_minimum_size = Vector2(800, 150)
+
+[node name="ExitButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
+theme_override_font_sizes/font_size = 35
+
+[node name="MainMenuButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
+theme_override_font_sizes/font_size = 35
+
+[node name="CloseButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
+theme_override_font_sizes/font_size = 35

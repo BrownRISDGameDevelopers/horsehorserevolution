@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://2rhufusrda1l"]
 
 [ext_resource type="Script" uid="uid://bbh2omootdrr4" path="res://scenes/game_scene/game_content/combo_display.gd" id="1_lcere"]
-[ext_resource type="Texture2D" uid="uid://dii3w7u3knvt6" path="res://assets/image/ui/hud/ribbon.png" id="2_hg77d"]
+[ext_resource type="SpriteFrames" uid="uid://b8ud33vfxn2bl" path="res://assets/image/ui/hud/glitterfied modified.gif" id="2_lcere"]
 
 [sub_resource type="Animation" id="Animation_v6lbs"]
 length = 0.001
@@ -64,18 +64,21 @@ _data = {
 script = ExtResource("1_lcere")
 combo_text = NodePath("ComboRibbon/ComboText")
 
-[node name="ComboRibbon" type="Sprite2D" parent="."]
-texture = ExtResource("2_hg77d")
+[node name="ComboRibbon" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_lcere")
+animation = &"gif"
+autoplay = "gif"
+frame_progress = 0.153091
 
 [node name="ComboText" type="Label" parent="ComboRibbon"]
-offset_left = -162.0
-offset_top = -135.0
-offset_right = 7.0
-offset_bottom = 8.0
-rotation = -0.191986
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
-text = "x12"
+offset_left = -64.0
+offset_top = -105.0
+offset_right = 64.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 35
+text = "x0"
+horizontal_alignment = 1
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../ComboRibbon")

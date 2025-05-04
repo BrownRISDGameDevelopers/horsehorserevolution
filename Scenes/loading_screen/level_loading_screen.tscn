@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmxsiko1iuxao"]
+[gd_scene load_steps=4 format=3 uid="uid://bmxsiko1iuxao"]
 
 [ext_resource type="PackedScene" uid="uid://cd0jbh4metflb" path="res://addons/maaacks_game_template/base/scenes/loading_screen/loading_screen.tscn" id="1_akme8"]
 [ext_resource type="Script" uid="uid://ce7teb8ewc30j" path="res://scenes/loading_screen/loading_screen.gd" id="2_kl30i"]
+[ext_resource type="Texture2D" uid="uid://cnxbypjda2edk" path="res://assets/image/ui/title/glitter.png" id="3_kl30i"]
 
 [node name="LevelLoadingScreen" instance=ExtResource("1_akme8")]
 script = ExtResource("2_kl30i")
@@ -9,3 +10,13 @@ _in_progress = "Loading Level..."
 _in_progress_waiting = "Still Loading Level..."
 _in_progress_still_waiting = "Still Loading Level... (%d seconds)"
 _complete = "Loading Level Complete!"
+
+[node name="BackgroundTextureRect" parent="Control" index="2"]
+modulate = Color(0.768627, 0.768627, 0.768627, 0.788235)
+texture = ExtResource("3_kl30i")
+
+[node name="ProgressLabel" parent="Control/VBoxContainer" index="0"]
+theme_override_font_sizes/font_size = 50
+
+[node name="ProgressBar" parent="Control/VBoxContainer" index="1"]
+theme_override_font_sizes/font_size = 50
