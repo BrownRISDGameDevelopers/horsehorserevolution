@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://bblesvuuvgvue"]
+[gd_scene load_steps=5 format=3 uid="uid://bblesvuuvgvue"]
 
 [ext_resource type="Script" uid="uid://dforv7i0q1of6" path="res://scenes/game_scene/game_content/race_lights.gd" id="1_s6ptk"]
 [ext_resource type="Texture2D" uid="uid://egmic0ps8kel" path="res://assets/image/ui/hud/strike counter red.png" id="2_a0d0u"]
 [ext_resource type="Texture2D" uid="uid://b8pnd3rmlhaq1" path="res://assets/image/ui/hud/strike counter.png" id="2_s6ptk"]
-[ext_resource type="Texture2D" uid="uid://u7yioqvvgqms" path="res://assets/image/ui/hud/strike counter light.png" id="3_aeewu"]
 [ext_resource type="Texture2D" uid="uid://b2kt5f7jr3jan" path="res://assets/image/ui/hud/strike counter green.png" id="3_xejjs"]
 
 [node name="RaceLights" type="Node2D" node_paths=PackedStringArray("light_array")]
@@ -18,13 +17,13 @@ texture = ExtResource("2_s6ptk")
 [node name="LightLeft" type="Sprite2D" parent="."]
 position = Vector2(-723, 0)
 scale = Vector2(1.11, 1.11)
-texture = ExtResource("3_aeewu")
+texture = ExtResource("2_a0d0u")
 
 [node name="LightMiddle" type="Sprite2D" parent="."]
 scale = Vector2(1.11, 1.11)
-texture = ExtResource("3_aeewu")
+texture = ExtResource("2_a0d0u")
 
 [node name="LightRight" type="Sprite2D" parent="."]
 position = Vector2(723, 0)
 scale = Vector2(1.11, 1.11)
-texture = ExtResource("3_aeewu")
+texture = ExtResource("2_a0d0u")

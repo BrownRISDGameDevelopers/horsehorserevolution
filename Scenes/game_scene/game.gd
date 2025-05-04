@@ -46,9 +46,9 @@ func handle_sync_health(_beat_position):
 			if sync_health == 0:
 				lose_with_animations()
 			else:
-				player_horse.slip()
-		player1hit = 0
-		player2hit = 0
+				slip_players(false)
+	player1hit = 0
+	player2hit = 0
 
 func increment_score(note_score: Global.ScoreEnum):
 	if note_score != Global.ScoreEnum.MISS:
@@ -84,11 +84,14 @@ func start_level():
 	controls.play_from_beat(1)
 
 func lose_with_animations():
-	player_horse.slip(true)
-	if has_node("PlayerHorseMirror"):
-		$PlayerHorseMirror.slip(true)
+	slip_players(true)
 	$Controls/Conductor.stop()
 	$AnimationPlayer.play("lose_fadeout")
+
+func slip_players(permanent = false):
+	player_horse.slip(permanent)
+	if has_node("PlayerHorseMirror"):
+		$PlayerHorseMirror.slip(permanent)
 
 func pause_before_lose() -> void:
 	var process_setters = ["set_process",

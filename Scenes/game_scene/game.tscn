@@ -171,6 +171,10 @@ is_player = true
 position = Vector2(1550, 100)
 scale = Vector2(0.16, 0.16)
 
+[node name="RaceLights" parent="." instance=ExtResource("10_lnrhe")]
+position = Vector2(949, 102)
+scale = Vector2(0.2, 0.2)
+
 [node name="EnemyHorse" parent="." node_paths=PackedStringArray("great", "mildly_good", "mildly_bad", "bad", "static_pose") instance=ExtResource("6_7ulqd")]
 position = Vector2(1480, 410)
 scale = Vector2(0.25, 0.25)
@@ -208,10 +212,6 @@ in_charter = false
 position = Vector2(1550, 900)
 rotation = -0.349066
 scale = Vector2(1.5, 1.5)
-
-[node name="RaceLights" parent="." instance=ExtResource("10_lnrhe")]
-position = Vector2(949, 102)
-scale = Vector2(0.2, 0.2)
 
 [node name="LoseFade" type="ColorRect" parent="."]
 modulate = Color(1, 1, 1, 0)

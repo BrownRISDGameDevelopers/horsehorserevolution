@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cx8jnts0h38n1"]
+[gd_scene load_steps=9 format=3 uid="uid://cx8jnts0h38n1"]
 
 [ext_resource type="PackedScene" uid="uid://g33bep8fbr2y" path="res://scenes/game_scene/game.tscn" id="1_i6m5q"]
 [ext_resource type="Texture2D" uid="uid://j8jn3kjy63sl" path="res://assets/image/ui/bg/tutorial_final/TutorialBG_OutsideTheMirror_michelle.png" id="2_i78sm"]
@@ -6,6 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://smfcxmdypfad" path="res://scenes/game_scene/game_content/player_horse.tscn" id="3_i78sm"]
 [ext_resource type="Texture2D" uid="uid://doeo1ijrilfm1" path="res://assets/image/ui/bg/tutorial_final/TutorialBG_SpotlightOutsideMirror_michelle.png" id="3_wpm3l"]
 [ext_resource type="Texture2D" uid="uid://bm2t2gnbi4028" path="res://assets/image/ui/bg/tutorial_final/TutorialBG_SpotlightInMirror_michelle.png" id="4_vksds"]
+[ext_resource type="Shader" uid="uid://dqn1gq8s75355" path="res://scenes/game_scene/game_content/mirror.gdshader" id="7_wpm3l"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wpm3l"]
+shader = ExtResource("7_wpm3l")
+shader_parameter/strength = 3.3
+shader_parameter/mix_percentage = 0.05
 
 [node name="Tutorial" instance=ExtResource("1_i6m5q")]
 
@@ -35,8 +41,12 @@ z_index = -1
 position = Vector2(1461, 343)
 scale = Vector2(-0.28, 0.28)
 
-[node name="EnemyHorse" parent="." index="6"]
+[node name="Mirror" type="Polygon2D" parent="." index="6"]
+material = SubResource("ShaderMaterial_wpm3l")
+polygon = PackedVector2Array(1090, 1, 1089, 550, 1584, 676, 1601, 680, 1619, 679, 1627, 688, 1718, 711, 1718, 603, 1733, 603, 1733, 0)
+
+[node name="EnemyHorse" parent="." index="7"]
 visible = false
 
-[node name="ComboDisplay" parent="." index="9"]
+[node name="ComboDisplay" parent="." index="10"]
 position = Vector2(1537, 934)

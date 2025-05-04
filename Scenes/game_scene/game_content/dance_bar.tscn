@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://i8w4vbv1cnsc"]
 
-[ext_resource type="Script" path="res://Scenes/game_scene/game_content/dance_bar.gd" id="1_63cml"]
+[ext_resource type="Script" uid="uid://dgocxtk5lyda0" path="res://Scenes/game_scene/game_content/dance_bar.gd" id="1_63cml"]
 [ext_resource type="Texture2D" uid="uid://bid7s87fk7euq" path="res://assets/image/ui/hud/dance bar.png" id="1_arxqh"]
 
 [sub_resource type="Gradient" id="Gradient_afia1"]
