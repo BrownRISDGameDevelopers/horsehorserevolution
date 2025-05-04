@@ -11,8 +11,9 @@ script = ExtResource("2_uvhaa")
 texture = ExtResource("3_uvhaa")
 
 [node name="GameWinTitle" parent="MenuPanelContainer" index="1"]
-position = Vector2(1470, 443)
+position = Vector2(1577, 462)
 rotation = 5.98648
+scale = Vector2(1.75, 1.75)
 
 [node name="MenuButtons" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin" index="0"]
 custom_minimum_size = Vector2(400, 150)

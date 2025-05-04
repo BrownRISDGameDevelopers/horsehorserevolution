@@ -8,15 +8,15 @@ script = ExtResource("2_hyv0n")
 
 [node name="InputActionsList" parent="VBoxContainer/InputMappingContainer" index="1"]
 input_action_names = Array[StringName]([&"escape", &"left0", &"down0", &"up0", &"right0", &"left1", &"down1", &"up1", &"right1"])
-readable_action_names = Array[String](["Pause", "Player 1 Left", "Player 1 Down", "Player 1 Up", "Player 1 Right", "Player 2 Left", "Player 2 Down", "Player 2 Up", "Player 2 Right"])
+readable_action_names = Array[String](["Pause", "P1 Left", "P1 Down", "P1 Up", "P1 Right", "P2 Left", "P2 Down", "P2 Up", "P2 Right"])
 action_name_map = {
-&"down0": "Player 1 Down",
-&"down1": "Player 2 Down",
+&"down0": "P1 Down",
+&"down1": "P2 Down",
 &"escape": "Pause",
-&"left0": "Player 1 Left",
-&"left1": "Player 2 Left",
-&"right0": "Player 1 Right",
-&"right1": "Player 2 Right",
-&"up0": "Player 1 Up",
-&"up1": "Player 2 Up"
+&"left0": "P1 Left",
+&"left1": "P2 Left",
+&"right0": "P1 Right",
+&"right1": "P2 Right",
+&"up0": "P1 Up",
+&"up1": "P2 Up"
 }

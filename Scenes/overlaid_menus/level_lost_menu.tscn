@@ -2,17 +2,19 @@
 
 [ext_resource type="PackedScene" uid="uid://dkq3nhkmhu4je" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/level_lost_menu.tscn" id="1_wvmyj"]
 [ext_resource type="Script" uid="uid://dajpwoq88odl7" path="res://scenes/overlaid_menus/level_lost_menu.gd" id="2_v0vqr"]
-[ext_resource type="Texture2D" uid="uid://b0xqw3wruw1j4" path="res://assets/image/ui/title/FinalLoseScreen.PNG" id="3_v0vqr"]
+[ext_resource type="Texture2D" uid="uid://d08eduhupp8lk" path="res://assets/image/ui/title/PlayerLoseScreen.png" id="3_v0vqr"]
 
 [node name="LevelLostMenu" instance=ExtResource("1_wvmyj")]
 script = ExtResource("2_v0vqr")
 
 [node name="LevelLoseBackground" parent="MenuPanelContainer" index="0"]
 position = Vector2(958, 540)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_v0vqr")
 
 [node name="LevelLoseTitle" parent="MenuPanelContainer" index="1"]
-position = Vector2(403, 258)
+position = Vector2(344, 209)
+scale = Vector2(1.6, 1.6)
 
 [node name="MenuButtons" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin" index="0"]
 custom_minimum_size = Vector2(800, 150)

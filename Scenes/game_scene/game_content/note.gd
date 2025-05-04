@@ -13,7 +13,7 @@ var horseshoe_head_adjust = Vector2(0, -8)
 var default_shader = load("res://scenes/game_scene/game_content/note.gdshader")
 var down_shader = load("res://scenes/game_scene/game_content/note_down.gdshader")
 
-var player_num: Global.PlayerEnum = Global.PlayerEnum.PLAYER_1
+var player_num: Global.PlayerEnum
 
 var arrow_colors = {Global.Direction.LEFT: "6dd2f9",
 					Global.Direction.DOWN: "ed6eb3",
@@ -49,7 +49,7 @@ func _physics_process(delta):
 
 func initialize(duration, bpm, road_num, end_y):
 	player_num = road_num
-	if road_num == 1:
+	if road_num == Global.PlayerEnum.PLAYER_2:
 		collision_layer = 0b0010
 	target_y = end_y
 

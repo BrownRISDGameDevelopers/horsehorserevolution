@@ -17,39 +17,38 @@ var missed = 0
 @onready var enemy_horse: Node2D = $EnemyHorse
 @onready var player_horse: Node2D = $PlayerHorse
 
-var sync_health: int = 3
-var player1hit: int = -1
-var player2hit: int = -1
+var sync_health: int = 6
+var player1hit: int = 0
+var player2hit: int = 0
  
 signal level_won
 signal level_lost
 
 func _ready():
 	Global.beat.connect(enemy_strike_pose)
+	Global.beat.connect(handle_sync_health)
 	Global.level_over.connect(complete_level)
 	Global.note_hit.connect(handle_note_hit)
 	$AnimationPlayer.play("start_with_animations")
 
 func handle_note_hit(player: Global.PlayerEnum, area: Global.AreaHit, note_score: Global.ScoreEnum):
 	if player == Global.PlayerEnum.PLAYER_1:
-		player1hit = area
+		player1hit += area
 	else:
-		player2hit = area
-	handle_sync_health()
+		player2hit += area
 	increment_score(note_score)
 
-func handle_sync_health():
+func handle_sync_health(_beat_position):
 	if controls.sync_phase:
-		# Only lose 1 sync health per beat
-		if abs(player1hit - player2hit) > 2 and (player1hit != Global.AreaHit.MISS or player2hit != Global.AreaHit.MISS):
+		if abs(player1hit - player2hit) > 3:
 			sync_health -= 1
-			player1hit = Global.AreaHit.MISS
-			player2hit = Global.AreaHit.MISS
 			$RaceLights.remove_health()
 			if sync_health == 0:
 				lose_with_animations()
 			else:
 				player_horse.slip()
+		player1hit = 0
+		player2hit = 0
 
 func increment_score(note_score: Global.ScoreEnum):
 	if note_score != Global.ScoreEnum.MISS:
@@ -86,6 +85,8 @@ func start_level():
 
 func lose_with_animations():
 	player_horse.slip(true)
+	if has_node("PlayerHorseMirror"):
+		$PlayerHorseMirror.slip(true)
 	$Controls/Conductor.stop()
 	$AnimationPlayer.play("lose_fadeout")
 

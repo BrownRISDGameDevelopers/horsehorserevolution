@@ -38,3 +38,7 @@ texture = ExtResource("6_2l20p")
 
 [node name="StaticPose" parent="EnemyHorse" index="5"]
 texture = ExtResource("7_r1qjk")
+
+[node name="Controls" parent="." index="7"]
+position = Vector2(678, 650)
+merge_type = 1
