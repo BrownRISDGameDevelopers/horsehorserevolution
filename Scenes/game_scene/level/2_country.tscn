@@ -20,6 +20,9 @@ texture = ExtResource("3_xwiel")
 
 [node name="EnemyHorse" parent="." index="5"]
 pose_length = 0.3
+great_chance = 25
+good_chance = 45
+poor_chance = 20
 
 [node name="GreatPose" parent="EnemyHorse" index="1"]
 texture = ExtResource("3_sfdoa")

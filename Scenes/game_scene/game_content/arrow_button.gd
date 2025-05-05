@@ -8,6 +8,7 @@ var current_note = null
 @export var input = ""
 @export var player_num: Global.PlayerEnum = Global.PlayerEnum.PLAYER_1
 @export var frames: SpriteFrames
+
 @onready var perfect_area: Area2D = $PerfectArea
 @onready var good_area_upper: Area2D = $GoodAreaUpper
 @onready var good_area_lower: Area2D = $GoodAreaLower
@@ -41,7 +42,7 @@ func _physics_process(_delta):
 
 	if Input.is_action_just_released(input):
 		if current_note != null:
-			if current_note.has_trail:
+			if current_note.has_trail and current_note.held:
 				current_note.handle_input(current_score)
 			_reset()
 		$PushTimer.start()

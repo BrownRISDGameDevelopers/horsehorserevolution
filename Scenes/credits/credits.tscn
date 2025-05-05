@@ -46,7 +46,7 @@ text = "[center][font_size=48]Horse Horse Revolution Team[/font_size]
 [img=150x150]res://assets/image/creditsonas/blank.png[/img] Sagian Shaw - Producer/Artist [img=150x150]res://assets/image/creditsonas/Sage.png[/img]
 [img=150x150]res://assets/image/creditsonas/blank.png[/img] Yuna Ogiwara - Artist[img=150x150]res://assets/image/creditsonas/blank.png[/img]
 
-[font_size=32]Collaborators[/font_size]
+[font_size=48]Collaborators[/font_size]
 
 Austin Horse- Horse Voice and Foley Talent
 Casper Horse- Horse Voice and Foley Talent
@@ -59,31 +59,30 @@ VOICEVOX: Zundamon as vocals
 
 
 [font_size=48]Sourced / Unaffiliated[/font_size]
-[font_size=32]Asset Type[/font_size]
 
-[font_size=24]Godot Engine Logo[/font_size]
-Author: Andrea Calabró  
-Source: [url=https://godotengine.org/press/]godotengine.org : press[/url]  
-License: [url=https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt]CC BY 4.0 International[/url] 
+[font_size=32]Godot Engine Logo[/font_size]
+[font_size=24]Author: Andrea Calabró  [/font_size]
+[font_size=24]Source: [url=https://godotengine.org/press/]godotengine.org : press[/url]  [/font_size]
+[font_size=24]License: [url=https://github.com/godotengine/godot/blob/master/LOGO_LICENSE.txt]CC BY 4.0 International[/url] [/font_size]
 
 [font_size=48]Tools[/font_size]
-[font_size=24]Godot[/font_size]
-Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  
-Source: [url=https://godotengine.org/]godotengine.org[/url]  
-License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] 
+[font_size=32]Godot[/font_size]
+[font_size=24]Author: [url=https://godotengine.org/contact]Juan Linietsky, Ariel Manzur, and contributors[/url]  [/font_size]
+[font_size=24]Source: [url=https://godotengine.org/]godotengine.org[/url]  [/font_size]
+[font_size=24]License: [url=https://github.com/godotengine/godot/blob/master/LICENSE.txt]MIT License[/url] [/font_size]
 
-[font_size=24]Git[/font_size]
-Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  
-Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  
-License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url]
+[font_size=32]Git[/font_size]
+[font_size=24]Author: [url=https://github.com/torvalds]Linus Torvalds[/url]  [/font_size]
+[font_size=24]Source: [url=https://git-scm.com/downloads]git-scm.com[/url]  [/font_size]
+[font_size=24]License: [url=https://opensource.org/licenses/GPL-2.0]GNU General Public License version 2[/url][/font_size]
 
-[font_size=24]Godot Game Template[/font_size]
-Author: [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  
-Source: [url=https://github.com/Maaack/Godot-Game-Template]github: Godot-Game-Template[/url]  
-License: [url=LICENSE.txt]MIT License[/url]  
+[font_size=32]Godot Game Template[/font_size]
+[font_size=24]Author: [url=https://github.com/Maaack/Godot-Game-Template/graphs/contributors]Marek Belski and contributors[/url]  [/font_size]
+[font_size=24]Source: [url=https://github.com/Maaack/Godot-Game-Template]github: Godot-Game-Template[/url]  [/font_size]
+[font_size=24]License: [url=LICENSE.txt]MIT License[/url]  [/font_size]
 
-[font_size=24]Godot Midi Parser[/font_size]
-Author: [url=https://github.com/brainfoolong/gdscript-midi-parser]Roland Eigelsreiter[/url]  
-Source: [url=https://github.com/brainfoolong/gdscript-midi-parser]github: GDScript Midi Parser[/url]  
-License: [url=https://github.com/brainfoolong/gdscript-midi-parser/blob/main/LICENSE]MIT License[/url]
+[font_size=32]Godot Midi Parser[/font_size]
+[font_size=24]Author: [url=https://github.com/brainfoolong/gdscript-midi-parser]Roland Eigelsreiter[/url]  [/font_size]
+[font_size=24]Source: [url=https://github.com/brainfoolong/gdscript-midi-parser]github: GDScript Midi Parser[/url]  [/font_size]
+[font_size=24]License: [url=https://github.com/brainfoolong/gdscript-midi-parser/blob/main/LICENSE]MIT License[/url][/font_size]
 [/center]"

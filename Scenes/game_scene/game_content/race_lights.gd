@@ -5,10 +5,6 @@ extends Node2D
 @export var green_light: Texture2D
 var health = 0
 
-func _ready():
-	for light in light_array:
-		light.texture = red_light
-
 func add_health():
 	if health == 3:
 		return
@@ -17,5 +13,7 @@ func add_health():
 	
 
 func remove_health():
+	if health == 0:
+		return
 	health -= 1
 	light_array[health].texture = red_light

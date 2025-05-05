@@ -20,6 +20,10 @@ texture = ExtResource("3_tn48y")
 [node name="EnemyHorse" parent="." index="5"]
 position = Vector2(1414, 367)
 pose_length = 0.2
+great_chance = 60
+good_chance = 38
+poor_chance = 2
+bad_chance = 0
 
 [node name="GreatPose" parent="EnemyHorse" index="1"]
 position = Vector2(8, -12)

@@ -90,7 +90,6 @@ func set_direction(direction):
 	trail.default_color = arrow_colors[direction]
 
 func handle_input(score: Global.ScoreEnum):
-	# TODO: hold note logic	
 	if !has_trail:
 		destroy(score)
 	elif not held:
@@ -99,7 +98,6 @@ func handle_input(score: Global.ScoreEnum):
 		release_hold(score)
 
 func destroy(score: Global.ScoreEnum):
-	# $CPUParticles2D.emitting = true
 	$Timer.start()
 	head_sprite.visible = false
 	tail_sprite.visible = false
@@ -129,12 +127,13 @@ func hold(score: Global.ScoreEnum):
 		score_label.text = "OKAY"
 		score_label.modulate = Color("997577")
 
-func release_hold(score: Global.ScoreEnum):
+func release_hold(_score: Global.ScoreEnum):
 	$Timer.start()
 	head_sprite.visible = false
 	tail_sprite.visible = false
 	hit = true
 	if tail_collision.position.y < -2 * sec_per_beat * speed:
+		Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS)
 		score_label.text = "DROPPED"
 		score_label.modulate = Color("997577")
 	

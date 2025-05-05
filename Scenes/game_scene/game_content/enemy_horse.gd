@@ -6,20 +6,25 @@ extends Node2D
 @export var bad: Sprite2D
 @export var static_pose: Sprite2D
 @export var pose_length: float
+
+@export var great_chance: int = 10
+@export var good_chance: int = 50
+@export var poor_chance: int = 30
+@export var bad_chance: int = 10
+
 @onready var timer: Timer = $Timer
 
 func _ready() -> void:
 	timer.wait_time = pose_length
 
-func strike_pose(dancebarval): # between 0 and 200
-	dancebarval = 200 - dancebarval
+func strike_pose():
 	if (timer.is_stopped()):
-		var rand = randi_range(0, 200)
-		if (rand * 4 < dancebarval):
+		var rand = randi_range(0, bad_chance + poor_chance + good_chance + great_chance)
+		if rand < bad_chance:
 			set_pose(bad)
-		elif (rand < dancebarval):
+		elif rand < bad_chance + poor_chance:
 			set_pose(mildly_bad)
-		elif (rand / 2.0 >= dancebarval):
+		elif rand < bad_chance + poor_chance + good_chance:
 			set_pose(great)
 		else:
 			set_pose(mildly_good)

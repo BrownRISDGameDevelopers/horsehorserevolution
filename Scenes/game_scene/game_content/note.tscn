@@ -41,17 +41,6 @@ debug_color = Color(0.583333, 0, 0.7, 0.419608)
 shape = SubResource("RectangleShape2D_feena")
 debug_color = Color(0.0933332, 0.7, 0, 0.419608)
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 16
-lifetime = 0.3
-one_shot = true
-explosiveness = 0.8
-emission_shape = 1
-emission_sphere_radius = 1.0
-spread = 180.0
-gravity = Vector2(0, 0)
-
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true

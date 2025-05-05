@@ -55,7 +55,7 @@ var current_states: Array[DoubleLinkedList] = [DoubleLinkedList.new(Global.Direc
 func _ready():
 	Global.note_hit.connect(check_miss)
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	for player in Global.PlayerEnum:
 		for direction in Global.Direction:
 			var input_name = direction.to_lower() + str(Global.PlayerEnum[player])
@@ -86,14 +86,12 @@ func reset_pose(sprite_list):
 		sprite.visible = false
 	sprite_list[-1].visible = true
 
-func set_slip_visibility(is_slipped):
-	$PlayerBack.visible = !is_slipped
-	$PlayerFront.visible = !is_slipped
-	$PlayerBackMiss.visible = false
-	$PlayerFrontMiss.visible = false
-	$PlayerConnector.visible = !is_slipped
-	$PlayerTape.visible = !is_slipped
-	$PlayerSlip.visible = is_slipped
+func _on_back_timer_timeout():
+	reset_pose(back_sprites)
+
+func _on_front_timer_timeout():
+	reset_pose(front_sprites)
+
 
 func check_miss(player, area, _score):
 	if area == Global.AreaHit.MISS:
@@ -109,6 +107,15 @@ func miss(player):
 		$PlayerFrontMiss.visible = true
 		$FrontMissTimer.start(pose_duration)
 
+func _on_front_miss_timer_timeout():
+	$PlayerFront.visible = true
+	$PlayerFrontMiss.visible = false
+
+func _on_back_miss_timer_timeout():
+	$PlayerBack.visible = true
+	$PlayerBackMiss.visible = false
+
+	
 func slip(permanent = false):
 	set_slip_visibility(true)
 	if not permanent:
@@ -118,19 +125,14 @@ func slip(permanent = false):
 		$BackMissTimer.stop()
 		$FrontMissTimer.stop()
 
-func _on_back_timer_timeout():
-	reset_pose(back_sprites)
-
-func _on_front_timer_timeout():
-	reset_pose(front_sprites)
+func set_slip_visibility(is_slipped):
+	$PlayerBack.visible = !is_slipped
+	$PlayerFront.visible = !is_slipped
+	$PlayerBackMiss.visible = false
+	$PlayerFrontMiss.visible = false
+	$PlayerConnector.visible = !is_slipped
+	$PlayerTape.visible = !is_slipped
+	$PlayerSlip.visible = is_slipped
 
 func _on_slip_timer_timeout():
 	set_slip_visibility(false)
-
-func _on_front_miss_timer_timeout():
-	$PlayerFront.visible = true
-	$PlayerFrontMiss.visible = false
-
-func _on_back_miss_timer_timeout():
-	$PlayerBack.visible = true
-	$PlayerBackMiss.visible = false
