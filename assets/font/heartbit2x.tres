@@ -1,7 +1,0 @@
-[gd_resource type="FontFile" load_steps=2 format=2]
-
-[ext_resource type="FontFile" uid="uid://bnquui3kyvr7t" path="res://assets/font/HeartbitXX2Px.ttf" id="1"]
-
-[resource]
-font_data = ExtResource( 1 )
-

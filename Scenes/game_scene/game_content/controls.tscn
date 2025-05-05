@@ -11,7 +11,7 @@ song = NodePath("Song")
 
 [node name="Conductor" parent="." instance=ExtResource("8")]
 volume_db = -15.0
-bpm = 115
+bpm = 108
 
 [node name="Song" parent="." instance=ExtResource("10_2ye08")]
 

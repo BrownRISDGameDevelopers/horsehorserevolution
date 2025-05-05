@@ -14,7 +14,6 @@
 [node name="Song" parent="." index="1"]
 song_json_path = "res://assets/chart/country.json"
 song_stream = ExtResource("2_xwiel")
-end_offset = -140
 
 [node name="Background" parent="." index="2"]
 texture = ExtResource("3_xwiel")
