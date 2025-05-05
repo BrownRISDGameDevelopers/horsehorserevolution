@@ -14,6 +14,7 @@ var default_shader = load("res://scenes/game_scene/game_content/note.gdshader")
 var down_shader = load("res://scenes/game_scene/game_content/note_down.gdshader")
 
 var player_num: Global.PlayerEnum
+var beat
 
 var arrow_colors = {Global.Direction.LEFT: "6dd2f9",
 					Global.Direction.DOWN: "ed6eb3",
@@ -38,16 +39,17 @@ func _physics_process(delta):
 		var trail_end = min(tail_sprite.position.y, target_y - position.y)
 		trail.set_point_position(1, Vector2(0, trail_end))
 		if tail_sprite.position.y > DESPAWN_DISTANCE:
-			Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS)
+			Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS, -1)
 			queue_free()
 	else:
 		position.y += speed * delta
 		if position.y > target_y + DESPAWN_DISTANCE:
-			Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS)
+			Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS, beat)
 			queue_free()
 
 
-func initialize(duration, bpm, road_num, end_y):
+func initialize(duration, bpm, road_num, end_y, beat_position):
+	beat = beat_position
 	player_num = road_num
 	if road_num == Global.PlayerEnum.PLAYER_2:
 		collision_layer = 0b0010
@@ -133,7 +135,7 @@ func release_hold(_score: Global.ScoreEnum):
 	tail_sprite.visible = false
 	hit = true
 	if tail_collision.position.y < -2 * sec_per_beat * speed:
-		Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS)
+		Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS, -1)
 		score_label.text = "DROPPED"
 		score_label.modulate = Color("997577")
 	

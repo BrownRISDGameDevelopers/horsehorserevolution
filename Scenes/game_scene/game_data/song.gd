@@ -66,8 +66,11 @@ func _ready():
 	var song_info = read_json_file(song_json_path)
 	parse_notes_from_dict(song_info)
 
+func get_beat_adj(beat: int):
+	return beat + start_offset - 1
+
 func get_notes(beat: int):
-	var beat_adj = beat + start_offset - 1
+	var beat_adj = get_beat_adj(beat)
 	if beat_adj not in notes_with_duration:
 		return []
 	var notes = notes_with_duration[beat_adj]
@@ -76,7 +79,7 @@ func get_notes(beat: int):
 func synced(beat):
 	var beat_adj
 	if type_string(typeof(beat)) == "int":
-		beat_adj = beat + 1
+		beat_adj = beat
 	else:
-		beat_adj = int(beat) + 1
+		beat_adj = int(beat)
 	return beat_adj in synced_notes or str(beat_adj) in synced_notes

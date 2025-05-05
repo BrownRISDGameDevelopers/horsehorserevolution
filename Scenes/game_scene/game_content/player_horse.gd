@@ -124,7 +124,7 @@ func _on_front_timer_timeout():
 	reset_pose(front_sprites, Global.PlayerEnum.PLAYER_2)
 
 
-func check_miss(player, area, _score):
+func check_miss(player, area, _score, _beat):
 	if area == Global.AreaHit.MISS:
 		miss(player)
 		stretch_tape()

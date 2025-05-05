@@ -2,7 +2,6 @@ extends Node2D
 
 @export var player_num: Global.PlayerEnum
 var bpm = 120
-var sync_phase: bool = false
 
 var note = load("res://scenes/game_scene/game_content/note.tscn")
 
@@ -43,8 +42,8 @@ func exit_sync():
 func update_bpm(new_bpm):
 	bpm = new_bpm
 
-func spawn_note(direction, duration):
+func spawn_note(direction, duration, beat_position):
 	var instance = note.instantiate()
 	road.add_child(instance)
-	instance.initialize(duration, bpm, player_num, left.position.y)
+	instance.initialize(duration, bpm, player_num, left.position.y, beat_position)
 	instance.set_direction(direction)

@@ -1,10 +1,10 @@
 class_name NoteInfo
 extends Node2D
 
-@export var player: Global.PlayerEnum
-@export var direction: Global.Direction
-@export var held: bool
-@export var duration: int = 1
+var player: Global.PlayerEnum
+var direction: Global.Direction
+var held: bool
+var duration: int = 1
 
 func initialize(p, d, h):
 	player = p

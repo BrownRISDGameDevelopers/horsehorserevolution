@@ -32,12 +32,12 @@ func update_player(road_num):
 func _physics_process(_delta):
 	if Input.is_action_just_pressed(input):
 		if current_note != null:
-			Global.note_hit.emit(player_num, current_area, current_score)
+			Global.note_hit.emit(player_num, current_area, current_score, current_note.beat)
 			current_note.handle_input(current_score)
 			if !current_note.has_trail:
 				_reset()
 		else:
-			Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS)
+			Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS, -1)
 		$ArrowSprite.frame = 1
 
 	if Input.is_action_just_released(input):

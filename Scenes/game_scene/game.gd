@@ -10,6 +10,8 @@ var combo = 0
 @onready var enemy_horse: Node2D = $EnemyHorse
 @onready var player_horse: Node2D = $PlayerHorse
 
+@export var start_beat_for_testing := 1
+
 var sync_health: int = 3
  
 signal level_won
@@ -19,10 +21,11 @@ func _ready():
 	Global.beat.connect(enemy_strike_pose)
 	Global.level_over.connect(complete_level)
 	Global.note_hit.connect(increment_score)
+	controls.sync_slip.connect(lose_sync_health)
 	$AnimationPlayer.play("start_with_animations")
 
 
-func increment_score(_player: Global.PlayerEnum, _area: Global.AreaHit, note_score: Global.ScoreEnum):
+func increment_score(_player: Global.PlayerEnum, _area: Global.AreaHit, note_score: Global.ScoreEnum, _beat):
 	if note_score != Global.ScoreEnum.MISS:
 		combo += 1
 	else:
@@ -41,12 +44,19 @@ func increment_score(_player: Global.PlayerEnum, _area: Global.AreaHit, note_sco
 		lose_with_animations()
 
 	$ComboDisplay.set_combo(combo)
+
+func lose_sync_health():
+	sync_health -= 1
+	slip_players()
+	$RaceLights.remove_health()
+	if sync_health == 0:
+		lose_with_animations()
 	
 func enemy_strike_pose(_beat_position):
 	enemy_horse.strike_pose()
 
 func start_level():
-	controls.play_from_beat(1)
+	controls.play_from_beat(start_beat_for_testing)
 
 func lose_with_animations():
 	slip_players(true)
