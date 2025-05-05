@@ -7,6 +7,7 @@
 script = ExtResource("2_hyv0n")
 
 [node name="InputActionsList" parent="VBoxContainer/InputMappingContainer" index="1"]
+action_groups = 2
 input_action_names = Array[StringName]([&"escape", &"left0", &"down0", &"up0", &"right0", &"left1", &"down1", &"up1", &"right1"])
 readable_action_names = Array[String](["Pause", "P1 Left", "P1 Down", "P1 Up", "P1 Right", "P2 Left", "P2 Down", "P2 Up", "P2 Right"])
 action_name_map = {

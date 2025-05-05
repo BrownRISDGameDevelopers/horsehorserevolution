@@ -7,7 +7,11 @@
 [node name="MiniOptionsMenu" instance=ExtResource("1_d8n2j")]
 script = ExtResource("2_xphcu")
 
+[node name="MuteControl" parent="." index="1"]
+visible = false
+
 [node name="ResetGameControl" parent="." index="3" instance=ExtResource("3_kj0d4")]
+visible = false
 layout_mode = 2
 
 [connection signal="reset_confirmed" from="ResetGameControl" to="." method="_on_reset_game_control_reset_confirmed"]

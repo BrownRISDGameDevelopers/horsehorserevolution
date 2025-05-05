@@ -27,10 +27,10 @@ option_section = 1
 key = "MouseSensitivity"
 section = "InputSettings"
 
-[node name="OptionLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl" index="0"]
+[node name="OptionLabel" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl" index="1"]
 text = "Mouse Sensitivity :"
 
-[node name="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl" index="1"]
+[node name="HSlider" parent="VBoxContainer/MarginContainer/VBoxContainer/MouseSensitivityControl" index="2"]
 min_value = 0.25
 max_value = 2.0
 tick_count = 8

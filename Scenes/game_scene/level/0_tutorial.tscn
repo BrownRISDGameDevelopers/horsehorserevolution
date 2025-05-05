@@ -47,6 +47,3 @@ polygon = PackedVector2Array(1090, 1, 1089, 550, 1584, 676, 1601, 680, 1619, 679
 
 [node name="EnemyHorse" parent="." index="7"]
 visible = false
-
-[node name="ComboDisplay" parent="." index="11"]
-position = Vector2(1537, 934)
