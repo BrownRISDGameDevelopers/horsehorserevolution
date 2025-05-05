@@ -18,10 +18,11 @@ signal level_lost
 func _ready():
 	Global.beat.connect(enemy_strike_pose)
 	Global.level_over.connect(complete_level)
+	Global.note_hit.connect(increment_score)
 	$AnimationPlayer.play("start_with_animations")
 
 
-func increment_score(note_score: Global.ScoreEnum):
+func increment_score(_player: Global.PlayerEnum, _area: Global.AreaHit, note_score: Global.ScoreEnum):
 	if note_score != Global.ScoreEnum.MISS:
 		combo += 1
 	else:

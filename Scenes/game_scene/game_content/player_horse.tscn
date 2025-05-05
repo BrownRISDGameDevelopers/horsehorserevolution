@@ -89,7 +89,6 @@ position = Vector2(-115.217, 253.261)
 [node name="PlayerBackMiss" type="Sprite2D" parent="PlayerBack"]
 visible = false
 position = Vector2(47, -17)
-scale = Vector2(1, 1)
 texture = ExtResource("13_2esg0")
 
 [node name="AnchorTop" type="Marker2D" parent="PlayerBack/PlayerBackMiss"]
@@ -158,7 +157,6 @@ position = Vector2(73, 226)
 [node name="PlayerFrontMiss" type="Sprite2D" parent="PlayerFront"]
 visible = false
 position = Vector2(42.0002, -14)
-scale = Vector2(1, 1)
 texture = ExtResource("8_yajf6")
 
 [node name="AnchorTop" type="Marker2D" parent="PlayerFront/PlayerFrontMiss"]

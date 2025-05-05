@@ -1,7 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://g33bep8fbr2y"]
+[gd_scene load_steps=14 format=3 uid="uid://g33bep8fbr2y"]
 
 [ext_resource type="Script" uid="uid://crj615a8rjrup" path="res://scenes/game_scene/game.gd" id="1_wedpv"]
-[ext_resource type="Texture2D" uid="uid://b3il1ioyuugsk" path="res://assets/image/ui/ui_mock.png" id="2_fhy3a"]
 [ext_resource type="PackedScene" uid="uid://cutwd8worfdkf" path="res://scenes/game_scene/game_content/controls.tscn" id="4_700et"]
 [ext_resource type="AudioStream" uid="uid://b34wfgh40uvd5" path="res://assets/audio/Torse.wav" id="5_wedpv"]
 [ext_resource type="PackedScene" uid="uid://crll3qxx6ayas" path="res://scenes/game_scene/game_content/enemy_horse.tscn" id="6_7ulqd"]
@@ -159,7 +158,6 @@ song_stream = ExtResource("5_wedpv")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("2_fhy3a")
 metadata/_edit_lock_ = true
 
 [node name="PlayerBar" parent="." instance=ExtResource("10_28n3v")]

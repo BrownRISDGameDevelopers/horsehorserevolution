@@ -1,6 +1,7 @@
-[gd_resource type="Theme" load_steps=15 format=3 uid="uid://cwf1ijbnvudcv"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://cwf1ijbnvudcv"]
 
 [ext_resource type="FontFile" uid="uid://bhr8lvqwescen" path="res://assets/font/BigSlabHammer.ttf" id="1_034sy"]
+[ext_resource type="Texture2D" uid="uid://b8xf0qukiedlj" path="res://assets/image/creditsonas/blank.png" id="1_aqsxu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4b4gg"]
 content_margin_left = 12.0
@@ -31,6 +32,15 @@ corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_034sy"]
+bg_color = Color(0.219608, 0.32549, 0.627451, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+expand_margin_top = 10.0
+expand_margin_bottom = 10.0
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ywrjj"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -155,6 +165,8 @@ Button/colors/font_hover_color = Color(0.33, 0.33, 0.33, 1)
 Button/styles/hover = SubResource("StyleBoxFlat_4b4gg")
 Button/styles/normal = SubResource("StyleBoxFlat_l51yu")
 Button/styles/pressed = null
+HSlider/icons/tick = ExtResource("1_aqsxu")
+HSlider/styles/slider = SubResource("StyleBoxFlat_034sy")
 LeftStaminaBar/base_type = &"ProgressBar"
 LeftStaminaBar/styles/background = SubResource("StyleBoxFlat_ywrjj")
 LeftStaminaBar/styles/fill = SubResource("StyleBoxFlat_tyerd")

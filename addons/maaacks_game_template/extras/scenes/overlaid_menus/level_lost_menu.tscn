@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkq3nhkmhu4je"]
+[gd_scene load_steps=4 format=3 uid="uid://dkq3nhkmhu4je"]
 
 [ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_ok347"]
 [ext_resource type="Script" uid="uid://ckh3w3xa6qjk0" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/level_lost_menu.gd" id="2_6r1n8"]
-[ext_resource type="Texture2D" uid="uid://b3il1ioyuugsk" path="res://assets/image/ui/ui_mock.png" id="3_ibdjl"]
 [ext_resource type="SpriteFrames" uid="uid://d1jf62ols58pt" path="res://assets/image/ui/title/lose_v2r1_cindy.gif" id="4_r24uv"]
 
 [node name="LevelLostMenu" instance=ExtResource("1_ok347")]
@@ -27,7 +26,6 @@ grow_vertical = 1
 
 [node name="LevelLoseBackground" type="Sprite2D" parent="MenuPanelContainer" index="0"]
 position = Vector2(960, 540)
-texture = ExtResource("3_ibdjl")
 
 [node name="LevelLoseTitle" type="AnimatedSprite2D" parent="MenuPanelContainer" index="1"]
 position = Vector2(960, 250)

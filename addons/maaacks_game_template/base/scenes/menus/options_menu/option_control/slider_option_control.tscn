@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cl416gdb1fgwr"]
+[gd_scene load_steps=3 format=3 uid="uid://cl416gdb1fgwr"]
 
 [ext_resource type="PackedScene" uid="uid://d7te75il06t7" path="res://addons/maaacks_game_template/base/scenes/menus/options_menu/option_control/option_control.tscn" id="1_16hlr"]
+[ext_resource type="Texture2D" uid="uid://80m6e6mgo7pu" path="res://assets/image/ui/audio/audio slider buttonn.png" id="2_bhgye"]
 
 [node name="OptionControl" instance=ExtResource("1_16hlr")]
 custom_minimum_size = Vector2(0, 28)
@@ -8,10 +9,20 @@ offset_bottom = 28.0
 property_type = 3
 default_value = 1.0
 
-[node name="HSlider" type="HSlider" parent="." index="1"]
+[node name="RichTextLabel" type="RichTextLabel" parent="." index="0"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+bbcode_enabled = true
+text = "[img=80x80]res://assets/image/ui/audio/audio button.png[/img]"
+scroll_active = false
+
+[node name="HSlider" type="HSlider" parent="." index="2"]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("2_bhgye")
+theme_override_icons/grabber_highlight = ExtResource("2_bhgye")
+theme_override_icons/grabber_disabled = ExtResource("2_bhgye")
 max_value = 1.0
 step = 0.05
 value = 1.0
