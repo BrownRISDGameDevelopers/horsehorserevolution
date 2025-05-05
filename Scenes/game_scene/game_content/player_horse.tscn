@@ -19,8 +19,8 @@
 
 [node name="PlayerHorse" type="Node2D" node_paths=PackedStringArray("back_sprites", "front_sprites", "reset_timers")]
 script = ExtResource("1_gjtv3")
-back_sprites = [NodePath("PlayerBack/PlayerBackLeft"), NodePath("PlayerBack/PlayerBackDown"), NodePath("PlayerBack/PlayerBackUp"), NodePath("PlayerBack/PlayerBackRight"), NodePath("PlayerBack/PlayerBackNeutral")]
-front_sprites = [NodePath("PlayerFront/PlayerFrontLeft"), NodePath("PlayerFront/PlayerFrontDown"), NodePath("PlayerFront/PlayerFrontUp"), NodePath("PlayerFront/PlayerFrontRight"), NodePath("PlayerFront/PlayerFrontNeutral")]
+back_sprites = [NodePath("PlayerBack/PlayerBackLeft"), NodePath("PlayerBack/PlayerBackDown"), NodePath("PlayerBack/PlayerBackUp"), NodePath("PlayerBack/PlayerBackRight"), NodePath("PlayerBack/PlayerBackMiss"), NodePath("PlayerBack/PlayerBackNeutral")]
+front_sprites = [NodePath("PlayerFront/PlayerFrontLeft"), NodePath("PlayerFront/PlayerFrontDown"), NodePath("PlayerFront/PlayerFrontUp"), NodePath("PlayerFront/PlayerFrontRight"), NodePath("PlayerFront/PlayerFrontMiss"), NodePath("PlayerFront/PlayerFrontNeutral")]
 reset_timers = [NodePath("BackTimer"), NodePath("FrontTimer")]
 
 [node name="BackTimer" type="Timer" parent="."]
@@ -44,11 +44,23 @@ position = Vector2(-35, 334)
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("2_kjkbw")
 
+[node name="AnchorTop" type="Marker2D" parent="PlayerBack/PlayerBackLeft"]
+position = Vector2(-17.3333, -354.667)
+
+[node name="AnchorBottom" type="Marker2D" parent="PlayerBack/PlayerBackLeft"]
+position = Vector2(-19.3333, -41.3333)
+
 [node name="PlayerBackDown" type="Sprite2D" parent="PlayerBack"]
 visible = false
-position = Vector2(-624, -118)
+position = Vector2(-604.762, -123.81)
 scale = Vector2(1.27, 1.27)
 texture = ExtResource("4_fvsrx")
+
+[node name="AnchorTop" type="Marker2D" parent="PlayerBack/PlayerBackDown"]
+position = Vector2(422.835, -55.1181)
+
+[node name="AnchorBottom" type="Marker2D" parent="PlayerBack/PlayerBackDown"]
+position = Vector2(425.984, 342.52)
 
 [node name="PlayerBackUp" type="Sprite2D" parent="PlayerBack"]
 visible = false
@@ -56,14 +68,44 @@ position = Vector2(-730, -238)
 scale = Vector2(1.265, 1.265)
 texture = ExtResource("5_fvsrx")
 
+[node name="AnchorTop" type="Marker2D" parent="PlayerBack/PlayerBackUp"]
+position = Vector2(505.929, 12.6482)
+
+[node name="AnchorBottom" type="Marker2D" parent="PlayerBack/PlayerBackUp"]
+position = Vector2(509.091, 388.933)
+
 [node name="PlayerBackRight" type="Sprite2D" parent="PlayerBack"]
 visible = false
 position = Vector2(-13, -26)
 scale = Vector2(0.92, 0.92)
 texture = ExtResource("6_yajf6")
 
+[node name="AnchorTop" type="Marker2D" parent="PlayerBack/PlayerBackRight"]
+position = Vector2(-90.2174, -248.913)
+
+[node name="AnchorBottom" type="Marker2D" parent="PlayerBack/PlayerBackRight"]
+position = Vector2(-115.217, 253.261)
+
+[node name="PlayerBackMiss" type="Sprite2D" parent="PlayerBack"]
+visible = false
+position = Vector2(47, -17)
+scale = Vector2(1, 1)
+texture = ExtResource("13_2esg0")
+
+[node name="AnchorTop" type="Marker2D" parent="PlayerBack/PlayerBackMiss"]
+position = Vector2(-118, -176)
+
+[node name="AnchorBottom" type="Marker2D" parent="PlayerBack/PlayerBackMiss"]
+position = Vector2(-115, 329)
+
 [node name="PlayerBackNeutral" type="Sprite2D" parent="PlayerBack"]
 texture = ExtResource("2_oocah")
+
+[node name="AnchorTop" type="Marker2D" parent="PlayerBack/PlayerBackNeutral"]
+position = Vector2(-60, -201)
+
+[node name="AnchorBottom" type="Marker2D" parent="PlayerBack/PlayerBackNeutral"]
+position = Vector2(-76, 288)
 
 [node name="PlayerFront" type="Node2D" parent="."]
 
@@ -73,11 +115,23 @@ position = Vector2(-23, 191)
 scale = Vector2(1.169, 1.169)
 texture = ExtResource("3_l1f1o")
 
+[node name="AnchorTop" type="Marker2D" parent="PlayerFront/PlayerFrontLeft"]
+position = Vector2(75.278, -335.329)
+
+[node name="AnchorBottom" type="Marker2D" parent="PlayerFront/PlayerFrontLeft"]
+position = Vector2(86.3986, 10.2652)
+
 [node name="PlayerFrontDown" type="Sprite2D" parent="PlayerFront"]
 visible = false
-position = Vector2(1, -129)
+position = Vector2(-16.6666, -135.714)
 scale = Vector2(1.14, 1.14)
 texture = ExtResource("9_fvsrx")
+
+[node name="AnchorTop" type="Marker2D" parent="PlayerFront/PlayerFrontDown"]
+position = Vector2(58.7719, -87.7193)
+
+[node name="AnchorBottom" type="Marker2D" parent="PlayerFront/PlayerFrontDown"]
+position = Vector2(81.5789, 339.474)
 
 [node name="PlayerFrontUp" type="Sprite2D" parent="PlayerFront"]
 visible = false
@@ -85,24 +139,49 @@ position = Vector2(582, -231)
 scale = Vector2(1.22, 1.22)
 texture = ExtResource("10_fvsrx")
 
+[node name="AnchorTop" type="Marker2D" parent="PlayerFront/PlayerFrontUp"]
+position = Vector2(-455.738, -14.7541)
+
+[node name="AnchorBottom" type="Marker2D" parent="PlayerFront/PlayerFrontUp"]
+position = Vector2(-472.131, 437.705)
+
 [node name="PlayerFrontRight" type="Sprite2D" parent="PlayerFront"]
 visible = false
 texture = ExtResource("11_34cju")
 
+[node name="AnchorTop" type="Marker2D" parent="PlayerFront/PlayerFrontRight"]
+position = Vector2(62, -201)
+
+[node name="AnchorBottom" type="Marker2D" parent="PlayerFront/PlayerFrontRight"]
+position = Vector2(73, 226)
+
+[node name="PlayerFrontMiss" type="Sprite2D" parent="PlayerFront"]
+visible = false
+position = Vector2(42.0002, -14)
+scale = Vector2(1, 1)
+texture = ExtResource("8_yajf6")
+
+[node name="AnchorTop" type="Marker2D" parent="PlayerFront/PlayerFrontMiss"]
+position = Vector2(7, -224)
+
+[node name="AnchorBottom" type="Marker2D" parent="PlayerFront/PlayerFrontMiss"]
+position = Vector2(20, 274)
+
 [node name="PlayerFrontNeutral" type="Sprite2D" parent="PlayerFront"]
 texture = ExtResource("3_eb3vq")
 
-[node name="PlayerBackMiss" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("13_2esg0")
+[node name="AnchorTop" type="Marker2D" parent="PlayerFront/PlayerFrontNeutral"]
+position = Vector2(75, -209)
 
-[node name="PlayerFrontMiss" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("8_yajf6")
+[node name="AnchorBottom" type="Marker2D" parent="PlayerFront/PlayerFrontNeutral"]
+position = Vector2(78, 281)
 
-[node name="PlayerTape" type="Sprite2D" parent="."]
-position = Vector2(0, -50)
+[node name="PlayerTape" type="Polygon2D" parent="."]
+position = Vector2(-51, -195)
 texture = ExtResource("3_50qhb")
+polygon = PackedVector2Array(0, 0, 102, 0, 102, 467, 0, 467)
+uv = PackedVector2Array(0, 0, 102, 0, 102, 467, 0, 467)
+polygons = [PackedInt32Array(0, 1, 2, 3)]
 
 [node name="PlayerSlip" type="Sprite2D" parent="."]
 visible = false

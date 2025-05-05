@@ -45,6 +45,9 @@ texture = ExtResource("6_6suoy")
 position = Vector2(-12, 60)
 texture = ExtResource("7_qpmb5")
 
+[node name="PlayerHorse" parent="." index="6"]
+position = Vector2(522, 529)
+
 [node name="Controls" parent="." index="8"]
 merge_type = 2
 metadata/_edit_lock_ = true
