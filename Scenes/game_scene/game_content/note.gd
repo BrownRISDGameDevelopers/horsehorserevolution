@@ -22,19 +22,17 @@ var arrow_colors = {Global.Direction.LEFT: "6dd2f9",
 					Global.Direction.RIGHT: "6fee48"}
 
 @onready var head_sprite: Sprite2D = $HoldHeadSprite
-@onready var head_collision: CollisionShape2D = $HoldHeadCollision
 @onready var tail_sprite: Sprite2D = $HoldTailSprite
-@onready var tail_collision: CollisionShape2D = $HoldTailCollision
+@onready var collision_rect: CollisionShape2D = $HoldCollision
 @onready var score_label: Label = $ScoreLabel/Label
 @onready var trail: Line2D = $HoldTrail
 
 
 func _physics_process(delta):
 	if hit:
-		score_label.position.y -= speed * delta
+		score_label.position.y -= 60 * delta
 	elif held:
 		tail_sprite.position.y += speed * delta
-		tail_collision.position.y += speed * delta
 		trail.set_point_position(0, Vector2(0, target_y - position.y))
 		var trail_end = min(tail_sprite.position.y, target_y - position.y)
 		trail.set_point_position(1, Vector2(0, trail_end))
@@ -58,8 +56,7 @@ func initialize(duration, bpm, road_num, end_y, beat_position):
 	var DIST_TO_TARGET = BASE_DISTANCE * bpm / 120
 	speed = DIST_TO_TARGET / 2.0
 
-	head_collision.shape.set_size(Vector2(8, 8 * (bpm / 120)))
-	tail_collision.shape.set_size(Vector2(8, 8 * (bpm / 120)))
+	collision_rect.shape.set_size(Vector2(8, 8 * (bpm / 120)))
 
 	sec_per_beat = 60.0 / bpm
 	if duration > 1:
@@ -68,13 +65,10 @@ func initialize(duration, bpm, road_num, end_y, beat_position):
 		trail.add_point(horseshoe_head_adjust)
 		trail.add_point(tail_sprite.position)
 		has_trail = true
-		tail_collision.shape.set_size(Vector2(8, 2 * sec_per_beat * speed))
-		tail_collision.position.y -= (duration - 1) * sec_per_beat * speed
-	else:
-		head_collision.set_deferred("disabled", true)
 
 func set_direction(direction):
 	position = Vector2(-60 + direction * 40, target_y - speed * 2)
+	reset_physics_interpolation()
 	if direction == Global.Direction.LEFT:
 		head_sprite.rotation = - PI / 2
 		tail_sprite.rotation = - PI / 2
@@ -134,7 +128,7 @@ func release_hold(_score: Global.ScoreEnum):
 	head_sprite.visible = false
 	tail_sprite.visible = false
 	hit = true
-	if tail_collision.position.y < -2 * sec_per_beat * speed:
+	if tail_sprite.position.y < -2 * sec_per_beat * speed:
 		Global.note_hit.emit(player_num, Global.AreaHit.MISS, Global.ScoreEnum.MISS, -1)
 		score_label.text = "DROPPED"
 		score_label.modulate = Color("997577")

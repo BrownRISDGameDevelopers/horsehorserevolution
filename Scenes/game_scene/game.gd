@@ -7,7 +7,6 @@ var combo = 0
 @onready var enemy_bar_node: Node2D = $EnemyBar
 @onready var enemy_bar: TextureProgressBar = enemy_bar_node.get_node("ProgressBar")
 
-@onready var enemy_horse: Node2D = $EnemyHorse
 @onready var player_horse: Node2D = $PlayerHorse
 
 @export var start_beat_for_testing := 1
@@ -18,7 +17,6 @@ signal level_won
 signal level_lost
 
 func _ready():
-	Global.beat.connect(enemy_strike_pose)
 	Global.level_over.connect(complete_level)
 	Global.note_hit.connect(increment_score)
 	controls.sync_slip.connect(lose_sync_health)
@@ -52,9 +50,6 @@ func lose_sync_health():
 	if sync_health == 0:
 		lose_with_animations()
 	
-func enemy_strike_pose(_beat_position):
-	enemy_horse.strike_pose()
-
 func start_level():
 	controls.play_from_beat(start_beat_for_testing)
 

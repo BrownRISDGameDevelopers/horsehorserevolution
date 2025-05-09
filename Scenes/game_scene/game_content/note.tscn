@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dba7usbxb5eeu"]
+[gd_scene load_steps=6 format=3 uid="uid://dba7usbxb5eeu"]
 
 [ext_resource type="Texture2D" uid="uid://c62gx4jqxkdcs" path="res://assets/image/game/arrow_button/note_v3r1_cindy.png" id="2_feena"]
 [ext_resource type="Shader" uid="uid://8qxqlaow0x86" path="res://scenes/game_scene/game_content/note.gdshader" id="2_pahdt"]
@@ -7,11 +7,6 @@
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wp2it"]
 resource_local_to_scene = true
 shader = ExtResource("2_pahdt")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pahdt"]
-resource_local_to_scene = true
-resource_name = "tail"
-size = Vector2(8, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feena"]
 resource_local_to_scene = true
@@ -33,11 +28,7 @@ texture = ExtResource("2_feena")
 scale = Vector2(0.04, 0.04)
 texture = ExtResource("2_feena")
 
-[node name="HoldTailCollision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_pahdt")
-debug_color = Color(0.583333, 0, 0.7, 0.419608)
-
-[node name="HoldHeadCollision" type="CollisionShape2D" parent="."]
+[node name="HoldCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_feena")
 debug_color = Color(0.0933332, 0.7, 0, 0.419608)
 

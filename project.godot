@@ -107,6 +107,12 @@ copy_path="res://"
 disable_plugin_dialogues=true
 copy_path="res://"
 
+[physics]
+
+common/physics_ticks_per_second=30
+common/physics_jitter_fix=0.0
+common/physics_interpolation=true
+
 [rendering]
 
 environment/defaults/default_clear_color=Color(0.305882, 0.286275, 0.372549, 1)

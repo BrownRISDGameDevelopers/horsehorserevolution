@@ -45,7 +45,7 @@ class DoubleLinkedList:
 		if node_with_state == null:
 			var _new_node = DoubleLinkedList.new(_state, self.last_node())
 
-var current_states: Array[DoubleLinkedList] = [DoubleLinkedList.new(Global.Direction.LEFT), DoubleLinkedList.new(Global.Direction.LEFT)]
+var current_states: Array[DoubleLinkedList] = [DoubleLinkedList.new(-1), DoubleLinkedList.new(-1)]
 var tape_centroid := Vector2(102, 467) / 2
 
 @onready var back_anchor_top = $PlayerBack/PlayerBackNeutral/AnchorTop
@@ -62,7 +62,6 @@ var tape_centroid := Vector2(102, 467) / 2
 
 func _ready():
 	Global.note_hit.connect(check_miss)
-	stretch_tape()
 
 func _physics_process(_delta):
 	for player in Global.PlayerEnum:
@@ -90,15 +89,16 @@ func set_visibility(player: Global.PlayerEnum):
 		for sprite in sprite_list:
 			sprite.visible = false
 		sprite_list[player_node.state].visible = true
-		if player == Global.PlayerEnum.PLAYER_1:
-			back_anchor_top = sprite_list[player_node.state].get_node("AnchorTop")
-			back_anchor_bottom = sprite_list[player_node.state].get_node("AnchorBottom")
-		else:
-			front_anchor_top = sprite_list[player_node.state].get_node("AnchorTop")
-			front_anchor_bottom = sprite_list[player_node.state].get_node("AnchorBottom")
-	stretch_tape()
+	stretch_tape(player)
 
-func stretch_tape():
+func stretch_tape(player):
+	var player_node = current_states[player].last_node()
+	if player == Global.PlayerEnum.PLAYER_1:
+		back_anchor_top = back_sprites[player_node.state].get_node("AnchorTop")
+		back_anchor_bottom = back_sprites[player_node.state].get_node("AnchorBottom")
+	else:
+		front_anchor_top = front_sprites[player_node.state].get_node("AnchorTop")
+		front_anchor_bottom = front_sprites[player_node.state].get_node("AnchorBottom")
 	$PlayerTape.polygon = [to_local(back_anchor_top.global_position) + tape_centroid,
 							to_local(front_anchor_top.global_position) + tape_centroid,
 							to_local(front_anchor_bottom.global_position) + tape_centroid,
@@ -108,14 +108,7 @@ func reset_pose(sprite_list, player):
 	for sprite in sprite_list:
 		sprite.visible = false
 	sprite_list[-1].visible = true
-	if player == Global.PlayerEnum.PLAYER_1:
-		back_anchor_top = $PlayerBack/PlayerBackNeutral/AnchorTop
-		back_anchor_bottom = $PlayerBack/PlayerBackNeutral/AnchorBottom
-	else:
-		front_anchor_top = $PlayerFront/PlayerFrontNeutral/AnchorTop
-		front_anchor_bottom = $PlayerFront/PlayerFrontNeutral/AnchorBottom
-	stretch_tape()
-
+	stretch_tape(player)
 
 func _on_back_timer_timeout():
 	reset_pose(back_sprites, Global.PlayerEnum.PLAYER_1)
@@ -127,7 +120,6 @@ func _on_front_timer_timeout():
 func check_miss(player, area, _score, _beat):
 	if area == Global.AreaHit.MISS:
 		miss(player)
-		stretch_tape()
 
 func miss(player):
 	if player == Global.PlayerEnum.PLAYER_1:

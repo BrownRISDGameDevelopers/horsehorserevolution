@@ -26,9 +26,9 @@ func end_playback(beat):
 		stop_controls()
 
 func stop_controls():
-		playing_chart = false
-		if controls:
-			controls.queue_free()
+	playing_chart = false
+	if controls:
+		controls.queue_free()
 
 func jsonify_song():
 	var song_json = {}

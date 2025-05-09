@@ -40,24 +40,24 @@ func _on_conductor_beat(beat_position):
 	var notes = song.get_notes(beat_position)
 	var note_count = len(notes)
 	var beat_adj = song.get_beat_adj(beat_position)
+	if song.synced(beat_adj):
+		sync_health_tracker[beat_adj] = [note_count, 0, note_count]
 	for note in notes:
-		_spawn_note(note.player, note.direction, note.duration, beat_position)
+		_spawn_note(note.player, note.direction, note.duration, beat_adj)
 	if sync_phase == false and song.synced(beat_position + 2):
 		road0.enter_sync()
 		road1.enter_sync()
 		sync_phase = true
-	elif sync_phase and not (song.synced(beat_position) or song.synced(beat_position + 1) or song.synced(beat_position + 2)):
+	elif sync_phase and not song.synced(beat_position + 2):
 		road0.exit_sync()
 		road1.exit_sync()
 		refresh_health.emit()
 		sync_phase = false
-	if song.synced(beat_adj):
-		sync_health_tracker[beat_adj] = [note_count, 0, note_count]
 	if beat_position >= song.end_beat:
 		Global.level_over.emit()
 
 func _spawn_note(player: Global.PlayerEnum, direction: Global.Direction, duration, beat_position):
 	if player == Global.PlayerEnum.PLAYER_1:
-		road0.spawn_note(direction, duration, song.get_beat_adj(beat_position))
+		road0.spawn_note(direction, duration, beat_position)
 	else:
-		road1.spawn_note(direction, duration, song.get_beat_adj(beat_position))
+		road1.spawn_note(direction, duration, beat_position)

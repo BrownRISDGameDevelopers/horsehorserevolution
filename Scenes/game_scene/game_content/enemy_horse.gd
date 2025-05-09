@@ -15,10 +15,11 @@ extends Node2D
 @onready var timer: Timer = $Timer
 
 func _ready() -> void:
+	Global.beat.connect(strike_pose)
 	timer.wait_time = pose_length
 
-func strike_pose():
-	if (timer.is_stopped()):
+func strike_pose(_beat_position):
+	if timer.is_stopped():
 		var rand = randi_range(0, bad_chance + poor_chance + good_chance + great_chance)
 		if rand < bad_chance:
 			set_pose(bad)
@@ -29,7 +30,6 @@ func strike_pose():
 		else:
 			set_pose(mildly_good)
 		timer.start()
-	return
 
 func set_pose(pose_node: Sprite2D):
 	great.visible = false
