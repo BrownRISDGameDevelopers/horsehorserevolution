@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c6k5nnpbypshi"]
+[gd_scene load_steps=12 format=3 uid="uid://c6k5nnpbypshi"]
 
 [ext_resource type="Script" uid="uid://bhgs1upaahk3y" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.gd" id="1"]
 [ext_resource type="PackedScene" uid="uid://hmx6o472ropw" path="res://addons/maaacks_game_template/base/scenes/menus/options_menu/master_options_menu_with_tabs.tscn" id="2_qvrrd"]
@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://dmkubt2nsnsbn" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/config_version_label.gd" id="6_pdiij"]
 [ext_resource type="SpriteFrames" uid="uid://dtvenovqmlnxb" path="res://assets/image/ui/title/title_v2r1_cindy.gif" id="7_g46cd"]
 [ext_resource type="Script" uid="uid://bkwlopi4qn32o" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/config_name_label.gd" id="7_j7612"]
+[ext_resource type="Texture2D" uid="uid://c7jpgrxg7n8u7" path="res://assets/image/ui/nav/button frame neutral.png" id="10_ob7sx"]
+[ext_resource type="Texture2D" uid="uid://3mlkyicvkf34" path="res://assets/image/ui/nav/button frame active.png" id="11_oqvs2"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -157,29 +159,41 @@ alignment = 1
 vertical = true
 script = ExtResource("4_l1ebe")
 
-[node name="NewGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+[node name="NewGameButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "New Game"
+texture_normal = ExtResource("10_ob7sx")
+texture_pressed = ExtResource("11_oqvs2")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="OptionsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+[node name="OptionsButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Options"
+texture_normal = ExtResource("10_ob7sx")
+texture_pressed = ExtResource("11_oqvs2")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="CreditsButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+[node name="CreditsButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Credits"
+texture_normal = ExtResource("10_ob7sx")
+texture_pressed = ExtResource("11_oqvs2")
+ignore_texture_size = true
+stretch_mode = 5
 
-[node name="ExitButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
+[node name="ExitButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
-theme_override_font_sizes/font_size = 35
-text = "Exit"
+texture_normal = ExtResource("10_ob7sx")
+texture_pressed = ExtResource("11_oqvs2")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="OptionsContainer" type="MarginContainer" parent="."]
 unique_name_in_owner = true

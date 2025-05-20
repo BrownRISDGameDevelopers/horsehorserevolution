@@ -118,3 +118,4 @@ common/physics_interpolation=true
 environment/defaults/default_clear_color=Color(0.305882, 0.286275, 0.372549, 1)
 environment/defaults/default_environment="res://default_env.tres"
 quality/driver/driver_name="GLES2"
+textures/quality/msaa_2d=0

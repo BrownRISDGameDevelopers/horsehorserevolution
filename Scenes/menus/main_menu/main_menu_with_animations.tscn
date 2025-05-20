@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d1bq8de8pvukb"]
+[gd_scene load_steps=24 format=3 uid="uid://d1bq8de8pvukb"]
 
 [ext_resource type="PackedScene" uid="uid://c6k5nnpbypshi" path="res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn" id="1_rr1rn"]
 [ext_resource type="Script" uid="uid://b5lcdipfppvp8" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_sr523"]
@@ -7,6 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://d1jel6tglluae" path="res://scenes/credits/credits.tscn" id="4_2k5l7"]
 [ext_resource type="AudioStream" uid="uid://cv6t638lyhtnn" path="res://assets/audio/Dorse.wav" id="6_2k5l7"]
 [ext_resource type="SpriteFrames" uid="uid://gq4do5g4t6rs" path="res://assets/frame/main_menu.tres" id="6_ixa71"]
+[ext_resource type="LabelSettings" uid="uid://bk0ypcc4vyinn" path="res://assets/font/ui_small.tres" id="8_vsp5b"]
+[ext_resource type="Texture2D" uid="uid://c7jpgrxg7n8u7" path="res://assets/image/ui/nav/button frame neutral.png" id="9_dhrx6"]
+[ext_resource type="Texture2D" uid="uid://3mlkyicvkf34" path="res://assets/image/ui/nav/button frame active.png" id="10_xkrf4"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -399,7 +402,6 @@ volume_db = -10.0
 
 [node name="BackgroundTextureRect" parent="." index="4"]
 modulate = Color(0, 0, 0, 1)
-texture = null
 
 [node name="BackgroundSprite" type="AnimatedSprite2D" parent="." index="5"]
 position = Vector2(960, 540)
@@ -425,17 +427,127 @@ modulate = Color(1, 1, 1, 0)
 [node name="MenuButtonsBoxContainer" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer" index="0"]
 lock = true
 
-[node name="ContinueGameButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1"]
-unique_name_in_owner = true
-visible = false
-layout_mode = 2
-text = "Continue"
+[node name="Label" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/NewGameButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "New Game"
+label_settings = ExtResource("8_vsp5b")
+horizontal_alignment = 1
 
-[node name="LevelSelectButton" type="Button" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="2"]
+[node name="ContinueGameButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="1"]
 unique_name_in_owner = true
 visible = false
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
+texture_normal = ExtResource("9_dhrx6")
+texture_pressed = ExtResource("10_xkrf4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+label_settings = ExtResource("8_vsp5b")
+horizontal_alignment = 1
+
+[node name="LevelSelectButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="2"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+texture_normal = ExtResource("9_dhrx6")
+texture_pressed = ExtResource("10_xkrf4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/LevelSelectButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Level Select"
+label_settings = ExtResource("8_vsp5b")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/OptionsButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options"
+label_settings = ExtResource("8_vsp5b")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/CreditsButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Credits"
+label_settings = ExtResource("8_vsp5b")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ExitButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Exit Game"
+label_settings = ExtResource("8_vsp5b")
+horizontal_alignment = 1
 
 [node name="CreditsContainer" parent="." index="9"]
 layout_mode = 1

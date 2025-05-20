@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b5cd6sa8qq4vc"]
+[gd_scene load_steps=7 format=3 uid="uid://b5cd6sa8qq4vc"]
 
 [ext_resource type="PackedScene" uid="uid://wny2d8dvp3ok" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu.tscn" id="1_gm3uv"]
 [ext_resource type="Script" uid="uid://uidwhqh4fyhj" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/menus/pause_menu.gd" id="2_0ln3r"]
 [ext_resource type="PackedScene" uid="uid://cikf3o5omnunl" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/menus/mini_options_overlaid_menu.tscn" id="3_kv70e"]
+[ext_resource type="LabelSettings" uid="uid://bk0ypcc4vyinn" path="res://assets/font/ui_small.tres" id="4_e5wrg"]
+[ext_resource type="Texture2D" uid="uid://c7jpgrxg7n8u7" path="res://assets/image/ui/nav/button frame neutral.png" id="4_keleg"]
+[ext_resource type="Texture2D" uid="uid://3mlkyicvkf34" path="res://assets/image/ui/nav/button frame active.png" id="5_mnh64"]
 
 [node name="PauseMenu" instance=ExtResource("1_gm3uv")]
 process_mode = 3
@@ -11,7 +14,7 @@ options_packed_scene = ExtResource("3_kv70e")
 main_menu_scene = "res://addons/maaacks_game_template/base/scenes/menus/main_menu/main_menu.tscn"
 pauses_game = true
 
-[node name="MarginContainer" parent="MenuPanelContainer" index="1"]
+[node name="MarginContainer" parent="MenuPanelContainer" index="0"]
 theme_override_constants/margin_left = 64
 theme_override_constants/margin_right = 64
 
@@ -22,27 +25,112 @@ text = "Paused"
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="CloseButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="0"]
-text = "Resume"
-
-[node name="RestartButton" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
+[node name="RestartButton" type="TextureButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_keleg")
+texture_pressed = ExtResource("5_mnh64")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/RestartButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Restart"
+label_settings = ExtResource("4_e5wrg")
+horizontal_alignment = 1
 
-[node name="OptionsButton" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
+[node name="OptionsButton" type="TextureButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_keleg")
+texture_pressed = ExtResource("5_mnh64")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/OptionsButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Options"
+label_settings = ExtResource("4_e5wrg")
+horizontal_alignment = 1
 
-[node name="MainMenuButton" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="3"]
+[node name="MainMenuButton" type="TextureButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="3"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_keleg")
+texture_pressed = ExtResource("5_mnh64")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/MainMenuButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Main Menu"
+label_settings = ExtResource("4_e5wrg")
+horizontal_alignment = 1
 
-[node name="ExitButton" type="Button" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="4"]
+[node name="ExitButton" type="TextureButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="4"]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("4_keleg")
+texture_pressed = ExtResource("5_mnh64")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/ExitButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "Exit Game"
+label_settings = ExtResource("4_e5wrg")
+horizontal_alignment = 1
 
 [node name="ConfirmRestart" type="ConfirmationDialog" parent="." index="2"]
 unique_name_in_owner = true

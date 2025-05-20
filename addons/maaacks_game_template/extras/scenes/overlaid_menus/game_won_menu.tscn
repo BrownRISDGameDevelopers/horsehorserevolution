@@ -66,7 +66,6 @@ text = "Main Menu"
 
 [node name="CloseButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
 size_flags_horizontal = 3
-text = "Continue"
 
 [node name="ConfirmMainMenu" type="ConfirmationDialog" parent="." index="2"]
 auto_translate_mode = 1

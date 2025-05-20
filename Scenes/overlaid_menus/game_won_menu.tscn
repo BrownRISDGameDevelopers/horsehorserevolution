@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://clnytnvor3m3b"]
+[gd_scene load_steps=5 format=3 uid="uid://clnytnvor3m3b"]
 
 [ext_resource type="PackedScene" uid="uid://4brssbq1ghsw" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/game_won_menu.tscn" id="1_o0fkt"]
 [ext_resource type="Script" uid="uid://dgnh0iqwgumr2" path="res://scenes/overlaid_menus/game_won_menu.gd" id="2_uvhaa"]
 [ext_resource type="Texture2D" uid="uid://ba4go8mip0cjq" path="res://assets/image/ui/title/FinalWinScreen.PNG" id="3_uvhaa"]
+[ext_resource type="LabelSettings" uid="uid://5iknefx32hgq" path="res://assets/font/ui_large.tres" id="4_njvd6"]
 
 [node name="GameWonMenu" instance=ExtResource("1_o0fkt")]
 script = ExtResource("2_uvhaa")
@@ -18,5 +19,18 @@ scale = Vector2(1.75, 1.75)
 [node name="MenuButtons" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin" index="0"]
 custom_minimum_size = Vector2(400, 150)
 
-[node name="CloseButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="2"]
-theme_override_font_sizes/font_size = 50
+[node name="Label" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/CloseButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Continue"
+label_settings = ExtResource("4_njvd6")

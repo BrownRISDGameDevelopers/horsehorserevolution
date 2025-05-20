@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://dgnlnf2uv44iq" path="res://scripts/level_list_state_manager.gd" id="7_wr4n6"]
 [ext_resource type="PackedScene" uid="uid://clnytnvor3m3b" path="res://scenes/overlaid_menus/game_won_menu.tscn" id="8_ukb12"]
 [ext_resource type="PackedScene" uid="uid://d1ec0t3yrvtsb" path="res://scenes/overlaid_menus/level_lost_menu.tscn" id="9_i7m4m"]
-[ext_resource type="PackedScene" uid="uid://drgue5oyo4oc4" path="res://resources/installer/level_won_menu.tscn" id="10_rkfhe"]
+[ext_resource type="PackedScene" uid="uid://drgue5oyo4oc4" path="res://scenes/overlaid_menus/level_won_menu.tscn" id="10_rkfhe"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3

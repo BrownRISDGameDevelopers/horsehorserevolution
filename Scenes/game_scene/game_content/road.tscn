@@ -384,6 +384,7 @@ root_node = NodePath("../RoadSprite")
 libraries = {
 &"": SubResource("AnimationLibrary_h2cb2")
 }
+speed_scale = 1.33
 
 [node name="RoadSprite" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_hy6im")

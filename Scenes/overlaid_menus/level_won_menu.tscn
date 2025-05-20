@@ -1,7 +1,62 @@
-[gd_scene load_steps=3 format=3 uid="uid://drgue5oyo4oc4"]
+[gd_scene load_steps=4 format=3 uid="uid://drgue5oyo4oc4"]
 
 [ext_resource type="PackedScene" uid="uid://y3vtx0e0shv4" path="res://addons/maaacks_game_template/extras/scenes/overlaid_menus/level_won_menu.tscn" id="1_wqvle"]
 [ext_resource type="Script" uid="uid://cpiu7umb1kj4y" path="res://scenes/overlaid_menus/level_won_menu.gd" id="2_02k76"]
+[ext_resource type="LabelSettings" uid="uid://5iknefx32hgq" path="res://assets/font/ui_large.tres" id="3_02k76"]
 
 [node name="LevelWonMenu" instance=ExtResource("1_wqvle")]
 script = ExtResource("2_02k76")
+
+[node name="MenuButtons" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin" index="0"]
+custom_minimum_size = Vector2(800, 125)
+
+[node name="Label" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/CloseButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -29.5
+offset_right = 52.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Next Level"
+label_settings = ExtResource("3_02k76")
+
+[node name="RestartButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons" index="1"]
+visible = false
+
+[node name="Label" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/RestartButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -29.5
+offset_right = 52.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Restart"
+label_settings = ExtResource("3_02k76")
+
+[node name="Label" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/MainMenuButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -52.5
+offset_top = -29.5
+offset_right = 52.5
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+label_settings = ExtResource("3_02k76")
