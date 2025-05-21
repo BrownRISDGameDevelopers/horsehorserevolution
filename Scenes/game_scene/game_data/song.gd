@@ -43,7 +43,7 @@ func parse_notes_from_dict(song_info):
 		for note in raw_notes_list[beat]["arrows"]:
 			var note_info: NoteInfo = note_info_scene.instantiate()
 			note_info.initialize(note["player"], note["direction"], note["held"])
-			if note_info.get_uid() in prev_notes and note["held"]:
+			if note_info.get_uid() in prev_notes and prev_notes[note_info.get_uid()].get_held() and note["held"]:
 				cur_notes[note_info.get_uid()] = prev_notes[note_info.get_uid()]
 				prev_notes.erase(note_info.get_uid())
 				cur_notes[note_info.get_uid()].increment_duration()
