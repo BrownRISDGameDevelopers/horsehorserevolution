@@ -1,0 +1,59 @@
+[gd_scene load_steps=4 format=3 uid="uid://c1xfsh3qsyrs5"]
+
+[ext_resource type="Texture2D" uid="uid://bsnlm1hljltbn" path="res://assets/image/game/arrow_button/up/up_neutral_cindy.png" id="1_eose7"]
+[ext_resource type="Script" uid="uid://crn5wy8klxf2r" path="res://scenes/charter_v2/charter_v2_component/three_state_button.gd" id="1_qt508"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_eose7"]
+font_size = 60
+outline_size = 10
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+
+[node name="ThreeStateButton" type="TextureButton"]
+custom_minimum_size = Vector2(136, 150)
+offset_right = 140.0
+offset_bottom = 150.0
+pivot_offset = Vector2(70, 75)
+button_mask = 3
+script = ExtResource("1_qt508")
+
+[node name="ButtonTexture" type="TextureRect" parent="."]
+modulate = Color(0.4, 0.4, 0.4, 1)
+custom_minimum_size = Vector2(136, 150)
+layout_mode = 0
+offset_right = 140.0
+offset_bottom = 150.0
+texture = ExtResource("1_eose7")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HoldDisplay" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -40.0
+offset_top = -47.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "H"
+label_settings = SubResource("LabelSettings_eose7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SyncDisplay" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -50.0
+offset_bottom = 71.0
+grow_horizontal = 0
+text = "S"
+label_settings = SubResource("LabelSettings_eose7")
+horizontal_alignment = 1
+vertical_alignment = 1

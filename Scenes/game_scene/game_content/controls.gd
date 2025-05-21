@@ -20,11 +20,11 @@ func _ready():
 	road1.set_merge_type(merge_type)
 
 func play_from_beat(start_beat = 1):
+	road0.update_bpm(song.bpm)
+	road1.update_bpm(song.bpm)
 	$Conductor.stream = song.song_stream
 	$Conductor.set_bpm(song.bpm)
 	$Conductor.play_from_position(start_beat, song.start_offset)
-	road0.update_bpm(song.bpm)
-	road1.update_bpm(song.bpm)
 
 func manage_sync_health(player, area, _score, beat):
 	if beat in sync_health_tracker:

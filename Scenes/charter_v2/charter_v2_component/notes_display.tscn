@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkoal2ymn8hn8"]
+
+[ext_resource type="Script" uid="uid://bt3dsrj7fridj" path="res://scenes/charter_v2/charter_v2_component/notes_display.gd" id="1_jyvaj"]
+[ext_resource type="PackedScene" uid="uid://d1g2rswedskv" path="res://scenes/charter_v2/charter_v2_component/beat_ui.tscn" id="1_oo8im"]
+
+[node name="NotesDisplay" type="VBoxContainer" node_paths=PackedStringArray("beat_uis")]
+custom_minimum_size = Vector2(1256, 879)
+size_flags_horizontal = 0
+size_flags_vertical = 0
+alignment = 2
+script = ExtResource("1_jyvaj")
+beat_uis = [NodePath("BeatUI1"), NodePath("BeatUI2"), NodePath("BeatUI3"), NodePath("BeatUI4"), NodePath("BeatUI5")]
+
+[node name="BeatUI5" parent="." instance=ExtResource("1_oo8im")]
+layout_mode = 2
+
+[node name="BeatUI4" parent="." instance=ExtResource("1_oo8im")]
+layout_mode = 2
+
+[node name="BeatUI3" parent="." instance=ExtResource("1_oo8im")]
+layout_mode = 2
+
+[node name="BeatUI2" parent="." instance=ExtResource("1_oo8im")]
+layout_mode = 2
+
+[node name="BeatUI1" parent="." instance=ExtResource("1_oo8im")]
+layout_mode = 2

@@ -1,27 +1,36 @@
-[gd_scene load_steps=17 format=3 uid="uid://snqcm4qjpnxp"]
+[gd_scene load_steps=18 format=3 uid="uid://snqcm4qjpnxp"]
 
 [ext_resource type="Texture2D" uid="uid://b2e2ew66xdu85" path="res://assets/image/ui/charter/horse horse revolution title.png" id="1_5wlkj"]
 [ext_resource type="Texture2D" uid="uid://cnxbypjda2edk" path="res://assets/image/ui/title/glitter.png" id="1_neilv"]
 [ext_resource type="PackedScene" uid="uid://cutwd8worfdkf" path="res://scenes/game_scene/game_content/controls.tscn" id="2_2qgig"]
 [ext_resource type="Texture2D" uid="uid://bd5sp5fdcl764" path="res://assets/image/ui/charter/player_head.PNG" id="2_15wep"]
 [ext_resource type="Texture2D" uid="uid://c7jpgrxg7n8u7" path="res://assets/image/ui/nav/button frame neutral.png" id="2_hd5ie"]
-[ext_resource type="Script" uid="uid://dlyevd8gnw2y1" path="res://scenes/charter/charter_v2.gd" id="2_ut1yu"]
+[ext_resource type="Script" uid="uid://dlyevd8gnw2y1" path="res://scenes/charter_v2/charter_v2.gd" id="2_ut1yu"]
 [ext_resource type="Texture2D" uid="uid://cv3jpssrk60t5" path="res://assets/image/ui/charter/disco_head.png" id="3_5wlkj"]
 [ext_resource type="Theme" uid="uid://b6rnm1pwt4yqp" path="res://resources/themes/gravity.tres" id="3_6rv4x"]
 [ext_resource type="Texture2D" uid="uid://3mlkyicvkf34" path="res://assets/image/ui/nav/button frame active.png" id="3_15wep"]
-[ext_resource type="ButtonGroup" uid="uid://wmuj8n3wy7f1" path="res://scenes/charter/bg_select.tres" id="3_ybiu2"]
+[ext_resource type="Script" uid="uid://cvpi2q4p4lvqt" path="res://scenes/game_scene/game_data/song.gd" id="3_su10p"]
+[ext_resource type="ButtonGroup" uid="uid://wmuj8n3wy7f1" path="res://scenes/charter_v2/bg_select.tres" id="3_ybiu2"]
 [ext_resource type="Texture2D" uid="uid://80m6e6mgo7pu" path="res://assets/image/ui/audio/audio slider buttonn.png" id="3_ynd63"]
 [ext_resource type="LabelSettings" uid="uid://bk0ypcc4vyinn" path="res://assets/font/ui_small.tres" id="4_0my7h"]
 [ext_resource type="Texture2D" uid="uid://jx322l2eq27y" path="res://assets/image/ui/charter/leeku_head.PNG" id="4_neilv"]
 [ext_resource type="Texture2D" uid="uid://dirrbbvgom8cq" path="res://assets/image/ui/charter/deathmetal_head.png" id="5_ybiu2"]
-[ext_resource type="PackedScene" uid="uid://co3b4ll31bibi" path="res://scenes/charter/charter_v2_component/notes_anchor.tscn" id="14_n7vvl"]
+[ext_resource type="PackedScene" uid="uid://dkoal2ymn8hn8" path="res://scenes/charter_v2/charter_v2_component/notes_display.tscn" id="14_n7vvl"]
 [ext_resource type="Texture2D" uid="uid://b10cb3n3rmd0y" path="res://assets/image/ui/audio/audio button.png" id="14_ut1yu"]
 
-[node name="CharterV2" type="Control"]
+[node name="CharterV2" type="Control" node_paths=PackedStringArray("song", "notes_display", "song_progress")]
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("3_6rv4x")
 script = ExtResource("2_ut1yu")
+song = NodePath("Song")
+notes_display = NodePath("CharterBody/CharterMain/MarginContainer/NotesDisplay")
+song_progress = NodePath("CharterBody/CharterMain/SongPlayback/SongProgress")
+json_path = "res://assets/chart/test_song.json"
+
+[node name="Song" type="Node2D" parent="."]
+script = ExtResource("3_su10p")
+metadata/_custom_type_script = "uid://cvpi2q4p4lvqt"
 
 [node name="Glitter" type="TextureRect" parent="."]
 modulate = Color(0.4, 0.4, 0.4, 1)
@@ -284,11 +293,12 @@ position = Vector2(356, 450)
 texture = ExtResource("1_neilv")
 
 [node name="Controls" parent="CharterBody/CharterMain/MarginContainer/ControlDisplay/SubViewport" instance=ExtResource("2_2qgig")]
+modulate = Color(0.4, 0.4, 0.4, 1)
 position = Vector2(700, 525)
 scale = Vector2(3.5, 3.5)
 
-[node name="NotesAnchor" parent="CharterBody/CharterMain/MarginContainer" instance=ExtResource("14_n7vvl")]
-position = Vector2(12.5, 730)
+[node name="NotesDisplay" parent="CharterBody/CharterMain/MarginContainer" instance=ExtResource("14_n7vvl")]
+layout_mode = 2
 
 [node name="SongPlayback" type="HBoxContainer" parent="CharterBody/CharterMain"]
 layout_mode = 2
@@ -311,6 +321,8 @@ size_flags_vertical = 4
 theme_override_icons/grabber = ExtResource("3_ynd63")
 theme_override_icons/grabber_highlight = ExtResource("3_ynd63")
 theme_override_icons/grabber_disabled = ExtResource("3_ynd63")
+min_value = 1.0
+value = 1.0
 rounded = true
 
 [node name="SongUpload" type="FileDialog" parent="."]
@@ -326,3 +338,7 @@ auto_translate_mode = 1
 size = Vector2i(652, 360)
 access = 2
 use_native_dialog = true
+
+[connection signal="scroll_down" from="CharterBody/CharterMain/MarginContainer/NotesDisplay" to="." method="_on_notes_display_scroll_down"]
+[connection signal="scroll_up" from="CharterBody/CharterMain/MarginContainer/NotesDisplay" to="." method="_on_notes_display_scroll_up"]
+[connection signal="value_changed" from="CharterBody/CharterMain/SongPlayback/SongProgress" to="." method="_on_song_progress_value_changed"]

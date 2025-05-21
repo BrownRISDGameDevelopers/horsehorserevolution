@@ -1,0 +1,59 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1g2rswedskv"]
+
+[ext_resource type="Script" uid="uid://w6j1dvjxkovn" path="res://scenes/charter_v2/charter_v2_component/beat_ui.gd" id="1_lhe1k"]
+[ext_resource type="PackedScene" uid="uid://c1xfsh3qsyrs5" path="res://scenes/charter_v2/charter_v2_component/three_state_button.tscn" id="1_s7bhy"]
+
+[node name="BeatUI" type="HBoxContainer"]
+offset_right = 1245.0
+offset_bottom = 150.0
+alignment = 2
+script = ExtResource("1_lhe1k")
+
+[node name="SyncIndicator" type="Button" parent="."]
+custom_minimum_size = Vector2(125, 140)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 45
+toggle_mode = true
+text = "1
+⇄"
+
+[node name="Player1Left" parent="." node_paths=PackedStringArray("sync_partner") instance=ExtResource("1_s7bhy")]
+layout_mode = 2
+sync_partner = NodePath("../Player2Left")
+
+[node name="Player1Down" parent="." node_paths=PackedStringArray("sync_partner") instance=ExtResource("1_s7bhy")]
+layout_mode = 2
+direction = 1
+sync_partner = NodePath("../Player2Down")
+
+[node name="Player1Up" parent="." node_paths=PackedStringArray("sync_partner") instance=ExtResource("1_s7bhy")]
+layout_mode = 2
+direction = 2
+sync_partner = NodePath("../Player2Up")
+
+[node name="Player1Right" parent="." node_paths=PackedStringArray("sync_partner") instance=ExtResource("1_s7bhy")]
+layout_mode = 2
+direction = 3
+sync_partner = NodePath("../Player2Right")
+
+[node name="Player2Left" parent="." node_paths=PackedStringArray("sync_partner") instance=ExtResource("1_s7bhy")]
+layout_mode = 2
+sync_partner = NodePath("../Player1Left")
+
+[node name="Player2Down" parent="." node_paths=PackedStringArray("sync_partner") instance=ExtResource("1_s7bhy")]
+layout_mode = 2
+direction = 1
+sync_partner = NodePath("../Player1Down")
+
+[node name="Player2Up" parent="." node_paths=PackedStringArray("sync_partner") instance=ExtResource("1_s7bhy")]
+layout_mode = 2
+direction = 2
+sync_partner = NodePath("../Player1Up")
+
+[node name="Player2Right" parent="." node_paths=PackedStringArray("sync_partner") instance=ExtResource("1_s7bhy")]
+layout_mode = 2
+direction = 3
+sync_partner = NodePath("../Player1Right")
+
+[connection signal="toggled" from="SyncIndicator" to="." method="_on_sync_indicator_toggled"]
