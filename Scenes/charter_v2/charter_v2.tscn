@@ -18,13 +18,14 @@
 [ext_resource type="PackedScene" uid="uid://dkoal2ymn8hn8" path="res://scenes/charter_v2/charter_v2_component/notes_display.tscn" id="14_n7vvl"]
 [ext_resource type="Texture2D" uid="uid://b10cb3n3rmd0y" path="res://assets/image/ui/audio/audio button.png" id="14_ut1yu"]
 
-[node name="CharterV2" type="Control" node_paths=PackedStringArray("song", "notes_display", "song_progress", "stage_select", "bpm_input", "offset_input", "controls")]
+[node name="CharterV2" type="Control" node_paths=PackedStringArray("song", "notes_display", "play_button", "song_progress", "stage_select", "bpm_input", "offset_input", "controls")]
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("3_6rv4x")
 script = ExtResource("2_ut1yu")
 song = NodePath("Song")
 notes_display = NodePath("CharterBody/CharterMain/MarginContainer/NotesDisplay")
+play_button = NodePath("CharterBody/CharterMain/SongPlayback/PlayButton")
 song_progress = NodePath("CharterBody/CharterMain/SongPlayback/SongProgress")
 stage_select = NodePath("CharterBody/CharterUI/StageSelect")
 bpm_input = NodePath("CharterBody/CharterUI/ChartInfo/BPM/BPMInput")

@@ -2,6 +2,7 @@ extends Control
 
 @export var song: Song
 @export var notes_display: VBoxContainer
+@export var play_button: TextureButton
 @export var song_progress: HSlider
 @export var stage_select: GridContainer
 @export var bpm_input: SpinBox
@@ -23,7 +24,8 @@ func _process(delta):
 func set_playback_visibility():
 	notes_display.visible = not playing_chart
 	controls.modulate = "ffffff" if playing_chart else "666666"
-	stage_select.process_mode = Node.PROCESS_MODE_DISABLED if playing_chart else Node.PROCESS_MODE_ALWAYS
+	$CharterBody/CharterUI.process_mode = Node.PROCESS_MODE_DISABLED if playing_chart else Node.PROCESS_MODE_ALWAYS
+	play_button.process_mode = Node.PROCESS_MODE_DISABLED if playing_chart else Node.PROCESS_MODE_ALWAYS
 	song_progress.process_mode = Node.PROCESS_MODE_DISABLED if playing_chart else Node.PROCESS_MODE_ALWAYS
 
 func stop_playback():
