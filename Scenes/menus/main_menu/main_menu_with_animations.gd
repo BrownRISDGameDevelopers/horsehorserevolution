@@ -1,9 +1,10 @@
 extends MainMenu
 
 @export var level_select_packed_scene: PackedScene
+@export_file("*.tscn") var level_editor_scene_path: String
 
 var level_select_scene
-var animation_state_machine : AnimationNodeStateMachinePlayback
+var animation_state_machine: AnimationNodeStateMachinePlayback
 
 func load_game_scene():
 	GameState.start_game()
@@ -19,10 +20,10 @@ func intro_done():
 func _is_in_intro():
 	return animation_state_machine.get_current_node() == "Intro"
 
-func _event_is_mouse_button_released(event : InputEvent):
+func _event_is_mouse_button_released(event: InputEvent):
 	return event is InputEventMouseButton and not event.is_pressed()
 
-func _event_skips_intro(event : InputEvent):
+func _event_skips_intro(event: InputEvent):
 	return event.is_action_released("ui_accept") or \
 		event.is_action_released("ui_select") or \
 		event.is_action_released("ui_cancel") or \
@@ -36,7 +37,7 @@ func _close_sub_menu():
 	super._close_sub_menu()
 	animation_state_machine.travel("OpenMainMenu")
 
-func _setup_level_select(): 
+func _setup_level_select():
 	if level_select_packed_scene != null:
 		level_select_scene = level_select_packed_scene.instantiate()
 		level_select_scene.hide()
@@ -67,3 +68,6 @@ func _on_continue_game_button_pressed():
 
 func _on_level_select_button_pressed():
 	_open_sub_menu(level_select_scene)
+
+func _on_level_editor_button_pressed():
+	SceneLoader.load_scene(level_editor_scene_path)

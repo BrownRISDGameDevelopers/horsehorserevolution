@@ -14,6 +14,9 @@ var max_beat = 0
 
 var playing_chart = false
 
+var popup_open
+@export_file("*.tscn") var main_menu_scene: String
+
 func _ready():
 	Global.level_over.connect(stop_playback)
 
@@ -89,3 +92,22 @@ func _on_open_file_pressed():
 
 func _on_bpm_input_value_changed(value):
 	update_bpm(value)
+
+
+func _handle_cancel_input():
+	if popup_open != null:
+		close_popup()
+
+
+func _on_main_menu_button_pressed():
+	%ConfirmMainMenu.popup_centered()
+	popup_open = %ConfirmMainMenu
+
+
+func close_popup():
+	if popup_open != null:
+		popup_open.hide()
+		popup_open = null
+
+func _on_confirm_main_menu_confirmed():
+	SceneLoader.load_scene(main_menu_scene)

@@ -382,6 +382,7 @@ graph_offset = Vector2(-180.277, 49)
 [node name="MainMenu" instance=ExtResource("1_rr1rn")]
 script = ExtResource("2_sr523")
 level_select_packed_scene = ExtResource("3_sr523")
+level_editor_scene_path = "uid://snqcm4qjpnxp"
 game_scene_path = "uid://brmhe8j40gygu"
 options_packed_scene = ExtResource("3_ixa71")
 credits_packed_scene = ExtResource("4_2k5l7")
@@ -414,6 +415,9 @@ modulate = Color(1, 1, 1, 0)
 
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
+
+[node name="TitleSprite" parent="MenuContainer/TitleMargin/TitleContainer" index="0"]
+position = Vector2(960, 200)
 
 [node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" index="0"]
 modulate = Color(1, 1, 1, 0)
@@ -498,6 +502,32 @@ text = "Level Select"
 label_settings = ExtResource("8_vsp5b")
 horizontal_alignment = 1
 
+[node name="LevelEditorButton" type="TextureButton" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer" index="3"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+texture_normal = ExtResource("9_dhrx6")
+texture_pressed = ExtResource("10_xkrf4")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/LevelEditorButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Level Editor"
+label_settings = ExtResource("8_vsp5b")
+horizontal_alignment = 1
+
 [node name="Label" type="Label" parent="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/OptionsButton" index="0"]
 layout_mode = 1
 anchors_preset = 8
@@ -571,3 +601,4 @@ theme_override_constants/margin_bottom = 32
 
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/ContinueGameButton" to="." method="_on_continue_game_button_pressed"]
 [connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/LevelSelectButton" to="." method="_on_level_select_button_pressed"]
+[connection signal="pressed" from="MenuContainer/MenuButtonsMargin/MenuButtonsContainer/MenuButtonsBoxContainer/LevelEditorButton" to="." method="_on_level_editor_button_pressed"]
