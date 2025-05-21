@@ -84,6 +84,7 @@ vertical = true
 script = ExtResource("2_6ani0")
 
 [node name="CloseButton" type="TextureButton" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons"]
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
 texture_normal = ExtResource("3_guh4r")
 texture_pressed = ExtResource("4_cs3we")

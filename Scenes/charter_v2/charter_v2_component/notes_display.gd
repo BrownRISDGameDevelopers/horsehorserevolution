@@ -30,8 +30,8 @@ func scroll_to(beat_no):
 		if beat_adj in notes:
 			synced = notes[beat_adj]["sync"]
 			notes_list = notes[beat_adj]["arrows"]
-		beat_uis[i].init_beat(beat_no + i, synced)
 		beat_uis[i].set_toggle(notes_list)
+		beat_uis[i].init_beat(beat_no + i, synced)
 
 func update_note_json(beat_no, notes_list):
 	notes[str(beat_no)] = notes_list

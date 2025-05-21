@@ -3,63 +3,70 @@ extends Control
 @export var song: Song
 @export var notes_display: VBoxContainer
 @export var song_progress: HSlider
+@export var stage_select: GridContainer
+@export var bpm_input: SpinBox
+@export var offset_input: SpinBox
+@export var controls: Node2D
 @export var json_path: String
 
 var max_beat = 0
 
 var playing_chart = false
-var controls
-var controls_scene = preload("res://scenes/game_scene/game_content/controls.tscn")
 
 func _ready():
-	var song_json = song.read_json_file(json_path)
-	song.parse_notes_from_dict(song_json)
-	notes_display.notes = song_json["notes"]
-	notes_display.scroll_to(1)
-	Global.beat.connect(end_playback)
+	Global.level_over.connect(stop_playback)
 
 func _process(delta):
-	pass
-	# $HBoxContainer.visible = not playing_chart
-	# if Input.is_action_pressed("escape"):
-	# 	stop_controls()
+	if Input.is_action_pressed("escape"):
+		stop_playback()
 
-func end_playback(beat):
-	if beat >= song.end_beat:
-		stop_controls()
+func set_playback_visibility():
+	notes_display.visible = not playing_chart
+	controls.modulate = "ffffff" if playing_chart else "666666"
+	stage_select.process_mode = Node.PROCESS_MODE_DISABLED if playing_chart else Node.PROCESS_MODE_ALWAYS
+	song_progress.process_mode = Node.PROCESS_MODE_DISABLED if playing_chart else Node.PROCESS_MODE_ALWAYS
 
-func stop_controls():
+func stop_playback():
 	playing_chart = false
-	if controls:
-		controls.queue_free()
+	set_playback_visibility()
+	controls.stop_playback()
 
 func jsonify_song():
 	var song_json = {}
 	song_json["song_path"] = song.song_stream.resource_path
-	song_json["bpm"] = song.bpm
-	song_json["notes"] = song.notes_list
+	song_json["bpm"] = bpm_input.value
+	song_json["notes"] = notes_display.notes
+	song_json["end_beat"] = song_progress.max_value + 4
 	return song_json
+
+func update_bpm(bpm):
+	max_beat = song.song_stream.get_length() * bpm / 60
+
+func load_json(song_json):
+	song.parse_notes_from_dict(song_json)
+	bpm_input.value = song.bpm
+	offset_input.value = song.ms_before_start
+	update_bpm(song.bpm)
+	song_progress.max_value = max_beat - 4
+	song_progress.value = 1
+	notes_display.notes = song_json["notes"]
+	notes_display.scroll_to(1)
 
 func _on_export_button_pressed():
 	var file = FileAccess.open(json_path, FileAccess.WRITE)
 	file.store_line(JSON.stringify(jsonify_song()))
 
 
-func _on_file_dialog_file_selected(path: String):
-	json_path = "res://assets/chart/" + $FileDialog.current_file
-	song.parse_notes_from_dict(song.read_json_file(json_path))
-	notes_display.song = song
-
-
 func _on_play_button_pressed():
-	song.parse_notes_from_dict(jsonify_song())
-	controls = controls_scene.instantiate()
-	controls.position = Vector2(960, 540)
-	controls.scale = Vector2(5, 5)
-	controls.song = song
-	add_child(controls)
-	# controls.play_from_beat(int(beat_select.text))
 	playing_chart = true
+	song.parse_notes_from_dict(jsonify_song())
+	controls.play_from_beat(int(song_progress.value))
+	set_playback_visibility()
+
+
+func _on_song_upload_file_selected(path):
+	var song_json = song.read_json_file(path)
+	load_json(song_json)
 
 
 func _on_song_progress_value_changed(value):
@@ -72,3 +79,11 @@ func _on_notes_display_scroll_down():
 
 func _on_notes_display_scroll_up():
 	song_progress.value += 1
+
+
+func _on_open_file_pressed():
+	$SongUpload.visible = true
+
+
+func _on_bpm_input_value_changed(value):
+	update_bpm(value)

@@ -4,6 +4,7 @@ extends Node2D
 @export var song: Song
 @export var in_charter: bool = true
 
+@onready var conductor: AudioStreamPlayer = $Conductor
 @onready var road0 = $Road0
 @onready var road1 = $Road1
 
@@ -22,9 +23,20 @@ func _ready():
 func play_from_beat(start_beat = 1):
 	road0.update_bpm(song.bpm)
 	road1.update_bpm(song.bpm)
-	$Conductor.stream = song.song_stream
-	$Conductor.set_bpm(song.bpm)
-	$Conductor.play_from_position(start_beat, song.start_offset)
+	conductor.stream = song.song_stream
+	conductor.set_bpm(song.bpm)
+	conductor.play_from_position(start_beat, song.start_offset)
+
+func stop_playback():
+	if sync_phase:
+		road0.exit_sync()
+		road1.exit_sync()
+		sync_phase = false
+	road0.destroy_notes()
+	road1.destroy_notes()
+	conductor.last_reported_beat = -100
+	conductor.stop()
+	$Conductor/StartTimer.stop()
 
 func manage_sync_health(player, area, _score, beat):
 	if beat in sync_health_tracker:

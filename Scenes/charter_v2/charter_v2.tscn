@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://dkoal2ymn8hn8" path="res://scenes/charter_v2/charter_v2_component/notes_display.tscn" id="14_n7vvl"]
 [ext_resource type="Texture2D" uid="uid://b10cb3n3rmd0y" path="res://assets/image/ui/audio/audio button.png" id="14_ut1yu"]
 
-[node name="CharterV2" type="Control" node_paths=PackedStringArray("song", "notes_display", "song_progress")]
+[node name="CharterV2" type="Control" node_paths=PackedStringArray("song", "notes_display", "song_progress", "stage_select", "bpm_input", "offset_input", "controls")]
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("3_6rv4x")
@@ -26,6 +26,10 @@ script = ExtResource("2_ut1yu")
 song = NodePath("Song")
 notes_display = NodePath("CharterBody/CharterMain/MarginContainer/NotesDisplay")
 song_progress = NodePath("CharterBody/CharterMain/SongPlayback/SongProgress")
+stage_select = NodePath("CharterBody/CharterUI/StageSelect")
+bpm_input = NodePath("CharterBody/CharterUI/ChartInfo/BPM/BPMInput")
+offset_input = NodePath("CharterBody/CharterUI/ChartInfo/Offset/OffsetInput")
+controls = NodePath("CharterBody/CharterMain/MarginContainer/ControlDisplay/SubViewport/Controls")
 json_path = "res://assets/chart/test_song.json"
 
 [node name="Song" type="Node2D" parent="."]
@@ -70,7 +74,7 @@ layout_mode = 2
 text = "Song"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="CharterBody/CharterUI/ChartInfo/MusicFile"]
+[node name="OpenFile" type="Button" parent="CharterBody/CharterUI/ChartInfo/MusicFile"]
 layout_mode = 2
 text = "Open File"
 
@@ -82,7 +86,7 @@ layout_mode = 2
 text = " BPM "
 horizontal_alignment = 1
 
-[node name="SpinBox" type="SpinBox" parent="CharterBody/CharterUI/ChartInfo/BPM"]
+[node name="BPMInput" type="SpinBox" parent="CharterBody/CharterUI/ChartInfo/BPM"]
 layout_mode = 2
 max_value = 1000.0
 value = 120.0
@@ -98,7 +102,7 @@ layout_mode = 2
 text = "Offset"
 horizontal_alignment = 1
 
-[node name="SpinBox" type="SpinBox" parent="CharterBody/CharterUI/ChartInfo/Offset"]
+[node name="OffsetInput" type="SpinBox" parent="CharterBody/CharterUI/ChartInfo/Offset"]
 layout_mode = 2
 max_value = 1000.0
 rounded = true
@@ -292,10 +296,11 @@ modulate = Color(0.4, 0.4, 0.4, 1)
 position = Vector2(356, 450)
 texture = ExtResource("1_neilv")
 
-[node name="Controls" parent="CharterBody/CharterMain/MarginContainer/ControlDisplay/SubViewport" instance=ExtResource("2_2qgig")]
+[node name="Controls" parent="CharterBody/CharterMain/MarginContainer/ControlDisplay/SubViewport" node_paths=PackedStringArray("song") instance=ExtResource("2_2qgig")]
 modulate = Color(0.4, 0.4, 0.4, 1)
 position = Vector2(700, 525)
 scale = Vector2(3.5, 3.5)
+song = NodePath("../../../../../../Song")
 
 [node name="NotesDisplay" parent="CharterBody/CharterMain/MarginContainer" instance=ExtResource("14_n7vvl")]
 layout_mode = 2
@@ -322,6 +327,7 @@ theme_override_icons/grabber = ExtResource("3_ynd63")
 theme_override_icons/grabber_highlight = ExtResource("3_ynd63")
 theme_override_icons/grabber_disabled = ExtResource("3_ynd63")
 min_value = 1.0
+max_value = 96.0
 value = 1.0
 rounded = true
 
@@ -339,6 +345,10 @@ size = Vector2i(652, 360)
 access = 2
 use_native_dialog = true
 
+[connection signal="pressed" from="CharterBody/CharterUI/ChartInfo/MusicFile/OpenFile" to="." method="_on_open_file_pressed"]
+[connection signal="value_changed" from="CharterBody/CharterUI/ChartInfo/BPM/BPMInput" to="." method="_on_bpm_input_value_changed"]
 [connection signal="scroll_down" from="CharterBody/CharterMain/MarginContainer/NotesDisplay" to="." method="_on_notes_display_scroll_down"]
 [connection signal="scroll_up" from="CharterBody/CharterMain/MarginContainer/NotesDisplay" to="." method="_on_notes_display_scroll_up"]
+[connection signal="pressed" from="CharterBody/CharterMain/SongPlayback/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="value_changed" from="CharterBody/CharterMain/SongPlayback/SongProgress" to="." method="_on_song_progress_value_changed"]
+[connection signal="file_selected" from="SongUpload" to="." method="_on_song_upload_file_selected"]

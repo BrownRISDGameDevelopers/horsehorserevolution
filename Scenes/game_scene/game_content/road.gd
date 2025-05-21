@@ -47,3 +47,8 @@ func spawn_note(direction, duration, beat_position):
 	road.add_child(instance)
 	instance.initialize(duration, bpm, player_num, left.position.y, beat_position)
 	instance.set_direction(direction)
+
+func destroy_notes():
+	for child in road.get_children():
+		if child is Area2D:
+			child.queue_free()

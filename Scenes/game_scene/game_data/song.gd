@@ -6,7 +6,7 @@ extends Node2D
 @export var end_offset = 0
 @export var start_offset = 6
 
-
+var ms_before_start = 0
 var bpm = 120
 var end_beat: int = 0
 

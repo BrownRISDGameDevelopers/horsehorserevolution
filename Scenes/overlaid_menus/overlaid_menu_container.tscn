@@ -1,7 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgk8r3r4thjtj"]
+[gd_scene load_steps=4 format=3 uid="uid://dgk8r3r4thjtj"]
 
 [ext_resource type="PackedScene" uid="uid://bqqngki8bm3iq" path="res://addons/maaacks_game_template/base/scenes/overlaid_menu/overlaid_menu_container.tscn" id="1_y6ien"]
 [ext_resource type="Script" uid="uid://biroyr82gde8p" path="res://scenes/overlaid_menus/overlaid_menu_container.gd" id="2_7kq66"]
+[ext_resource type="LabelSettings" uid="uid://bk0ypcc4vyinn" path="res://assets/font/ui_small.tres" id="3_7kq66"]
 
 [node name="OverlaidMenuContainer" instance=ExtResource("1_y6ien")]
 script = ExtResource("2_7kq66")
+
+[node name="Label" type="Label" parent="MenuPanelContainer/MarginContainer/BoxContainer/MenuButtonsMargin/MenuButtons/CloseButton" index="0"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = ExtResource("3_7kq66")
+horizontal_alignment = 1
