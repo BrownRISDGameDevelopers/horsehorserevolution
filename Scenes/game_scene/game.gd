@@ -64,6 +64,7 @@ func slip_players(permanent = false):
 		$PlayerHorseMirror.slip(permanent)
 
 func _on_controls_refresh_health():
+	sync_health = 3
 	$RaceLights.add_health()
 	$RaceLights.add_health()
 	$RaceLights.add_health()
