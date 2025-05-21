@@ -1,0 +1,328 @@
+[gd_scene load_steps=17 format=3 uid="uid://snqcm4qjpnxp"]
+
+[ext_resource type="Texture2D" uid="uid://b2e2ew66xdu85" path="res://assets/image/ui/charter/horse horse revolution title.png" id="1_5wlkj"]
+[ext_resource type="Texture2D" uid="uid://cnxbypjda2edk" path="res://assets/image/ui/title/glitter.png" id="1_neilv"]
+[ext_resource type="PackedScene" uid="uid://cutwd8worfdkf" path="res://scenes/game_scene/game_content/controls.tscn" id="2_2qgig"]
+[ext_resource type="Texture2D" uid="uid://bd5sp5fdcl764" path="res://assets/image/ui/charter/player_head.PNG" id="2_15wep"]
+[ext_resource type="Texture2D" uid="uid://c7jpgrxg7n8u7" path="res://assets/image/ui/nav/button frame neutral.png" id="2_hd5ie"]
+[ext_resource type="Script" uid="uid://dlyevd8gnw2y1" path="res://scenes/charter/charter_v2.gd" id="2_ut1yu"]
+[ext_resource type="Texture2D" uid="uid://cv3jpssrk60t5" path="res://assets/image/ui/charter/disco_head.png" id="3_5wlkj"]
+[ext_resource type="Theme" uid="uid://b6rnm1pwt4yqp" path="res://resources/themes/gravity.tres" id="3_6rv4x"]
+[ext_resource type="Texture2D" uid="uid://3mlkyicvkf34" path="res://assets/image/ui/nav/button frame active.png" id="3_15wep"]
+[ext_resource type="ButtonGroup" uid="uid://wmuj8n3wy7f1" path="res://scenes/charter/bg_select.tres" id="3_ybiu2"]
+[ext_resource type="Texture2D" uid="uid://80m6e6mgo7pu" path="res://assets/image/ui/audio/audio slider buttonn.png" id="3_ynd63"]
+[ext_resource type="LabelSettings" uid="uid://bk0ypcc4vyinn" path="res://assets/font/ui_small.tres" id="4_0my7h"]
+[ext_resource type="Texture2D" uid="uid://jx322l2eq27y" path="res://assets/image/ui/charter/leeku_head.PNG" id="4_neilv"]
+[ext_resource type="Texture2D" uid="uid://dirrbbvgom8cq" path="res://assets/image/ui/charter/deathmetal_head.png" id="5_ybiu2"]
+[ext_resource type="PackedScene" uid="uid://co3b4ll31bibi" path="res://scenes/charter/charter_v2_component/notes_anchor.tscn" id="14_n7vvl"]
+[ext_resource type="Texture2D" uid="uid://b10cb3n3rmd0y" path="res://assets/image/ui/audio/audio button.png" id="14_ut1yu"]
+
+[node name="CharterV2" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = ExtResource("3_6rv4x")
+script = ExtResource("2_ut1yu")
+
+[node name="Glitter" type="TextureRect" parent="."]
+modulate = Color(0.4, 0.4, 0.4, 1)
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+texture = ExtResource("1_neilv")
+
+[node name="CharterBody" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(1920, 1080)
+layout_mode = 1
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="CharterUI" type="VBoxContainer" parent="CharterBody"]
+custom_minimum_size = Vector2(600, 1080)
+layout_mode = 2
+
+[node name="Logo" type="TextureRect" parent="CharterBody/CharterUI"]
+custom_minimum_size = Vector2(500, 300)
+layout_mode = 2
+size_flags_horizontal = 4
+texture = ExtResource("1_5wlkj")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="ChartInfo" type="HBoxContainer" parent="CharterBody/CharterUI"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+
+[node name="MusicFile" type="VBoxContainer" parent="CharterBody/CharterUI/ChartInfo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CharterBody/CharterUI/ChartInfo/MusicFile"]
+layout_mode = 2
+text = "Song"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CharterBody/CharterUI/ChartInfo/MusicFile"]
+layout_mode = 2
+text = "Open File"
+
+[node name="BPM" type="VBoxContainer" parent="CharterBody/CharterUI/ChartInfo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CharterBody/CharterUI/ChartInfo/BPM"]
+layout_mode = 2
+text = " BPM "
+horizontal_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="CharterBody/CharterUI/ChartInfo/BPM"]
+layout_mode = 2
+max_value = 1000.0
+value = 120.0
+allow_greater = true
+alignment = 1
+update_on_text_changed = true
+
+[node name="Offset" type="VBoxContainer" parent="CharterBody/CharterUI/ChartInfo"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CharterBody/CharterUI/ChartInfo/Offset"]
+layout_mode = 2
+text = "Offset"
+horizontal_alignment = 1
+
+[node name="SpinBox" type="SpinBox" parent="CharterBody/CharterUI/ChartInfo/Offset"]
+layout_mode = 2
+max_value = 1000.0
+rounded = true
+allow_greater = true
+alignment = 1
+update_on_text_changed = true
+suffix = "ms"
+
+[node name="StageSelect" type="GridContainer" parent="CharterBody/CharterUI"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+columns = 2
+
+[node name="Tutorial" type="Button" parent="CharterBody/CharterUI/StageSelect"]
+clip_children = 2
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("3_6rv4x")
+toggle_mode = true
+button_pressed = true
+button_group = ExtResource("3_ybiu2")
+
+[node name="Headshot" type="TextureRect" parent="CharterBody/CharterUI/StageSelect/Tutorial"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -95.0
+offset_right = 95.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_15wep")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Disco" type="Button" parent="CharterBody/CharterUI/StageSelect"]
+clip_children = 2
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("3_6rv4x")
+toggle_mode = true
+button_group = ExtResource("3_ybiu2")
+
+[node name="Headshot" type="TextureRect" parent="CharterBody/CharterUI/StageSelect/Disco"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -95.0
+offset_right = 95.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_5wlkj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Country" type="Button" parent="CharterBody/CharterUI/StageSelect"]
+clip_children = 2
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("3_6rv4x")
+toggle_mode = true
+button_group = ExtResource("3_ybiu2")
+
+[node name="Headshot" type="TextureRect" parent="CharterBody/CharterUI/StageSelect/Country"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -95.0
+offset_right = 95.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_neilv")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Metal" type="Button" parent="CharterBody/CharterUI/StageSelect"]
+clip_children = 2
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+theme = ExtResource("3_6rv4x")
+toggle_mode = true
+button_group = ExtResource("3_ybiu2")
+
+[node name="Headshot" type="TextureRect" parent="CharterBody/CharterUI/StageSelect/Metal"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -95.0
+offset_top = -95.0
+offset_right = 95.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_ybiu2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ExportButton" type="TextureButton" parent="CharterBody/CharterUI"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+size_flags_vertical = 6
+texture_normal = ExtResource("2_hd5ie")
+texture_pressed = ExtResource("3_15wep")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CharterBody/CharterUI/ExportButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Export"
+label_settings = ExtResource("4_0my7h")
+horizontal_alignment = 1
+
+[node name="CharterMain" type="VBoxContainer" parent="CharterBody"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MainMenuButton" type="TextureButton" parent="CharterBody/CharterMain"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 10
+texture_normal = ExtResource("2_hd5ie")
+texture_pressed = ExtResource("3_15wep")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CharterBody/CharterMain/MainMenuButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Main Menu"
+label_settings = ExtResource("4_0my7h")
+horizontal_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CharterBody/CharterMain"]
+layout_mode = 2
+
+[node name="ControlDisplay" type="SubViewportContainer" parent="CharterBody/CharterMain/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+
+[node name="SubViewport" type="SubViewport" parent="CharterBody/CharterMain/MarginContainer/ControlDisplay"]
+handle_input_locally = false
+size = Vector2i(1320, 900)
+render_target_update_mode = 4
+
+[node name="Glitter" type="Sprite2D" parent="CharterBody/CharterMain/MarginContainer/ControlDisplay/SubViewport"]
+modulate = Color(0.4, 0.4, 0.4, 1)
+position = Vector2(356, 450)
+texture = ExtResource("1_neilv")
+
+[node name="Controls" parent="CharterBody/CharterMain/MarginContainer/ControlDisplay/SubViewport" instance=ExtResource("2_2qgig")]
+position = Vector2(700, 525)
+scale = Vector2(3.5, 3.5)
+
+[node name="NotesAnchor" parent="CharterBody/CharterMain/MarginContainer" instance=ExtResource("14_n7vvl")]
+position = Vector2(12.5, 730)
+
+[node name="SongPlayback" type="HBoxContainer" parent="CharterBody/CharterMain"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+
+[node name="PlayButton" type="TextureButton" parent="CharterBody/CharterMain/SongPlayback"]
+custom_minimum_size = Vector2(175, 75)
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("14_ut1yu")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="SongProgress" type="HSlider" parent="CharterBody/CharterMain/SongPlayback"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+theme_override_icons/grabber = ExtResource("3_ynd63")
+theme_override_icons/grabber_highlight = ExtResource("3_ynd63")
+theme_override_icons/grabber_disabled = ExtResource("3_ynd63")
+rounded = true
+
+[node name="SongUpload" type="FileDialog" parent="."]
+title = "Open a File"
+size = Vector2i(652, 360)
+ok_button_text = "Open"
+file_mode = 0
+access = 2
+use_native_dialog = true
+
+[node name="LevelExport" type="FileDialog" parent="."]
+auto_translate_mode = 1
+size = Vector2i(652, 360)
+access = 2
+use_native_dialog = true
