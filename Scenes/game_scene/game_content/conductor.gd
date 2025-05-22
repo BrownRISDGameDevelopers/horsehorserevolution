@@ -46,10 +46,6 @@ func closest_beat(nth):
 	return Vector2(closest, time_off_beat)
 
 
-func play_with_offset(offset):
-	play_from_position(1, offset)
-
-
 func play_from_position(position, offset):
 	start_in_seconds = (position - 1) * sec_per_beat
 	start_position = position - 1

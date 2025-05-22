@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Horse Horse Revolution"
+config/version="1.0.0"
 run/main_scene="uid://d1bq8de8pvukb"
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.png"
@@ -115,6 +116,7 @@ common/physics_interpolation=true
 
 [rendering]
 
+textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.305882, 0.286275, 0.372549, 1)
 environment/defaults/default_environment="res://default_env.tres"
 quality/driver/driver_name="GLES2"

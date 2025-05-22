@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://snqcm4qjpnxp"]
+[gd_scene load_steps=19 format=3 uid="uid://snqcm4qjpnxp"]
 
 [ext_resource type="Texture2D" uid="uid://b2e2ew66xdu85" path="res://assets/image/ui/charter/horse horse revolution title.png" id="1_5wlkj"]
 [ext_resource type="Texture2D" uid="uid://cnxbypjda2edk" path="res://assets/image/ui/title/glitter.png" id="1_neilv"]
@@ -18,7 +18,10 @@
 [ext_resource type="PackedScene" uid="uid://dkoal2ymn8hn8" path="res://scenes/charter_v2/charter_v2_component/notes_display.tscn" id="14_n7vvl"]
 [ext_resource type="Texture2D" uid="uid://b10cb3n3rmd0y" path="res://assets/image/ui/audio/audio button.png" id="14_ut1yu"]
 
-[node name="CharterV2" type="Control" node_paths=PackedStringArray("song", "notes_display", "play_button", "song_progress", "stage_select", "bpm_input", "offset_input", "controls")]
+[sub_resource type="LabelSettings" id="LabelSettings_wmhm8"]
+font_size = 25
+
+[node name="CharterV2" type="Control" node_paths=PackedStringArray("song", "notes_display", "play_button", "song_progress", "bpm_input", "controls", "stage_correspondence")]
 layout_mode = 3
 anchors_preset = 0
 theme = ExtResource("3_6rv4x")
@@ -27,11 +30,15 @@ song = NodePath("Song")
 notes_display = NodePath("CharterBody/CharterMain/MarginContainer/NotesDisplay")
 play_button = NodePath("CharterBody/CharterMain/SongPlayback/PlayButton")
 song_progress = NodePath("CharterBody/CharterMain/SongPlayback/SongProgress")
-stage_select = NodePath("CharterBody/CharterUI/StageSelect")
+stage_select = ExtResource("3_ybiu2")
 bpm_input = NodePath("CharterBody/CharterUI/ChartInfo/BPM/BPMInput")
-offset_input = NodePath("CharterBody/CharterUI/ChartInfo/Offset/OffsetInput")
 controls = NodePath("CharterBody/CharterMain/MarginContainer/ControlDisplay/SubViewport/Controls")
-json_path = "res://assets/chart/test_song.json"
+stage_correspondence = {
+"c": NodePath("CharterBody/CharterUI/StageSelect/Country"),
+"d": NodePath("CharterBody/CharterUI/StageSelect/Disco"),
+"m": NodePath("CharterBody/CharterUI/StageSelect/Metal"),
+"t": NodePath("CharterBody/CharterUI/StageSelect/Tutorial")
+}
 main_menu_scene = "uid://d1bq8de8pvukb"
 
 [node name="Song" type="Node2D" parent="."]
@@ -80,6 +87,14 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Open File"
 
+[node name="ErrorMessage" type="Label" parent="CharterBody/CharterUI/ChartInfo/MusicFile"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "Load failed!"
+label_settings = SubResource("LabelSettings_wmhm8")
+horizontal_alignment = 1
+
 [node name="BPM" type="VBoxContainer" parent="CharterBody/CharterUI/ChartInfo"]
 layout_mode = 2
 
@@ -96,23 +111,6 @@ allow_greater = true
 alignment = 1
 update_on_text_changed = true
 
-[node name="Offset" type="VBoxContainer" parent="CharterBody/CharterUI/ChartInfo"]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="CharterBody/CharterUI/ChartInfo/Offset"]
-layout_mode = 2
-text = "Offset"
-horizontal_alignment = 1
-
-[node name="OffsetInput" type="SpinBox" parent="CharterBody/CharterUI/ChartInfo/Offset"]
-layout_mode = 2
-max_value = 1000.0
-rounded = true
-allow_greater = true
-alignment = 1
-update_on_text_changed = true
-suffix = "ms"
-
 [node name="StageSelect" type="GridContainer" parent="CharterBody/CharterUI"]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -127,6 +125,7 @@ theme = ExtResource("3_6rv4x")
 toggle_mode = true
 button_pressed = true
 button_group = ExtResource("3_ybiu2")
+text = "t"
 
 [node name="Headshot" type="TextureRect" parent="CharterBody/CharterUI/StageSelect/Tutorial"]
 custom_minimum_size = Vector2(200, 200)
@@ -153,6 +152,7 @@ layout_mode = 2
 theme = ExtResource("3_6rv4x")
 toggle_mode = true
 button_group = ExtResource("3_ybiu2")
+text = "d"
 
 [node name="Headshot" type="TextureRect" parent="CharterBody/CharterUI/StageSelect/Disco"]
 custom_minimum_size = Vector2(200, 200)
@@ -179,6 +179,7 @@ layout_mode = 2
 theme = ExtResource("3_6rv4x")
 toggle_mode = true
 button_group = ExtResource("3_ybiu2")
+text = "c"
 
 [node name="Headshot" type="TextureRect" parent="CharterBody/CharterUI/StageSelect/Country"]
 custom_minimum_size = Vector2(200, 200)
@@ -205,6 +206,7 @@ layout_mode = 2
 theme = ExtResource("3_6rv4x")
 toggle_mode = true
 button_group = ExtResource("3_ybiu2")
+text = "m"
 
 [node name="Headshot" type="TextureRect" parent="CharterBody/CharterUI/StageSelect/Metal"]
 custom_minimum_size = Vector2(200, 200)
@@ -224,16 +226,20 @@ texture = ExtResource("5_ybiu2")
 expand_mode = 1
 stretch_mode = 5
 
-[node name="ExportButton" type="TextureButton" parent="CharterBody/CharterUI"]
-custom_minimum_size = Vector2(250, 75)
+[node name="HBoxContainer" type="HBoxContainer" parent="CharterBody/CharterUI"]
 layout_mode = 2
 size_flags_vertical = 6
+
+[node name="ExportButton" type="TextureButton" parent="CharterBody/CharterUI/HBoxContainer"]
+custom_minimum_size = Vector2(250, 75)
+layout_mode = 2
+size_flags_horizontal = 6
 texture_normal = ExtResource("2_hd5ie")
 texture_pressed = ExtResource("3_15wep")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CharterBody/CharterUI/ExportButton"]
+[node name="Label" type="Label" parent="CharterBody/CharterUI/HBoxContainer/ExportButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -250,21 +256,51 @@ text = "Export"
 label_settings = ExtResource("4_0my7h")
 horizontal_alignment = 1
 
-[node name="CharterMain" type="VBoxContainer" parent="CharterBody"]
+[node name="PlayLevelButton" type="TextureButton" parent="CharterBody/CharterUI/HBoxContainer"]
+custom_minimum_size = Vector2(250, 75)
 layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="MainMenuButton" type="TextureButton" parent="CharterBody/CharterMain"]
-custom_minimum_size = Vector2(300, 75)
-layout_mode = 2
-size_flags_horizontal = 8
-size_flags_vertical = 10
+size_flags_horizontal = 6
 texture_normal = ExtResource("2_hd5ie")
 texture_pressed = ExtResource("3_15wep")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="CharterBody/CharterMain/MainMenuButton"]
+[node name="Label" type="Label" parent="CharterBody/CharterUI/HBoxContainer/PlayLevelButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -89.5
+offset_top = -21.0
+offset_right = 89.5
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Play Level"
+label_settings = ExtResource("4_0my7h")
+horizontal_alignment = 1
+
+[node name="CharterMain" type="VBoxContainer" parent="CharterBody"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CharterBody/CharterMain"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MainMenuButton" type="TextureButton" parent="CharterBody/CharterMain/HBoxContainer"]
+custom_minimum_size = Vector2(300, 75)
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 8
+texture_normal = ExtResource("2_hd5ie")
+texture_pressed = ExtResource("3_15wep")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="CharterBody/CharterMain/HBoxContainer/MainMenuButton"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -335,7 +371,7 @@ rounded = true
 
 [node name="SongUpload" type="FileDialog" parent="."]
 title = "Open a File"
-size = Vector2i(652, 360)
+size = Vector2i(1298, 360)
 ok_button_text = "Open"
 file_mode = 0
 access = 2
@@ -343,8 +379,9 @@ use_native_dialog = true
 
 [node name="LevelExport" type="FileDialog" parent="."]
 auto_translate_mode = 1
-size = Vector2i(652, 360)
+size = Vector2i(1350, 360)
 access = 2
+filters = PackedStringArray("*.zip")
 use_native_dialog = true
 
 [node name="ConfirmMainMenu" type="ConfirmationDialog" parent="."]
@@ -355,10 +392,12 @@ dialog_text = "Go back to main menu?"
 
 [connection signal="pressed" from="CharterBody/CharterUI/ChartInfo/MusicFile/OpenFile" to="." method="_on_open_file_pressed"]
 [connection signal="value_changed" from="CharterBody/CharterUI/ChartInfo/BPM/BPMInput" to="." method="_on_bpm_input_value_changed"]
-[connection signal="pressed" from="CharterBody/CharterMain/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="CharterBody/CharterUI/HBoxContainer/ExportButton" to="." method="_on_export_button_pressed"]
+[connection signal="pressed" from="CharterBody/CharterMain/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="scroll_down" from="CharterBody/CharterMain/MarginContainer/NotesDisplay" to="." method="_on_notes_display_scroll_down"]
 [connection signal="scroll_up" from="CharterBody/CharterMain/MarginContainer/NotesDisplay" to="." method="_on_notes_display_scroll_up"]
 [connection signal="pressed" from="CharterBody/CharterMain/SongPlayback/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="value_changed" from="CharterBody/CharterMain/SongPlayback/SongProgress" to="." method="_on_song_progress_value_changed"]
 [connection signal="file_selected" from="SongUpload" to="." method="_on_song_upload_file_selected"]
+[connection signal="file_selected" from="LevelExport" to="." method="_on_level_export_file_selected"]
 [connection signal="confirmed" from="ConfirmMainMenu" to="." method="_on_confirm_main_menu_confirmed"]
