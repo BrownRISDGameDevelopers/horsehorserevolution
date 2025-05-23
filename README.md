@@ -4,8 +4,8 @@ A horse-themed rhythm game built in Godot 4.4, designed for two-player local mul
 
 |  |  |
 | ------------- | ------------- |
-| ![Screenshot 2025-05-23 at 5 37 02 PM](https://github.com/user-attachments/assets/0a632f3d-fddb-4eb4-9c4b-67840266e374) | ![Screenshot 2025-05-23 at 5 36 56 PM](https://github.com/user-attachments/assets/77cc97b6-0aae-4062-8f8c-af1aef7750a4) |
-| ![Screenshot 2025-05-23 at 5 36 44 PM](https://github.com/user-attachments/assets/8fd7f159-7e72-4bc4-8fee-0bd4982353c8) | ![Screenshot 2025-05-23 at 5 36 34 PM](https://github.com/user-attachments/assets/5340baf4-2a56-4db2-9dcf-b4615713043f) |
+| ![Screenshot 2025-05-23 at 5 36 34 PM](https://github.com/user-attachments/assets/5340baf4-2a56-4db2-9dcf-b4615713043f) | ![Screenshot 2025-05-23 at 5 36 44 PM](https://github.com/user-attachments/assets/8fd7f159-7e72-4bc4-8fee-0bd4982353c8) |
+| ![Screenshot 2025-05-23 at 5 43 08 PM](https://github.com/user-attachments/assets/7b686447-f576-4cdc-8bed-894b4707e436) | ![Screenshot 2025-05-23 at 5 43 14 PM](https://github.com/user-attachments/assets/491edd33-d06e-462e-8324-1eca46775d95) |
 
 Also includes a level editor for custom levels!
 
