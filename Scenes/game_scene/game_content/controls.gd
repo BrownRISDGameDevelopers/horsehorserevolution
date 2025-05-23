@@ -16,6 +16,7 @@ signal sync_slip
 func _ready():
 	Global.beat.connect(_on_conductor_beat)
 	Global.note_hit.connect(manage_sync_health)
+	conductor.finished.connect(_conductor_failsafe)
 	road_0.set_merge_type(merge_type)
 	road_1.set_merge_type(merge_type)
 
@@ -70,6 +71,10 @@ func _on_conductor_beat(beat_position):
 		sync_phase = false
 	if beat_position >= song.end_beat:
 		Global.level_over.emit()
+
+func _conductor_failsafe():
+	Global.level_over.emit()
+
 
 func _spawn_note(player: Global.PlayerEnum, direction: Global.Direction, duration, beat_position):
 	if player == Global.PlayerEnum.PLAYER_1:
