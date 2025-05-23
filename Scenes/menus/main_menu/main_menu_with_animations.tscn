@@ -406,7 +406,6 @@ modulate = Color(0, 0, 0, 1)
 
 [node name="BackgroundSprite" type="AnimatedSprite2D" parent="." index="5"]
 position = Vector2(960, 540)
-scale = Vector2(2, 2)
 sprite_frames = ExtResource("6_ixa71")
 autoplay = "default"
 
