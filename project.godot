@@ -18,11 +18,11 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Global="*res://scripts/object/global/global.tscn"
 AppConfig="*res://addons/maaacks_game_template/base/scenes/autoloads/app_config.tscn"
 SceneLoader="*res://addons/maaacks_game_template/base/scenes/autoloads/scene_loader.tscn"
 ProjectMusicController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_music_controller.tscn"
 ProjectUISoundController="*res://addons/maaacks_game_template/base/scenes/autoloads/project_ui_sound_controller.tscn"
+Global="*res://scripts/global.tscn"
 
 [display]
 

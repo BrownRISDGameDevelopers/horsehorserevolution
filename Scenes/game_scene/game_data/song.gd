@@ -3,7 +3,6 @@ extends Node2D
 
 @export var song_json_path: String = "res://assets/chart/test_song.json"
 @export var song_stream: AudioStream
-@export var end_offset = 0
 @export var start_offset = 6
 
 var bpm = 120

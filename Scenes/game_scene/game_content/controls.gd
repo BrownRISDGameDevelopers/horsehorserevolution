@@ -2,11 +2,10 @@ extends Node2D
 
 @export var merge_type: Global.MergeType = Global.MergeType.TUTORIAL
 @export var song: Song
-@export var in_charter: bool = true
 
 @onready var conductor: AudioStreamPlayer = $Conductor
-@onready var road0 = $Road0
-@onready var road1 = $Road1
+@onready var road_0 = $Road0
+@onready var road_1 = $Road1
 
 var sync_phase: bool = false
 var sync_health_tracker: Dictionary = {}
@@ -17,26 +16,30 @@ signal sync_slip
 func _ready():
 	Global.beat.connect(_on_conductor_beat)
 	Global.note_hit.connect(manage_sync_health)
-	road0.set_merge_type(merge_type)
-	road1.set_merge_type(merge_type)
+	road_0.set_merge_type(merge_type)
+	road_1.set_merge_type(merge_type)
 
 func play_from_beat(start_beat = 1):
-	road0.update_bpm(song.bpm)
-	road1.update_bpm(song.bpm)
+	road_0.update_bpm(song.bpm)
+	road_1.update_bpm(song.bpm)
 	conductor.stream = song.song_stream
 	conductor.set_bpm(song.bpm)
 	conductor.play_from_position(start_beat, song.start_offset)
 
 func stop_playback():
 	if sync_phase:
-		road0.exit_sync()
-		road1.exit_sync()
+		road_0.exit_sync()
+		road_1.exit_sync()
 		sync_phase = false
-	road0.destroy_notes()
-	road1.destroy_notes()
+	road_0.destroy_notes()
+	road_1.destroy_notes()
 	conductor.last_reported_beat = -100
+	stop_conductor()
+
+func stop_conductor():
 	conductor.stop()
 	$Conductor/StartTimer.stop()
+
 
 func manage_sync_health(player, area, _score, beat):
 	if beat in sync_health_tracker:
@@ -57,12 +60,12 @@ func _on_conductor_beat(beat_position):
 	for note in notes:
 		_spawn_note(note.player, note.direction, note.duration, beat_adj)
 	if sync_phase == false and song.synced(beat_position + 2):
-		road0.enter_sync()
-		road1.enter_sync()
+		road_0.enter_sync()
+		road_1.enter_sync()
 		sync_phase = true
 	elif sync_phase and not song.synced(beat_position + 2):
-		road0.exit_sync()
-		road1.exit_sync()
+		road_0.exit_sync()
+		road_1.exit_sync()
 		refresh_health.emit()
 		sync_phase = false
 	if beat_position >= song.end_beat:
@@ -70,6 +73,6 @@ func _on_conductor_beat(beat_position):
 
 func _spawn_note(player: Global.PlayerEnum, direction: Global.Direction, duration, beat_position):
 	if player == Global.PlayerEnum.PLAYER_1:
-		road0.spawn_note(direction, duration, beat_position)
+		road_0.spawn_note(direction, duration, beat_position)
 	else:
-		road1.spawn_note(direction, duration, beat_position)
+		road_1.spawn_note(direction, duration, beat_position)

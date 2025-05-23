@@ -10,7 +10,6 @@ func add_health():
 		return
 	light_array[health].texture = green_light
 	health += 1
-	
 
 func remove_health():
 	if health == 0:

@@ -54,30 +54,25 @@ func _on_okay_area_upper_entered(area):
 		current_score = Global.ScoreEnum.OKAY
 		current_area = Global.AreaHit.OKAY_UPPER
 
-
 func _on_good_area_upper_entered(area):
 	if current_note != null and area == current_note:
 		current_score = Global.ScoreEnum.GOOD
 		current_area = Global.AreaHit.GOOD_UPPER
-
 
 func _on_perfect_area_entered(area):
 	if current_note != null and area == current_note:
 		current_score = Global.ScoreEnum.PERFECT
 		current_area = Global.AreaHit.PERFECT
 
-
 func _on_perfect_area_exited(area):
 	if current_note != null and area == current_note:
 		current_score = Global.ScoreEnum.GOOD
 		current_area = Global.AreaHit.GOOD_LOWER
 
-
 func _on_good_area_lower_exited(area):
 	if current_note != null and area == current_note:
 		current_score = Global.ScoreEnum.OKAY
 		current_area = Global.AreaHit.OKAY_LOWER
-
 
 func _on_okay_area_lower_exited(area):
 	if current_note != null and area == current_note:
@@ -85,10 +80,9 @@ func _on_okay_area_lower_exited(area):
 		current_note = null
 
 
-func _on_push_timer_timeout():
-	$ArrowSprite.frame = 0
-
-
 func _reset():
 	current_note = null
 	current_area = Global.AreaHit.MISS
+
+func _on_push_timer_timeout():
+	$ArrowSprite.frame = 0

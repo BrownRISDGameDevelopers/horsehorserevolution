@@ -6,10 +6,10 @@ var bpm = 120
 var note = load("res://scenes/game_scene/game_content/note.tscn")
 
 @onready var road = $RoadSprite
-@onready var left = $RoadSprite/ArrowLeft
-@onready var down = $RoadSprite/ArrowDown
-@onready var up = $RoadSprite/ArrowUp
-@onready var right = $RoadSprite/ArrowRight
+@onready var left = %ArrowLeft
+@onready var down = %ArrowDown
+@onready var up = %ArrowUp
+@onready var right = %ArrowRight
 
 @onready var anim: AnimationPlayer = $AnimationPlayer
 
@@ -19,13 +19,15 @@ func _ready():
 	up.update_player(player_num)
 	right.update_player(player_num)
 
+
 func set_merge_type(merge_type: Global.MergeType):
 	if merge_type == Global.MergeType.COUNTRY:
-		$RoadSprite/MergeAnimation/CountryMerge.visible = true
+		%CountryMerge.visible = true
 	elif merge_type == Global.MergeType.DISCO:
-		$RoadSprite/MergeAnimation/DiscoMerge.visible = true
+		%DiscoMerge.visible = true
 	elif merge_type == Global.MergeType.DEATHMETAL:
-		$RoadSprite/MergeAnimation/DeathMetalMerge.visible = true
+		%DeathMetalMerge.visible = true
+
 
 func enter_sync():
 	if (player_num == Global.PlayerEnum.PLAYER_2):
@@ -39,6 +41,7 @@ func exit_sync():
 	else:
 		anim.play("exit_sync_left")
 
+
 func update_bpm(new_bpm):
 	bpm = new_bpm
 
@@ -47,6 +50,7 @@ func spawn_note(direction, duration, beat_position):
 	road.add_child(instance)
 	instance.initialize(duration, bpm, player_num, left.position.y, beat_position)
 	instance.set_direction(direction)
+
 
 func destroy_notes():
 	for child in road.get_children():

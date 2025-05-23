@@ -24,6 +24,7 @@ var popup_open
 @export var custom_level_scene: PackedScene
 @export var stage_scenes: Dictionary[String, String]
 
+
 func _ready():
 	Global.level_over.connect(stop_playback)
 

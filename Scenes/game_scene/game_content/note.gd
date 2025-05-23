@@ -85,6 +85,7 @@ func set_direction(direction):
 	tail_sprite.modulate = arrow_colors[direction]
 	trail.default_color = arrow_colors[direction]
 
+
 func handle_input(score: Global.ScoreEnum):
 	if !has_trail:
 		destroy(score)
@@ -107,7 +108,6 @@ func destroy(score: Global.ScoreEnum):
 	if score == Global.ScoreEnum.OKAY:
 		score_label.text = "OKAY"
 		score_label.modulate = Color("997577")
-
 
 func hold(score: Global.ScoreEnum):
 	trail.material.shader = default_shader
@@ -133,5 +133,6 @@ func release_hold(_score: Global.ScoreEnum):
 		score_label.text = "DROPPED"
 		score_label.modulate = Color("997577")
 	
+
 func _on_Timer_timeout():
 	queue_free()

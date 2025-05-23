@@ -397,6 +397,7 @@ self_modulate = Color(1, 1, 1, 0)
 position = Vector2(0, -17)
 
 [node name="DeathMetalMerge" type="AnimatedSprite2D" parent="RoadSprite/MergeAnimation"]
+unique_name_in_owner = true
 visible = false
 self_modulate = Color(1, 1, 1, 0.592157)
 position = Vector2(0, 43.25)
@@ -405,6 +406,7 @@ sprite_frames = ExtResource("9_hjh4p")
 autoplay = "default"
 
 [node name="DiscoMerge" type="AnimatedSprite2D" parent="RoadSprite/MergeAnimation"]
+unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0.709804)
 self_modulate = Color(1, 1, 1, 0.690196)
@@ -413,6 +415,7 @@ sprite_frames = ExtResource("7_h2cb2")
 autoplay = "default"
 
 [node name="CountryMerge" type="AnimatedSprite2D" parent="RoadSprite/MergeAnimation"]
+unique_name_in_owner = true
 visible = false
 self_modulate = Color(1, 1, 1, 0.831373)
 position = Vector2(17, 42)
@@ -421,21 +424,25 @@ sprite_frames = ExtResource("5_hy6im")
 autoplay = "default"
 
 [node name="ArrowLeft" parent="RoadSprite" instance=ExtResource("3_af1g8")]
+unique_name_in_owner = true
 position = Vector2(-60, 80)
 input = "left"
 frames = ExtResource("4_lnh6y")
 
 [node name="ArrowDown" parent="RoadSprite" instance=ExtResource("3_af1g8")]
+unique_name_in_owner = true
 position = Vector2(-20, 80)
 input = "down"
 frames = ExtResource("5_h2cb2")
 
 [node name="ArrowUp" parent="RoadSprite" instance=ExtResource("3_af1g8")]
+unique_name_in_owner = true
 position = Vector2(20, 80)
 input = "up"
 frames = ExtResource("7_c1equ")
 
 [node name="ArrowRight" parent="RoadSprite" instance=ExtResource("3_af1g8")]
+unique_name_in_owner = true
 position = Vector2(60, 80)
 input = "right"
 frames = ExtResource("5_tg8mc")

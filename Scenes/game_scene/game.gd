@@ -24,6 +24,8 @@ func _ready():
 	controls.sync_slip.connect(lose_sync_health)
 	$AnimationPlayer.play("start_with_animations")
 
+func start_level():
+	controls.play_from_beat(start_beat_for_testing)
 
 func increment_score(_player: Global.PlayerEnum, _area: Global.AreaHit, note_score: Global.ScoreEnum, _beat):
 	if note_score != Global.ScoreEnum.MISS:
@@ -51,13 +53,10 @@ func lose_sync_health():
 	$RaceLights.remove_health()
 	if sync_health == 0:
 		lose_with_animations()
-	
-func start_level():
-	controls.play_from_beat(start_beat_for_testing)
 
 func lose_with_animations():
 	slip_players(true)
-	$Controls/Conductor.stop()
+	$Controls.stop_conductor()
 	$AnimationPlayer.play("lose_fadeout")
 
 func slip_players(permanent = false):

@@ -2,6 +2,7 @@ extends TextureButton
 
 @export var direction: Global.Direction
 @export var sync_partner: TextureButton
+
 @onready var button_texture: TextureRect = $ButtonTexture
 @onready var hold_label: Label = $HoldDisplay
 @onready var sync_label: Label = $SyncDisplay
@@ -70,6 +71,8 @@ func sync_state(state: State):
 	hold_label.visible = (current_state == State.HOLD)
 
 func get_pressed():
+	if current_state == State.OFF:
+		return false
 	if current_state == State.SINGLE:
 		return true
 	if current_state == State.HOLD:
