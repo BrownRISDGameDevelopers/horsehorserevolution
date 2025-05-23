@@ -13,10 +13,14 @@ extends Node
 
 ## Container where the level instance will be added.
 @export var level_container: Node
-@export var song: Song
 
-@export_file("*.tscn") var base_level: String
+var song: Song
+var base_level: String
+
 var current_level
+
+func _ready():
+	Global.restart_custom_level.connect(_reload_level)
 
 func _try_connecting_signal_to_node(node: Node, signal_name: String, callable: Callable):
 	if node.has_signal(signal_name) and not node.is_connected(signal_name, callable):
@@ -85,5 +89,7 @@ func _load_ending():
 	else:
 		_load_main_menu()
 
-func _ready():
+func instantiate(_song, _base_level):
+	song = _song
+	base_level = _base_level
 	load_current_level()

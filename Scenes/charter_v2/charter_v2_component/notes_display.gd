@@ -7,6 +7,7 @@ var current_beat = 1
 
 signal scroll_up
 signal scroll_down
+signal chart_changed
 
 func _ready():
 	for beat_ui in beat_uis:
@@ -35,3 +36,4 @@ func scroll_to(beat_no):
 
 func update_note_json(beat_no, notes_list):
 	notes[str(beat_no)] = notes_list
+	chart_changed.emit()

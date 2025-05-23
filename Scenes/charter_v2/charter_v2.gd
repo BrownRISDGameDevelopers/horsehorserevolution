@@ -17,8 +17,12 @@ var json_path: String
 var progress_bookmark = 0
 var playing_chart = false
 
+var unsaved_changes = false
 var popup_open
 @export_file("*.tscn") var main_menu_scene: String
+
+@export var custom_level_scene: PackedScene
+@export var stage_scenes: Dictionary[String, String]
 
 func _ready():
 	Global.level_over.connect(stop_playback)
@@ -58,7 +62,13 @@ func jsonify_song():
 	var song_json = {}
 	song_json["stage"] = stage_select.get_pressed_button().text
 	song_json["bpm"] = bpm_input.value
-	song_json["notes"] = notes_display.notes
+	var notes_padded = {}
+	for note in notes_display.notes:
+		notes_padded[note] = notes_display.notes[note]
+		var note_after = str(int(note) + 1)
+		if note_after not in notes_display.notes:
+			notes_padded[note_after] = {"sync": false, "arrows": []}
+	song_json["notes"] = notes_padded
 	song_json["end_beat"] = int(max_beat)
 	return song_json
 
@@ -105,7 +115,6 @@ func load_zip(path):
 	if song_json != null and user_sound != null:
 		song.parse_notes_from_dict(song_json)
 		notes_display.notes = song_json["notes"]
-		print(song_json["stage"])
 		stage_correspondence[song_json["stage"]].button_pressed = true
 		song.song_stream = user_sound
 		update_charter()
@@ -143,6 +152,10 @@ func update_bpm(bpm):
 	max_beat = song.song_stream.get_length() * bpm / 60
 
 
+func _on_notes_display_chart_changed():
+	unsaved_changes = true
+	$ConfirmPlayLevel.dialog_text = "Play level? (You currently have unsaved changes!)"
+
 func _on_export_button_pressed():
 	$LevelExport.visible = true
 
@@ -156,6 +169,8 @@ func _on_level_export_file_selected(path: String):
 	writer.start_file("song" + "." + audio_path.get_extension())
 	writer.write_file(FileAccess.get_file_as_bytes(audio_path))
 	writer.close_file()
+	unsaved_changes = false
+	$ConfirmPlayLevel.dialog_text = "Play level?"
 
 
 func _on_song_progress_value_changed(value):
@@ -183,3 +198,18 @@ func close_popup():
 
 func _on_confirm_main_menu_confirmed():
 	SceneLoader.load_scene(main_menu_scene)
+
+
+func _on_play_level_button_pressed():
+	%ConfirmPlayLevel.popup_centered()
+	popup_open = %ConfirmPlayLevel
+
+func _on_confirm_play_level_confirmed():
+	song.parse_notes_from_dict(jsonify_song())
+	var level = custom_level_scene.instantiate()
+	remove_child(song)
+	level.instantiate(song, stage_scenes[stage_select.get_pressed_button().text])
+	get_tree().get_root().add_child(level)
+	get_tree().call_deferred("set_current_scene", level)
+	get_tree().get_root().call_deferred("remove_child", self)
+	queue_free()

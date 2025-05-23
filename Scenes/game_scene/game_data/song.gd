@@ -9,7 +9,6 @@ extends Node2D
 var bpm = 120
 var end_beat: int = 0
 
-var notes_list: Dictionary = {}
 var synced_notes: Dictionary = {}
 var notes_with_duration: Dictionary = {}
 
@@ -22,7 +21,6 @@ func read_json_file(file_path):
 	return content_as_dictionary
 
 func parse_notes_from_dict(song_info):
-	notes_list = {}
 	synced_notes = {}
 	notes_with_duration = {}
 	var raw_notes_list = song_info["notes"]
@@ -36,7 +34,6 @@ func parse_notes_from_dict(song_info):
 	sorted_beats.sort_custom(sort_ascending)
 	for beat in sorted_beats:
 		var cur_notes = {}
-		var beat_notes = []
 		if raw_notes_list[beat]["sync"]:
 			synced_notes[beat] = true
 		for note in raw_notes_list[beat]["arrows"]:
@@ -48,7 +45,6 @@ func parse_notes_from_dict(song_info):
 				cur_notes[note_info.get_uid()].increment_duration()
 			else:
 				cur_notes[note_info.get_uid()] = note_info
-			beat_notes.append(note_info)
 		for note in prev_notes:
 			var start_beat = int(beat) - prev_notes[note].duration
 			if start_beat in notes_with_duration:
@@ -56,7 +52,6 @@ func parse_notes_from_dict(song_info):
 			else:
 				notes_with_duration[start_beat] = [prev_notes[note]]
 		prev_notes = cur_notes
-		notes_list[int(beat)] = beat_notes
 		end_beat = max(end_beat, int(beat))
 	if "end_beat" in song_info:
 		end_beat = song_info["end_beat"]

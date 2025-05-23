@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://snqcm4qjpnxp"]
+[gd_scene load_steps=21 format=3 uid="uid://snqcm4qjpnxp"]
 
 [ext_resource type="Texture2D" uid="uid://b2e2ew66xdu85" path="res://assets/image/ui/charter/horse horse revolution title.png" id="1_5wlkj"]
 [ext_resource type="Texture2D" uid="uid://cnxbypjda2edk" path="res://assets/image/ui/title/glitter.png" id="1_neilv"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://80m6e6mgo7pu" path="res://assets/image/ui/audio/audio slider buttonn.png" id="3_ynd63"]
 [ext_resource type="LabelSettings" uid="uid://bk0ypcc4vyinn" path="res://assets/font/ui_small.tres" id="4_0my7h"]
 [ext_resource type="Texture2D" uid="uid://jx322l2eq27y" path="res://assets/image/ui/charter/leeku_head.PNG" id="4_neilv"]
+[ext_resource type="PackedScene" uid="uid://bf3kxmebpdcoi" path="res://scenes/charter_v2/charter_v2_component/custom_level.tscn" id="4_yie6a"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/scenes/music_players/background_music_player.tscn" id="5_tmf5y"]
 [ext_resource type="Texture2D" uid="uid://dirrbbvgom8cq" path="res://assets/image/ui/charter/deathmetal_head.png" id="5_ybiu2"]
 [ext_resource type="PackedScene" uid="uid://dkoal2ymn8hn8" path="res://scenes/charter_v2/charter_v2_component/notes_display.tscn" id="14_n7vvl"]
 [ext_resource type="Texture2D" uid="uid://b10cb3n3rmd0y" path="res://assets/image/ui/audio/audio button.png" id="14_ut1yu"]
@@ -40,6 +42,15 @@ stage_correspondence = {
 "t": NodePath("CharterBody/CharterUI/StageSelect/Tutorial")
 }
 main_menu_scene = "uid://d1bq8de8pvukb"
+custom_level_scene = ExtResource("4_yie6a")
+stage_scenes = Dictionary[String, String]({
+"c": "res://scenes/game_scene/level/2_country.tscn",
+"d": "res://scenes/game_scene/level/1_disco.tscn",
+"m": "res://scenes/game_scene/level/3_deathmetal.tscn",
+"t": "res://scenes/game_scene/level/0_tutorial.tscn"
+})
+
+[node name="BackgroundMusicPlayer" parent="." instance=ExtResource("5_tmf5y")]
 
 [node name="Song" type="Node2D" parent="."]
 script = ExtResource("3_su10p")
@@ -386,6 +397,12 @@ access = 2
 filters = PackedStringArray("*.zip")
 use_native_dialog = true
 
+[node name="ConfirmPlayLevel" type="ConfirmationDialog" parent="."]
+unique_name_in_owner = true
+auto_translate_mode = 1
+size = Vector2i(494, 118)
+dialog_text = "Play level?"
+
 [node name="ConfirmMainMenu" type="ConfirmationDialog" parent="."]
 unique_name_in_owner = true
 auto_translate_mode = 1
@@ -395,11 +412,14 @@ dialog_text = "Go back to main menu?"
 [connection signal="pressed" from="CharterBody/CharterUI/ChartInfo/MusicFile/OpenFile" to="." method="_on_open_file_pressed"]
 [connection signal="value_changed" from="CharterBody/CharterUI/ChartInfo/BPM/BPMInput" to="." method="_on_bpm_input_value_changed"]
 [connection signal="pressed" from="CharterBody/CharterUI/HBoxContainer/ExportButton" to="." method="_on_export_button_pressed"]
+[connection signal="pressed" from="CharterBody/CharterUI/HBoxContainer/PlayLevelButton" to="." method="_on_play_level_button_pressed"]
 [connection signal="pressed" from="CharterBody/CharterMain/HBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="chart_changed" from="CharterBody/CharterMain/MarginContainer/NotesDisplay" to="." method="_on_notes_display_chart_changed"]
 [connection signal="scroll_down" from="CharterBody/CharterMain/MarginContainer/NotesDisplay" to="." method="_on_notes_display_scroll_down"]
 [connection signal="scroll_up" from="CharterBody/CharterMain/MarginContainer/NotesDisplay" to="." method="_on_notes_display_scroll_up"]
 [connection signal="pressed" from="CharterBody/CharterMain/SongPlayback/PlayButton" to="." method="_on_play_button_pressed"]
 [connection signal="value_changed" from="CharterBody/CharterMain/SongPlayback/SongProgress" to="." method="_on_song_progress_value_changed"]
 [connection signal="file_selected" from="SongUpload" to="." method="_on_song_upload_file_selected"]
 [connection signal="file_selected" from="LevelExport" to="." method="_on_level_export_file_selected"]
+[connection signal="confirmed" from="ConfirmPlayLevel" to="." method="_on_confirm_play_level_confirmed"]
 [connection signal="confirmed" from="ConfirmMainMenu" to="." method="_on_confirm_main_menu_confirmed"]

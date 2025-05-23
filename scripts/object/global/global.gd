@@ -10,3 +10,5 @@ signal beat(position)
 signal level_over
 signal dance_bar_change(x)
 signal note_hit(player, area, score, beat)
+
+signal restart_custom_level
