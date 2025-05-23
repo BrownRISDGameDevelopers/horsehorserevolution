@@ -9,6 +9,7 @@ var combo = 0
 
 @onready var player_horse: Node2D = $PlayerHorse
 
+@export var song: Song
 @export var start_beat_for_testing := 1
 
 var sync_health: int = 3
@@ -19,6 +20,7 @@ signal level_lost
 func _ready():
 	Global.level_over.connect(complete_level)
 	Global.note_hit.connect(increment_score)
+	controls.song = song
 	controls.sync_slip.connect(lose_sync_health)
 	$AnimationPlayer.play("start_with_animations")
 

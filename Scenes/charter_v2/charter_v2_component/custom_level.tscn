@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bf3kxmebpdcoi"]
+
+[ext_resource type="Script" uid="uid://cyh0d64pfygbl" path="res://addons/maaacks_game_template/base/scripts/pause_menu_controller.gd" id="1_6gmyi"]
+[ext_resource type="Script" uid="uid://cvpi2q4p4lvqt" path="res://scenes/game_scene/game_data/song.gd" id="1_n4e6w"]
+[ext_resource type="PackedScene" uid="uid://dn0xc1cgi1d7a" path="res://scenes/overlaid_menus/pause_menu.tscn" id="2_lvgv2"]
+[ext_resource type="Script" uid="uid://do7ahr0me7x2j" path="res://scenes/game_scene/configurable_sub_viewport.gd" id="3_jacmn"]
+[ext_resource type="PackedScene" uid="uid://bmxsiko1iuxao" path="res://scenes/loading_screen/level_loading_screen.tscn" id="3_ujr7t"]
+[ext_resource type="PackedScene" uid="uid://clnytnvor3m3b" path="res://scenes/overlaid_menus/game_won_menu.tscn" id="6_8g5ma"]
+[ext_resource type="PackedScene" uid="uid://d1ec0t3yrvtsb" path="res://scenes/overlaid_menus/level_lost_menu.tscn" id="7_ikhf5"]
+[ext_resource type="Script" uid="uid://bsfman0nirk8h" path="res://scenes/charter_v2/charter_v2_component/custom_level_manager.gd" id="7_juet5"]
+
+[node name="CustomLevel" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Song" type="Node2D" parent="."]
+script = ExtResource("1_n4e6w")
+song_json_path = "res://assets/chart/country.json"
+metadata/_custom_type_script = "uid://cvpi2q4p4lvqt"
+
+[node name="PauseMenuController" type="Node" parent="." node_paths=PackedStringArray("focused_viewport")]
+script = ExtResource("1_6gmyi")
+pause_menu_packed = ExtResource("2_lvgv2")
+focused_viewport = NodePath("../ViewportContainer/ConfigurableSubViewport")
+
+[node name="LevelLoadingScreen" parent="." instance=ExtResource("3_ujr7t")]
+
+[node name="ViewportContainer" type="SubViewportContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 768.0
+offset_bottom = 432.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="ConfigurableSubViewport" type="SubViewport" parent="ViewportContainer"]
+handle_input_locally = false
+audio_listener_enable_2d = true
+audio_listener_enable_3d = true
+size = Vector2i(2688, 1512)
+render_target_update_mode = 4
+script = ExtResource("3_jacmn")
+
+[node name="CustomLevelManager" type="Node" parent="." node_paths=PackedStringArray("level_loading_screen", "level_container", "song")]
+script = ExtResource("7_juet5")
+main_menu_scene = "uid://d1bq8de8pvukb"
+ending_scene = "uid://0ak5w1lxx7uu"
+level_loading_screen = NodePath("../LevelLoadingScreen")
+game_won_scene = ExtResource("6_8g5ma")
+level_lost_scene = ExtResource("7_ikhf5")
+level_container = NodePath("../ViewportContainer/ConfigurableSubViewport")
+song = NodePath("../Song")
+base_level = "uid://cx8jnts0h38n1"

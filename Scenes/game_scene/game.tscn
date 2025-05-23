@@ -145,8 +145,9 @@ _data = {
 &"start_with_animations": SubResource("Animation_lnrhe")
 }
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("song")]
 script = ExtResource("1_wedpv")
+song = NodePath("Song")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -200,10 +201,9 @@ scale = Vector2(0.33, 0.33)
 position = Vector2(960, 100)
 scale = Vector2(0.2, 0.2)
 
-[node name="Controls" parent="." node_paths=PackedStringArray("song") instance=ExtResource("4_700et")]
+[node name="Controls" parent="." instance=ExtResource("4_700et")]
 position = Vector2(679, 649)
 scale = Vector2(4, 4)
-song = NodePath("../Song")
 in_charter = false
 
 [node name="ComboDisplay" parent="." instance=ExtResource("9_oxnsv")]
