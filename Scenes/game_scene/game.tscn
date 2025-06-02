@@ -204,7 +204,6 @@ scale = Vector2(0.2, 0.2)
 [node name="Controls" parent="." instance=ExtResource("4_700et")]
 position = Vector2(679, 649)
 scale = Vector2(4, 4)
-in_charter = false
 
 [node name="ComboDisplay" parent="." instance=ExtResource("9_oxnsv")]
 position = Vector2(1550, 900)

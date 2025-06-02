@@ -17,19 +17,13 @@ var last_reported_beat = -100
 # Determining how close to the beat an event is
 var closest = 0
 var time_off_beat = 0.0
-var audio_latency
 
 func set_bpm(new_bpm):
 	bpm = new_bpm
 
-func _ready():
-	audio_latency = AudioServer.get_output_latency()
-
-
 func _physics_process(_delta):
 	if playing:
 		song_position = get_playback_position() + AudioServer.get_time_since_last_mix()
-		song_position -= audio_latency
 		song_position_in_beats = int(floor(song_position / sec_per_beat))
 		_report_beat()
 
@@ -53,8 +47,7 @@ func _on_start_timer_timeout():
 	elif song_position_in_beats < start_position - 1:
 		$StartTimer.start()
 	elif song_position_in_beats == start_position - 1:
-		$StartTimer.wait_time = $StartTimer.wait_time - (AudioServer.get_time_to_next_mix() +
-														audio_latency)
+		$StartTimer.wait_time = $StartTimer.wait_time - AudioServer.get_time_to_next_mix()
 		$StartTimer.start()
 	_report_beat()
 
