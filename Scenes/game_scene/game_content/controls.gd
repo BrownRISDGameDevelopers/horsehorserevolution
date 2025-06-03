@@ -38,8 +38,7 @@ func stop_playback():
 	stop_conductor()
 
 func stop_conductor():
-	conductor.stop()
-	$Conductor/StartTimer.stop()
+	conductor.stop_playback()
 
 
 func manage_sync_health(player, area, _score, beat):
@@ -60,11 +59,11 @@ func _on_conductor_beat(beat_position):
 		sync_health_tracker[beat_adj] = [note_count, 0, note_count]
 	for note in notes:
 		_spawn_note(note.player, note.direction, note.duration, beat_adj)
-	if sync_phase == false and song.synced(beat_position + 2):
+	if sync_phase == false and song.synced(beat_position + 1):
 		road_0.enter_sync()
 		road_1.enter_sync()
 		sync_phase = true
-	elif sync_phase and not song.synced(beat_position + 2):
+	elif sync_phase and not song.synced(beat_position + 1):
 		road_0.exit_sync()
 		road_1.exit_sync()
 		refresh_health.emit()

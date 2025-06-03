@@ -5,8 +5,3 @@
 [node name="Conductor" type="AudioStreamPlayer"]
 bus = &"Music"
 script = ExtResource("1_dwqg6")
-
-[node name="StartTimer" type="Timer" parent="."]
-one_shot = true
-
-[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
