@@ -40,7 +40,7 @@ movie_writer/movie_file="demo.avi"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
+enabled=PackedStringArray("res://addons/html5_file_dialog/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg")
 
 [gui]
 
@@ -115,6 +115,7 @@ common/physics_interpolation=true
 
 [rendering]
 
+rendering_device/fallback_to_d3d12=false
 textures/vram_compression/import_etc2_astc=true
 environment/defaults/default_clear_color=Color(0.305882, 0.286275, 0.372549, 1)
 environment/defaults/default_environment="res://default_env.tres"
