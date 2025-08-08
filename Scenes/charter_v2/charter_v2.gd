@@ -76,16 +76,36 @@ func jsonify_song():
 
 func _on_open_file_pressed():
 	%ErrorMessage.visible = false
-	$SongUpload.visible = true
+	$SongUpload.show()
+	
 
-func _on_song_upload_file_selected(path: String):
-	var ext = path.to_lower().get_extension()
-	if ext == "json":
-		load_json(path)
-	elif ext == "zip":
-		load_zip(path)
+func _on_song_upload_files_selected(files: Array[HTML5FileHandle]):
+	for file_handle in files:
+		load_web(file_handle)
+
+func load_web(file_handle: HTML5FileHandle):
+	var file_name = file_handle.name
+	var buffer = await file_handle.as_buffer()
+	var ext = file_name.to_lower().get_extension()
+	var user_sound: AudioStream = null
+	if ext == "wav":
+		user_sound = AudioStreamWAV.load_from_buffer(buffer)
+	elif ext == "ogg":
+		user_sound = AudioStreamOggVorbis.load_from_buffer(buffer)
+	elif ext == "mp3":
+		user_sound = AudioStreamMP3.load_from_buffer(buffer)
+	elif ext == "json":
+		var song_string = await file_handle.as_text()
+		var song_json = JSON.parse_string(song_string)
+		song.parse_notes_from_dict(song_json)
+		notes_display.notes = song_json["notes"]
+		update_charter()
+		return
+	if user_sound != null:
+		song.song_stream = user_sound
+		update_charter()
 	else:
-		load_audio(path)
+		%ErrorMessage.visible = true
 
 func load_json(path):
 	var song_json = song.read_json_file(path)
@@ -158,7 +178,8 @@ func _on_notes_display_chart_changed():
 	$ConfirmPlayLevel.dialog_text = "Play level? (You currently have unsaved changes!)"
 
 func _on_export_button_pressed():
-	$LevelExport.visible = true
+	return
+	# $LevelExport.visible = true
 
 func _on_level_export_file_selected(path: String):
 	var writer = ZIPPacker.new()
