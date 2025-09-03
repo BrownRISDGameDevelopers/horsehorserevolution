@@ -47,4 +47,5 @@ func play_from_position(position, offset):
 
 func stop_playback():
 	currently_playing = false
+	playback_started = false
 	stop()
